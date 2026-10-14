@@ -205,7 +205,7 @@ function tick() {
 }
 async function shareResult() {
   const squares = '🟩'.repeat(state.found.length)+'⬜'.repeat(5-state.found.length);
-  const heading = $('challenge-title').textContent.replace(/\s+/g,' ').trim();
+  const heading = $('challenge-title').innerText.replace(/\s+/g,' ').trim();
   const url = location.origin;
   const text = `name × clubs. ${mode === 'daily' ? `#${String(challenge.number).padStart(3,'0')} · ${challenge.key}` : t().practice}\n${heading}\n${squares} ${state.found.length}/5${mode === 'daily' && state.found.length === 5 ? ` · ${60-state.remaining}s` : ''}\n${url}`;
   try {
