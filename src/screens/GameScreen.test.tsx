@@ -1,11 +1,11 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, test } from 'vitest';
-import { GameApp } from './GameApp';
+import { GameScreen } from './GameScreen';
 
 test('plays a bilingual practice round and restores it after remount', async () => {
   const user = userEvent.setup();
-  const first = render(<GameApp />);
+  const first = render(<GameScreen />);
   await user.click(screen.getByRole('button', { name: 'Practice' }));
   await user.click(screen.getByRole('button', { name: 'Let’s play' }));
   await user.type(screen.getByRole('textbox'), 'Arsenal, مانشستر يونايتد, Man Utd{Enter}');
@@ -14,7 +14,7 @@ test('plays a bilingual practice round and restores it after remount', async () 
   expect(within(log).getAllByText('Manchester United', { exact: true })).toHaveLength(1);
   expect(screen.getByRole('status')).toHaveTextContent('already on your list');
   first.unmount();
-  render(<GameApp />);
+  render(<GameScreen />);
   expect(
     within(screen.getByRole('log')).getByText('Manchester United', { exact: true }),
   ).toBeInTheDocument();
@@ -25,7 +25,7 @@ test('plays a bilingual practice round and restores it after remount', async () 
 });
 test('asks for specificity when an Arabic name identifies multiple clubs', async () => {
   const user = userEvent.setup();
-  render(<GameApp />);
+  render(<GameScreen />);
   await user.click(screen.getByRole('button', { name: 'Practice' }));
   await user.click(screen.getByRole('button', { name: 'Let’s play' }));
   await user.type(screen.getByRole('textbox'), 'الأهلي{Enter}');
@@ -34,7 +34,7 @@ test('asks for specificity when an Arabic name identifies multiple clubs', async
 });
 test('keeps an initials fallback if a crest fails to load', async () => {
   const user = userEvent.setup();
-  render(<GameApp />);
+  render(<GameScreen />);
   await user.click(screen.getByRole('button', { name: 'Practice' }));
   await user.click(screen.getByRole('button', { name: 'Let’s play' }));
   await user.type(screen.getByRole('textbox'), 'Arsenal{Enter}');
@@ -50,7 +50,7 @@ test('keeps an initials fallback if a crest fails to load', async () => {
 });
 
 test('opens Free time with compact modes and no daily or promotional sections', () => {
-  render(<GameApp />);
+  render(<GameScreen />);
   expect(screen.getByRole('button', { name: 'Free time' })).toHaveAttribute('aria-current', 'page');
   expect(screen.queryByRole('button', { name: 'Daily challenge' })).not.toBeInTheDocument();
   expect(screen.getByRole('button', { name: 'Mode 10' })).toHaveAttribute('aria-pressed', 'true');

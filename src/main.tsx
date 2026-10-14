@@ -1,7 +1,7 @@
 import { Component, type ReactNode, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { GameApp } from './app/GameApp';
-import './app/styles.css';
+import { GameScreen } from './screens/GameScreen';
+import './styles/game.css';
 
 class GameBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
@@ -33,7 +33,7 @@ if (!root) {
 createRoot(root).render(
   <StrictMode>
     <GameBoundary>
-      <GameApp />
+      <GameScreen />
     </GameBoundary>
   </StrictMode>,
 );

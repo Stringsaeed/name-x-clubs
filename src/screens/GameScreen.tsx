@@ -11,7 +11,7 @@ import { createGameController } from '../game/controller';
 import { challengesForLevel } from '../game/engine';
 import { levels } from '../game/model';
 
-export function GameApp() {
+export function GameScreen() {
   const [controller] = useState(() => createGameController());
   const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
   const { session, language, mode, level } = view;
