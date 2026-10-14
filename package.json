@@ -18,17 +18,24 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "node scripts/test-browsers.mjs",
-    "check": "npm run lint && npm test && npm run build",
+    "check": "npm run lint && npm run i18n:check && npm test && npm run build",
     "check:all": "npm run check && npm run test:e2e",
+    "i18n:extract": "lingui extract --clean",
+    "i18n:check": "node scripts/check-i18n.mjs",
     "assets:restore": "node scripts/sync-crests.mjs"
   },
   "dependencies": {
+    "@lingui/core": "6.9.1",
+    "@lingui/react": "6.9.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "zod": "4.6.7"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
+    "@lingui/cli": "6.9.1",
+    "@lingui/format-po": "6.9.1",
+    "@lingui/vite-plugin": "6.9.1",
     "@playwright/test": "1.64.1",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
