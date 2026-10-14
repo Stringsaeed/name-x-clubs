@@ -40,6 +40,7 @@ msgid "A random challenge"
 msgstr "A random challenge"
 
 #: src/components/Header.tsx
+#: src/game/session/share.ts
 msgctxt "game mode tab"
 msgid "Practice"
 msgstr "Practice"
@@ -142,6 +143,7 @@ msgid "Got it. Let’s play."
 msgstr "Got it. Let’s play."
 
 #: src/components/Header.tsx
+#: src/game/session/share.ts
 msgid "Free time"
 msgstr "Free time"
 

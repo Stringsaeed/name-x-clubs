@@ -4,38 +4,26 @@ import { eligibleClubs } from './scope';
 
 type ChallengeTemplate = Omit<Challenge, 'target'>;
 
-/** Countries with deep, well-known leagues. */
-const EASY_COUNTRIES: ReadonlySet<string> = new Set([
-  'england',
-  'spain',
-  'italy',
-  'germany',
-  'france',
-]);
-
 const LETTERS = ['b', 'a', 's', 'm', 'c'];
 
 const REGIONS = ['europe', 'asia', 'africa', 'americas'] as const;
 
 function countryChallenge(country: string): ChallengeTemplate {
   const scope: Scope = { kind: 'country', country };
-  const difficulty = EASY_COUNTRIES.has(country) ? 'easy' : 'medium';
-
-  return { id: country, scope, difficulty };
+  return { id: country, scope };
 }
 
 function letterChallenge(letter: string): ChallengeTemplate {
-  return { id: `letter-${letter}`, scope: { kind: 'letter', letter }, difficulty: 'medium' };
+  return { id: `letter-${letter}`, scope: { kind: 'letter', letter } };
 }
 
 function regionChallenge(region: (typeof REGIONS)[number]): ChallengeTemplate {
-  return { id: region, scope: { kind: 'region', region }, difficulty: 'medium' };
+  return { id: region, scope: { kind: 'region', region } };
 }
 
 const worldTemplate: ChallengeTemplate = {
   id: 'world',
   scope: { kind: 'world' },
-  difficulty: 'easy',
 };
 
 const scopedTemplates: readonly ChallengeTemplate[] = [

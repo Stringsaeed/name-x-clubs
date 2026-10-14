@@ -1,4 +1,6 @@
+import { msg } from '@lingui/core/macro';
 import { challengeLabel } from '../../content/labels';
+import { getI18nFor } from '../../i18n/instances';
 import type { Language, Session } from '../model';
 
 export type ShareOutcome =
@@ -9,12 +11,14 @@ export type ShareTarget = Pick<Window, 'navigator' | 'matchMedia'>;
 
 const progressSquares = 10;
 
-function sessionTitle(session: Session, language: Language) {
-  if (session.kind === 'free') {
-    return language === 'en' ? 'Free time' : 'وقت حر';
-  }
+const freeTimeTitle = msg`Free time`;
 
-  return language === 'en' ? 'Practice' : 'تدريب';
+const practiceTitle = msg({ message: 'Practice', context: 'game mode tab' });
+
+function sessionTitle(session: Session, language: Language) {
+  const descriptor = session.kind === 'free' ? freeTimeTitle : practiceTitle;
+
+  return getI18nFor(language)._(descriptor);
 }
 
 function progressBar(found: number, target: number) {

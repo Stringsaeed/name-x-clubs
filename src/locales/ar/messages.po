@@ -40,6 +40,7 @@ msgid "A random challenge"
 msgstr "تحدٍّ عشوائي"
 
 #: src/components/Header.tsx
+#: src/game/session/share.ts
 msgctxt "game mode tab"
 msgid "Practice"
 msgstr "تدرّب"
@@ -142,6 +143,7 @@ msgid "Got it. Let’s play."
 msgstr "فهمت. يلا نلعب."
 
 #: src/components/Header.tsx
+#: src/game/session/share.ts
 msgid "Free time"
 msgstr "وقت حر"
 

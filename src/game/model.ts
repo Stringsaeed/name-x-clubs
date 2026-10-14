@@ -25,7 +25,6 @@ export type Challenge = Readonly<{
   id: string;
   scope: Scope;
   target: Level;
-  difficulty: 'easy' | 'medium';
 }>;
 
 export type IdleRound = { phase: 'idle'; found: readonly [] };

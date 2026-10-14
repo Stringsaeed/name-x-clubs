@@ -255,6 +255,17 @@ describe('saved game sessions', () => {
   });
 });
 
+describe('share title in Arabic', () => {
+  test('uses the Arabic free time title', async () => {
+    const game = fixture().create();
+    game.dispatch({ type: 'start' });
+
+    const outcome = await game.shareResult('ar');
+
+    expect(outcome).toEqual({ kind: 'manual', text: expect.stringContaining('وقت حر') });
+  });
+});
+
 describe('sessions changed by another tab', () => {
   test('H2: A visits 50 then 10, B saves 3 clubs on 50, A switches to 50 and sees them; Start keeps them', () => {
     const f = fixture();
