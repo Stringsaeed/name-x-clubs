@@ -44,6 +44,7 @@ export function GameScreen({ lang: language, controller: injected }: GameScreenP
         <Header
           language={language}
           mode={view.mode}
+          locked={playing}
           onModeChange={actions.changeMode}
           onHelp={openHelp}
         />

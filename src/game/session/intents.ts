@@ -36,10 +36,6 @@ export function sessionView(view: GameView, session: Session): GameView {
 /**
  * Every change is saved as it happens, so leaving a session does not write it again; that would
  * overwrite whatever another tab saved meanwhile.
- *
- * M7: elapsed time is derived from `startedAt`, so a round's clock keeps running while the
- * player is on another mode or level. Whether switching should pause it is an open product
- * decision; this is the current, tested behavior.
  */
 function switchTo(context: IntentContext, mode: Mode, level: Level): GameView {
   context.store.writeJson(modeKey, mode);
@@ -90,8 +86,17 @@ function play(context: IntentContext, action: RoundAction): GameView {
   return { ...view, ...result };
 }
 
+function isSelectionIntent(intent: Intent): boolean {
+  return intent.type === 'mode' || intent.type === 'level' || intent.type === 'practice';
+}
+
 /** The view after `intent`, or null when the intent does not apply. */
 export function applyIntent(context: IntentContext, intent: Intent): GameView | null {
+  // A round in progress pins its mode, level and question; the player finishes it first.
+  if (context.view.session.round.phase === 'playing' && isSelectionIntent(intent)) {
+    return null;
+  }
+
   switch (intent.type) {
     case 'mode': {
       return switchTo(context, intent.mode, context.view.level);

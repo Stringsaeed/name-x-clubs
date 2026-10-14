@@ -68,3 +68,31 @@ test('opens Free time with compact modes and no daily or promotional sections', 
   expect(screen.getByRole('button', { name: 'Mode 100' })).toBeInTheDocument();
   expect(document.querySelector('.sidebar, .hero-description, .eyebrow')).toBeNull();
 });
+test('disables mode, level and practice selectors while playing and re-enables them after', async () => {
+  const user = userEvent.setup();
+  renderWithI18n(<GameScreen lang="en" controller={createGameController()} />);
+  await user.click(screen.getByRole('button', { name: 'Practice' }));
+  const selectors = () => [
+    screen.getByRole('button', { name: 'Free time' }),
+    screen.getByRole('button', { name: 'Practice' }),
+    screen.getByRole('button', { name: 'Mode 10' }),
+    screen.getByRole('button', { name: 'Mode 50' }),
+    screen.getByRole('button', { name: 'Mode 100' }),
+    screen.getByRole('combobox'),
+    screen.getByRole('button', { name: 'Surprise me' }),
+  ];
+  for (const element of selectors()) {
+    expect(element).toBeEnabled();
+  }
+  await user.click(screen.getByRole('button', { name: 'Let’s play' }));
+  for (const element of selectors()) {
+    expect(element).toBeDisabled();
+    expect(element).toHaveAttribute('aria-disabled', 'true');
+  }
+  expect(screen.getByRole('button', { name: 'Mode 10' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole('link', { name: 'Switch to Arabic' })).toBeInTheDocument();
+  await user.click(screen.getByRole('button', { name: /Finish/ }));
+  for (const element of selectors()) {
+    expect(element).toBeEnabled();
+  }
+});

@@ -227,16 +227,34 @@ describe('saved game sessions', () => {
     expect(game.getSnapshot().session.round).toEqual(initial);
   });
 
-  test('M7 (current behavior, product decision pending): the clock keeps running on another level', () => {
+  test('mode, level and practice intents are no-ops while a round is playing', () => {
     const f = fixture();
     const game = f.create();
     game.dispatch({ type: 'start' });
-    game.dispatch({ type: 'level', level: 50 });
+    game.dispatch({ type: 'answer', text: 'Arsenal' });
     f.setTime(at + 60000);
+    const before = game.getSnapshot();
 
-    game.dispatch({ type: 'level', level: 10 });
+    game.dispatch({ type: 'mode', mode: 'practice' });
+    game.dispatch({ type: 'level', level: 50 });
+    game.dispatch({ type: 'practice', category: 'random' });
 
-    expect(elapsedSeconds(game.getSnapshot().session, at + 60000)).toBe(60);
+    const after = game.getSnapshot();
+
+    expect(after).toBe(before);
+    expect(after.session.round.phase).toBe('playing');
+    expect(elapsedSeconds(after.session, at + 60000)).toBe(60);
+  });
+
+  test('after finishing a round, level intents apply again', () => {
+    const f = fixture();
+    const game = f.create();
+    game.dispatch({ type: 'start' });
+    game.dispatch({ type: 'finish' });
+
+    game.dispatch({ type: 'level', level: 50 });
+
+    expect(game.getSnapshot().level).toBe(50);
   });
 
   test('shares the progress line as manual text when no browser is connected', async () => {

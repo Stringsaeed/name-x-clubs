@@ -26,11 +26,12 @@ export function GameCard({ view, language, actions, notify }: GameCardProps) {
 
   return (
     <section className="game-card" id="game-card" aria-labelledby="challenge-title">
-      <LevelPicker level={level} onLevelChange={actions.changeLevel} />
+      <LevelPicker level={level} locked={phase === 'playing'} onLevelChange={actions.changeLevel} />
       {mode === 'practice' && (
         <PracticeControls
           level={level}
           category={category}
+          locked={phase === 'playing'}
           onCategoryChange={actions.changeCategory}
         />
       )}

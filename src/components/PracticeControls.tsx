@@ -8,12 +8,14 @@ import { Icon } from './Icon';
 type PracticeControlsProps = {
   level: Level;
   category: string;
+  locked: boolean;
   onCategoryChange: (category: string) => void;
 };
 
 export const PracticeControls = memo(function PracticeControlsView({
   level,
   category,
+  locked,
   onCategoryChange,
 }: PracticeControlsProps) {
   const { t, i18n } = useLingui();
@@ -26,6 +28,8 @@ export const PracticeControls = memo(function PracticeControlsView({
           id="practice-category"
           aria-label={t`Pick your pitch`}
           value={category}
+          disabled={locked}
+          aria-disabled={locked}
           onChange={(event) => onCategoryChange(event.currentTarget.value)}
         >
           {challengesForLevel(level).map((challenge) => (
@@ -35,7 +39,13 @@ export const PracticeControls = memo(function PracticeControlsView({
           ))}
           <option value="random">{t`A random challenge`}</option>
         </select>
-        <button className="shuffle-button" type="button" onClick={() => onCategoryChange('random')}>
+        <button
+          className="shuffle-button"
+          type="button"
+          disabled={locked}
+          aria-disabled={locked}
+          onClick={() => onCategoryChange('random')}
+        >
           <Icon name="shuffle" />
           {t`Surprise me`}
         </button>

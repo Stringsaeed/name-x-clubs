@@ -8,6 +8,7 @@ import { Icon } from './Icon';
 type HeaderProps = {
   language: Locale;
   mode: Mode;
+  locked: boolean;
   onModeChange: (mode: Mode) => void;
   onHelp: () => void;
 };
@@ -15,6 +16,7 @@ type HeaderProps = {
 export const Header = memo(function HeaderView({
   language,
   mode,
+  locked,
   onModeChange,
   onHelp,
 }: HeaderProps) {
@@ -37,6 +39,8 @@ export const Header = memo(function HeaderView({
       <nav className="main-nav" aria-label={t`Game modes`}>
         <button
           type="button"
+          disabled={locked}
+          aria-disabled={locked}
           className={`nav-item ${mode === 'free' ? 'active' : ''}`}
           aria-current={mode === 'free' ? 'page' : undefined}
           onClick={() => onModeChange('free')}
@@ -46,6 +50,8 @@ export const Header = memo(function HeaderView({
         </button>
         <button
           type="button"
+          disabled={locked}
+          aria-disabled={locked}
           className={`nav-item ${mode === 'practice' ? 'active' : ''}`}
           aria-current={mode === 'practice' ? 'page' : undefined}
           onClick={() => onModeChange('practice')}
