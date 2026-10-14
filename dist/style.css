@@ -12,3 +12,78 @@ html[lang=ar]{font-family:'Alan Sans',Nunito,sans-serif}html[lang=ar] .brand,htm
 .progress-count{direction:ltr;display:inline-flex;gap:3px}.challenge-number{direction:ltr;unicode-bidi:isolate}.timer>span:nth-child(2){font-family:Nunito,sans-serif}.hero-art{min-width:0}.hero-copy{min-width:0}
 @media(max-width:760px){.hero{padding-top:19px;padding-bottom:22px}.hero h1{font-size:40px;margin-top:13px;margin-bottom:13px}.hero-description{font-size:12px;margin-bottom:0}.hero-note{display:none}.game-card{padding-top:19px;padding-bottom:19px}.challenge-heading{margin:18px 0 21px}.answer-slot{height:70px}.game-bottom{margin-top:17px;padding-top:15px}.game-rules{display:none}.game-bottom .button-primary{width:100%;min-height:44px;font-size:13px}.game-bottom:has(#start-button[hidden]){justify-content:flex-end}#club-input{font-size:16px}.input-hint{font-size:9px}.input-hint .icon{width:12px;height:12px}.timer>span:nth-child(2){font-size:18px}.timer-caption{font-size:8px}html[lang=ar] .hero h1{font-size:40px;line-height:1.25}html[lang=ar] .hero{padding-top:19px}.answer-feedback{font-size:12px}.date-label{font-size:10px}.challenge-label{font-size:10px}}
 @media(max-width:360px){.hero h1{font-size:36px}html[lang=ar] .hero h1{font-size:36px}.game-card{padding:16px}.input-hint{font-size:8px}}
+
+/* The conversation scrolls independently; its composer stays at the bottom. */
+.game-card{display:flex;flex-direction:column;height:780px;min-height:0;overflow:hidden}
+.game-topline,.level-picker,.practice-controls,.challenge-heading,.progress-heading,#round-progress,.answer-composer,.result-panel{flex-shrink:0}
+.game-topline{padding-bottom:15px}
+.level-picker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:17px}
+.level-button{text-align:start;border:1px solid #e3e8db;background:#f8faf3;padding:11px 12px;border-radius:11px;transition:background .2s,border-color .2s}
+.level-button.active{border-color:#9ab971;background:#edf5dd;box-shadow:inset 0 0 0 1px #9ab97120}
+.level-kicker{display:block;font-size:8px;font-weight:900;letter-spacing:1px;color:#96a386;margin-bottom:4px}
+.level-button.active .level-kicker{color:#7b955a}
+.level-button strong{font-size:13px;font-weight:900;white-space:nowrap}
+.challenge-heading{margin:21px 0 17px}
+.challenge-heading h2{font-size:27px}
+.timer{width:75px;min-width:75px;height:75px;padding:9px 5px}
+.timer>span:nth-child(2){font-size:18px}
+.progress-heading{margin:0 0 7px;min-height:25px}
+.progress-actions{display:flex;align-items:center;gap:14px}
+.progress-actions .text-button{font-size:9px;min-height:25px;padding:4px 0}
+#round-progress{display:block;appearance:none;-webkit-appearance:none;border:0;height:4px;width:100%;border-radius:3px;background:#edf1e4;color:#a0c56a;overflow:hidden}
+#round-progress::-webkit-progress-bar{background:#edf1e4;border-radius:3px}
+#round-progress::-webkit-progress-value{background:#a0c56a;border-radius:3px;transition:width .2s}
+#round-progress::-moz-progress-bar{background:#a0c56a;border-radius:3px}
+.conversation{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#d4ddc5 transparent;padding:15px 4px;margin-inline:-4px;position:relative}
+.answer-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.answer-message{display:flex;align-items:center;gap:12px;padding:12px 15px;flex-shrink:0;background:#f1f6e8;border:1px solid #e2ebd5;border-radius:14px;border-end-start-radius:4px;animation:message-in .2s ease}
+.answer-index{font-family:Nunito,sans-serif;font-size:11px;font-weight:800;color:#9ba98b;min-width:19px;direction:ltr}
+.answer-message .club-crest{width:28px;height:33px;flex-shrink:0}
+.answer-name{display:flex;flex-direction:column;gap:2px;min-width:0}
+.answer-name strong{font-size:14px;font-weight:800;line-height:1.45;overflow-wrap:anywhere}
+.answer-name small{font-size:10px;color:#96a287;font-weight:600}
+.answer-tick{margin-inline-start:auto;color:#88a664;background:#e5efd6;width:23px;height:23px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.answer-tick .icon{width:13px;height:13px}
+.chat-empty{height:100%;min-height:165px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px}
+.empty-ball{width:52px;height:52px;display:grid;place-items:center;background:#f0f4e6;border-radius:17px;color:#a1b086;margin-bottom:14px;transform:rotate(-8deg)}
+.empty-ball .icon{width:32px;height:32px;stroke-width:1.25}
+.chat-empty h3{font-size:20px;letter-spacing:-.5px;font-weight:900;margin:0 0 6px}
+.chat-empty p{font-size:11px;color:#9aa38d;line-height:1.7;margin:0 0 17px}
+.chat-empty .button{font-size:12px;padding-inline:23px}
+.answer-composer{margin-top:auto;padding-top:14px;border-top:1px solid #e8ecdf;background:var(--white)}
+.answer-composer .answer-feedback{margin:0 0 10px;max-height:83px;overflow:auto;padding:8px 11px;font-size:10px}
+.answer-composer .input-wrapper{padding-block:6px}
+.answer-composer #club-input{height:41px}
+.answer-composer .input-hint{margin-top:8px}
+.result-panel{margin-top:9px;padding-top:16px}
+.result-header{margin-bottom:6px}.result-header h3{font-size:22px}
+.result-actions{margin-top:12px}.missed-answers{margin-top:10px}
+html[lang=ar] .level-kicker{letter-spacing:0}html[lang=ar] .chat-empty h3{letter-spacing:0}html[lang=ar] .level-button strong{font-size:13px}
+@keyframes message-in{from{opacity:.5;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1000px){.level-button{padding:10px}.level-button strong{font-size:11px}.challenge-heading h2{font-size:25px}}
+@media(max-width:760px){
+  .game-card{height:690px;padding:19px;scroll-margin-top:12px}
+  .level-picker{gap:6px;margin-top:14px}.level-button{padding:10px 8px}.level-kicker{font-size:7px;letter-spacing:.7px}.level-button strong{font-size:11px}
+  .challenge-heading{margin:17px 0 12px}.challenge-heading h2{font-size:23px}.challenge-detail{font-size:10px}
+  .timer{width:65px;min-width:65px;height:65px}.timer>span:nth-child(2){font-size:16px}.timer>.icon{width:12px;height:12px}.timer-caption{font-size:7px}
+  .answer-message{padding:10px 11px;gap:10px}.answer-name strong{font-size:13px}.answer-name small{font-size:10px}.answer-index{font-size:10px;min-width:16px}
+  .answer-composer #club-input{font-size:16px}.answer-composer .input-hint{font-size:8.5px}.answer-composer{padding-top:12px;padding-bottom:env(safe-area-inset-bottom,0px)}
+  .round-active .hero,.round-active .sidebar,.round-active .trust-strip,.round-active .site-footer{display:none}
+  .round-active .site-shell{padding:0 12px}.round-active .site-header{height:60px;margin-bottom:55px}
+  .round-active .site-header .brand{font-size:22px}.round-active .brand-mark{width:31px;height:31px}
+  .round-active .main-nav{top:69px;padding:3px}.round-active .nav-item{min-height:34px;padding:7px 12px;font-size:11px}
+  .round-active .game-layout{display:flex;flex-direction:column;gap:0}
+  .round-active .game-card{width:100%;height:calc(var(--play-height,100dvh) - 127px);padding:16px;border-radius:17px}
+  .round-active .game-topline{padding-bottom:11px}.round-active .level-picker{margin-top:11px}.round-active .level-button{padding:8px}
+  .round-active .challenge-heading{margin:14px 0 9px}.round-active .difficulty{display:none}.round-active .challenge-heading h2{font-size:22px}
+  .round-active .practice-controls{padding:11px 0}.round-active .practice-controls>label{display:none}
+  .round-active .conversation{padding-block:12px}.round-active .chat-empty{min-height:80px}.round-active .empty-ball{width:38px;height:38px;margin-bottom:8px}.round-active .empty-ball .icon{width:24px;height:24px}
+  .round-active .chat-empty h3{font-size:18px}.round-active .chat-empty p{font-size:10px;margin-bottom:0}
+  .round-active .challenge-detail{margin-top:5px}
+  .keyboard-open .site-header{display:none}.keyboard-open .site-shell{padding:0}.keyboard-open .game-card{height:var(--play-height,100dvh);border-radius:0;border:0;padding:10px 15px}
+  .keyboard-open .level-picker,.keyboard-open .practice-controls,.keyboard-open .difficulty,.keyboard-open .challenge-detail,.keyboard-open .input-hint{display:none!important}
+  .keyboard-open .game-topline{padding-bottom:8px}.keyboard-open .challenge-heading{margin:8px 0}.keyboard-open .challenge-heading h2{font-size:18px}.keyboard-open .challenge-heading br{display:none}
+  .keyboard-open .timer{width:auto;height:auto;min-width:0;padding:7px 9px;border-radius:9px}.keyboard-open .timer-caption{display:none}.keyboard-open .progress-heading{margin-bottom:4px}
+  html[lang=ar] .round-active .challenge-heading h2{font-size:22px}html[lang=ar] .keyboard-open .challenge-heading h2{font-size:18px}
+}
+@media(max-width:360px){.level-button strong{font-size:10px}.level-kicker{font-size:6.5px}.round-active .game-card{padding:13px}.round-active .challenge-heading h2{font-size:20px}html[lang=ar] .level-button strong{font-size:11px}}

@@ -73,17 +73,34 @@ export function parseAnswers(text, challenge = {}) {
   }
   return output;
 }
+export const levels = [10, 50, 100];
+export function durationForTarget(target) { return target * 6; }
 export const challengePool = [
-  ...['england', 'spain', 'italy', 'germany', 'france', 'saudi', 'brazil', 'egypt', 'uae', 'portugal', 'netherlands', 'argentina', 'morocco', 'turkey', 'usa', 'scotland'].map(country => ({ id: country, country, target: 5, difficulty: ['england', 'spain', 'italy', 'germany', 'france'].includes(country) ? 'easy' : 'medium' })),
-  ...['b', 'a', 's', 'm', 'c'].map(letter => ({ id: `letter-${letter}`, letter, target: 5, difficulty: 'medium' })),
-  { id: 'asia', region: 'asia', target: 5, difficulty: 'easy' },
-  { id: 'africa', region: 'africa', target: 5, difficulty: 'medium' },
-  { id: 'americas', region: 'americas', target: 5, difficulty: 'medium' },
+  { id: 'world', difficulty: 'easy' },
+  ...Object.keys(countries).map(country => ({ id: country, country, difficulty: ['england', 'spain', 'italy', 'germany', 'france'].includes(country) ? 'easy' : 'medium' })),
+  ...['b', 'a', 's', 'm', 'c'].map(letter => ({ id: `letter-${letter}`, letter, difficulty: 'medium' })),
+  ...['europe', 'asia', 'africa', 'americas'].map(region => ({ id: region, region, difficulty: 'medium' })),
 ];
+export function challengesForLevel(target) {
+  return challengePool.filter(c => eligibleClubs(c).length >= target).map(c => ({ ...c, target }));
+}
 export function dayKey(now = new Date()) { return now.toISOString().slice(0, 10); }
-export function dailyChallenge(now = new Date()) {
+export function dailyChallenge(now = new Date(), target = 10) {
   const day = Math.floor(Date.parse(dayKey(now)) / 86400000);
-  const index = ((day - 20740) % challengePool.length + challengePool.length) % challengePool.length;
-  return { ...challengePool[index], key: dayKey(now), number: Math.max(1, day - 20739) };
+  const pool = challengesForLevel(target);
+  const index = ((day - 20740) % pool.length + pool.length) % pool.length;
+  return { ...pool[index], key: dayKey(now), number: Math.max(1, day - 20739) };
+}
+export function dailyStorageKey(challenge) { return `nxc-v2-daily-${challenge.key}-${challenge.target}`; }
+export function scoreAnswers(found, results, target) {
+  const next = [...found];
+  const events = [];
+  for (const result of results) {
+    if (next.length >= target) break;
+    if (result.kind !== 'match') events.push(result);
+    else if (next.includes(result.club.id)) events.push({ ...result, kind: 'duplicate' });
+    else { next.push(result.club.id); events.push({ ...result, kind: 'accepted' }); }
+  }
+  return { found: next, events };
 }
 export function remainingSeconds(deadline, now = Date.now()) { return Math.max(0, Math.ceil((deadline - now) / 1000)); }

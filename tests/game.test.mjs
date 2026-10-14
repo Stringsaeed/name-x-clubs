@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { clubs, normalize, resolveClub, parseAnswers, challengePool, eligibleClubs, dailyChallenge, dayKey, remainingSeconds } from '../dist/engine.js';
+import { clubs, normalize, resolveClub, parseAnswers, levels, challengesForLevel, durationForTarget, dailyStorageKey, scoreAnswers, eligibleClubs, dailyChallenge, dayKey, remainingSeconds } from '../dist/engine.js';
 test('English aliases, punctuation and Arabic spellings resolve to one club', () => {
   for (const input of ['Manchester United', 'MAN UTD!!!', 'Man U', 'Manchester United FC', 'Manchester United Football Club', 'M.U.F.C.', 'مانشستر يونايتد', 'مَانْشِسْتَر يُونَايْتِد', 'مانشستر يونيتد', 'نادي مانشستر يونايتد']) assert.equal(resolveClub(input).club?.name, 'Manchester United', input);
 });
@@ -40,8 +40,14 @@ test('an official name containing and remains one answer', () => {
 test('duplicate aliases retain the same ID for deduplication', () => {
   assert.equal(new Set(parseAnswers('man utd, مانشستر يونايتد, man u').map(r=>r.club.id)).size,1);
 });
-test('every challenge has at least five distinct eligible clubs', () => {
-  for (const c of challengePool) assert.ok(eligibleClubs(c).length>=5,c.id);
+test('every selectable challenge has enough clubs to finish its level', () => {
+  assert.deepEqual(levels,[10,50,100]);
+  for (const target of levels) {
+    const pool = challengesForLevel(target);
+    assert.ok(pool.length > 1);
+    for (const c of pool) assert.ok(eligibleClubs(c).length >= target,`${target}: ${c.id}`);
+  }
+  assert.ok(!challengesForLevel(100).some(c=>c.country));
   assert.equal(new Set(clubs.map(c=>c.id)).size,clubs.length);
   assert.ok(clubs.length>=200);
   assert.ok(clubs.every(c=>c.name && c.arabic && c.country));
@@ -59,4 +65,25 @@ test('deadline uses wall-clock time and expires even while the tab is inactive',
   assert.equal(remainingSeconds(61000,60501),1);
   assert.equal(remainingSeconds(61000,61000),0);
   assert.equal(remainingSeconds(61000,90000),0);
+});
+for (const target of [10,50,100]) test(`the ${target}-club level counts unique answers in order and caps bulk submissions`, () => {
+  const input = clubs.slice(0,target+3).map(c=>c.name).join(', ');
+  const results = parseAnswers(input);
+  const scored = scoreAnswers([],results,target);
+  assert.deepEqual(scored.found,clubs.slice(0,target).map(c=>c.id));
+  assert.equal(scored.events.filter(e=>e.kind==='accepted').length,target);
+  const repeated = scoreAnswers(scored.found.slice(0,-1),parseAnswers(`${clubs[0].arabic}, ${clubs[target-1].arabic}`),target);
+  assert.deepEqual(repeated.found,scored.found);
+  assert.deepEqual(repeated.events.map(e=>e.kind),['duplicate','accepted']);
+});
+test('daily rounds have separate storage and sensible deadlines for each level', () => {
+  assert.deepEqual(levels.map(durationForTarget),[60,300,600]);
+  const now = new Date('2026-10-14T00:01:00Z');
+  const daily = levels.map(n=>dailyChallenge(now,n));
+  assert.deepEqual(daily.map(c=>c.target),[10,50,100]);
+  assert.equal(new Set(daily.map(dailyStorageKey)).size,3);
+  for (const n of levels) for (let day=1;day<=31;day++) {
+    const challenge = dailyChallenge(new Date(`2026-10-${String(day).padStart(2,'0')}T12:00:00Z`),n);
+    assert.ok(eligibleClubs(challenge).length>=n);
+  }
 });
