@@ -7,13 +7,13 @@ import { Icon } from './Icon';
 export function ResultPanel({
   session,
   language,
-  controller,
+  onShare,
   onNext,
   notify,
 }: {
   session: Session;
   language: Language;
-  controller: GameController;
+  onShare: GameController['shareResult'];
   onNext: () => void;
   notify: (text: string) => void;
 }) {
@@ -53,7 +53,7 @@ export function ResultPanel({
           className="button button-primary"
           type="button"
           onClick={async () => {
-            const result = await controller.shareResult(language);
+            const result = await onShare(language);
             if (result.kind === 'copied') {
               notify(t.copied);
             }

@@ -39,13 +39,22 @@ test('keeps Daily disabled and shows only compact mode choices', async ({ page }
   if ((page.viewportSize()?.width ?? 0) > 760) {
     await expect(page.locator('.hero-art img')).toBeVisible();
   }
-  await expect(page.getByRole('textbox')).toBeInViewport();
-  const start = await page.getByRole('button', { name: 'Let’s play', exact: true }).boundingBox();
+  const startButton = page.getByRole('button', { name: 'Let’s play', exact: true });
+  await expect(startButton).toBeInViewport();
+  await expect(page.getByRole('textbox')).toBeHidden();
+  const start = await startButton.boundingBox();
+  const composer = await page.locator('#answer-composer').boundingBox();
   const conversation = await page.locator('.conversation').boundingBox();
   expect(start).not.toBeNull();
+  expect(composer).not.toBeNull();
   expect(conversation).not.toBeNull();
+  // The start button occupies the composer slot, below the empty chat list.
+  expect(start?.y ?? 0).toBeGreaterThanOrEqual(composer?.y ?? 0);
   expect((start?.y ?? 0) + (start?.height ?? 0)).toBeLessThanOrEqual(
-    (conversation?.y ?? 0) + (conversation?.height ?? 0),
+    (composer?.y ?? 0) + (composer?.height ?? 0) + 1,
+  );
+  expect(start?.y ?? 0).toBeGreaterThanOrEqual(
+    (conversation?.y ?? 0) + (conversation?.height ?? 0) - 1,
   );
   await page.screenshot({ path: testInfo.outputPath('free-time-layout.png') });
 });

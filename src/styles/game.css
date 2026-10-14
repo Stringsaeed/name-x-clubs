@@ -60,12 +60,6 @@ a {
 [hidden] {
   display: none !important;
 }
-.icon-defs {
-  position: absolute;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-}
 .icon {
   width: 21px;
   height: 21px;
@@ -179,12 +173,6 @@ a {
   height: 42px;
   color: #7a8478;
 }
-.status-dot {
-  height: 5px;
-  width: 5px;
-  background: #9ab97d;
-  border-radius: 50%;
-}
 .game-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -281,35 +269,6 @@ a {
   color: var(--ink);
   font-weight: 900;
 }
-.answer-slots {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 9px;
-  margin-bottom: 21px;
-}
-.answer-slot {
-  height: 85px;
-  border: 1px dashed #dce2d2;
-  border-radius: 12px;
-  background: #fbfcf7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-  overflow: hidden;
-}
-.slot-number {
-  color: #d0d8c4;
-  font-size: 23px;
-  font-weight: 800;
-}
-.answer-slot.filled {
-  border: 1px solid #deebcb;
-  background: #f2f7e9;
-  animation: pop-in 0.25s ease;
-}
 .club-crest {
   --club-color: #66865c;
   position: relative;
@@ -328,30 +287,6 @@ a {
   padding-bottom: 3px;
   direction: ltr;
 }
-.slot-name {
-  font-size: 9px;
-  line-height: 1.2;
-  text-align: center;
-  font-weight: 800;
-  padding: 0 4px;
-  width: 100%;
-  overflow-wrap: anywhere;
-  color: #526346;
-}
-.slot-name:lang(ar) {
-  font-family: var(--font-alan-sans), sans-serif;
-}
-.slot-check {
-  width: 12px;
-  height: 12px;
-  color: #7f9e58;
-  position: absolute;
-  top: 5px;
-  inset-inline-end: 5px;
-}
-.answer-slot.filled {
-  position: relative;
-}
 .input-wrapper {
   display: flex;
   align-items: center;
@@ -367,10 +302,6 @@ a {
 .input-wrapper:focus-within {
   border-color: #84a555;
   box-shadow: 0 0 0 3px #9cc3651c;
-}
-.input-wrapper.inactive {
-  background: #fcfcf8;
-  border-color: #e5e8df;
 }
 .input-ball {
   width: 19px;
@@ -419,19 +350,6 @@ a {
   width: 18px;
   height: 18px;
 }
-.input-hint {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 9px 0 0;
-  color: #969e8d;
-  font-size: 9.5px;
-  font-weight: 600;
-}
-.input-hint .icon {
-  width: 13px;
-  height: 13px;
-}
 .answer-feedback:empty {
   display: none;
 }
@@ -450,28 +368,6 @@ a {
 }
 .feedback-line + .feedback-line {
   margin-top: 4px;
-}
-.game-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 24px;
-  padding-top: 19px;
-  border-top: 1px solid #eceee5;
-}
-.game-rules {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #8c9780;
-  font-size: 9.5px;
-  font-weight: 600;
-}
-.game-rules .icon {
-  height: 14px;
-  width: 14px;
-  color: #8ca46b;
 }
 .button {
   border-radius: 10px;
@@ -524,12 +420,6 @@ a {
 }
 .text-button:hover {
   color: var(--ink);
-}
-.pill {
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  color: #7a9064;
 }
 .practice-controls {
   border-bottom: 1px solid #eceee5;
@@ -727,14 +617,11 @@ a {
 html[lang="ar"] {
   font-family: var(--font-alan-sans), var(--font-nunito), sans-serif;
 }
-html[lang="ar"] .brand,
-html[lang="ar"] .footer-center {
+html[lang="ar"] .brand {
   font-family: var(--font-nunito), sans-serif;
   direction: ltr;
 }
 html[lang="ar"] .eyebrow,
-html[lang="ar"] .challenge-label,
-html[lang="ar"] .pill,
 html[lang="ar"] .progress-heading {
   letter-spacing: 0;
 }
@@ -749,9 +636,6 @@ html[lang="ar"] .submit-answer .icon {
 }
 html[lang="ar"] .input-wrapper {
   padding: 5px 13px 5px 6px;
-}
-html[lang="ar"] .slot-name {
-  font-family: var(--font-alan-sans), sans-serif;
 }
 html[lang="ar"] .help-dialog h2 {
   letter-spacing: 0;
@@ -795,9 +679,6 @@ html[lang="ar"] .help-dialog h2 {
   .challenge-heading h2 {
     font-size: 34px;
   }
-  .answer-slot {
-    height: 92px;
-  }
 }
 @media (max-width: 1000px) {
   .site-shell {
@@ -821,9 +702,6 @@ html[lang="ar"] .help-dialog h2 {
   .timer > span:nth-child(2) {
     font-size: 18px;
   }
-  .game-rules {
-    font-size: 8.5px;
-  }
   .brand {
     font-size: 24px;
   }
@@ -833,12 +711,6 @@ html[lang="ar"] .help-dialog h2 {
   .nav-item {
     padding: 10px 12px;
     font-size: 12px;
-  }
-  .answer-slots {
-    gap: 6px;
-  }
-  .slot-name {
-    font-size: 8px;
   }
   html[lang="ar"] .challenge-heading h2 {
     font-size: 25px;
@@ -937,23 +809,9 @@ html[lang="ar"] .help-dialog h2 {
   .timer-caption {
     font-size: 7px;
   }
-  .answer-slots {
-    gap: 6px;
-    margin-bottom: 19px;
-  }
-  .answer-slot {
-    height: 74px;
-    border-radius: 10px;
-  }
-  .slot-number {
-    font-size: 21px;
-  }
   .club-crest {
     width: 23px;
     height: 27px;
-    font-size: 8px;
-  }
-  .slot-name {
     font-size: 8px;
   }
   .progress-heading {
@@ -971,36 +829,11 @@ html[lang="ar"] .help-dialog h2 {
     width: 17px;
     height: 17px;
   }
-  .input-hint {
-    font-size: 8.5px;
-    line-height: 1.5;
-    gap: 4px;
-  }
-  .input-hint .icon {
-    width: 12px;
-    height: 12px;
-  }
-  .game-bottom {
-    margin-top: 20px;
-    padding-top: 16px;
-    gap: 7px;
-  }
-  .game-rules {
-    font-size: 8px;
-    gap: 4px;
-  }
-  .game-rules .icon {
-    width: 12px;
-    height: 12px;
-  }
   .button {
     font-size: 11px;
     min-height: 42px;
     padding: 10px 14px;
     gap: 12px;
-  }
-  .pill {
-    font-size: 8px;
   }
   .category-row {
     gap: 7px;
@@ -1030,9 +863,6 @@ html[lang="ar"] .help-dialog h2 {
   html[lang="ar"] .challenge-heading h2 {
     font-size: 25px;
   }
-  html[lang="ar"] .game-rules {
-    font-size: 8px;
-  }
 }
 @media (max-width: 360px) {
   .site-shell {
@@ -1044,9 +874,6 @@ html[lang="ar"] .help-dialog h2 {
   .brand {
     font-size: 23px;
   }
-  .game-rules {
-    font-size: 7px;
-  }
   .challenge-heading h2 {
     font-size: 23px;
   }
@@ -1054,15 +881,6 @@ html[lang="ar"] .help-dialog h2 {
     width: 66px;
     min-width: 66px;
     height: 66px;
-  }
-  .answer-slot {
-    height: 70px;
-  }
-  .slot-name {
-    font-size: 7px;
-  }
-  .input-hint {
-    font-size: 7.5px;
   }
   html[lang="ar"] .challenge-heading h2 {
     font-size: 23px;
@@ -1093,33 +911,8 @@ html[lang="ar"] .help-dialog h2 {
   .challenge-heading {
     margin: 18px 0 21px;
   }
-  .answer-slot {
-    height: 70px;
-  }
-  .game-bottom {
-    margin-top: 17px;
-    padding-top: 15px;
-  }
-  .game-rules {
-    display: none;
-  }
-  .game-bottom .button-primary {
-    width: 100%;
-    min-height: 44px;
-    font-size: 13px;
-  }
-  .game-bottom:has(#start-button[hidden]) {
-    justify-content: flex-end;
-  }
   #club-input {
     font-size: 16px;
-  }
-  .input-hint {
-    font-size: 9px;
-  }
-  .input-hint .icon {
-    width: 12px;
-    height: 12px;
   }
   .timer > span:nth-child(2) {
     font-size: 18px;
@@ -1135,9 +928,6 @@ html[lang="ar"] .help-dialog h2 {
   .game-card {
     padding: 16px;
   }
-  .input-hint {
-    font-size: 8px;
-  }
 }
 
 /* The conversation scrolls independently; its composer stays at the bottom. */
@@ -1148,7 +938,6 @@ html[lang="ar"] .help-dialog h2 {
   min-height: 0;
   overflow: hidden;
 }
-.game-topline,
 .level-picker,
 .practice-controls,
 .challenge-heading,
@@ -1267,6 +1056,8 @@ html[lang="ar"] .help-dialog h2 {
   border: 1px solid #e2ebd5;
   border-radius: 14px;
   border-end-start-radius: 4px;
+}
+.answer-message.is-new {
   animation: message-in 0.2s ease;
 }
 .answer-index {
@@ -1406,8 +1197,30 @@ html[lang="ar"] .help-dialog h2 {
 .answer-composer #club-input {
   height: 41px;
 }
-.answer-composer .input-hint {
-  margin-top: 8px;
+.composer-stack {
+  display: grid;
+}
+.composer-stack > * {
+  grid-area: 1 / 1;
+}
+.start-round {
+  width: 100%;
+  min-height: 56px;
+  z-index: 1;
+}
+.answer-form {
+  transition:
+    opacity 0.18s,
+    transform 0.18s;
+}
+.answer-form.is-hidden {
+  opacity: 0;
+  transform: translateY(6px);
+  visibility: hidden;
+  transition:
+    opacity 0.18s,
+    transform 0.18s,
+    visibility 0s 0.18s;
 }
 .result-panel {
   margin-top: 9px;
@@ -1506,9 +1319,6 @@ html[lang="ar"] .level-button strong {
   .answer-composer #club-input {
     font-size: 16px;
   }
-  .answer-composer .input-hint {
-    font-size: 8.5px;
-  }
   .answer-composer {
     padding-top: 12px;
     padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -1604,9 +1414,7 @@ html[lang="ar"] .level-button strong {
   }
   .keyboard-open .level-picker,
   .keyboard-open .practice-controls,
-  .keyboard-open .difficulty,
-  .keyboard-open .challenge-detail,
-  .keyboard-open .input-hint {
+  .keyboard-open .challenge-detail {
     display: none !important;
   }
   .keyboard-open .challenge-heading {
