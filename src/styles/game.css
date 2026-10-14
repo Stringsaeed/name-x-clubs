@@ -1,17 +1,3 @@
-@font-face {
-  font-family: Nunito;
-  src: url("/assets/fonts/nunito.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 200 1000;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Alan Sans";
-  src: url("/assets/fonts/alan-sans.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 300 900;
-  font-display: swap;
-}
 :root {
   --paper: #f7f8f2;
   --white: #fffefa;
@@ -22,7 +8,7 @@
   --lime: #d2f571;
   --soft: #eff3e7;
   --radius: 22px;
-  font-family: Nunito, "Alan Sans", sans-serif;
+  font-family: var(--font-nunito), var(--font-alan-sans), sans-serif;
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
@@ -179,7 +165,7 @@ a {
   min-height: 42px;
 }
 .language-button [lang="ar"] {
-  font-family: "Alan Sans", sans-serif;
+  font-family: var(--font-alan-sans), sans-serif;
   font-size: 14px;
 }
 .language-button .icon {
@@ -353,7 +339,7 @@ a {
   color: #526346;
 }
 .slot-name:lang(ar) {
-  font-family: "Alan Sans", sans-serif;
+  font-family: var(--font-alan-sans), sans-serif;
 }
 .slot-check {
   width: 12px;
@@ -689,7 +675,7 @@ a {
   font-size: 11px;
 }
 .help-example span {
-  font-family: Nunito, "Alan Sans", sans-serif;
+  font-family: var(--font-nunito), var(--font-alan-sans), sans-serif;
   color: #7e9068;
   font-size: 11px;
   line-height: 1.7;
@@ -739,11 +725,11 @@ a {
   line-height: 1.5;
 }
 html[lang="ar"] {
-  font-family: "Alan Sans", Nunito, sans-serif;
+  font-family: var(--font-alan-sans), var(--font-nunito), sans-serif;
 }
 html[lang="ar"] .brand,
 html[lang="ar"] .footer-center {
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-nunito), sans-serif;
   direction: ltr;
 }
 html[lang="ar"] .eyebrow,
@@ -765,7 +751,7 @@ html[lang="ar"] .input-wrapper {
   padding: 5px 13px 5px 6px;
 }
 html[lang="ar"] .slot-name {
-  font-family: "Alan Sans", sans-serif;
+  font-family: var(--font-alan-sans), sans-serif;
 }
 html[lang="ar"] .help-dialog h2 {
   letter-spacing: 0;
@@ -1097,7 +1083,7 @@ html[lang="ar"] .help-dialog h2 {
   gap: 3px;
 }
 .timer > span:nth-child(2) {
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-nunito), sans-serif;
 }
 @media (max-width: 760px) {
   .game-card {
@@ -1284,7 +1270,7 @@ html[lang="ar"] .help-dialog h2 {
   animation: message-in 0.2s ease;
 }
 .answer-index {
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-nunito), sans-serif;
   font-size: 11px;
   font-weight: 800;
   color: #9ba98b;

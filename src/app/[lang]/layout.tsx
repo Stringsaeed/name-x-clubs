@@ -2,6 +2,7 @@ import { msg } from '@lingui/core/macro';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import '../../styles/game.css';
+import { alanSans, nunito } from '../../fonts';
 import { getServerI18n, type Locale, locales } from '../../i18n/server';
 
 type LayoutProps = { children: ReactNode; params: Promise<{ lang: string }> };
@@ -30,7 +31,11 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>):
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
   return (
-    <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <html
+      lang={lang}
+      dir={lang === 'ar' ? 'rtl' : 'ltr'}
+      className={`${nunito.variable} ${alanSans.variable}`}
+    >
       <body>
         {children}
         <noscript>
