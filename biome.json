@@ -12,6 +12,7 @@
       "!coverage",
       "!.next",
       "!.open-next",
+      "!next-env.d.ts",
       "!src/locales/*/messages.ts"
     ]
   },
