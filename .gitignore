@@ -2,11 +2,11 @@ node_modules/
 .DS_Store
 *.tgz
 
-dist/
 coverage/
 playwright-report/
 test-results/
 .next/
+.open-next/
 next-env.d.ts
 src/locales/*/messages.ts
 tsconfig.tsbuildinfo

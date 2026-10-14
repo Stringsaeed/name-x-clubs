@@ -8,9 +8,8 @@
   },
   "packageManager": "npm@11.19.0",
   "scripts": {
-    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview --host 127.0.0.1 --port 5173 --strictPort",
+    "dev": "next dev -H 127.0.0.1 -p 5173",
+    "build": "next build",
     "typecheck": "next typegen && tsc --noEmit",
     "pretypecheck": "npm run i18n:compile",
     "predev": "npm run i18n:compile",
@@ -28,7 +27,8 @@
     "check:all": "npm run check && npm run test:e2e",
     "i18n:extract": "lingui extract --clean",
     "i18n:check": "node scripts/check-i18n.mjs",
-    "assets:restore": "node scripts/sync-crests.mjs"
+    "assets:restore": "node scripts/sync-crests.mjs",
+    "start": "next start -H 127.0.0.1 -p 5173"
   },
   "dependencies": {
     "@lingui/core": "6.9.1",
@@ -52,7 +52,6 @@
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@vitejs/plugin-react": "6.1.2",
     "@vitest/coverage-v8": "5.0.4",
     "jsdom": "30.1.2",
     "typescript": "7.0.2",

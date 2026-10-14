@@ -3,7 +3,6 @@
   "files": {
     "includes": [
       "**",
-      "!dist",
       "!public/assets",
       "!src/app/icon.svg",
       "!src/content/*.json",

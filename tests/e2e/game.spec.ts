@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { clubs } from '../../src/content/catalog';
 
 async function gotoReady(page: Page, path = '/en') {
