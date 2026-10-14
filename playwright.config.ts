@@ -16,7 +16,7 @@ export default defineConfig({
     { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },
   ],
   webServer: {
-    command: 'npx next start -H 127.0.0.1 -p 4173',
+    command: 'pnpm exec next start -H 127.0.0.1 -p 4173',
     url: 'http://127.0.0.1:4173/en',
     reuseExistingServer: !process.env.CI,
     timeout: 30000,

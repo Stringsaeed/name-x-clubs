@@ -10,7 +10,10 @@ const file = (locale) => `src/locales/${locale}/messages.po`;
 const normalize = (text) => text.replace(/^"POT-Creation-Date:.*\n/m, '');
 
 const before = Object.fromEntries(locales.map((l) => [l, readFileSync(file(l), 'utf8')]));
-const run = spawnSync('npx', ['lingui', 'extract', '--clean'], { stdio: 'pipe', encoding: 'utf8' });
+const run = spawnSync('pnpm', ['exec', 'lingui', 'extract', '--clean'], {
+  stdio: 'pipe',
+  encoding: 'utf8',
+});
 if (run.status !== 0) {
   process.stderr.write(run.stdout + run.stderr);
   process.exit(run.status ?? 1);
@@ -20,9 +23,7 @@ const problems = [];
 for (const locale of locales) {
   const after = readFileSync(file(locale), 'utf8');
   if (normalize(after) !== normalize(before[locale])) {
-    problems.push(
-      `${file(locale)} is out of date: run "npm run i18n:extract" and commit the result.`,
-    );
+    problems.push(`${file(locale)} is out of date: run "pnpm i18n:extract" and commit the result.`);
   } else {
     writeFileSync(file(locale), before[locale]); // keep the committed date header
   }

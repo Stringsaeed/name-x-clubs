@@ -13,7 +13,8 @@
       "!.next",
       "!.open-next",
       "!next-env.d.ts",
-      "!src/locales/*/messages.ts"
+      "!src/locales/*/messages.ts",
+      "!.vscode"
     ]
   },
   "formatter": {
@@ -36,11 +37,16 @@
       "complexity": {
         "noExcessiveCognitiveComplexity": {
           "level": "warn",
-          "options": { "maxAllowedComplexity": 15 }
+          "options": {
+            "maxAllowedComplexity": 15
+          }
         },
         "noExcessiveLinesPerFunction": {
           "level": "warn",
-          "options": { "maxLines": 60, "skipBlankLines": true }
+          "options": {
+            "maxLines": 60,
+            "skipBlankLines": true
+          }
         },
         "noForEach": "warn",
         "noUselessTernary": "error",
@@ -69,18 +75,35 @@
       "suspicious": {
         "noExplicitAny": "error",
         "noShadow": "warn",
-        "noConsole": { "level": "warn", "options": { "allow": ["error", "warn"] } }
+        "noConsole": {
+          "level": "warn",
+          "options": {
+            "allow": ["error", "warn"]
+          }
+        }
       }
     }
   },
   "overrides": [
     {
       "includes": ["scripts/**", "**/*.config.*"],
-      "linter": { "rules": { "suspicious": { "noConsole": "off" } } }
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
     },
     {
       "includes": ["**/*.test.*", "src/test/**"],
-      "linter": { "rules": { "complexity": { "noExcessiveLinesPerFunction": "off" } } }
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noExcessiveLinesPerFunction": "off"
+          }
+        }
+      }
     }
   ],
   "assist": {

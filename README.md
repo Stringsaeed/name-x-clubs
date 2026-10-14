@@ -7,13 +7,13 @@ A bilingual football game with Free time and category practice. Name 10, 50 or 1
 Use the Node version in `.node-version`, then:
 
 ```sh
-npm ci
-npm run dev
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-`npm run dev` starts Next.js on `http://127.0.0.1:5173`. No account, database or runtime sports API is required by the game.
+`pnpm dev` starts Next.js on `http://127.0.0.1:5173`. No account, database or runtime sports API is required by the game.
 
-Catalogs compile automatically: `predev`, `prebuild`, `pretest` and `pretypecheck` run `npm run i18n:compile`. After changing UI text, run `npm run i18n:extract` to update the PO catalogs in `src/locales/`, then translate the new entries.
+Catalogs compile automatically: `dev`, `build`, `test` and `typecheck` run `pnpm i18n:compile` first. After changing UI text, run `pnpm i18n:extract` to update the PO catalogs in `src/locales/`, then translate the new entries.
 
 ## Stack
 
@@ -27,7 +27,7 @@ Catalogs compile automatically: `predev`, `prebuild`, `pretest` and `pretypechec
 | Unit and component tests | Vitest 5 and Testing Library |
 | Browser regression tests | Playwright against `next start`, desktop Chromium and mobile WebKit |
 | Formatting and lint | Biome 2 with readability rules |
-| CI | GitHub Actions, a pinned Node version and committed npm lockfile |
+| CI | GitHub Actions, a pinned Node version and committed pnpm lockfile |
 | Hosting | Vercel or Cloudflare, not yet chosen. Vercel works with no config; Cloudflare will use `@opennextjs/cloudflare` |
 
 Dependencies use exact versions. The build does not require credentials or secrets.
@@ -35,16 +35,16 @@ Dependencies use exact versions. The build does not require credentials or secre
 ## Verify before shipping
 
 ```sh
-npm run check
-npx playwright install chromium webkit
-npm run test:e2e
+pnpm check
+pnpm exec playwright install chromium webkit
+pnpm test:e2e
 ```
 
-`check` runs lint, the i18n catalog check, unit and component tests, and `next build`, which includes type-checking. `test:e2e` runs against `next start` on port 4173, so run `npm run build` first. Traces and screenshots are retained on failure; `npx playwright show-report` opens the report.
+`check` runs lint, the i18n catalog check, unit and component tests, and `next build`, which includes type-checking. `test:e2e` runs against `next start` on port 4173, so run `pnpm build` first. Traces and screenshots are retained on failure; `pnpm exec playwright show-report` opens the report.
 
 Browser tests need a normal terminal outside restricted sandboxes. Native browsers may fail to register with macOS from a sandboxed process, and the test launcher refuses to start them there. Linux CI runs the same suite.
 
-For active development use `npm run test:watch`, `npm run typecheck`, or `npm run format`. `npm run test:coverage` reports game-module coverage. Known issues and open checks are listed in [docs/discovery.md](docs/discovery.md).
+For active development use `pnpm test:watch`, `pnpm typecheck`, or `pnpm format`. `pnpm test:coverage` reports game-module coverage. Known issues and open checks are listed in [docs/discovery.md](docs/discovery.md).
 
 ## Architecture
 
@@ -92,7 +92,7 @@ See [the architecture decisions](docs/decisions/) for the rationale behind the c
 
 All crests are local files under `public/assets/crests`. `sources.json` preserves reviewed identities, original ESPN/Wikipedia source URLs, retrieval date and checksums. Artwork and trademarks remain with their respective owners. Crests are plain `<img>` elements that load as needed and keep an initials fallback if unavailable. No external image service runs during play.
 
-Run `npm run assets:restore` to restore missing files from their reviewed sources. Matching local files are retained. The script regenerates `src/content/crests.json`; tests reject missing, mismatched or altered assets. Review identity mappings before adding artwork.
+Run `pnpm assets:restore` to restore missing files from their reviewed sources. Matching local files are retained. The script regenerates `src/content/crests.json`; tests reject missing, mismatched or altered assets. Review identity mappings before adding artwork.
 
 ## Deploy
 

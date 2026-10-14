@@ -13,15 +13,15 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7.0.1
+      - uses: pnpm/action-setup@v6.1.0
       - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .node-version
-          cache: npm
-      - run: npm install --global npm@11.19.0
-      - run: npm ci
-      - run: npm run check
-      - run: npx playwright install --with-deps chromium webkit
-      - run: npm run test:e2e
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - run: pnpm test:e2e
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:

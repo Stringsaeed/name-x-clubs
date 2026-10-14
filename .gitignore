@@ -10,3 +10,4 @@ test-results/
 next-env.d.ts
 src/locales/*/messages.ts
 tsconfig.tsbuildinfo
+.pnpm-store/

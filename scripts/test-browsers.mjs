@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 // page. Stop before launch so a failed suite cannot generate repeated crash dialogs.
 if (process.platform === 'darwin' && process.env.CODEX_SANDBOX === 'seatbelt') {
   console.error(
-    'Browser tests cannot launch inside the macOS command sandbox. Run npm run test:e2e in a normal terminal, or approve execution outside the sandbox. No test browser was started.',
+    'Browser tests cannot launch inside the macOS command sandbox. Run pnpm test:e2e in a normal terminal, or approve execution outside the sandbox. No test browser was started.',
   );
   process.exitCode = 1;
 } else {
