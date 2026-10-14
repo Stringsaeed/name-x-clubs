@@ -2,7 +2,7 @@ import { expect, type Page, test } from '@playwright/test';
 import { clubs } from '../../src/content/catalog';
 import { resolveClub } from '../../src/game/engine';
 
-/** Names that mean one club anywhere in the world; "Liverpool", for one, needs a country. */
+/** Names that mean one club anywhere in the world, including a famous club that shares its name. */
 function worldwideNames(count: number) {
   return clubs
     .filter((club) => {
