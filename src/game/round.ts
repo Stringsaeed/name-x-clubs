@@ -1,65 +1,81 @@
 import { type AnswerEvent, parseAnswers, scoreAnswers } from './engine';
-import type { Session } from './model';
+import { type PlayingRound, type Round, type Session, secondsBetween } from './model';
 
 export type RoundAction = (
   | { type: 'start' }
   | { type: 'finish' }
-  | { type: 'tick' }
   | { type: 'answer'; text: string }
 ) & { now: number };
-export function transition(
-  session: Session,
-  action: RoundAction,
-): { session: Session; feedback: readonly AnswerEvent[] } {
-  const unchanged = { session, feedback: [] };
-  if (session.round.phase === 'complete') {
-    return unchanged;
-  }
-  if (action.type === 'start') {
-    if (session.round.phase !== 'idle') {
-      return unchanged;
+
+export type Transition = { session: Session; feedback: readonly AnswerEvent[] };
+
+const maxFeedback = 3;
+
+function withoutFeedback(session: Session): Transition {
+  return { session, feedback: [] };
+}
+
+function withRound(session: Session, round: Round): Session {
+  return { ...session, round };
+}
+
+/** Keeps the latest problem per kind and input, so a repeated typo is reported once. */
+function uniqueProblems(events: readonly AnswerEvent[]): AnswerEvent[] {
+  const byKindAndInput = new Map<string, AnswerEvent>();
+
+  for (const event of events) {
+    if (event.kind !== 'accepted') {
+      byKindAndInput.set(`${event.kind}:${event.input}`, event);
     }
-    return {
-      session: { ...session, round: { phase: 'playing', found: [], startedAt: action.now } },
-      feedback: [],
-    };
   }
-  if (session.round.phase !== 'playing') {
-    return unchanged;
+
+  return [...byKindAndInput.values()].slice(-maxFeedback);
+}
+
+function start(session: Session, now: number): Transition {
+  if (session.round.phase !== 'idle') {
+    return withoutFeedback(session);
   }
-  const elapsed = Math.max(0, Math.floor((action.now - session.round.startedAt) / 1000));
-  if (action.type === 'finish') {
-    return {
-      session: { ...session, round: { phase: 'complete', found: session.round.found, elapsed } },
-      feedback: [],
-    };
+
+  return withoutFeedback(withRound(session, { phase: 'playing', found: [], startedAt: now }));
+}
+
+function finish(session: Session, round: PlayingRound, now: number): Transition {
+  const elapsed = secondsBetween(round.startedAt, now);
+
+  return withoutFeedback(withRound(session, { phase: 'complete', found: round.found, elapsed }));
+}
+
+function answer(session: Session, round: PlayingRound, text: string, now: number): Transition {
+  const target = session.challenge.target;
+  const scored = scoreAnswers(round.found, parseAnswers(text, session.challenge), target);
+
+  if (scored.found.length === target) {
+    const elapsed = secondsBetween(round.startedAt, now);
+
+    return withoutFeedback(withRound(session, { phase: 'complete', found: scored.found, elapsed }));
   }
-  if (action.type === 'tick') {
-    return unchanged;
-  }
-  const scored = scoreAnswers(
-    session.round.found,
-    parseAnswers(action.text, session.challenge),
-    session.challenge.target,
-  );
-  if (scored.found.length === session.challenge.target) {
-    return {
-      session: { ...session, round: { phase: 'complete', found: scored.found, elapsed } },
-      feedback: [],
-    };
-  }
-  const next: Session = {
-    ...session,
-    round: { phase: 'playing', found: scored.found, startedAt: session.round.startedAt },
-  };
+
   return {
-    session: next,
-    feedback: [
-      ...new Map(
-        scored.events
-          .filter((event) => event.kind !== 'accepted')
-          .map((event): [string, AnswerEvent] => [`${event.kind}:${event.input}`, event]),
-      ).values(),
-    ].slice(-3),
+    session: withRound(session, { ...round, found: scored.found }),
+    feedback: uniqueProblems(scored.events),
   };
+}
+
+export function transition(session: Session, action: RoundAction): Transition {
+  if (action.type === 'start') {
+    return start(session, action.now);
+  }
+
+  const round = session.round;
+
+  if (round.phase !== 'playing') {
+    return withoutFeedback(session);
+  }
+
+  if (action.type === 'finish') {
+    return finish(session, round, action.now);
+  }
+
+  return answer(session, round, action.text, action.now);
 }

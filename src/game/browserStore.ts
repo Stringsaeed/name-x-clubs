@@ -32,6 +32,7 @@ const initialView: GameView = {
   feedback: [],
   storageAvailable: true,
 };
+
 export const serverView: GameView = Object.freeze(initialView);
 
 export function resetForTests() {
