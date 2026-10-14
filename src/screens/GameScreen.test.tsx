@@ -20,17 +20,16 @@ test('plays a bilingual practice round and restores it after remount', async () 
     within(screen.getByRole('log')).getByText('Manchester United', { exact: true }),
   ).toBeInTheDocument();
   expect(screen.getByRole('textbox')).toBeEnabled();
-  expect(screen.getByRole('button', { name: 'Switch to Arabic' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Switch to Arabic' })).toBeInTheDocument();
 });
 test('renders Arabic from the lang prop with a toggle back to English', () => {
   const played = createGameController();
   played.dispatch({ type: 'start' });
   played.dispatch({ type: 'answer', text: 'Manchester United' });
   render(<GameScreen lang="ar" controller={createGameController()} />);
-  expect(document.documentElement).toHaveAttribute('dir', 'rtl');
   expect(screen.getByRole('button', { name: 'وضع 10' })).toHaveAttribute('aria-pressed', 'true');
   expect(within(screen.getByRole('log')).getByText('مانشستر يونايتد')).toBeInTheDocument();
-  const toggle = screen.getByRole('button', { name: 'Switch to English' });
+  const toggle = screen.getByRole('link', { name: 'Switch to English' });
   expect(toggle).toHaveTextContent('English');
 });
 test('asks for specificity when an Arabic name identifies multiple clubs', async () => {

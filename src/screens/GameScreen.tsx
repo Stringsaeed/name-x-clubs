@@ -14,6 +14,7 @@ import type { GameController } from '../game/controller';
 import { challengesForLevel } from '../game/engine';
 import { levels } from '../game/model';
 import type { Locale } from '../i18n/config';
+import { useLegacyLanguage, writeLanguageCookie } from '../i18n/useLegacyLanguage';
 
 type GameScreenProps = { lang: Locale; controller?: GameController };
 
@@ -36,10 +37,7 @@ export function GameScreen({ lang: language, controller: injected }: GameScreenP
   const complete = session.round.phase === 'complete';
   useEffect(() => injected?.connect(window), [injected]);
   useEffect(() => setReady(true), []);
-  useLayoutEffect(() => {
-    document.documentElement.lang = language;
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-  }, [language]);
+  useLegacyLanguage(language);
   useLayoutEffect(() => {
     document.body.classList.toggle('round-active', playing);
     const update = () => {
@@ -116,17 +114,17 @@ export function GameScreen({ lang: language, controller: injected }: GameScreenP
             </button>
           </nav>
           <div className="header-actions">
-            <button
+            <a
               className="language-button"
-              type="button"
+              href={language === 'en' ? '/ar' : '/en'}
               aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
-              onClick={() => window.location.assign(`/${language === 'en' ? 'ar' : 'en'}`)}
+              onClick={() => writeLanguageCookie(language === 'en' ? 'ar' : 'en')}
             >
               <Icon name="globe" />
               <span lang={language === 'en' ? 'ar' : 'en'}>
                 {language === 'en' ? 'العربية' : 'English'}
               </span>
-            </button>
+            </a>
             <button
               className="help-button"
               type="button"
