@@ -16,3 +16,6 @@ tsconfig.tsbuildinfo
 .claude/worktrees/
 .vercel
 .env*
+
+# Catalog ingest raw response cache
+scripts/catalog/.cache/

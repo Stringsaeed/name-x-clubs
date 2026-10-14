@@ -1,0 +1,692 @@
+{
+  "canada": {
+    "en": "Canada",
+    "ar": "كندا",
+    "flag": "🇨🇦",
+    "region": "americas"
+  },
+  "japan": {
+    "en": "Japan",
+    "ar": "اليابان",
+    "flag": "🇯🇵",
+    "region": "asia"
+  },
+  "norway": {
+    "en": "Norway",
+    "ar": "النرويج",
+    "flag": "🇳🇴",
+    "region": "europe"
+  },
+  "england": {
+    "en": "England",
+    "ar": "إنجلترا",
+    "flag": "🏴",
+    "region": "europe"
+  },
+  "scotland": {
+    "en": "Scotland",
+    "ar": "اسكتلندا",
+    "flag": "🏴",
+    "region": "europe"
+  },
+  "wales": {
+    "en": "Wales",
+    "ar": "ويلز",
+    "flag": "🏴",
+    "region": "europe"
+  },
+  "northern-ireland": {
+    "en": "Northern Ireland",
+    "ar": "أيرلندا الشمالية",
+    "flag": "🏴",
+    "region": "europe"
+  },
+  "ireland": {
+    "en": "Ireland",
+    "ar": "أيرلندا",
+    "flag": "🇮🇪",
+    "region": "europe"
+  },
+  "hungary": {
+    "en": "Hungary",
+    "ar": "المجر",
+    "flag": "🇭🇺",
+    "region": "europe"
+  },
+  "spain": {
+    "en": "Spain",
+    "ar": "إسبانيا",
+    "flag": "🇪🇸",
+    "region": "europe"
+  },
+  "usa": {
+    "en": "United States",
+    "ar": "الولايات المتحدة",
+    "flag": "🇺🇸",
+    "region": "americas"
+  },
+  "belgium": {
+    "en": "Belgium",
+    "ar": "بلجيكا",
+    "flag": "🇧🇪",
+    "region": "europe"
+  },
+  "luxembourg": {
+    "en": "Luxembourg",
+    "ar": "لوكسمبورغ",
+    "flag": "🇱🇺",
+    "region": "europe"
+  },
+  "finland": {
+    "en": "Finland",
+    "ar": "فنلندا",
+    "flag": "🇫🇮",
+    "region": "europe"
+  },
+  "sweden": {
+    "en": "Sweden",
+    "ar": "السويد",
+    "flag": "🇸🇪",
+    "region": "europe"
+  },
+  "denmark": {
+    "en": "Denmark",
+    "ar": "الدنمارك",
+    "flag": "🇩🇰",
+    "region": "europe"
+  },
+  "poland": {
+    "en": "Poland",
+    "ar": "بولندا",
+    "flag": "🇵🇱",
+    "region": "europe"
+  },
+  "lithuania": {
+    "en": "Lithuania",
+    "ar": "لتوانيا",
+    "flag": "🇱🇹",
+    "region": "europe"
+  },
+  "italy": {
+    "en": "Italy",
+    "ar": "إيطاليا",
+    "flag": "🇮🇹",
+    "region": "europe"
+  },
+  "switzerland": {
+    "en": "Switzerland",
+    "ar": "سويسرا",
+    "flag": "🇨🇭",
+    "region": "europe"
+  },
+  "austria": {
+    "en": "Austria",
+    "ar": "النمسا",
+    "flag": "🇦🇹",
+    "region": "europe"
+  },
+  "greece": {
+    "en": "Greece",
+    "ar": "اليونان",
+    "flag": "🇬🇷",
+    "region": "europe"
+  },
+  "turkey": {
+    "en": "Türkiye",
+    "ar": "تركيا",
+    "flag": "🇹🇷",
+    "region": "europe"
+  },
+  "portugal": {
+    "en": "Portugal",
+    "ar": "البرتغال",
+    "flag": "🇵🇹",
+    "region": "europe"
+  },
+  "netherlands": {
+    "en": "Netherlands",
+    "ar": "هولندا",
+    "flag": "🇳🇱",
+    "region": "europe"
+  },
+  "uruguay": {
+    "en": "Uruguay",
+    "ar": "الأوروغواي",
+    "flag": "🇺🇾",
+    "region": "americas"
+  },
+  "egypt": {
+    "en": "Egypt",
+    "ar": "مصر",
+    "flag": "🇪🇬",
+    "region": "africa"
+  },
+  "mexico": {
+    "en": "Mexico",
+    "ar": "المكسيك",
+    "flag": "🇲🇽",
+    "region": "americas"
+  },
+  "ethiopia": {
+    "en": "Ethiopia",
+    "ar": "إثيوبيا",
+    "flag": "🇪🇹",
+    "region": "africa"
+  },
+  "ghana": {
+    "en": "Ghana",
+    "ar": "غانا",
+    "flag": "🇬🇭",
+    "region": "africa"
+  },
+  "france": {
+    "en": "France",
+    "ar": "فرنسا",
+    "flag": "🇫🇷",
+    "region": "europe"
+  },
+  "china": {
+    "en": "China",
+    "ar": "الصين",
+    "flag": "🇨🇳",
+    "region": "asia"
+  },
+  "brazil": {
+    "en": "Brazil",
+    "ar": "البرازيل",
+    "flag": "🇧🇷",
+    "region": "americas"
+  },
+  "russia": {
+    "en": "Russia",
+    "ar": "روسيا",
+    "flag": "🇷🇺",
+    "region": "europe"
+  },
+  "germany": {
+    "en": "Germany",
+    "ar": "ألمانيا",
+    "flag": "🇩🇪",
+    "region": "europe"
+  },
+  "belarus": {
+    "en": "Belarus",
+    "ar": "بيلاروس",
+    "flag": "🇧🇾",
+    "region": "europe"
+  },
+  "iceland": {
+    "en": "Iceland",
+    "ar": "آيسلندا",
+    "flag": "🇮🇸",
+    "region": "europe"
+  },
+  "estonia": {
+    "en": "Estonia",
+    "ar": "إستونيا",
+    "flag": "🇪🇪",
+    "region": "europe"
+  },
+  "latvia": {
+    "en": "Latvia",
+    "ar": "لاتفيا",
+    "flag": "🇱🇻",
+    "region": "europe"
+  },
+  "ukraine": {
+    "en": "Ukraine",
+    "ar": "أوكرانيا",
+    "flag": "🇺🇦",
+    "region": "europe"
+  },
+  "czech-republic": {
+    "en": "Czech Republic",
+    "ar": "جمهورية التشيك",
+    "flag": "🇨🇿",
+    "region": "europe"
+  },
+  "slovakia": {
+    "en": "Slovakia",
+    "ar": "سلوفاكيا",
+    "flag": "🇸🇰",
+    "region": "europe"
+  },
+  "slovenia": {
+    "en": "Slovenia",
+    "ar": "سلوفينيا",
+    "flag": "🇸🇮",
+    "region": "europe"
+  },
+  "moldova": {
+    "en": "Moldova",
+    "ar": "مولدوفا",
+    "flag": "🇲🇩",
+    "region": "europe"
+  },
+  "romania": {
+    "en": "Romania",
+    "ar": "رومانيا",
+    "flag": "🇷🇴",
+    "region": "europe"
+  },
+  "bulgaria": {
+    "en": "Bulgaria",
+    "ar": "بلغاريا",
+    "flag": "🇧🇬",
+    "region": "europe"
+  },
+  "north-macedonia": {
+    "en": "North Macedonia",
+    "ar": "مقدونيا الشمالية",
+    "flag": "🇲🇰",
+    "region": "europe"
+  },
+  "albania": {
+    "en": "Albania",
+    "ar": "ألبانيا",
+    "flag": "🇦🇱",
+    "region": "europe"
+  },
+  "croatia": {
+    "en": "Croatia",
+    "ar": "كرواتيا",
+    "flag": "🇭🇷",
+    "region": "europe"
+  },
+  "bosnia-and-herzegovina": {
+    "en": "Bosnia and Herzegovina",
+    "ar": "البوسنة والهرسك",
+    "flag": "🇧🇦",
+    "region": "europe"
+  },
+  "azerbaijan": {
+    "en": "Azerbaijan",
+    "ar": "أذربيجان",
+    "flag": "🇦🇿",
+    "region": "europe"
+  },
+  "andorra": {
+    "en": "Andorra",
+    "ar": "أندورا",
+    "flag": "🇦🇩",
+    "region": "europe"
+  },
+  "cyprus": {
+    "en": "Cyprus",
+    "ar": "قبرص",
+    "flag": "🇨🇾",
+    "region": "europe"
+  },
+  "georgia": {
+    "en": "Georgia",
+    "ar": "جورجيا",
+    "flag": "🇬🇪",
+    "region": "europe"
+  },
+  "kazakhstan": {
+    "en": "Kazakhstan",
+    "ar": "كازاخستان",
+    "flag": "🇰🇿",
+    "region": "europe"
+  },
+  "malta": {
+    "en": "Malta",
+    "ar": "مالطا",
+    "flag": "🇲🇹",
+    "region": "europe"
+  },
+  "montenegro": {
+    "en": "Montenegro",
+    "ar": "الجبل الأسود",
+    "flag": "🇲🇪",
+    "region": "europe"
+  },
+  "san-marino": {
+    "en": "San Marino",
+    "ar": "سان مارينو",
+    "flag": "🇸🇲",
+    "region": "europe"
+  },
+  "indonesia": {
+    "en": "Indonesia",
+    "ar": "إندونيسيا",
+    "flag": "🇮🇩",
+    "region": "asia"
+  },
+  "south-africa": {
+    "en": "South Africa",
+    "ar": "جنوب إفريقيا",
+    "flag": "🇿🇦",
+    "region": "africa"
+  },
+  "algeria": {
+    "en": "Algeria",
+    "ar": "الجزائر",
+    "flag": "🇩🇿",
+    "region": "africa"
+  },
+  "uzbekistan": {
+    "en": "Uzbekistan",
+    "ar": "أوزبكستان",
+    "flag": "🇺🇿",
+    "region": "asia"
+  },
+  "chile": {
+    "en": "Chile",
+    "ar": "تشيلي",
+    "flag": "🇨🇱",
+    "region": "americas"
+  },
+  "liechtenstein": {
+    "en": "Liechtenstein",
+    "ar": "ليختنشتاين",
+    "flag": "🇱🇮",
+    "region": "europe"
+  },
+  "bahrain": {
+    "en": "Bahrain",
+    "ar": "البحرين",
+    "flag": "🇧🇭",
+    "region": "asia"
+  },
+  "armenia": {
+    "en": "Armenia",
+    "ar": "أرمينيا",
+    "flag": "🇦🇲",
+    "region": "europe"
+  },
+  "serbia": {
+    "en": "Serbia",
+    "ar": "صربيا",
+    "flag": "🇷🇸",
+    "region": "europe"
+  },
+  "australia": {
+    "en": "Australia",
+    "ar": "أستراليا",
+    "flag": "🇦🇺",
+    "region": "oceania"
+  },
+  "argentina": {
+    "en": "Argentina",
+    "ar": "الأرجنتين",
+    "flag": "🇦🇷",
+    "region": "americas"
+  },
+  "peru": {
+    "en": "Peru",
+    "ar": "بيرو",
+    "flag": "🇵🇪",
+    "region": "americas"
+  },
+  "north-korea": {
+    "en": "North Korea",
+    "ar": "كوريا الشمالية",
+    "flag": "🇰🇵",
+    "region": "asia"
+  },
+  "new-zealand": {
+    "en": "New Zealand",
+    "ar": "نيوزيلندا",
+    "flag": "🇳🇿",
+    "region": "oceania"
+  },
+  "india": {
+    "en": "India",
+    "ar": "الهند",
+    "flag": "🇮🇳",
+    "region": "asia"
+  },
+  "venezuela": {
+    "en": "Venezuela",
+    "ar": "فنزويلا",
+    "flag": "🇻🇪",
+    "region": "americas"
+  },
+  "paraguay": {
+    "en": "Paraguay",
+    "ar": "باراغواي",
+    "flag": "🇵🇾",
+    "region": "americas"
+  },
+  "ecuador": {
+    "en": "Ecuador",
+    "ar": "الإكوادور",
+    "flag": "🇪🇨",
+    "region": "americas"
+  },
+  "colombia": {
+    "en": "Colombia",
+    "ar": "كولومبيا",
+    "flag": "🇨🇴",
+    "region": "americas"
+  },
+  "bolivia": {
+    "en": "Bolivia",
+    "ar": "بوليفيا",
+    "flag": "🇧🇴",
+    "region": "americas"
+  },
+  "guatemala": {
+    "en": "Guatemala",
+    "ar": "غواتيمالا",
+    "flag": "🇬🇹",
+    "region": "americas"
+  },
+  "honduras": {
+    "en": "Honduras",
+    "ar": "هندوراس",
+    "flag": "🇭🇳",
+    "region": "americas"
+  },
+  "iran": {
+    "en": "Iran",
+    "ar": "إيران",
+    "flag": "🇮🇷",
+    "region": "asia"
+  },
+  "iraq": {
+    "en": "Iraq",
+    "ar": "العراق",
+    "flag": "🇮🇶",
+    "region": "asia"
+  },
+  "costa-rica": {
+    "en": "Costa Rica",
+    "ar": "كوستاريكا",
+    "flag": "🇨🇷",
+    "region": "americas"
+  },
+  "israel": {
+    "en": "Israel",
+    "ar": "إسرائيل",
+    "flag": "🇮🇱",
+    "region": "europe"
+  },
+  "jordan": {
+    "en": "Jordan",
+    "ar": "الأردن",
+    "flag": "🇯🇴",
+    "region": "asia"
+  },
+  "kyrgyzstan": {
+    "en": "Kyrgyzstan",
+    "ar": "قرغيزستان",
+    "flag": "🇰🇬",
+    "region": "asia"
+  },
+  "kuwait": {
+    "en": "Kuwait",
+    "ar": "الكويت",
+    "flag": "🇰🇼",
+    "region": "asia"
+  },
+  "lebanon": {
+    "en": "Lebanon",
+    "ar": "لبنان",
+    "flag": "🇱🇧",
+    "region": "asia"
+  },
+  "malaysia": {
+    "en": "Malaysia",
+    "ar": "ماليزيا",
+    "flag": "🇲🇾",
+    "region": "asia"
+  },
+  "oman": {
+    "en": "Oman",
+    "ar": "سلطنة عمان",
+    "flag": "🇴🇲",
+    "region": "asia"
+  },
+  "qatar": {
+    "en": "Qatar",
+    "ar": "قطر",
+    "flag": "🇶🇦",
+    "region": "asia"
+  },
+  "saudi": {
+    "en": "Saudi Arabia",
+    "ar": "السعودية",
+    "flag": "🇸🇦",
+    "region": "asia"
+  },
+  "syria": {
+    "en": "Syria",
+    "ar": "سوريا",
+    "flag": "🇸🇾",
+    "region": "asia"
+  },
+  "tajikistan": {
+    "en": "Tajikistan",
+    "ar": "طاجيكستان",
+    "flag": "🇹🇯",
+    "region": "asia"
+  },
+  "thailand": {
+    "en": "Thailand",
+    "ar": "تايلاند",
+    "flag": "🇹🇭",
+    "region": "asia"
+  },
+  "turkmenistan": {
+    "en": "Turkmenistan",
+    "ar": "تركمانستان",
+    "flag": "🇹🇲",
+    "region": "asia"
+  },
+  "uae": {
+    "en": "United Arab Emirates",
+    "ar": "الإمارات",
+    "flag": "🇦🇪",
+    "region": "asia"
+  },
+  "vietnam": {
+    "en": "Vietnam",
+    "ar": "فيتنام",
+    "flag": "🇻🇳",
+    "region": "asia"
+  },
+  "south-korea": {
+    "en": "South Korea",
+    "ar": "كوريا الجنوبية",
+    "flag": "🇰🇷",
+    "region": "asia"
+  },
+  "tunisia": {
+    "en": "Tunisia",
+    "ar": "تونس",
+    "flag": "🇹🇳",
+    "region": "africa"
+  },
+  "dr-congo": {
+    "en": "DR Congo",
+    "ar": "الكونغو الديمقراطية",
+    "flag": "🇨🇩",
+    "region": "africa"
+  },
+  "guinea": {
+    "en": "Guinea",
+    "ar": "غينيا",
+    "flag": "🇬🇳",
+    "region": "africa"
+  },
+  "ivory-coast": {
+    "en": "Ivory Coast",
+    "ar": "ساحل العاج",
+    "flag": "🇨🇮",
+    "region": "africa"
+  },
+  "cameroon": {
+    "en": "Cameroon",
+    "ar": "الكاميرون",
+    "flag": "🇨🇲",
+    "region": "africa"
+  },
+  "libya": {
+    "en": "Libya",
+    "ar": "ليبيا",
+    "flag": "🇱🇾",
+    "region": "africa"
+  },
+  "mauritania": {
+    "en": "Mauritania",
+    "ar": "موريتانيا",
+    "flag": "🇲🇷",
+    "region": "africa"
+  },
+  "morocco": {
+    "en": "Morocco",
+    "ar": "المغرب",
+    "flag": "🇲🇦",
+    "region": "africa"
+  },
+  "nigeria": {
+    "en": "Nigeria",
+    "ar": "نيجيريا",
+    "flag": "🇳🇬",
+    "region": "africa"
+  },
+  "somalia": {
+    "en": "Somalia",
+    "ar": "الصومال",
+    "flag": "🇸🇴",
+    "region": "africa"
+  },
+  "sudan": {
+    "en": "Sudan",
+    "ar": "السودان",
+    "flag": "🇸🇩",
+    "region": "africa"
+  },
+  "kosovo": {
+    "en": "Kosovo",
+    "ar": "كوسوفو",
+    "flag": "🇽🇰",
+    "region": "europe"
+  },
+  "gibraltar": {
+    "en": "Gibraltar",
+    "ar": "جبل طارق",
+    "flag": "🇬🇮",
+    "region": "europe"
+  },
+  "faroe-islands": {
+    "en": "Faroe Islands",
+    "ar": "جزر فارو",
+    "flag": "🇫🇴",
+    "region": "europe"
+  },
+  "hong-kong": {
+    "en": "Hong Kong",
+    "ar": "هونغ كونغ",
+    "flag": "🇭🇰",
+    "region": "asia"
+  },
+  "palestine": {
+    "en": "Palestine",
+    "ar": "دولة فلسطين",
+    "flag": "🇵🇸",
+    "region": "asia"
+  }
+}

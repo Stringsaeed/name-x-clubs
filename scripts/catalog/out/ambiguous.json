@@ -1,0 +1,432 @@
+[
+  {
+    "terms": [
+      "real",
+      "ريال",
+      "الريال"
+    ],
+    "candidates": [
+      "spain-0",
+      "spain-6",
+      "spain-8",
+      "spain-17"
+    ]
+  },
+  {
+    "terms": [
+      "madrid",
+      "مدريد"
+    ],
+    "candidates": [
+      "spain-0",
+      "spain-2"
+    ]
+  },
+  {
+    "terms": [
+      "atletico",
+      "اتلتيكو",
+      "اتليتيكو"
+    ],
+    "candidates": [
+      "spain-2",
+      "brazil-11"
+    ]
+  },
+  {
+    "terms": [
+      "inter",
+      "انتر",
+      "الانتر"
+    ],
+    "candidates": [
+      "italy-1",
+      "brazil-9",
+      "usa-0"
+    ]
+  },
+  {
+    "terms": [
+      "manchester",
+      "مانشستر"
+    ],
+    "candidates": [
+      "england-1",
+      "england-2"
+    ]
+  },
+  {
+    "terms": [
+      "united",
+      "يونايتد"
+    ],
+    "candidates": [
+      "england-1",
+      "england-6",
+      "england-9",
+      "england-16",
+      "england-22",
+      "scotland-5",
+      "usa-4"
+    ]
+  },
+  {
+    "terms": [
+      "city",
+      "سيتي"
+    ],
+    "candidates": [
+      "england-2",
+      "england-15",
+      "england-25",
+      "usa-5"
+    ]
+  },
+  {
+    "terms": [
+      "sheffield",
+      "شيفيلد"
+    ],
+    "candidates": [
+      "england-22",
+      "england-23"
+    ]
+  },
+  {
+    "terms": [
+      "borussia",
+      "بوروسيا",
+      "بروسيا"
+    ],
+    "candidates": [
+      "germany-1",
+      "germany-8"
+    ]
+  },
+  {
+    "terms": [
+      "los angeles",
+      "la",
+      "لوس انجلوس"
+    ],
+    "candidates": [
+      "usa-1",
+      "usa-2"
+    ]
+  },
+  {
+    "terms": [
+      "new york",
+      "ny",
+      "نيويورك",
+      "نيو يورك"
+    ],
+    "candidates": [
+      "usa-5",
+      "usa-6"
+    ]
+  },
+  {
+    "terms": [
+      "al ahli",
+      "alahli",
+      "ahli",
+      "الأهلي",
+      "اهلي"
+    ],
+    "candidates": [
+      "egypt-0",
+      "saudi-3",
+      "wd-286659",
+      "wd-2829200"
+    ]
+  },
+  {
+    "terms": [
+      "al ittihad",
+      "alittihad",
+      "ittihad",
+      "الاتحاد",
+      "اتحاد"
+    ],
+    "candidates": [
+      "saudi-2",
+      "egypt-5",
+      "wd-429501"
+    ]
+  },
+  {
+    "terms": [
+      "al nasr",
+      "alnasr",
+      "nasr",
+      "النصر",
+      "نصر"
+    ],
+    "candidates": [
+      "saudi-1",
+      "uae-6"
+    ]
+  },
+  {
+    "terms": [
+      "the citizens"
+    ],
+    "candidates": [
+      "england-2",
+      "wd-48879",
+      "wd-264129"
+    ]
+  },
+  {
+    "terms": [
+      "the sky blues"
+    ],
+    "candidates": [
+      "england-2",
+      "wd-19580"
+    ]
+  },
+  {
+    "terms": [
+      "liverpool",
+      "ليفربول"
+    ],
+    "candidates": [
+      "england-3",
+      "wd-1131189"
+    ]
+  },
+  {
+    "terms": [
+      "the lilywhites"
+    ],
+    "candidates": [
+      "england-5",
+      "wd-19612"
+    ]
+  },
+  {
+    "terms": [
+      "النادي الملكي"
+    ],
+    "candidates": [
+      "spain-0",
+      "egypt-1"
+    ]
+  },
+  {
+    "terms": [
+      "برشلونه"
+    ],
+    "candidates": [
+      "spain-1",
+      "wd-248782"
+    ]
+  },
+  {
+    "terms": [
+      "الهلال"
+    ],
+    "candidates": [
+      "saudi-0",
+      "wd-284461"
+    ]
+  },
+  {
+    "terms": [
+      "النادي الاهلي"
+    ],
+    "candidates": [
+      "saudi-3",
+      "uae-1",
+      "wd-284452",
+      "wd-1932104",
+      "wd-166724",
+      "wd-286659",
+      "wd-2829200"
+    ]
+  },
+  {
+    "terms": [
+      "الوحده"
+    ],
+    "candidates": [
+      "uae-3",
+      "wd-181868"
+    ]
+  },
+  {
+    "terms": [
+      "nacional"
+    ],
+    "candidates": [
+      "wd-499616",
+      "wd-216459",
+      "wd-332605",
+      "wd-603101"
+    ]
+  },
+  {
+    "terms": [
+      "the bluebirds"
+    ],
+    "candidates": [
+      "wd-18662",
+      "wd-18507"
+    ]
+  },
+  {
+    "terms": [
+      "htafc"
+    ],
+    "candidates": [
+      "wd-19473",
+      "wd-2219286"
+    ]
+  },
+  {
+    "terms": [
+      "امريكا"
+    ],
+    "candidates": [
+      "wd-459090",
+      "wd-338285"
+    ]
+  },
+  {
+    "terms": [
+      "the valiants"
+    ],
+    "candidates": [
+      "wd-19462",
+      "wd-48948"
+    ]
+  },
+  {
+    "terms": [
+      "the hatters"
+    ],
+    "candidates": [
+      "wd-18520",
+      "wd-18526"
+    ]
+  },
+  {
+    "terms": [
+      "bristol"
+    ],
+    "candidates": [
+      "wd-19456",
+      "wd-48925"
+    ]
+  },
+  {
+    "terms": [
+      "the robins"
+    ],
+    "candidates": [
+      "wd-19456",
+      "wd-19634",
+      "wd-48932"
+    ]
+  },
+  {
+    "terms": [
+      "olimpia"
+    ],
+    "candidates": [
+      "wd-604589",
+      "wd-1023208"
+    ]
+  },
+  {
+    "terms": [
+      "the us"
+    ],
+    "candidates": [
+      "wd-48946",
+      "wd-19578",
+      "wd-18509",
+      "wd-2454929"
+    ]
+  },
+  {
+    "terms": [
+      "al arabi sc",
+      "al arabi",
+      "alarabi",
+      "النادي العربي الرياضي"
+    ],
+    "candidates": [
+      "wd-283760",
+      "wd-425270"
+    ]
+  },
+  {
+    "terms": [
+      "the pilgrims"
+    ],
+    "candidates": [
+      "wd-48947",
+      "wd-894605"
+    ]
+  },
+  {
+    "terms": [
+      "the dons"
+    ],
+    "candidates": [
+      "wd-248188",
+      "wd-48851"
+    ]
+  },
+  {
+    "terms": [
+      "alfaisaly"
+    ],
+    "candidates": [
+      "wd-285702",
+      "wd-2829334"
+    ]
+  },
+  {
+    "terms": [
+      "غواراني"
+    ],
+    "candidates": [
+      "wd-605044",
+      "wd-1133475"
+    ]
+  },
+  {
+    "terms": [
+      "اوروبا"
+    ],
+    "candidates": [
+      "wd-15732501",
+      "wd-856024"
+    ]
+  },
+  {
+    "terms": [
+      "النجمه"
+    ],
+    "candidates": [
+      "wd-812738",
+      "wd-310713",
+      "wd-647556"
+    ]
+  },
+  {
+    "terms": [
+      "al najma",
+      "alnajma",
+      "al najma sc"
+    ],
+    "candidates": [
+      "wd-310713",
+      "wd-647556"
+    ]
+  }
+]

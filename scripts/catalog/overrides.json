@@ -1,0 +1,1704 @@
+{
+  "Q101859": {
+    "id": "germany-6",
+    "name": "Wolfsburg",
+    "arabic": "فولفسبورغ",
+    "country": "germany",
+    "aliases": ["vfl wolfsburg", "فولفسبورج"],
+    "removeAliases": []
+  },
+  "Q101959": {
+    "id": "germany-8",
+    "name": "Borussia Mönchengladbach",
+    "arabic": "بوروسيا مونشنغلادباخ",
+    "country": "germany",
+    "aliases": [
+      "gladbach",
+      "monchengladbach",
+      "mönchengladbach",
+      "borussia monchengladbach",
+      "غلادباخ",
+      "مونشنغلادباخ"
+    ],
+    "removeAliases": []
+  },
+  "Q102720": {
+    "id": "germany-16",
+    "name": "Hertha Berlin",
+    "arabic": "هيرتا برلين",
+    "country": "germany",
+    "aliases": ["hertha", "hertha bsc"],
+    "removeAliases": []
+  },
+  "Q10286": {
+    "id": "spain-13",
+    "name": "Osasuna",
+    "arabic": "أوساسونا",
+    "country": "spain",
+    "aliases": ["ca osasuna", "اوساسونا"],
+    "removeAliases": []
+  },
+  "Q10308": {
+    "id": "spain-17",
+    "name": "Real Zaragoza",
+    "arabic": "ريال سرقسطة",
+    "country": "spain",
+    "aliases": ["zaragoza", "سرقسطة"],
+    "removeAliases": []
+  },
+  "Q1031200": {
+    "id": "usa-8",
+    "name": "Portland Timbers",
+    "arabic": "بورتلاند تيمبرز",
+    "country": "usa",
+    "aliases": ["portland", "بورتلاند"],
+    "removeAliases": []
+  },
+  "Q10315": {
+    "id": "spain-8",
+    "name": "Real Sociedad",
+    "arabic": "ريال سوسيداد",
+    "country": "spain",
+    "aliases": ["sociedad", "سوسيداد"],
+    "removeAliases": []
+  },
+  "Q10329": {
+    "id": "spain-3",
+    "name": "Sevilla",
+    "arabic": "إشبيلية",
+    "country": "spain",
+    "aliases": ["sevilla fc", "seville", "اشبيلية"],
+    "removeAliases": []
+  },
+  "Q10333": {
+    "id": "spain-4",
+    "name": "Valencia",
+    "arabic": "فالنسيا",
+    "country": "spain",
+    "aliases": ["valencia cf", "ڤالنسيا"],
+    "removeAliases": []
+  },
+  "Q104761": {
+    "id": "germany-2",
+    "name": "Bayer Leverkusen",
+    "arabic": "باير ليفركوزن",
+    "country": "germany",
+    "aliases": ["leverkusen", "bayer 04 leverkusen", "ليفركوزن"],
+    "removeAliases": []
+  },
+  "Q104770": {
+    "id": "germany-14",
+    "name": "FC Köln",
+    "arabic": "كولن",
+    "country": "germany",
+    "aliases": ["koln", "köln", "cologne", "fc cologne"],
+    "removeAliases": []
+  },
+  "Q1051514": {
+    "id": "morocco-0",
+    "name": "Raja Casablanca",
+    "arabic": "الرجاء الرياضي",
+    "country": "morocco",
+    "aliases": ["raja", "raja ca", "raja club athletic", "الرجاء", "رجاء"],
+    "removeAliases": []
+  },
+  "Q105254": {
+    "id": "germany-13",
+    "name": "Mainz 05",
+    "arabic": "ماينز 05",
+    "country": "germany",
+    "aliases": ["mainz", "ماينز"],
+    "removeAliases": []
+  },
+  "Q106394": {
+    "id": "germany-12",
+    "name": "Freiburg",
+    "arabic": "فرايبورغ",
+    "country": "germany",
+    "aliases": ["sc freiburg", "فرايبورج"],
+    "removeAliases": []
+  },
+  "Q1120838": {
+    "id": "italy-15",
+    "name": "Como",
+    "arabic": "كومو",
+    "country": "italy",
+    "aliases": ["como 1907"],
+    "removeAliases": []
+  },
+  "Q1128631": {
+    "id": "england-16",
+    "name": "Leeds United",
+    "arabic": "ليدز يونايتد",
+    "country": "england",
+    "aliases": ["leeds", "ليدز"],
+    "removeAliases": []
+  },
+  "Q1130849": {
+    "id": "england-3",
+    "name": "Liverpool",
+    "arabic": "ليفربول",
+    "country": "england",
+    "aliases": ["liverpool fc", "lfc", "ليفر", "الليفر"],
+    "removeAliases": []
+  },
+  "Q1138386": {
+    "exclude": true,
+    "note": "Old Portland Timbers (USL), not the MLS club"
+  },
+  "Q1139095": {
+    "id": "morocco-1",
+    "name": "Wydad Casablanca",
+    "arabic": "الوداد الرياضي",
+    "country": "morocco",
+    "aliases": ["wydad", "wac", "wydad ac", "الوداد", "وداد"],
+    "removeAliases": []
+  },
+  "Q115804941": {
+    "exclude": true,
+    "note": "Duplicate Wikidata item for Al Nassr (use Q482764)"
+  },
+  "Q11938": {
+    "id": "netherlands-1",
+    "name": "PSV Eindhoven",
+    "arabic": "بي إس في آيندهوفن",
+    "country": "netherlands",
+    "aliases": ["psv", "eindhoven", "ايندهوفن", "بي اس في", "آيندهوفن"],
+    "removeAliases": []
+  },
+  "Q11945": {
+    "id": "spain-9",
+    "name": "Girona",
+    "arabic": "جيرونا",
+    "country": "spain",
+    "aliases": ["girona fc", "خيرونا"],
+    "removeAliases": []
+  },
+  "Q11979": {
+    "id": "spain-15",
+    "name": "Las Palmas",
+    "arabic": "لاس بالماس",
+    "country": "spain",
+    "aliases": ["ud las palmas"],
+    "removeAliases": []
+  },
+  "Q12247594": {
+    "id": "saudi-11",
+    "name": "Damac",
+    "arabic": "ضمك",
+    "country": "saudi",
+    "aliases": ["damac fc", "damak"],
+    "removeAliases": []
+  },
+  "Q12297": {
+    "id": "spain-5",
+    "name": "Villarreal",
+    "arabic": "فياريال",
+    "country": "spain",
+    "aliases": ["villarreal cf", "villareal", "ڤياريال"],
+    "removeAliases": []
+  },
+  "Q123514942": {
+    "exclude": true,
+    "note": "Duplicate Wikidata item for Al Qadsiah (use Q286191)"
+  },
+  "Q126334": {
+    "id": "france-10",
+    "name": "Strasbourg",
+    "arabic": "ستراسبورغ",
+    "country": "france",
+    "aliases": ["rc strasbourg", "ستراسبورج", "racing strasbourg", "racing club de strasbourg"],
+    "removeAliases": []
+  },
+  "Q1270141": {
+    "id": "morocco-2",
+    "name": "AS FAR",
+    "arabic": "الجيش الملكي",
+    "country": "morocco",
+    "aliases": ["far rabat", "as far rabat", "far", "الجيش"],
+    "removeAliases": []
+  },
+  "Q128446": {
+    "id": "portugal-1",
+    "name": "Porto",
+    "arabic": "بورتو",
+    "country": "portugal",
+    "aliases": ["fc porto"],
+    "removeAliases": []
+  },
+  "Q131499": {
+    "id": "portugal-0",
+    "name": "Benfica",
+    "arabic": "بنفيكا",
+    "country": "portugal",
+    "aliases": ["sl benfica", "sport lisboa e benfica", "بينفيكا"],
+    "removeAliases": []
+  },
+  "Q132885": {
+    "id": "france-1",
+    "name": "Marseille",
+    "arabic": "مارسيليا",
+    "country": "france",
+    "aliases": ["olympique marseille", "olympique de marseille", "om", "مارسيليا"],
+    "removeAliases": []
+  },
+  "Q1329368": {
+    "id": "egypt-3",
+    "name": "Ismaily",
+    "arabic": "الإسماعيلي",
+    "country": "egypt",
+    "aliases": ["ismaily sc", "ismaili", "اسماعيلي"],
+    "removeAliases": []
+  },
+  "Q13361030": {
+    "id": "usa-5",
+    "name": "New York City FC",
+    "arabic": "نيويورك سيتي",
+    "country": "usa",
+    "aliases": ["nycfc", "new york city", "نيو يورك سيتي"],
+    "removeAliases": []
+  },
+  "Q13391": {
+    "id": "italy-19",
+    "name": "Lecce",
+    "arabic": "ليتشي",
+    "country": "italy",
+    "aliases": ["us lecce"],
+    "removeAliases": []
+  },
+  "Q134241": {
+    "id": "netherlands-2",
+    "name": "Feyenoord",
+    "arabic": "فينورد",
+    "country": "netherlands",
+    "aliases": ["feyenoord rotterdam", "فينورد روتردام"],
+    "removeAliases": []
+  },
+  "Q1344302": {
+    "id": "uae-7",
+    "name": "Baniyas",
+    "arabic": "بني ياس",
+    "country": "uae",
+    "aliases": ["bani yas", "بنيياس"],
+    "removeAliases": []
+  },
+  "Q1387105": {
+    "id": "portugal-6",
+    "name": "Famalicão",
+    "arabic": "فاماليكاو",
+    "country": "portugal",
+    "aliases": ["famalicao"],
+    "removeAliases": []
+  },
+  "Q1389863": {
+    "id": "morocco-3",
+    "name": "FUS Rabat",
+    "arabic": "الفتح الرباطي",
+    "country": "morocco",
+    "aliases": ["fus", "fath union sport"],
+    "removeAliases": []
+  },
+  "Q141971": {
+    "id": "germany-15",
+    "name": "Union Berlin",
+    "arabic": "يونيون برلين",
+    "country": "germany",
+    "aliases": ["union", "fc union berlin", "اونيون برلين"],
+    "removeAliases": []
+  },
+  "Q1422": {
+    "id": "italy-2",
+    "name": "Juventus",
+    "arabic": "يوفنتوس",
+    "country": "italy",
+    "aliases": ["juve", "juventus fc", "يوفي", "يوڤنتوس", "اليوفي", "يوفنتس"],
+    "removeAliases": []
+  },
+  "Q1457": {
+    "id": "italy-11",
+    "name": "Sampdoria",
+    "arabic": "سامبدوريا",
+    "country": "italy",
+    "aliases": ["uc sampdoria"],
+    "removeAliases": []
+  },
+  "Q1543": {
+    "id": "italy-0",
+    "name": "AC Milan",
+    "arabic": "إيه سي ميلان",
+    "country": "italy",
+    "aliases": ["milan", "acm", "a c milan", "اي سي ميلان", "ميلان", "اسي ميلان"],
+    "removeAliases": []
+  },
+  "Q15755": {
+    "id": "germany-17",
+    "name": "Augsburg",
+    "arabic": "أوغسبورغ",
+    "country": "germany",
+    "aliases": ["fc augsburg", "اوغسبورغ"],
+    "removeAliases": []
+  },
+  "Q15789": {
+    "id": "germany-0",
+    "name": "Bayern Munich",
+    "arabic": "بايرن ميونخ",
+    "country": "germany",
+    "aliases": [
+      "bayern",
+      "bayern munchen",
+      "bayern münchen",
+      "fc bayern",
+      "بايرن",
+      "البايرن",
+      "بايرن ميونيخ"
+    ],
+    "removeAliases": []
+  },
+  "Q15799": {
+    "id": "argentina-1",
+    "name": "River Plate",
+    "arabic": "ريفر بليت",
+    "country": "argentina",
+    "aliases": ["river", "ريفر"],
+    "removeAliases": []
+  },
+  "Q16025275": {
+    "exclude": true,
+    "note": "Old Portland Timbers (NASL), not the MLS club"
+  },
+  "Q16836317": {
+    "id": "usa-4",
+    "name": "Atlanta United",
+    "arabic": "أتلانتا يونايتد",
+    "country": "usa",
+    "aliases": ["atlanta", "atlanta united fc", "اتلانتا"],
+    "removeAliases": []
+  },
+  "Q16844931": {
+    "id": "usa-0",
+    "name": "Inter Miami",
+    "arabic": "إنتر ميامي",
+    "country": "usa",
+    "aliases": ["inter miami cf", "miami", "انتر ميامي"],
+    "removeAliases": []
+  },
+  "Q170703": {
+    "id": "argentina-0",
+    "name": "Boca Juniors",
+    "arabic": "بوكا جونيورز",
+    "country": "argentina",
+    "aliases": ["boca", "بوكا"],
+    "removeAliases": []
+  },
+  "Q172476": {
+    "id": "france-12",
+    "name": "Bordeaux",
+    "arabic": "بوردو",
+    "country": "france",
+    "aliases": ["girondins bordeaux", "girondins de bordeaux"],
+    "removeAliases": []
+  },
+  "Q172567": {
+    "id": "turkey-2",
+    "name": "Beşiktaş",
+    "arabic": "بشكتاش",
+    "country": "turkey",
+    "aliases": ["besiktas", "beşiktaş jk", "بيشكتاش"],
+    "removeAliases": []
+  },
+  "Q17479": {
+    "id": "brazil-0",
+    "name": "Flamengo",
+    "arabic": "فلامنغو",
+    "country": "brazil",
+    "aliases": ["cr flamengo", "فلامنجو"],
+    "removeAliases": []
+  },
+  "Q180305": {
+    "id": "france-3",
+    "name": "Monaco",
+    "arabic": "موناكو",
+    "country": "france",
+    "aliases": ["as monaco", "asm"],
+    "removeAliases": []
+  },
+  "Q18207291": {
+    "id": "egypt-2",
+    "name": "Pyramids",
+    "arabic": "بيراميدز",
+    "country": "egypt",
+    "aliases": ["pyramids fc"],
+    "removeAliases": []
+  },
+  "Q18380286": {
+    "id": "usa-2",
+    "name": "Los Angeles FC",
+    "arabic": "لوس أنجلوس إف سي",
+    "country": "usa",
+    "aliases": ["lafc", "la fc", "los angeles fc", "لوس انجلوس اف سي"],
+    "removeAliases": []
+  },
+  "Q185163": {
+    "id": "france-5",
+    "name": "Nice",
+    "arabic": "نيس",
+    "country": "france",
+    "aliases": ["ogc nice"],
+    "removeAliases": []
+  },
+  "Q18656": {
+    "id": "england-1",
+    "name": "Manchester United",
+    "arabic": "مانشستر يونايتد",
+    "country": "england",
+    "aliases": [
+      "man utd",
+      "man united",
+      "man u",
+      "manchester utd",
+      "mufc",
+      "مان يونايتد",
+      "مان يونايتيد",
+      "مانشستر يونيتد"
+    ],
+    "removeAliases": []
+  },
+  "Q18661": {
+    "id": "england-29",
+    "name": "Middlesbrough",
+    "arabic": "ميدلزبره",
+    "country": "england",
+    "aliases": ["boro", "ميدلسبره"],
+    "removeAliases": []
+  },
+  "Q18708": {
+    "id": "england-12",
+    "name": "Fulham",
+    "arabic": "فولهام",
+    "country": "england",
+    "aliases": ["fulham fc", "فولام"],
+    "removeAliases": []
+  },
+  "Q18711": {
+    "id": "england-7",
+    "name": "Aston Villa",
+    "arabic": "أستون فيلا",
+    "country": "england",
+    "aliases": ["astonvilla", "avfc", "استون فيلا", "أستون ڤيلا"],
+    "removeAliases": []
+  },
+  "Q18716": {
+    "id": "england-6",
+    "name": "Newcastle United",
+    "arabic": "نيوكاسل يونايتد",
+    "country": "england",
+    "aliases": ["newcastle", "nufc", "نيوكاسل"],
+    "removeAliases": []
+  },
+  "Q18721": {
+    "id": "england-25",
+    "name": "Norwich City",
+    "arabic": "نورويتش سيتي",
+    "country": "england",
+    "aliases": ["norwich", "نورويتش"],
+    "removeAliases": []
+  },
+  "Q18732": {
+    "id": "england-17",
+    "name": "Southampton",
+    "arabic": "ساوثهامبتون",
+    "country": "england",
+    "aliases": ["saints", "ساوثامبتون"],
+    "removeAliases": []
+  },
+  "Q187326": {
+    "id": "scotland-2",
+    "name": "Aberdeen",
+    "arabic": "أبردين",
+    "country": "scotland",
+    "aliases": ["aberdeen fc", "ابردين"],
+    "removeAliases": []
+  },
+  "Q18739": {
+    "id": "england-21",
+    "name": "Sunderland",
+    "arabic": "سندرلاند",
+    "country": "england",
+    "aliases": ["sunderland afc"],
+    "removeAliases": []
+  },
+  "Q18741": {
+    "id": "england-5",
+    "name": "Tottenham Hotspur",
+    "arabic": "توتنهام هوتسبير",
+    "country": "england",
+    "aliases": ["tottenham", "spurs", "thfc", "توتنهام", "توتنهام هوتسبر"],
+    "removeAliases": []
+  },
+  "Q18747": {
+    "id": "england-9",
+    "name": "West Ham United",
+    "arabic": "وست هام يونايتد",
+    "country": "england",
+    "aliases": ["west ham", "westham", "وست هام", "ويست هام"],
+    "removeAliases": []
+  },
+  "Q1877396": {
+    "id": "egypt-7",
+    "name": "Enppi",
+    "arabic": "إنبي",
+    "country": "egypt",
+    "aliases": ["enppi sc", "انبي"],
+    "removeAliases": []
+  },
+  "Q188277": {
+    "id": "brazil-10",
+    "name": "Cruzeiro",
+    "arabic": "كروزيرو",
+    "country": "brazil",
+    "aliases": ["cruzeiro ec"],
+    "removeAliases": []
+  },
+  "Q1886": {
+    "id": "italy-6",
+    "name": "Atalanta",
+    "arabic": "أتالانتا",
+    "country": "italy",
+    "aliases": ["atalanta bc", "اتالانتا"],
+    "removeAliases": []
+  },
+  "Q1893": {
+    "id": "italy-8",
+    "name": "Bologna",
+    "arabic": "بولونيا",
+    "country": "italy",
+    "aliases": ["bologna fc", "بولونيا"],
+    "removeAliases": []
+  },
+  "Q1900": {
+    "id": "italy-16",
+    "name": "Cagliari",
+    "arabic": "كالياري",
+    "country": "italy",
+    "aliases": ["cagliari calcio"],
+    "removeAliases": []
+  },
+  "Q191264": {
+    "id": "netherlands-3",
+    "name": "AZ Alkmaar",
+    "arabic": "ألكمار",
+    "country": "netherlands",
+    "aliases": ["az", "alkmaar", "اي زد الكمار"],
+    "removeAliases": []
+  },
+  "Q191843": {
+    "id": "france-7",
+    "name": "Lens",
+    "arabic": "لانس",
+    "country": "france",
+    "aliases": ["rc lens"],
+    "removeAliases": []
+  },
+  "Q192071": {
+    "id": "france-9",
+    "name": "Nantes",
+    "arabic": "نانت",
+    "country": "france",
+    "aliases": ["fc nantes"],
+    "removeAliases": []
+  },
+  "Q192597": {
+    "id": "scotland-4",
+    "name": "Hibernian",
+    "arabic": "هيبرنيان",
+    "country": "scotland",
+    "aliases": ["hibs", "هيبرنيان"],
+    "removeAliases": []
+  },
+  "Q192641": {
+    "id": "turkey-3",
+    "name": "Trabzonspor",
+    "arabic": "طرابزون سبور",
+    "country": "turkey",
+    "aliases": ["trabzon", "طرابزون"],
+    "removeAliases": []
+  },
+  "Q192873": {
+    "id": "scotland-5",
+    "name": "Dundee United",
+    "arabic": "دندي يونايتد",
+    "country": "scotland",
+    "aliases": ["dundee utd", "داندي يونايتد"],
+    "removeAliases": []
+  },
+  "Q19446": {
+    "id": "england-28",
+    "name": "Blackburn Rovers",
+    "arabic": "بلاكبيرن روفرز",
+    "country": "england",
+    "aliases": ["blackburn", "بلاكبيرن"],
+    "removeAliases": []
+  },
+  "Q19453": {
+    "id": "england-10",
+    "name": "Brighton & Hove Albion",
+    "arabic": "برايتون أند هوف ألبيون",
+    "country": "england",
+    "aliases": ["brighton", "brighton and hove albion", "brighton hove albion", "برايتون"],
+    "removeAliases": []
+  },
+  "Q19458": {
+    "id": "england-20",
+    "name": "Burnley",
+    "arabic": "بيرنلي",
+    "country": "england",
+    "aliases": ["burnley fc", "بيرنلى"],
+    "removeAliases": []
+  },
+  "Q19467": {
+    "id": "england-11",
+    "name": "Crystal Palace",
+    "arabic": "كريستال بالاس",
+    "country": "england",
+    "aliases": ["palace", "كريستال بالاس"],
+    "removeAliases": []
+  },
+  "Q19470": {
+    "id": "england-27",
+    "name": "Derby County",
+    "arabic": "ديربي كاونتي",
+    "country": "england",
+    "aliases": ["derby", "ديربي"],
+    "removeAliases": []
+  },
+  "Q19481": {
+    "id": "england-15",
+    "name": "Leicester City",
+    "arabic": "ليستر سيتي",
+    "country": "england",
+    "aliases": ["leicester", "ليستر"],
+    "removeAliases": []
+  },
+  "Q19490": {
+    "id": "england-14",
+    "name": "Nottingham Forest",
+    "arabic": "نوتنغهام فورست",
+    "country": "england",
+    "aliases": ["nottingham", "forest", "نوتنغهام", "نوتينغهام فورست"],
+    "removeAliases": []
+  },
+  "Q19498": {
+    "id": "england-23",
+    "name": "Sheffield Wednesday",
+    "arabic": "شيفيلد وينزداي",
+    "country": "england",
+    "aliases": ["sheff wednesday", "شيفيلد وينزدي"],
+    "removeAliases": []
+  },
+  "Q19500": {
+    "id": "england-13",
+    "name": "Wolverhampton Wanderers",
+    "arabic": "وولفرهامبتون",
+    "country": "england",
+    "aliases": ["wolves", "wolverhampton", "ولفرهامبتون", "الولفز"],
+    "removeAliases": []
+  },
+  "Q19509": {
+    "id": "france-6",
+    "name": "Rennes",
+    "arabic": "رين",
+    "country": "france",
+    "aliases": ["stade rennais", "rennais"],
+    "removeAliases": []
+  },
+  "Q19513": {
+    "id": "france-11",
+    "name": "Montpellier",
+    "arabic": "مونبلييه",
+    "country": "france",
+    "aliases": ["montpellier hsc", "مونبلييه"],
+    "removeAliases": []
+  },
+  "Q19516": {
+    "id": "france-4",
+    "name": "Lille",
+    "arabic": "ليل",
+    "country": "france",
+    "aliases": ["losc", "losc lille"],
+    "removeAliases": []
+  },
+  "Q19518": {
+    "id": "france-13",
+    "name": "Toulouse",
+    "arabic": "تولوز",
+    "country": "france",
+    "aliases": ["toulouse fc"],
+    "removeAliases": []
+  },
+  "Q19521": {
+    "id": "france-8",
+    "name": "Saint-Étienne",
+    "arabic": "سانت إتيان",
+    "country": "france",
+    "aliases": ["saint etienne", "st etienne", "asse", "سانت اتيان"],
+    "removeAliases": []
+  },
+  "Q19568": {
+    "id": "england-18",
+    "name": "Bournemouth",
+    "arabic": "بورنموث",
+    "country": "england",
+    "aliases": ["afc bournemouth", "بورنموث"],
+    "removeAliases": []
+  },
+  "Q19571": {
+    "id": "england-19",
+    "name": "Brentford",
+    "arabic": "برينتفورد",
+    "country": "england",
+    "aliases": ["brentford fc", "برنتفورد"],
+    "removeAliases": []
+  },
+  "Q19593": {
+    "id": "scotland-0",
+    "name": "Celtic",
+    "arabic": "سيلتيك",
+    "country": "scotland",
+    "aliases": ["celtic fc", "سلتيك"],
+    "removeAliases": []
+  },
+  "Q19597": {
+    "id": "scotland-1",
+    "name": "Rangers",
+    "arabic": "رينجرز",
+    "country": "scotland",
+    "aliases": ["rangers fc", "glasgow rangers", "غلاسكو رينجرز"],
+    "removeAliases": []
+  },
+  "Q19603": {
+    "id": "netherlands-4",
+    "name": "Twente",
+    "arabic": "تفينتي",
+    "country": "netherlands",
+    "aliases": ["fc twente", "تفينتى"],
+    "removeAliases": []
+  },
+  "Q19607": {
+    "id": "england-22",
+    "name": "Sheffield United",
+    "arabic": "شيفيلد يونايتد",
+    "country": "england",
+    "aliases": ["sheffield utd", "شيفيلد يونايتيد"],
+    "removeAliases": []
+  },
+  "Q200321": {
+    "id": "netherlands-7",
+    "name": "Heerenveen",
+    "arabic": "هيرنفين",
+    "country": "netherlands",
+    "aliases": ["sc heerenveen"],
+    "removeAliases": []
+  },
+  "Q20081435": {
+    "id": "saudi-10",
+    "name": "Al Fayha",
+    "arabic": "الفيحاء",
+    "country": "saudi",
+    "aliases": ["al fayha", "fayha"],
+    "removeAliases": []
+  },
+  "Q202093": {
+    "id": "scotland-3",
+    "name": "Hearts",
+    "arabic": "هارتس",
+    "country": "scotland",
+    "aliases": ["heart of midlothian", "هارت أوف ميدلوثيان"],
+    "removeAliases": []
+  },
+  "Q2027718": {
+    "id": "saudi-12",
+    "name": "Al Khaleej",
+    "arabic": "الخليج",
+    "country": "saudi",
+    "aliases": ["al khaleej", "khaleej"],
+    "removeAliases": []
+  },
+  "Q203573": {
+    "id": "turkey-5",
+    "name": "Bursaspor",
+    "arabic": "بورصة سبور",
+    "country": "turkey",
+    "aliases": ["bursa", "بورصا سبور"],
+    "removeAliases": []
+  },
+  "Q204220": {
+    "id": "usa-6",
+    "name": "New York Red Bulls",
+    "arabic": "نيويورك ريد بولز",
+    "country": "usa",
+    "aliases": ["ny red bulls", "red bulls", "نيو يورك ريد بولز"],
+    "removeAliases": []
+  },
+  "Q204357": {
+    "id": "usa-1",
+    "name": "LA Galaxy",
+    "arabic": "لوس أنجلوس غالاكسي",
+    "country": "usa",
+    "aliases": ["la galaxy", "galaxy", "los angeles galaxy", "لوس انجلوس جالاكسي", "غالاكسي"],
+    "removeAliases": []
+  },
+  "Q2052": {
+    "id": "italy-7",
+    "name": "Fiorentina",
+    "arabic": "فيورنتينا",
+    "country": "italy",
+    "aliases": ["acf fiorentina", "فيورنتينا"],
+    "removeAliases": []
+  },
+  "Q2074": {
+    "id": "italy-10",
+    "name": "Genoa",
+    "arabic": "جنوى",
+    "country": "italy",
+    "aliases": ["genoa cfc", "جينوا"],
+    "removeAliases": []
+  },
+  "Q2084802": {
+    "id": "egypt-5",
+    "name": "Al Ittihad Alexandria",
+    "arabic": "الاتحاد السكندري",
+    "country": "egypt",
+    "aliases": ["al ittihad alexandria", "ittihad alexandria"],
+    "removeAliases": []
+  },
+  "Q2091731": {
+    "exclude": true,
+    "note": "Old Seattle Sounders (NASL), not the MLS club"
+  },
+  "Q214940": {
+    "id": "argentina-5",
+    "name": "Estudiantes",
+    "arabic": "إستوديانتيس",
+    "country": "argentina",
+    "aliases": ["estudiantes de la plata", "استوديانتيس"],
+    "removeAliases": []
+  },
+  "Q214978": {
+    "id": "argentina-3",
+    "name": "Independiente",
+    "arabic": "إنديبندينتي",
+    "country": "argentina",
+    "aliases": ["ca independiente", "انديبندينتي"],
+    "removeAliases": []
+  },
+  "Q215163": {
+    "id": "argentina-6",
+    "name": "Vélez Sarsfield",
+    "arabic": "فيليز سارسفيلد",
+    "country": "argentina",
+    "aliases": ["velez", "velez sarsfield", "فيليز"],
+    "removeAliases": []
+  },
+  "Q218282": {
+    "id": "argentina-4",
+    "name": "San Lorenzo",
+    "arabic": "سان لورينزو",
+    "country": "argentina",
+    "aliases": ["san lorenzo de almagro"],
+    "removeAliases": []
+  },
+  "Q218372": {
+    "id": "france-14",
+    "name": "Brest",
+    "arabic": "بريست",
+    "country": "france",
+    "aliases": ["stade brestois", "brestois"],
+    "removeAliases": []
+  },
+  "Q219703": {
+    "id": "portugal-5",
+    "name": "Boavista",
+    "arabic": "بوافيشتا",
+    "country": "portugal",
+    "aliases": ["boavista fc", "بوافيستا"],
+    "removeAliases": []
+  },
+  "Q221695": {
+    "id": "brazil-8",
+    "name": "Grêmio",
+    "arabic": "غريميو",
+    "country": "brazil",
+    "aliases": ["gremio", "جريميو"],
+    "removeAliases": []
+  },
+  "Q221882": {
+    "id": "argentina-7",
+    "name": "Newell's Old Boys",
+    "arabic": "نيولز أولد بويز",
+    "country": "argentina",
+    "aliases": ["newells", "newells old boys", "newell s old boys", "نيولز"],
+    "removeAliases": []
+  },
+  "Q223450": {
+    "id": "portugal-4",
+    "name": "Vitória Guimarães",
+    "arabic": "فيتوريا غيماريش",
+    "country": "portugal",
+    "aliases": ["vitoria guimaraes", "guimaraes", "vitoria sc", "غيماريش"],
+    "removeAliases": []
+  },
+  "Q223566": {
+    "id": "egypt-0",
+    "name": "Al Ahly",
+    "arabic": "الأهلي المصري",
+    "country": "egypt",
+    "aliases": ["الاهلي القاهري", "al ahly egypt", "al ahly cairo", "al ahly sc"],
+    "removeAliases": []
+  },
+  "Q22707": {
+    "id": "germany-11",
+    "name": "Hoffenheim",
+    "arabic": "هوفنهايم",
+    "country": "germany",
+    "aliases": ["tsg hoffenheim", "tsg 1899 hoffenheim"],
+    "removeAliases": []
+  },
+  "Q22929915": {
+    "id": "egypt-9",
+    "name": "ZED",
+    "arabic": "زد",
+    "country": "egypt",
+    "aliases": ["zed fc", "زد اف سي"],
+    "removeAliases": []
+  },
+  "Q2422417": {
+    "exclude": true,
+    "note": "Toulouse FC (old club that was dissolved in 2003)"
+  },
+  "Q24680": {
+    "id": "netherlands-5",
+    "name": "Utrecht",
+    "arabic": "أوتريخت",
+    "country": "netherlands",
+    "aliases": ["fc utrecht", "اوتريخت"],
+    "removeAliases": []
+  },
+  "Q24711": {
+    "id": "netherlands-6",
+    "name": "Groningen",
+    "arabic": "خرونينغن",
+    "country": "netherlands",
+    "aliases": ["fc groningen", "غرونينغن"],
+    "removeAliases": []
+  },
+  "Q2494372": {
+    "exclude": true,
+    "note": "Crystal Palace F.C. (1861), a different, older club"
+  },
+  "Q2609": {
+    "id": "italy-5",
+    "name": "Lazio",
+    "arabic": "لاتسيو",
+    "country": "italy",
+    "aliases": ["ss lazio", "لاتزيو"],
+    "removeAliases": []
+  },
+  "Q2613971": {
+    "id": "saudi-6",
+    "name": "Al Taawoun",
+    "arabic": "التعاون",
+    "country": "saudi",
+    "aliases": ["al taawoun", "taawoun"],
+    "removeAliases": []
+  },
+  "Q2636005": {
+    "id": "saudi-4",
+    "name": "Al Shabab Saudi",
+    "arabic": "الشباب السعودي",
+    "country": "saudi",
+    "aliases": ["al shabab", "alshabab", "shabab", "الشباب"],
+    "removeAliases": []
+  },
+  "Q2641": {
+    "id": "italy-3",
+    "name": "Napoli",
+    "arabic": "نابولي",
+    "country": "italy",
+    "aliases": ["ssc napoli", "نابولى"],
+    "removeAliases": []
+  },
+  "Q2655899": {
+    "id": "saudi-9",
+    "name": "Al Riyadh",
+    "arabic": "الرياض",
+    "country": "saudi",
+    "aliases": ["al riyadh", "riyadh"],
+    "removeAliases": []
+  },
+  "Q2674": {
+    "id": "italy-18",
+    "name": "Palermo",
+    "arabic": "باليرمو",
+    "country": "italy",
+    "aliases": ["palermo fc"],
+    "removeAliases": []
+  },
+  "Q2693": {
+    "id": "italy-12",
+    "name": "Parma",
+    "arabic": "بارما",
+    "country": "italy",
+    "aliases": ["parma calcio"],
+    "removeAliases": []
+  },
+  "Q2701659": {
+    "id": "saudi-7",
+    "name": "Al Fateh",
+    "arabic": "الفتح",
+    "country": "saudi",
+    "aliases": ["al fateh", "fateh"],
+    "removeAliases": []
+  },
+  "Q270995": {
+    "id": "brazil-11",
+    "name": "Atlético Mineiro",
+    "arabic": "أتلتيكو مينيرو",
+    "country": "brazil",
+    "aliases": ["atletico mineiro", "galo", "اتلتيكو مينيرو"],
+    "removeAliases": []
+  },
+  "Q2714": {
+    "id": "england-26",
+    "name": "Watford",
+    "arabic": "واتفورد",
+    "country": "england",
+    "aliases": ["watford fc"],
+    "removeAliases": []
+  },
+  "Q2739": {
+    "id": "italy-4",
+    "name": "AS Roma",
+    "arabic": "روما",
+    "country": "italy",
+    "aliases": ["roma", "asroma", "a s roma", "اي اس روما"],
+    "removeAliases": []
+  },
+  "Q276533": {
+    "id": "argentina-2",
+    "name": "Racing Club",
+    "arabic": "راسينغ كلوب",
+    "country": "argentina",
+    "aliases": ["racing", "racing club de avellaneda", "راسينج"],
+    "removeAliases": []
+  },
+  "Q2768": {
+    "id": "italy-9",
+    "name": "Torino",
+    "arabic": "تورينو",
+    "country": "italy",
+    "aliases": ["torino fc", "turin"],
+    "removeAliases": []
+  },
+  "Q27964149": {
+    "id": "egypt-8",
+    "name": "Ceramica Cleopatra",
+    "arabic": "سيراميكا كليوباترا",
+    "country": "egypt",
+    "aliases": ["ceramica", "سيراميكا"],
+    "removeAliases": []
+  },
+  "Q2798": {
+    "id": "italy-13",
+    "name": "Udinese",
+    "arabic": "أودينيزي",
+    "country": "italy",
+    "aliases": ["udinese calcio", "اودينيزي"],
+    "removeAliases": []
+  },
+  "Q283767": {
+    "id": "uae-3",
+    "name": "Al Wahda UAE",
+    "arabic": "الوحدة الإماراتي",
+    "country": "uae",
+    "aliases": ["al wahda", "alwahda", "wahda", "الوحدة"],
+    "removeAliases": []
+  },
+  "Q286191": {
+    "id": "saudi-8",
+    "name": "Al Qadsiah",
+    "arabic": "القادسية السعودي",
+    "country": "saudi",
+    "aliases": ["al qadsiah", "qadsiah", "القادسية"],
+    "removeAliases": []
+  },
+  "Q286490": {
+    "id": "egypt-4",
+    "name": "Al Masry",
+    "arabic": "المصري",
+    "country": "egypt",
+    "aliases": ["al masry", "el masry", "المصري البورسعيدي"],
+    "removeAliases": []
+  },
+  "Q286504": {
+    "id": "egypt-1",
+    "name": "Zamalek",
+    "arabic": "الزمالك",
+    "country": "egypt",
+    "aliases": ["zamalek sc", "الزمالك المصري"],
+    "removeAliases": []
+  },
+  "Q286801": {
+    "id": "uae-5",
+    "name": "Sharjah",
+    "arabic": "الشارقة",
+    "country": "uae",
+    "aliases": ["al sharjah", "sharjah fc"],
+    "removeAliases": []
+  },
+  "Q2986998": {
+    "id": "saudi-13",
+    "name": "Al Raed",
+    "arabic": "الرائد",
+    "country": "saudi",
+    "aliases": ["al raed", "raed"],
+    "removeAliases": []
+  },
+  "Q3048741": {
+    "id": "egypt-6",
+    "name": "Smouha",
+    "arabic": "سموحة",
+    "country": "egypt",
+    "aliases": ["smouha sc"],
+    "removeAliases": []
+  },
+  "Q309480": {
+    "id": "saudi-2",
+    "name": "Al Ittihad",
+    "arabic": "الاتحاد السعودي",
+    "country": "saudi",
+    "aliases": ["اتحاد جدة", "al ittihad jeddah", "ittihad jeddah", "al ittihad saudi"],
+    "removeAliases": []
+  },
+  "Q32494": {
+    "id": "germany-9",
+    "name": "Schalke 04",
+    "arabic": "شالكه 04",
+    "country": "germany",
+    "aliases": ["schalke", "شالكه", "شالكة"],
+    "removeAliases": []
+  },
+  "Q3424751": {
+    "id": "morocco-4",
+    "name": "RS Berkane",
+    "arabic": "نهضة بركان",
+    "country": "morocco",
+    "aliases": ["berkane", "rsb", "بركان"],
+    "removeAliases": []
+  },
+  "Q35933": {
+    "id": "brazil-3",
+    "name": "Corinthians",
+    "arabic": "كورينثيانز",
+    "country": "brazil",
+    "aliases": ["corinthians paulista", "كورينثيانس"],
+    "removeAliases": []
+  },
+  "Q378368": {
+    "id": "uae-8",
+    "name": "Ajman",
+    "arabic": "عجمان",
+    "country": "uae",
+    "aliases": ["ajman club"],
+    "removeAliases": []
+  },
+  "Q3804552": {
+    "id": "uae-9",
+    "name": "Kalba",
+    "arabic": "كلباء",
+    "country": "uae",
+    "aliases": ["ittihad kalba", "al ittihad kalba", "اتحاد كلباء"],
+    "removeAliases": []
+  },
+  "Q38245": {
+    "id": "germany-4",
+    "name": "Eintracht Frankfurt",
+    "arabic": "آينتراخت فرانكفورت",
+    "country": "germany",
+    "aliases": ["frankfurt", "eintracht", "فرانكفورت", "اينتراخت فرانكفورت"],
+    "removeAliases": []
+  },
+  "Q38568": {
+    "id": "brazil-4",
+    "name": "São Paulo",
+    "arabic": "ساو باولو",
+    "country": "brazil",
+    "aliases": ["sao paulo", "sao paulo fc", "ساوباولو"],
+    "removeAliases": []
+  },
+  "Q41420": {
+    "id": "germany-1",
+    "name": "Borussia Dortmund",
+    "arabic": "بوروسيا دورتموند",
+    "country": "germany",
+    "aliases": ["dortmund", "bvb", "دورتموند", "بروسيا دورتموند"],
+    "removeAliases": []
+  },
+  "Q424943": {
+    "id": "uae-1",
+    "name": "Shabab Al Ahli",
+    "arabic": "شباب الأهلي",
+    "country": "uae",
+    "aliases": ["shabab al ahli", "shabab al ahli dubai", "شباب الاهلي دبي"],
+    "removeAliases": []
+  },
+  "Q429630": {
+    "id": "uae-4",
+    "name": "Al Jazira",
+    "arabic": "الجزيرة",
+    "country": "uae",
+    "aliases": ["al jazira", "aljazira", "jazira"],
+    "removeAliases": []
+  },
+  "Q44441": {
+    "id": "saudi-3",
+    "name": "Al Ahli Saudi",
+    "arabic": "الأهلي السعودي",
+    "country": "saudi",
+    "aliases": ["al ahli saudi", "اهلي جدة", "الأهلي جدة", "al ahli jeddah", "ahli jeddah"],
+    "removeAliases": []
+  },
+  "Q4512": {
+    "id": "germany-5",
+    "name": "Stuttgart",
+    "arabic": "شتوتغارت",
+    "country": "germany",
+    "aliases": ["vfb stuttgart", "شتوتجارت"],
+    "removeAliases": []
+  },
+  "Q457163": {
+    "id": "usa-7",
+    "name": "Columbus Crew",
+    "arabic": "كولومبوس كرو",
+    "country": "usa",
+    "aliases": ["columbus", "crew"],
+    "removeAliases": []
+  },
+  "Q482764": {
+    "id": "saudi-1",
+    "name": "Al Nassr",
+    "arabic": "النصر السعودي",
+    "country": "saudi",
+    "aliases": ["al nassr saudi", "al nassr riyadh"],
+    "removeAliases": []
+  },
+  "Q483020": {
+    "id": "france-0",
+    "name": "Paris Saint-Germain",
+    "arabic": "باريس سان جيرمان",
+    "country": "france",
+    "aliases": ["psg", "paris saint germain", "paris sg", "باريس", "بي اس جي", "باريس سان جرمان"],
+    "removeAliases": []
+  },
+  "Q495299": {
+    "id": "turkey-0",
+    "name": "Galatasaray",
+    "arabic": "غلطة سراي",
+    "country": "turkey",
+    "aliases": ["gala", "galatasaray sk", "جالاتا سراي", "غلاطة سراي", "غالاتاسراي"],
+    "removeAliases": []
+  },
+  "Q5014111": {
+    "id": "brazil-7",
+    "name": "Vasco da Gama",
+    "arabic": "فاسكو دا غاما",
+    "country": "brazil",
+    "aliases": ["vasco", "vasco da gama", "فاسكو دي جاما"],
+    "removeAliases": []
+  },
+  "Q50602": {
+    "id": "england-2",
+    "name": "Manchester City",
+    "arabic": "مانشستر سيتي",
+    "country": "england",
+    "aliases": ["man city", "mancity", "mcfc", "مان سيتي", "مانشستر سيتى"],
+    "removeAliases": []
+  },
+  "Q51974": {
+    "id": "germany-10",
+    "name": "Hamburg",
+    "arabic": "هامبورغ",
+    "country": "germany",
+    "aliases": ["hamburger sv", "hsv", "hamburg sv", "هامبورج"],
+    "removeAliases": []
+  },
+  "Q51976": {
+    "id": "germany-7",
+    "name": "Werder Bremen",
+    "arabic": "فيردر بريمن",
+    "country": "germany",
+    "aliases": ["bremen", "werder", "بريمن"],
+    "removeAliases": []
+  },
+  "Q520066": {
+    "id": "uae-2",
+    "name": "Al Wasl",
+    "arabic": "الوصل",
+    "country": "uae",
+    "aliases": ["al wasl", "alwasl", "wasl"],
+    "removeAliases": []
+  },
+  "Q5794": {
+    "id": "england-8",
+    "name": "Everton",
+    "arabic": "إيفرتون",
+    "country": "england",
+    "aliases": ["everton fc", "ايفرتون"],
+    "removeAliases": []
+  },
+  "Q60643348": {
+    "id": "usa-9",
+    "name": "Austin FC",
+    "arabic": "أوستن",
+    "country": "usa",
+    "aliases": ["austin", "اوستن"],
+    "removeAliases": []
+  },
+  "Q622432": {
+    "id": "portugal-7",
+    "name": "Rio Ave",
+    "arabic": "ريو آفي",
+    "country": "portugal",
+    "aliases": ["rioave", "ريو افي"],
+    "removeAliases": []
+  },
+  "Q631": {
+    "id": "italy-1",
+    "name": "Inter Milan",
+    "arabic": "إنتر ميلان",
+    "country": "italy",
+    "aliases": ["internazionale", "inter milano", "fc internazionale", "انتر ميلان"],
+    "removeAliases": []
+  },
+  "Q632511": {
+    "id": "usa-3",
+    "name": "Seattle Sounders",
+    "arabic": "سياتل ساوندرز",
+    "country": "usa",
+    "aliases": ["seattle", "seattle sounders fc", "سياتل"],
+    "removeAliases": []
+  },
+  "Q6601875": {
+    "id": "turkey-1",
+    "name": "Fenerbahçe",
+    "arabic": "فنربخشة",
+    "country": "turkey",
+    "aliases": ["fenerbahce", "fener", "فنربهشة", "فنرباتشي"],
+    "removeAliases": []
+  },
+  "Q6878716": {
+    "id": "uae-10",
+    "name": "Khor Fakkan",
+    "arabic": "خورفكان",
+    "country": "uae",
+    "aliases": ["khorfakkan", "خور فكان"],
+    "removeAliases": []
+  },
+  "Q702455": {
+    "id": "germany-3",
+    "name": "RB Leipzig",
+    "arabic": "آر بي لايبزيغ",
+    "country": "germany",
+    "aliases": ["leipzig", "rasenballsport leipzig", "لايبزيغ", "لايبزيج"],
+    "removeAliases": []
+  },
+  "Q704": {
+    "id": "france-2",
+    "name": "Lyon",
+    "arabic": "ليون",
+    "country": "france",
+    "aliases": ["olympique lyon", "olympique lyonnais", "ol", "أولمبيك ليون"],
+    "removeAliases": []
+  },
+  "Q7156": {
+    "id": "spain-1",
+    "name": "Barcelona",
+    "arabic": "برشلونة",
+    "country": "spain",
+    "aliases": ["fc barcelona", "barca", "barça", "fcb", "برشلونه", "البارسا", "بارسا"],
+    "removeAliases": []
+  },
+  "Q72844": {
+    "id": "saudi-5",
+    "name": "Al Ettifaq",
+    "arabic": "الاتفاق",
+    "country": "saudi",
+    "aliases": ["al ettifaq", "ettifaq", "al etifaq", "الاتفاق السعودي"],
+    "removeAliases": []
+  },
+  "Q73965": {
+    "id": "saudi-0",
+    "name": "Al Hilal",
+    "arabic": "الهلال السعودي",
+    "country": "saudi",
+    "aliases": ["al hilal", "alhilal", "hilal", "الهلال", "هلال", "الزعيم"],
+    "removeAliases": []
+  },
+  "Q75684": {
+    "id": "portugal-3",
+    "name": "Braga",
+    "arabic": "براغا",
+    "country": "portugal",
+    "aliases": ["sc braga", "براغا", "sporting braga", "sporting clube de braga", "سبورتينغ براغا"],
+    "removeAliases": []
+  },
+  "Q75729": {
+    "id": "portugal-2",
+    "name": "Sporting CP",
+    "arabic": "سبورتينغ لشبونة",
+    "country": "portugal",
+    "aliases": [
+      "sporting",
+      "sporting lisbon",
+      "sporting clube de portugal",
+      "سبورتنج لشبونة",
+      "سبورتينغ",
+      "سبورتنج"
+    ],
+    "removeAliases": []
+  },
+  "Q80845": {
+    "id": "brazil-9",
+    "name": "Internacional",
+    "arabic": "إنترناسيونال",
+    "country": "brazil",
+    "aliases": ["sport club internacional", "انترناسيونال"],
+    "removeAliases": []
+  },
+  "Q80955": {
+    "id": "brazil-2",
+    "name": "Santos",
+    "arabic": "سانتوس",
+    "country": "brazil",
+    "aliases": ["santos fc"],
+    "removeAliases": []
+  },
+  "Q80958": {
+    "id": "brazil-6",
+    "name": "Botafogo",
+    "arabic": "بوتافوغو",
+    "country": "brazil",
+    "aliases": ["botafogo fr", "بوتافوجو"],
+    "removeAliases": []
+  },
+  "Q80964": {
+    "id": "brazil-1",
+    "name": "Palmeiras",
+    "arabic": "بالميراس",
+    "country": "brazil",
+    "aliases": ["se palmeiras"],
+    "removeAliases": []
+  },
+  "Q80987": {
+    "id": "brazil-5",
+    "name": "Fluminense",
+    "arabic": "فلومينينسي",
+    "country": "brazil",
+    "aliases": ["fluminense fc", "فلومينينزي"],
+    "removeAliases": []
+  },
+  "Q812720": {
+    "id": "uae-0",
+    "name": "Al Ain",
+    "arabic": "العين",
+    "country": "uae",
+    "aliases": ["al ain", "alain", "ain", "العين الاماراتي"],
+    "removeAliases": []
+  },
+  "Q812723": {
+    "id": "uae-6",
+    "name": "Al Nasr Dubai",
+    "arabic": "النصر الإماراتي",
+    "country": "uae",
+    "aliases": ["al nasr dubai", "النصر دبي", "al nasr uae"],
+    "removeAliases": []
+  },
+  "Q81888": {
+    "id": "netherlands-0",
+    "name": "Ajax",
+    "arabic": "أياكس",
+    "country": "netherlands",
+    "aliases": ["ajax amsterdam", "afc ajax", "اياكس"],
+    "removeAliases": []
+  },
+  "Q857938": {
+    "id": "turkey-4",
+    "name": "Başakşehir",
+    "arabic": "باشاك شهير",
+    "country": "turkey",
+    "aliases": ["basaksehir", "istanbul basaksehir"],
+    "removeAliases": []
+  },
+  "Q8603": {
+    "id": "italy-14",
+    "name": "Sassuolo",
+    "arabic": "ساسولو",
+    "country": "italy",
+    "aliases": ["us sassuolo"],
+    "removeAliases": []
+  },
+  "Q8639": {
+    "id": "italy-17",
+    "name": "Hellas Verona",
+    "arabic": "هيلاس فيرونا",
+    "country": "italy",
+    "aliases": ["verona", "فيرونا"],
+    "removeAliases": []
+  },
+  "Q8682": {
+    "id": "spain-0",
+    "name": "Real Madrid",
+    "arabic": "ريال مدريد",
+    "country": "spain",
+    "aliases": ["realmadrid", "ريال مدريـد"],
+    "removeAliases": []
+  },
+  "Q8687": {
+    "id": "spain-7",
+    "name": "Athletic Bilbao",
+    "arabic": "أتلتيك بلباو",
+    "country": "spain",
+    "aliases": [
+      "athletic club",
+      "athletic",
+      "athletic bilbao",
+      "bilbao",
+      "اتلتيك بلباو",
+      "بلباو",
+      "أتلتيك بيلباو"
+    ],
+    "removeAliases": []
+  },
+  "Q8701": {
+    "id": "spain-2",
+    "name": "Atlético Madrid",
+    "arabic": "أتلتيكو مدريد",
+    "country": "spain",
+    "aliases": ["atletico madrid", "atleti", "اتليتيكو مدريد", "اتليتكو مدريد"],
+    "removeAliases": []
+  },
+  "Q8723": {
+    "id": "spain-6",
+    "name": "Real Betis",
+    "arabic": "ريال بيتيس",
+    "country": "spain",
+    "aliases": ["betis", "بيتيس"],
+    "removeAliases": []
+  },
+  "Q8749": {
+    "id": "spain-10",
+    "name": "Celta Vigo",
+    "arabic": "سيلتا فيغو",
+    "country": "spain",
+    "aliases": ["celta", "rc celta", "سيلتا فيجو", "سيلتا"],
+    "removeAliases": []
+  },
+  "Q8760": {
+    "id": "spain-16",
+    "name": "Deportivo La Coruña",
+    "arabic": "ديبورتيفو لاكورونيا",
+    "country": "spain",
+    "aliases": ["deportivo", "deportivo la coruna", "la coruna", "ديبورتيفو"],
+    "removeAliases": []
+  },
+  "Q8780": {
+    "id": "spain-11",
+    "name": "Espanyol",
+    "arabic": "إسبانيول",
+    "country": "spain",
+    "aliases": ["rcd espanyol", "اسبانيول"],
+    "removeAliases": []
+  },
+  "Q8806": {
+    "id": "spain-12",
+    "name": "Getafe",
+    "arabic": "خيتافي",
+    "country": "spain",
+    "aliases": ["getafe cf", "خيتافى"],
+    "removeAliases": []
+  },
+  "Q8835": {
+    "id": "spain-14",
+    "name": "Mallorca",
+    "arabic": "مايوركا",
+    "country": "spain",
+    "aliases": ["rcd mallorca", "ريال مايوركا", "real mallorca", "real club deportivo mallorca"],
+    "removeAliases": []
+  },
+  "Q929697": {
+    "id": "morocco-5",
+    "name": "Moghreb Tétouan",
+    "arabic": "المغرب التطواني",
+    "country": "morocco",
+    "aliases": ["moghreb tetouan", "tetouan", "تطوان"],
+    "removeAliases": []
+  },
+  "Q956200": {
+    "exclude": true,
+    "note": "Old Seattle Sounders (USL), not the MLS club"
+  },
+  "Q9616": {
+    "id": "england-4",
+    "name": "Chelsea",
+    "arabic": "تشيلسي",
+    "country": "england",
+    "aliases": ["chelsea fc", "تشلسي", "تشيلسى"],
+    "removeAliases": []
+  },
+  "Q9617": {
+    "id": "england-0",
+    "name": "Arsenal",
+    "arabic": "أرسنال",
+    "country": "england",
+    "aliases": ["arsenal fc", "ارسنال", "الارسنال", "gunners"],
+    "removeAliases": []
+  },
+  "Q9653": {
+    "id": "england-24",
+    "name": "Ipswich Town",
+    "arabic": "إيبسويتش تاون",
+    "country": "england",
+    "aliases": ["ipswich", "ايبسويتش"],
+    "removeAliases": []
+  },
+  "Q166724": {
+    "name": "Al Ahly Benghazi",
+    "arabic": "الأهلي بنغازي",
+    "aliases": [],
+    "removeAliases": ["Ahly Libya"],
+    "note": "Wikidata label \"Al Ahly SC\" collides with Al Ahly (Egypt)'s alias; its Arabic label has stray quotes"
+  },
+  "Q1932104": {
+    "name": "Al Ahli Tripoli",
+    "arabic": "الأهلي طرابلس",
+    "aliases": [],
+    "removeAliases": [],
+    "note": "Wikidata label is all-caps \"Al AHLI TRIPOLI SC\""
+  },
+  "Q2426819": {
+    "name": "Erzurumspor",
+    "arabic": "بي بي إيرزورومسبور",
+    "aliases": [],
+    "removeAliases": [],
+    "note": "Wikidata en label says \"Atlético Morelia\" (a Mexican club) but the item is Erzurumspor"
+  },
+  "Q704857": {
+    "name": "Tre Penne",
+    "aliases": [],
+    "removeAliases": [],
+    "note": "Wikidata en label is \"gil paja\"; enwiki title is SP Tre Penne"
+  },
+  "Q950835": {
+    "exclude": true,
+    "note": "Sevilla Atlético: Sevilla's reserve team, mislabelled \"FC barcelona\" on Wikidata"
+  }
+}

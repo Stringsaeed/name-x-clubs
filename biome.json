@@ -16,7 +16,9 @@
       "!src/locales/*/messages.ts",
       "!.vscode",
       "!.claude",
-      "!docs/design/mockups"
+      "!docs/design/mockups",
+      "!scripts/catalog/.cache",
+      "!scripts/catalog/out"
     ]
   },
   "formatter": {

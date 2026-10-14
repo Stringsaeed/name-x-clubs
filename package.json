@@ -23,6 +23,8 @@
     "i18n:extract": "lingui extract --clean",
     "i18n:check": "node scripts/check-i18n.mjs",
     "assets:restore": "node scripts/sync-crests.mjs",
+    "catalog:ingest": "node scripts/catalog/ingest.mjs",
+    "catalog:verify": "node scripts/catalog/verify.mjs",
     "start": "next start -H 127.0.0.1 -p 5173"
   },
   "dependencies": {
