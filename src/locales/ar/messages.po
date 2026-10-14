@@ -6,3 +6,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: ar\n"
+
+#: src/app/[lang]/layout.tsx
+msgid "Name 10, 50 or 100 football clubs. Play at your own pace in English or Arabic."
+msgstr "اذكر ١٠ أو ٥٠ أو ١٠٠ نادٍ لكرة القدم. العب بالسرعة التي تناسبك بالإنجليزية أو العربية."
