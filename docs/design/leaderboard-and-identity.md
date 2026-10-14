@@ -25,7 +25,7 @@ Status: proposal, decided 2026-10-14. Not implemented. Open items are listed at 
   - **Packages.** Effect 4 ships HTTP, Schema and SQL in `effect` itself. Use `@effect/sql-pg`, `@effect/sql-pglite` and `@effect/vitest` at 4.x, and do not install the v3-line `@effect/platform`.
   - **Bundle boundary.** A Biome `noRestrictedImports` rule keeps `effect` out of `src/game`, `src/components` and `src/screens`. A CI check fails if `.next/static` contains Effect.
 - **Hosting: Vercel** (Node runtime, Fluid Compute). Cloudflare stays possible but is not planned.
-- **Database: PlanetScale Postgres**, via standard `DATABASE_URL`. Neon remains a drop-in fallback, since the code only needs Postgres.
+- **Database: Neon Postgres** through the Vercel Marketplace integration (`DATABASE_URL` pooled, `DATABASE_URL_UNPOOLED` for migrations). The code only needs standard Postgres.
   - A small `PgClient` pool on Vercel Functions.
   - Tests: PGlite runs the real migrations in-process.
   - D1 is rejected: it would lock in the host and add a second SQL dialect.
@@ -113,7 +113,7 @@ Recommendation: A while playing, and B's compact "To beat" card plus top 5 befor
 
 ## Phases
 
-0. **Spike.** Fix the matcher exploits (in progress). Prove Effect 4 with `sql-pg` against PlanetScale Postgres on Vercel. Measure bundle size and cold start.
+0. **Spike.** Fix the matcher exploits (in progress). Prove Effect 4 with `sql-pg` against Neon on Vercel. Measure bundle size and cold start.
 1. **First boards.** Anonymous cookie, server rounds, the Mode 10 board (24 hours and all time) and "my rank". Tests use `@effect/vitest` with `TestClock` and PGlite against forged times, `seq` replay, foreign round ids and impossible pace. Playwright covers a ranked round on the board, offline fallback and resume on reload.
 2. **Identity and more boards.** Usernames, moderation, recovery code, transfer link and banner, Turnstile, Modes 50 and 100, 7-day boards.
 3. **Mode X and data lifecycle.** Mode X 15:00, retention sweep, export, deletion, report and hide.
@@ -123,7 +123,7 @@ Recommendation: A while playing, and B's compact "To beat" card plus top 5 befor
 
 Owner decisions, 2026-10-14.
 
-1. **Database:** PlanetScale Postgres. Neon is a drop-in fallback.
+1. **Database:** Neon Postgres via the Vercel integration.
 2. **Hosting:** Vercel (Node runtime, Fluid Compute). Cloudflare is not planned.
 3. **Mode X:** a single ranked 15:00 board. Scored by unique clubs; ties go to the earlier last accepted club.
 4. **Ranked entries:** up to 3 clubs per entry.
