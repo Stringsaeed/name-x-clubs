@@ -126,7 +126,7 @@ test('scrolls long answer history without moving the composer', async ({ page })
   await expect(page.getByRole('textbox')).toBeInViewport();
 });
 test('keeps an initials badge when a crest request fails', async ({ page }) => {
-  await page.route('**/assets/crests/england-0.png', (route) => route.abort());
+  await page.route('**/assets/crests/england-0.webp', (route) => route.abort());
   await practice(page);
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
   await page.getByRole('textbox').fill('Arsenal');
