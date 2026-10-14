@@ -46,3 +46,13 @@ test('keeps an initials fallback if a crest fails to load', async () => {
   expect(row?.querySelector('img')).toBeNull();
   expect(row).toHaveTextContent('A');
 });
+
+test('opens Free time with compact modes and no daily or promotional sections', () => {
+  render(<GameApp />);
+  expect(screen.getByRole('button', { name: 'Free time' })).toHaveAttribute('aria-current', 'page');
+  expect(screen.queryByRole('button', { name: 'Daily challenge' })).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'Mode 10' })).toHaveAttribute('aria-pressed', 'true');
+  expect(screen.getByRole('button', { name: 'Mode 50' })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'Mode 100' })).toBeInTheDocument();
+  expect(document.querySelector('.sidebar, .hero-description, .eyebrow')).toBeNull();
+});

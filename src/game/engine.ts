@@ -1,5 +1,5 @@
 import { type Club, type ClubId, clubs, countries } from '../content/catalog';
-import { type Challenge, type Level, levels, type Scope, type Session } from './model';
+import { type Challenge, type Level, levels, type Scope } from './model';
 
 export { clubs, countries, levels };
 export type Resolution =
@@ -219,7 +219,7 @@ export function dailyChallenge(now: Date, target: Level = 10) {
   const index = (((day - 20740) % pool.length) + pool.length) % pool.length;
   return { challenge: pool[index] ?? pool[0], key: dayKey(now), number: Math.max(1, day - 20739) };
 }
-export function dailyStorageKey(session: Extract<Session, { kind: 'daily' }>) {
+export function dailyStorageKey(session: { day: string; challenge: Challenge }) {
   return `nxc-v2-daily-${session.day}-${session.challenge.target}`;
 }
 export function scoreAnswers(

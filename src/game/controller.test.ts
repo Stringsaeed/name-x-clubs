@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { clubs } from '../content/catalog';
-import { createGameController, type StoragePort } from './controller';
+import { createGameController, elapsedSeconds, type StoragePort } from './controller';
 import { levels } from './model';
 
 class MemoryStorage implements StoragePort {
@@ -34,49 +34,60 @@ describe('saved game sessions', () => {
     expect(game.getSnapshot().feedback).toHaveLength(1);
     expect(game.getSnapshot().session.round.found).toHaveLength(0);
   });
-  test('keeps existing daily v2 saves and the original deadline', () => {
+  test('defaults to Free time and leaves disabled daily saves untouched', () => {
     const f = fixture();
+    f.storage.setItem('nxc-mode', JSON.stringify('daily'));
+    const saved = JSON.stringify({
+      phase: 'playing',
+      found: ['england-0'],
+      deadline: at + 45000,
+      remaining: 60,
+    });
+    f.storage.setItem('nxc-v2-daily-2026-10-14-10', saved);
+    const game = f.create();
+    expect(game.getSnapshot().mode).toBe('free');
+    expect(game.getSnapshot().session.round).toEqual({ phase: 'idle', found: [] });
+    game.dispatch({ type: 'start' });
+    expect(f.storage.getItem('nxc-v2-daily-2026-10-14-10')).toBe(saved);
+  });
+  test('counts up across refresh and freezes only when the player finishes', () => {
+    const f = fixture();
+    const game = f.create();
+    game.dispatch({ type: 'start' });
+    game.dispatch({ type: 'answer', text: 'Arsenal' });
+    f.setTime(at + 3615000);
+    game.dispatch({ type: 'tick' });
+    expect(game.getSnapshot().session.round.phase).toBe('playing');
+    const restored = f.create();
+    expect(elapsedSeconds(restored.getSnapshot().session, at + 3615000)).toBe(3615);
+    restored.dispatch({ type: 'finish' });
+    f.setTime(at + 7200000);
+    expect(elapsedSeconds(f.create().getSnapshot().session, at + 7200000)).toBe(3615);
+    restored.dispatch({ type: 'restart' });
+    expect(restored.getSnapshot().session.round).toEqual({ phase: 'idle', found: [] });
+  });
+  test('migrates an existing practice list without inventing historical elapsed time', () => {
+    const f = fixture();
+    f.storage.setItem('nxc-mode', JSON.stringify('practice'));
     f.storage.setItem(
-      'nxc-v2-daily-2026-10-14-10',
+      'nxc-v1-practice-10',
       JSON.stringify({
-        phase: 'playing',
-        found: ['england-0'],
-        deadline: at + 45000,
-        remaining: 60,
+        version: 1,
+        category: 'world',
+        challengeId: 'world',
+        round: { phase: 'playing', found: ['england-0'], deadline: null, remaining: 60 },
       }),
     );
     const game = f.create();
     expect(game.getSnapshot().session.round).toEqual({
       phase: 'playing',
       found: ['england-0'],
-      deadline: at + 45000,
+      startedAt: at,
     });
-    f.setTime(at + 47000);
-    game.dispatch({ type: 'tick' });
-    expect(game.getSnapshot().session.round).toEqual({
-      phase: 'complete',
-      found: ['england-0'],
-      remaining: 0,
-    });
-    game.dispatch({ type: 'start' });
-    expect(game.getSnapshot().session.round.phase).toBe('complete');
-  });
-  test('expires an inactive daily save immediately on opening', () => {
-    const f = fixture();
-    f.storage.setItem(
-      'nxc-v2-daily-2026-10-14-10',
-      JSON.stringify({
-        phase: 'playing',
-        found: ['england-0'],
-        deadline: at - 1000,
-        remaining: 60,
-      }),
-    );
-    expect(f.create().getSnapshot().session.round).toEqual({
-      phase: 'complete',
-      found: ['england-0'],
-      remaining: 0,
-    });
+    f.setTime(at + 23000);
+    expect(elapsedSeconds(f.create().getSnapshot().session, at + 23000)).toBe(23);
+    game.dispatch({ type: 'answer', text: 'Barcelona' });
+    expect(elapsedSeconds(f.create().getSnapshot().session, at + 23000)).toBe(23);
   });
   test('restores practice mode, a random question and accepted order', () => {
     const f = fixture();
@@ -93,7 +104,7 @@ describe('saved game sessions', () => {
     expect(restored.session).toEqual(before.session);
     expect(restored.session.round.found).toEqual(['england-0', 'england-1']);
   });
-  test('maintains separate progress and time limits for every level', () => {
+  test('maintains separate progress and start times for every mode size', () => {
     const f = fixture();
     const game = f.create();
     for (const level of levels) {
@@ -103,7 +114,7 @@ describe('saved game sessions', () => {
       expect(game.getSnapshot().session.round).toMatchObject({
         phase: 'playing',
         found: ['england-0'],
-        deadline: at + level * 6000,
+        startedAt: at,
       });
     }
     for (const level of levels) {
@@ -126,7 +137,7 @@ describe('saved game sessions', () => {
       });
       expect(game.getSnapshot().session.round).toMatchObject({
         phase: 'complete',
-        remaining: level * 6,
+        elapsed: 0,
       });
       expect(game.getSnapshot().session.round.found).toHaveLength(level);
       game.dispatch({ type: 'answer', text: 'Flamengo' });
@@ -137,15 +148,20 @@ describe('saved game sessions', () => {
     const f = fixture();
     for (const value of [
       'not json',
-      JSON.stringify({ phase: 'playing', found: ['unknown'], deadline: at + 60000, remaining: 60 }),
       JSON.stringify({
-        phase: 'playing',
-        found: ['england-0', 'england-0'],
-        deadline: at + 60000,
-        remaining: 60,
+        version: 2,
+        category: 'world',
+        challengeId: 'world',
+        round: { phase: 'playing', found: ['unknown'], startedAt: at },
+      }),
+      JSON.stringify({
+        version: 2,
+        category: 'world',
+        challengeId: 'world',
+        round: { phase: 'playing', found: ['england-0', 'england-0'], startedAt: at },
       }),
     ]) {
-      f.storage.setItem('nxc-v2-daily-2026-10-14-10', value);
+      f.storage.setItem('nxc-v2-free-10', value);
       expect(f.create().getSnapshot().session.round).toEqual({ phase: 'idle', found: [] });
       expect(f.create().getSnapshot().storageAvailable).toBe(true);
     }
@@ -165,19 +181,7 @@ describe('saved game sessions', () => {
     expect(game.getSnapshot().session.round.found).toEqual(['england-0']);
     expect(game.getSnapshot().storageAvailable).toBe(false);
   });
-  test('changes daily questions at UTC midnight, not local midnight', () => {
-    const f = fixture();
-    const game = f.create();
-    game.dispatch({ type: 'start' });
-    f.setTime(Date.parse('2026-10-15T00:00:00Z'));
-    game.dispatch({ type: 'tick' });
-    expect(game.getSnapshot().session).toMatchObject({
-      kind: 'daily',
-      day: '2026-10-15',
-      round: { phase: 'idle', found: [] },
-    });
-  });
-  test('starting again never extends an active deadline', () => {
+  test('starting again never resets elapsed time', () => {
     const f = fixture();
     const game = f.create();
     game.dispatch({ type: 'start' });

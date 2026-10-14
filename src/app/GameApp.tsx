@@ -1,32 +1,16 @@
-import {
-  Fragment,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from 'react';
+import { useEffect, useLayoutEffect, useState, useSyncExternalStore } from 'react';
 import { AnswerComposer } from '../components/AnswerComposer';
 import { AnswerList } from '../components/AnswerList';
 import { HelpDialog } from '../components/HelpDialog';
 import { Icon } from '../components/Icon';
 import { ResultPanel } from '../components/ResultPanel';
 import { Timer } from '../components/Timer';
-import { clubs } from '../content/catalog';
-import { categoryLabel, challengeParts, clubCountNoun } from '../content/labels';
+import { categoryLabel, challengeParts } from '../content/labels';
 import { messages } from '../content/messages';
 import { createGameController } from '../game/controller';
-import { challengesForLevel, durationForTarget } from '../game/engine';
+import { challengesForLevel } from '../game/engine';
 import { levels } from '../game/model';
 
-function Lines({ text }: { text: string }) {
-  return text.split('<br>').map((line, index) => (
-    <Fragment key={line}>
-      {index > 0 && <br />}
-      {line}
-    </Fragment>
-  ));
-}
 export function GameApp() {
   const [controller] = useState(() => createGameController());
   const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
@@ -34,10 +18,8 @@ export function GameApp() {
   const t = messages[language];
   const [help, setHelp] = useState(false);
   const [toast, setToast] = useState('');
-  const card = useRef<HTMLElement>(null);
   const playing = session.round.phase === 'playing';
   const complete = session.round.phase === 'complete';
-  const previousSelection = useRef({ mode, level, challenge: session.challenge.id, playing });
   useEffect(() => controller.connect(window), [controller]);
   useLayoutEffect(() => {
     document.documentElement.lang = language;
@@ -64,17 +46,6 @@ export function GameApp() {
     const timer = window.setTimeout(() => setToast(''), 4000);
     return () => window.clearTimeout(timer);
   }, [toast]);
-  useEffect(() => {
-    const previous = previousSelection.current;
-    const changed =
-      previous.mode !== mode ||
-      previous.level !== level ||
-      previous.challenge !== session.challenge.id ||
-      previous.playing;
-    if (!playing && changed && window.matchMedia('(max-width:760px)').matches)
-      card.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
-    previousSelection.current = { mode, level, challenge: session.challenge.id, playing };
-  }, [mode, level, session.challenge.id, playing]);
   const parts = challengeParts(session.challenge, language);
   const category = session.kind === 'practice' ? session.category : 'world';
   const practice = () => controller.dispatch({ type: 'mode', mode: 'practice' });
@@ -83,16 +54,6 @@ export function GameApp() {
       <span className="empty-ball">
         <Icon name="ball" />
       </span>
-      <h3>{language === 'en' ? 'The pitch is yours.' : 'الملعب لك.'}</h3>
-      <p>
-        {session.round.phase === 'idle'
-          ? language === 'en'
-            ? 'Start the round, then send your first club.'
-            : 'ابدأ الجولة، ثم اكتب أول نادٍ.'
-          : language === 'en'
-            ? 'Start with a club you know. Your answers appear here.'
-            : 'ابدأ بأي نادٍ تعرفه. إجاباتك تنضاف هنا.'}
-      </p>
       {session.round.phase === 'idle' && (
         <button
           className="button button-primary"
@@ -120,12 +81,12 @@ export function GameApp() {
           <nav className="main-nav" aria-label={language === 'en' ? 'Game modes' : 'أوضاع اللعب'}>
             <button
               type="button"
-              className={`nav-item ${mode === 'daily' ? 'active' : ''}`}
-              aria-current={mode === 'daily' ? 'page' : undefined}
-              onClick={() => controller.dispatch({ type: 'mode', mode: 'daily' })}
+              className={`nav-item ${mode === 'free' ? 'active' : ''}`}
+              aria-current={mode === 'free' ? 'page' : undefined}
+              onClick={() => controller.dispatch({ type: 'mode', mode: 'free' })}
             >
-              <Icon name="sun" />
-              {t.daily}
+              <Icon name="clock" />
+              {t.freeTime}
             </button>
             <button
               type="button"
@@ -164,10 +125,6 @@ export function GameApp() {
         <main>
           <section className="hero" aria-labelledby="hero-title">
             <div className="hero-copy">
-              <div className="eyebrow">
-                <span className="tiny-ball">✦</span>
-                {t.eyebrow}
-              </div>
               <h1 id="hero-title">
                 {t.hero1}
                 <br />
@@ -176,62 +133,27 @@ export function GameApp() {
                   <path d="M20 2v10m0 16v10M2 20h10m16 0h10M7 7l7 7m12 12 7 7M7 33l7-7m12-12 7-7" />
                 </svg>
               </h1>
-              <p className="hero-description">
-                <Lines text={t.heroDescription} />
-              </p>
-              <div className="hero-note">
-                <span className="status-dot" />
-                {t.heroNote}
-              </div>
             </div>
             <div className="hero-art">
               <img
                 src="/assets/pitch.svg"
+                width="560"
+                height="360"
                 alt={
                   language === 'en'
                     ? 'An illustrated football pitch with shirts and a football'
                     : 'رسم لملعب كرة قدم مع قمصان وكرة'
                 }
-                width="560"
-                height="360"
               />
-              <span className="art-caption">{t.artCaption}</span>
             </div>
           </section>
           <div className="game-layout">
-            <section
-              className="game-card"
-              id="game-card"
-              aria-labelledby="challenge-title"
-              ref={card}
-            >
-              <div className="game-topline">
-                <div className="challenge-label">
-                  <span className="label-icon">
-                    <Icon name={mode === 'daily' ? 'sun' : 'shuffle'} />
-                  </span>
-                  <span>{mode === 'daily' ? t.dailyLabel : t.practiceLabel}</span>
-                  {session.kind === 'daily' && (
-                    <span className="challenge-number">
-                      #{String(session.number).padStart(3, '0')}
-                    </span>
-                  )}
-                </div>
-                <span className="date-label">
-                  {session.kind === 'daily'
-                    ? new Intl.DateTimeFormat(language === 'ar' ? 'ar-AE' : 'en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        timeZone: 'UTC',
-                      }).format(new Date(`${session.day}T12:00:00Z`))
-                    : t.untimed}
-                </span>
-              </div>
+            <section className="game-card" id="game-card" aria-labelledby="challenge-title">
               <fieldset
                 className="level-picker"
-                aria-label={language === 'en' ? 'Choose a level' : 'اختر المستوى'}
+                aria-label={language === 'en' ? 'Choose a mode' : 'اختر الوضع'}
               >
-                {levels.map((target, index) => (
+                {levels.map((target) => (
                   <button
                     className={`level-button ${level === target ? 'active' : ''}`}
                     type="button"
@@ -240,12 +162,8 @@ export function GameApp() {
                     key={target}
                     onClick={() => controller.dispatch({ type: 'level', level: target })}
                   >
-                    <span className="level-kicker">
-                      {language === 'en' ? 'LEVEL' : 'المستوى'} {String(index + 1).padStart(2, '0')}
-                    </span>
                     <strong>
-                      {language === 'en' ? 'Name ' : 'اذكر '}
-                      {clubCountNoun(target, language)}
+                      {language === 'en' ? 'Mode' : 'وضع'} {target}
                     </strong>
                   </button>
                 ))}
@@ -285,10 +203,6 @@ export function GameApp() {
               )}
               <div className="challenge-heading">
                 <div>
-                  <div className="difficulty">
-                    <span />
-                    <span>{session.challenge.difficulty === 'medium' ? t.medium : t.easy}</span>
-                  </div>
                   <h2 id="challenge-title">
                     {parts.prefix}
                     <span
@@ -299,12 +213,9 @@ export function GameApp() {
                       {parts.suffix}
                     </span>
                   </h2>
-                  <p className="challenge-detail">
-                    {mode === 'daily'
-                      ? t.dailyDetail(level, durationForTarget(level) / 60)
-                      : t.practiceDetail(level)}
-                    {session.challenge.scope.kind === 'letter' ? ` ${t.letterDetail}` : ''}
-                  </p>
+                  {session.challenge.scope.kind === 'letter' && (
+                    <p className="challenge-detail">{t.letterDetail}</p>
+                  )}
                 </div>
                 <Timer session={session} language={language} />
               </div>
@@ -348,10 +259,7 @@ export function GameApp() {
                   language={language}
                   controller={controller}
                   notify={setToast}
-                  onNext={() => {
-                    if (mode === 'daily') practice();
-                    else controller.dispatch({ type: 'practice', category });
-                  }}
+                  onNext={() => controller.dispatch({ type: 'restart' })}
                 />
               ) : (
                 <AnswerComposer
@@ -367,77 +275,8 @@ export function GameApp() {
                 />
               )}
             </section>
-            <aside className="sidebar">
-              <section className="practice-card">
-                <div className="practice-card-top">
-                  <span className="pill">{t.keepItGoing}</span>
-                  <Icon name="shuffle" />
-                </div>
-                <h3>{t.practiceTitle}</h3>
-                <p>
-                  <Lines text={t.practiceDescription} />
-                </p>
-                <button className="button button-outline" type="button" onClick={practice}>
-                  {t.playPractice}
-                  <Icon name="arrow" />
-                </button>
-                <div className="practice-decoration" aria-hidden="true">
-                  <span>∞</span>
-                  <Icon name="ball" />
-                </div>
-              </section>
-              <section className="how-card">
-                <h3>
-                  <Icon name="help" />
-                  {t.howTitle}
-                </h3>
-                <ol>
-                  {[
-                    { title: t.step1Title, body: t.step1Body },
-                    { title: t.step2Title, body: t.step2Body },
-                    { title: t.step3Title, body: t.step3Body },
-                  ].map((step, index) => (
-                    <li key={step.title}>
-                      <span className="step-number">{String(index + 1).padStart(2, '0')}</span>
-                      <div>
-                        <strong>{step.title}</strong>
-                        <span>{step.body}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </section>
-            </aside>
           </div>
-          <section
-            className="trust-strip"
-            aria-label={language === 'en' ? 'Game features' : 'مميزات اللعبة'}
-          >
-            <span>
-              <Icon name="globe" />
-              {t.bilingual}
-            </span>
-            <span className="strip-dot">·</span>
-            <span>
-              <Icon name="ball" />
-              {t.clubCount(clubs.length)}
-            </span>
-            <span className="strip-dot">·</span>
-            <span>
-              <Icon name="sun" />
-              {t.freshDaily}
-            </span>
-          </section>
         </main>
-        <footer className="site-footer">
-          <span>{t.footer}</span>
-          <span className="footer-center">
-            name × clubs<span className="brand-period">.</span>
-          </span>
-          <button className="text-button" type="button" onClick={() => setHelp(true)}>
-            {t.howToPlay}
-          </button>
-        </footer>
       </div>
       <HelpDialog open={help} language={language} onClose={() => setHelp(false)} />
       {toast && (

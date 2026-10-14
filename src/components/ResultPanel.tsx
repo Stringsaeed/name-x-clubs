@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { messages } from '../content/messages';
 import type { GameController } from '../game/controller';
-import { eligibleClubs } from '../game/engine';
+import { formatElapsed } from '../game/controller';
 import type { Language, Session } from '../game/model';
 import { Icon } from './Icon';
 export function ResultPanel({
@@ -33,15 +33,7 @@ export function ResultPanel({
   const t = messages[language];
   const target = session.challenge.target;
   const won = session.round.found.length === target;
-  const found = session.round.found;
-  const others = eligibleClubs(session.challenge)
-    .filter((club) => !found.includes(club.id))
-    .slice(0, 6);
-  const body = won
-    ? session.kind === 'practice'
-      ? t.practiceWinBody(target)
-      : t.winBody(session.round.remaining, target)
-    : t.endBody(session.round.found.length, target);
+  const body = `${session.round.found.length} / ${target} · ${formatElapsed(session.round.elapsed)}`;
   return (
     <div className="result-panel" id="result-panel">
       <div className="result-header">
@@ -53,16 +45,6 @@ export function ResultPanel({
           <p>{body}</p>
         </div>
       </div>
-      {!won && (
-        <div className="missed-answers">
-          <strong>{t.moreAnswers}</strong>
-          <div className="missed-list">
-            {others.map((club) => (
-              <span key={club.id}>{language === 'en' ? club.name : club.arabic}</span>
-            ))}
-          </div>
-        </div>
-      )}
       <div className="result-actions">
         <button
           ref={share}
@@ -81,16 +63,10 @@ export function ResultPanel({
           {t.share}
         </button>
         <button className="button button-outline" type="button" onClick={onNext}>
-          {session.kind === 'practice' ? t.again : t.next}
+          {t.again}
           <Icon name="arrow" />
         </button>
       </div>
-      {session.kind === 'daily' && (
-        <div className="next-reset">
-          <Icon name="sun" />
-          <span>{t.reset}</span>
-        </div>
-      )}
       {manual && (
         <textarea
           ref={copy}

@@ -93,10 +93,6 @@ export function AnswerComposer({
             <Icon name="arrow" />
           </button>
         </div>
-        <p className="input-hint">
-          <Icon name="globe" />
-          <span>{t.inputHint}</span>
-        </p>
       </form>
     </div>
   );

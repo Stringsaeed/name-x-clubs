@@ -1,6 +1,6 @@
 # Name × Clubs
 
-A bilingual football game with daily challenges and unlimited practice. Name 10, 50 or 100 clubs in English or Arabic, including common abbreviations and clear spelling mistakes. Accepted clubs appear in order above a bottom composer, with real crests from a bundled 200-club collection. English uses Nunito and Arabic uses Alan Sans.
+A bilingual football game with Free time and category practice. Name 10, 50 or 100 clubs in English or Arabic, including common abbreviations and clear spelling mistakes. Accepted clubs appear in order above a bottom composer, with real crests from a bundled 200-club collection. English uses Nunito and Arabic uses Alan Sans.
 
 ## Run
 
@@ -55,16 +55,17 @@ tests/e2e/       Browser tests against the production build
 dist/            Generated static output, ignored by Git
 ```
 
-React sends user intents to the controller and subscribes to its snapshot. The controller owns selection, browser storage, clocks and visibility/storage events. The pure round transition owns acceptance, deduplication, target limits and expiry. The UI never independently decides whether an answer counts.
+React sends user intents to the controller and subscribes to its snapshot. The controller owns selection, browser storage, elapsed time and storage events. The pure round transition owns acceptance, deduplication, target limits and completion. The UI never independently decides whether an answer counts.
 
 See [the architecture decision](docs/decisions/001-production-frontend.md) for the React/Vite choice and its tradeoffs.
 
 ## Game and persistence rules
 
-- UTC date and target determine one shared daily question. The 10, 50 and 100-club levels allow 1, 5 and 10 minutes respectively.
-- Daily deadlines are absolute timestamps. Reloading or returning from an inactive tab does not reset the clock.
-- Existing `nxc-v2-daily-<day>-<target>` saves remain compatible, including with the previous release.
-- Practice is untimed and now saves mode, level, the actual selected question, phase and accepted club IDs. A random question stays the same after a refresh.
+- Free time offers Mode 10, Mode 50 and Mode 100 with clubs from anywhere.
+- The timer starts at 00:00 and counts up, including time spent away from the tab. It never expires and freezes when the target is reached or the player finishes.
+- Free time and Practice save their actual question, start timestamp, phase and ordered club IDs in versioned records per target. Refreshing preserves elapsed time.
+- Daily is disabled pending a new design. Previous daily saves remain untouched.
+- Legacy Practice lists migrate with their selected question and answers. Their elapsed measurement starts at migration because the old format had no start time.
 - Zod validates browser records before they enter the game model. Corrupt records fall back to a new round. Blocked browser storage does not prevent play.
 - Every selectable category contains enough clubs to complete its level. Higher levels use broad worldwide or European pools.
 - Country questions refer to a club's football country, not its current division. Monaco belongs to the French pool. Letter questions use the common English name.

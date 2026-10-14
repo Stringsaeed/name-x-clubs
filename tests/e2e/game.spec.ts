@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 async function practice(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: 'Practice', exact: true }).click();
 }
-test('accepts bilingual aliases once and resumes the daily round', async ({ page }) => {
+test('accepts bilingual aliases once and resumes the free-time round', async ({ page }) => {
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
   await page.getByRole('textbox').fill('Arsenal, مانشستر يونايتد, Man Utd');
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
@@ -17,27 +17,25 @@ test('accepts bilingual aliases once and resumes the daily round', async ({ page
   await page.reload();
   await expect(page.getByRole('log').locator('li')).toHaveCount(2);
   await expect(page.getByRole('textbox')).toBeEnabled();
-  await expect(page.locator('#timer-text')).toHaveText('01:00');
+  await expect(page.locator('#timer-text')).toHaveText('00:00');
 });
-test('imports an existing v2 daily save without resetting its deadline', async ({ page }) => {
-  await page.evaluate(() =>
-    localStorage.setItem(
-      'nxc-v2-daily-2026-10-14-10',
-      JSON.stringify({
-        phase: 'playing',
-        found: ['england-0'],
-        deadline: Date.parse('2026-10-14T12:00:45Z'),
-        remaining: 60,
-      }),
-    ),
+test('keeps Daily disabled and shows only compact mode choices', async ({ page }, testInfo) => {
+  await expect(page.getByRole('button', { name: 'Free time', exact: true })).toHaveAttribute(
+    'aria-current',
+    'page',
   );
-  await page.reload();
-  await expect(page.getByRole('log')).toContainText('Arsenal');
-  await expect(page.locator('#timer-text')).toHaveText('00:45');
+  await expect(page.getByRole('button', { name: /Daily/ })).toHaveCount(0);
+  await expect(page.locator('.level-picker button')).toHaveText(['Mode 10', 'Mode 50', 'Mode 100']);
+  await expect(page.locator('.sidebar, .hero-description, .eyebrow, .trust-strip')).toHaveCount(0);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Know your clubs?Prove it.');
+  if ((page.viewportSize()?.width ?? 0) > 760)
+    await expect(page.locator('.hero-art img')).toBeVisible();
+  await expect(page.getByRole('textbox')).toBeInViewport();
+  await page.screenshot({ path: testInfo.outputPath('free-time-layout.png') });
 });
 test('restores random practice mode, question and accepted clubs', async ({ page }) => {
   await practice(page);
-  await page.getByRole('button', { name: /Name 50 clubs/ }).click();
+  await page.getByRole('button', { name: 'Mode 50' }).click();
   await page.getByRole('button', { name: 'Surprise me', exact: true }).click();
   const question = await page.getByRole('heading', { level: 2 }).innerText();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
@@ -47,7 +45,7 @@ test('restores random practice mode, question and accepted clubs', async ({ page
   await expect(page.getByRole('heading', { level: 2 })).toHaveText(question);
   await expect(page.getByRole('textbox')).toBeEnabled();
   await expect(page.getByRole('log').locator('li')).toHaveCount(2);
-  await expect(page.locator('#timer-text')).toHaveText('∞');
+  await expect(page.locator('#timer-text')).toHaveText('00:00');
 });
 test('plays in Arabic with real crests and a bottom composer', async ({ page }, testInfo) => {
   await practice(page);
@@ -71,7 +69,7 @@ test('plays in Arabic with real crests and a bottom composer', async ({ page }, 
 });
 test('caps a 100-club round and shows a complete result', async ({ page }) => {
   await practice(page);
-  await page.getByRole('button', { name: /Name 100 clubs/ }).click();
+  await page.getByRole('button', { name: 'Mode 100' }).click();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
   await page.getByRole('textbox').fill(
     clubs
@@ -82,11 +80,11 @@ test('caps a 100-club round and shows a complete result', async ({ page }) => {
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
   await expect(page.getByRole('log').locator('li')).toHaveCount(100);
   await expect(page.getByRole('heading', { name: 'You know ball.', exact: true })).toBeVisible();
-  await expect(page.getByText('100 out of 100. Nicely played.', { exact: true })).toBeVisible();
+  await expect(page.getByText('100 / 100 · 00:00', { exact: true })).toBeVisible();
 });
 test('scrolls long answer history without moving the composer', async ({ page }) => {
   await practice(page);
-  await page.getByRole('button', { name: /Name 100 clubs/ }).click();
+  await page.getByRole('button', { name: 'Mode 100' }).click();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
   await page.getByRole('textbox').fill(
     clubs
@@ -117,16 +115,23 @@ test('the help dialog is keyboard accessible', async ({ page }) => {
   await expect(page.getByRole('dialog')).toBeHidden();
 });
 
-test('an elapsed deadline completes the daily round and stays complete after reload', async ({
+test('elapsed time rises without expiring and freezes on finishing across reload', async ({
   page,
 }) => {
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
   await page.getByRole('textbox').fill('Arsenal');
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
-  await page.clock.setFixedTime(new Date('2026-10-14T12:01:01Z'));
-  await expect(page.getByRole('heading', { name: 'Good shift.', exact: true })).toBeVisible();
-  await expect(page.locator('#timer-text')).toHaveText('00:00');
+  await page.clock.setFixedTime(new Date('2026-10-14T12:06:15Z'));
+  await expect(page.locator('#timer-text')).toHaveText('06:15');
+  await expect(page.getByRole('textbox')).toBeEnabled();
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Good shift.', exact: true })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Let’s play', exact: true })).toHaveCount(0);
+  await expect(page.locator('#timer-text')).toHaveText('06:15');
+  await page.getByRole('button', { name: 'Finish round', exact: true }).click();
+  await expect(page.getByText('1 / 10 · 06:15', { exact: true })).toBeVisible();
+  await page.clock.setFixedTime(new Date('2026-10-14T13:00:00Z'));
+  await page.reload();
+  await expect(page.locator('#timer-text')).toHaveText('06:15');
+  await page.getByRole('button', { name: 'Another round', exact: true }).click();
+  await expect(page.locator('#timer-text')).toHaveText('00:00');
+  await expect(page.getByRole('log').locator('li')).toHaveCount(0);
 });

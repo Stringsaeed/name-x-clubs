@@ -6,7 +6,7 @@ export type Level = z.infer<typeof levelSchema>;
 export const levels = levelSchema.options.map((option) => option.value);
 export const languageSchema = z.enum(['en', 'ar']);
 export type Language = z.infer<typeof languageSchema>;
-export const modeSchema = z.enum(['daily', 'practice']);
+export const modeSchema = z.enum(['free', 'practice']);
 export type Mode = z.infer<typeof modeSchema>;
 export type Scope =
   | { kind: 'world' }
@@ -20,15 +20,11 @@ export type Challenge = Readonly<{
   difficulty: 'easy' | 'medium';
 }>;
 export type IdleRound = { phase: 'idle'; found: readonly [] };
-export type CompletedRound = { phase: 'complete'; found: readonly ClubId[]; remaining: number };
-export type TimedRound =
+export type CompletedRound = { phase: 'complete'; found: readonly ClubId[]; elapsed: number };
+export type Round =
   | IdleRound
   | CompletedRound
-  | { phase: 'playing'; found: readonly ClubId[]; deadline: number };
-export type UntimedRound =
-  | IdleRound
-  | CompletedRound
-  | { phase: 'playing'; found: readonly ClubId[] };
+  | { phase: 'playing'; found: readonly ClubId[]; startedAt: number };
 export type Session =
-  | { kind: 'daily'; day: string; number: number; challenge: Challenge; round: TimedRound }
-  | { kind: 'practice'; category: string; challenge: Challenge; round: UntimedRound };
+  | { kind: 'free'; challenge: Challenge; round: Round }
+  | { kind: 'practice'; category: string; challenge: Challenge; round: Round };
