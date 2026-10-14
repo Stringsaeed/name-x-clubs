@@ -9,8 +9,7 @@
       "!package-lock.json",
       "!playwright-report",
       "!test-results",
-      "!coverage",
-      "!.openai"
+      "!coverage"
     ]
   },
   "formatter": {

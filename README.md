@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open the printed local URL. No account, database or runtime sports API is required by the game. The current Sites preview has owner-only hosting access.
+Open the printed local URL. No account, database or runtime sports API is required by the game.
 
 ## Stack
 
@@ -25,7 +25,7 @@ Open the printed local URL. No account, database or runtime sports API is requir
 | Browser regression tests | Playwright, desktop Chromium and mobile WebKit |
 | Formatting and lint | Biome 2 |
 | CI | GitHub Actions, a pinned Node version and committed npm lockfile |
-| Hosting | Static `dist/` output, with the existing private Sites origin |
+| Hosting | Static `dist/` output; Vercel or Cloudflare (not yet chosen) |
 
 Dependencies use exact versions. The build does not require credentials or environment secrets.
 
@@ -81,4 +81,6 @@ Run `npm run assets:restore` to restore missing files from their reviewed source
 
 ## Deploy
 
-Publish the verified `dist/` directory. `.openai/hosting.json` retains the existing Sites project and static directory. Keep the origin unchanged to retain browser-local progress. Source files and build output are separate, so a fresh clone can reproduce the deployment with `npm ci` and the verification commands above.
+The build is a plain static site: `npm run build` writes `dist/`, which deploys unchanged to Vercel (framework preset Vite, output `dist`) or Cloudflare (Workers static assets or Pages, output `dist`). The provider is not chosen yet, so no provider config is committed.
+
+The earlier ChatGPT Sites prototype is retired and no longer published. Progress is stored per origin, so players do not carry saved rounds from the prototype URL to the new host.
