@@ -29,7 +29,9 @@ export function ResultPanel({
       copy.current?.select();
     }
   }, [manual]);
-  if (session.round.phase !== 'complete') return null;
+  if (session.round.phase !== 'complete') {
+    return null;
+  }
   const t = messages[language];
   const target = session.challenge.target;
   const won = session.round.found.length === target;
@@ -52,7 +54,9 @@ export function ResultPanel({
           type="button"
           onClick={async () => {
             const result = await controller.shareResult();
-            if (result.kind === 'copied') notify(t.copied);
+            if (result.kind === 'copied') {
+              notify(t.copied);
+            }
             if (result.kind === 'manual') {
               setManual(result.text);
               notify(t.copyManual);

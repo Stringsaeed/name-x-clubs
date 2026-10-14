@@ -27,7 +27,9 @@ class GameBoundary extends Component<{ children: ReactNode }, { failed: boolean 
   }
 }
 const root = document.getElementById('root');
-if (!root) throw new Error('Missing application root');
+if (!root) {
+  throw new Error('Missing application root');
+}
 createRoot(root).render(
   <StrictMode>
     <GameBoundary>

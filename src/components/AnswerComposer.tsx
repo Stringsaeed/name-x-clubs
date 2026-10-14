@@ -38,8 +38,11 @@ export function AnswerComposer({
   const [value, setValue] = useState('');
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => {
-    if (session.round.phase === 'playing') input.current?.focus();
-    else setValue('');
+    if (session.round.phase === 'playing') {
+      input.current?.focus();
+    } else {
+      setValue('');
+    }
   }, [session.round.phase]);
   return (
     <div className="answer-composer" id="answer-composer">
@@ -61,10 +64,15 @@ export function AnswerComposer({
         id="answer-form"
         onSubmit={(event) => {
           event.preventDefault();
-          if (!value.trim()) return;
+          if (!value.trim()) {
+            return;
+          }
           const accepted = onSubmit(value.trim());
-          if (accepted) setValue('');
-          else input.current?.select();
+          if (accepted) {
+            setValue('');
+          } else {
+            input.current?.select();
+          }
         }}
       >
         <div className={`input-wrapper ${session.round.phase === 'idle' ? 'inactive' : ''}`}>

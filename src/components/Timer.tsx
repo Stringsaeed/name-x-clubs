@@ -8,7 +8,9 @@ export function Timer({ session, language }: { session: Session; language: Langu
   const playing = session.round.phase === 'playing';
   useEffect(() => {
     setNow(Date.now());
-    if (!playing) return;
+    if (!playing) {
+      return;
+    }
     const timer = window.setInterval(() => setNow(Date.now()), 250);
     return () => window.clearInterval(timer);
   }, [playing]);

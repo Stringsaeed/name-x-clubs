@@ -42,7 +42,9 @@ export function GameApp() {
     };
   }, [playing]);
   useEffect(() => {
-    if (!toast) return;
+    if (!toast) {
+      return;
+    }
     const timer = window.setTimeout(() => setToast(''), 4000);
     return () => window.clearTimeout(timer);
   }, [toast]);

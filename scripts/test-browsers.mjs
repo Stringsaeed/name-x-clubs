@@ -14,6 +14,8 @@ if (process.platform === 'darwin' && process.env.CODEX_SANDBOX === 'seatbelt') {
     stdio: 'inherit',
     env: process.env,
   });
-  if (result.error) console.error(result.error.message);
+  if (result.error) {
+    console.error(result.error.message);
+  }
   process.exitCode = result.status ?? 1;
 }

@@ -9,7 +9,10 @@
       "!package-lock.json",
       "!playwright-report",
       "!test-results",
-      "!coverage"
+      "!coverage",
+      "!.next",
+      "!.open-next",
+      "!src/locales/*/messages.ts"
     ]
   },
   "formatter": {
@@ -21,21 +24,64 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "semicolons": "always"
+      "semicolons": "always",
+      "trailingCommas": "all"
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "preset": "none",
+      "preset": "recommended",
+      "complexity": {
+        "noExcessiveCognitiveComplexity": {
+          "level": "warn",
+          "options": { "maxAllowedComplexity": 15 }
+        },
+        "noExcessiveLinesPerFunction": {
+          "level": "warn",
+          "options": { "maxLines": 60, "skipBlankLines": true }
+        },
+        "noForEach": "warn",
+        "noUselessTernary": "error",
+        "noImportantStyles": "off"
+      },
       "style": {
+        "noNestedTernary": "error",
+        "useBlockStatements": "error",
+        "noParameterAssign": "error",
+        "noNonNullAssertion": "error",
+        "noUselessElse": "error",
+        "useCollapsedElseIf": "error",
+        "useConst": "error",
+        "useTemplate": "error",
+        "useSingleVarDeclarator": "error",
+        "useConsistentArrayType": "error",
         "noDescendingSpecificity": "off"
       },
-      "complexity": {
-        "noImportantStyles": "off"
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "noUnusedFunctionParameters": "warn",
+        "useExhaustiveDependencies": "error",
+        "useHookAtTopLevel": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noShadow": "warn",
+        "noConsole": { "level": "warn", "options": { "allow": ["error", "warn"] } }
       }
     }
   },
+  "overrides": [
+    {
+      "includes": ["scripts/**", "**/*.config.*"],
+      "linter": { "rules": { "suspicious": { "noConsole": "off" } } }
+    },
+    {
+      "includes": ["**/*.test.*", "src/test/**"],
+      "linter": { "rules": { "complexity": { "noExcessiveLinesPerFunction": "off" } } }
+    }
+  ],
   "assist": {
     "actions": {
       "source": {

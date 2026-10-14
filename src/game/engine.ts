@@ -27,13 +27,16 @@ export function normalize(value: string) {
     .replace(/\s+/g, ' ');
 }
 const aliasMap = new Map<string, Club[]>();
-for (const club of clubs)
+for (const club of clubs) {
   for (const name of [club.name, club.arabic, ...club.aliases]) {
     const key = normalize(name);
     const matches = aliasMap.get(key) || [];
-    if (!matches.some((c) => c.id === club.id)) matches.push(club);
+    if (!matches.some((c) => c.id === club.id)) {
+      matches.push(club);
+    }
     aliasMap.set(key, matches);
   }
+}
 export function eligibleClubs({ scope }: Pick<Challenge, 'scope'>) {
   return clubs.filter((club) => {
     switch (scope.kind) {
@@ -56,12 +59,13 @@ function distance(a: string, b: string) {
   let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
   for (let i = 1; i <= a.length; i++) {
     const next = [i];
-    for (let j = 1; j <= b.length; j++)
+    for (let j = 1; j <= b.length; j++) {
       next[j] = Math.min(
         (next[j - 1] ?? Infinity) + 1,
         (prev[j] ?? Infinity) + 1,
         (prev[j - 1] ?? Infinity) + (a[i - 1] === b[j - 1] ? 0 : 1),
       );
+    }
     prev = next;
   }
   return prev[b.length] ?? a.length + b.length;
@@ -70,8 +74,12 @@ function choose(matches: Club[], challenge: Pick<Challenge, 'scope'>, fuzzy = fa
   const eligible = new Set(eligibleClubs(challenge).map((club) => club.id));
   const inScope = matches.filter((club) => eligible.has(club.id));
   const [match, ...rest] = inScope;
-  if (match && rest.length === 0) return { kind: 'match', club: match, fuzzy };
-  if (inScope.length > 1 || matches.length > 1) return { kind: 'ambiguous' };
+  if (match && rest.length === 0) {
+    return { kind: 'match', club: match, fuzzy };
+  }
+  if (inScope.length > 1 || matches.length > 1) {
+    return { kind: 'ambiguous' };
+  }
   const [wrong] = matches;
   return wrong ? { kind: 'wrong-category', club: wrong } : { kind: 'unknown' };
 }
@@ -90,28 +98,37 @@ export function resolveClub(
     aliasMap.get(normalize(value)) ||
     aliasMap.get(key) ||
     (key.startsWith('و') ? aliasMap.get(key.slice(1)) : null);
-  if (exact) return choose(exact, challenge);
+  if (exact) {
+    return choose(exact, challenge);
+  }
   if (
     key.length < 5 ||
     /^(united|city|real|al|manchester|athletic|inter|الاتحاد|النصر|الاهلي)$/.test(key)
-  )
+  ) {
     return {
       kind: ['united', 'city', 'manchester', 'الاتحاد', 'النصر', 'الاهلي'].includes(key)
         ? 'ambiguous'
         : 'unknown',
     };
+  }
   const threshold = key.length >= 9 ? 2 : 1;
   let best = threshold + 1;
   const found = new Map<ClubId, Club>();
   for (const [alias, matches] of aliasMap) {
-    if (alias.length < 5 || Math.abs(alias.length - key.length) > threshold) continue;
+    if (alias.length < 5 || Math.abs(alias.length - key.length) > threshold) {
+      continue;
+    }
     const d = distance(key, alias);
-    if (d > threshold || d > best) continue;
+    if (d > threshold || d > best) {
+      continue;
+    }
     if (d < best) {
       found.clear();
       best = d;
     }
-    for (const club of matches) found.set(club.id, club);
+    for (const club of matches) {
+      found.set(club.id, club);
+    }
   }
   return choose([...found.values()], challenge, true);
 }
@@ -148,11 +165,7 @@ export function parseAnswers(
       let matched = false;
       for (let n = Math.min(6, words.length - i); n > 0; n--) {
         const candidate = words.slice(i, i + n).join(' ');
-        const key = aliasMap.has(candidate)
-          ? candidate
-          : candidate.startsWith('و') && aliasMap.has(candidate.slice(1))
-            ? candidate.slice(1)
-            : null;
+        const key = resolveAliasKey(aliasMap, candidate);
         const matches = key ? aliasMap.get(key) : undefined;
         if (matches) {
           flush();
@@ -230,10 +243,14 @@ export function scoreAnswers(
   const next = [...found];
   const events: AnswerEvent[] = [];
   for (const result of results) {
-    if (next.length >= target) break;
-    if (result.kind !== 'match') events.push(result);
-    else if (next.includes(result.club.id)) events.push({ ...result, kind: 'duplicate' });
-    else {
+    if (next.length >= target) {
+      break;
+    }
+    if (result.kind !== 'match') {
+      events.push(result);
+    } else if (next.includes(result.club.id)) {
+      events.push({ ...result, kind: 'duplicate' });
+    } else {
       next.push(result.club.id);
       events.push({ ...result, kind: 'accepted' });
     }
@@ -242,4 +259,14 @@ export function scoreAnswers(
 }
 export function remainingSeconds(deadline: number, now: number) {
   return Math.max(0, Math.ceil((deadline - now) / 1000));
+}
+
+function resolveAliasKey(aliasMap: Map<string, unknown>, candidate: string): string | null {
+  if (aliasMap.has(candidate)) {
+    return candidate;
+  }
+  if (candidate.startsWith('و') && aliasMap.has(candidate.slice(1))) {
+    return candidate.slice(1);
+  }
+  return null;
 }

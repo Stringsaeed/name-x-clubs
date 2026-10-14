@@ -26,7 +26,9 @@ for (const locale of locales) {
   } else {
     writeFileSync(file(locale), before[locale]); // keep the committed date header
   }
-  if (locale === sourceLocale) continue;
+  if (locale === sourceLocale) {
+    continue;
+  }
   const missing = after
     .split(/\n{2,}/)
     .filter((entry) => /^msgid "(?!")/m.test(entry))
@@ -37,7 +39,9 @@ for (const locale of locales) {
       );
     })
     .map((entry) => /^msgid (".*")/m.exec(entry)?.[1]);
-  for (const id of missing) problems.push(`${locale}: missing translation for ${id}`);
+  for (const id of missing) {
+    problems.push(`${locale}: missing translation for ${id}`);
+  }
 }
 
 if (problems.length > 0) {

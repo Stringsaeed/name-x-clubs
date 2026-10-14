@@ -14,8 +14,12 @@ export function HelpDialog({
   const dialog = useRef<HTMLDialogElement>(null);
   const t = messages[language];
   useEffect(() => {
-    if (open && !dialog.current?.open) dialog.current?.showModal();
-    if (!open && dialog.current?.open) dialog.current.close();
+    if (open && !dialog.current?.open) {
+      dialog.current?.showModal();
+    }
+    if (!open && dialog.current?.open) {
+      dialog.current.close();
+    }
   }, [open]);
   return (
     <dialog

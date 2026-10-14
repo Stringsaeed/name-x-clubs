@@ -42,7 +42,9 @@ test('keeps an initials fallback if a crest fails to load', async () => {
   expect(row).not.toBeNull();
   const image = row?.querySelector('img');
   expect(image).not.toBeNull();
-  if (image) fireEvent.error(image);
+  if (image) {
+    fireEvent.error(image);
+  }
   expect(row?.querySelector('img')).toBeNull();
   expect(row).toHaveTextContent('A');
 });

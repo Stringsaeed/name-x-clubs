@@ -32,8 +32,9 @@ test('English aliases, punctuation and Arabic spellings resolve to one club', ()
     'مَانْشِسْتَر يُونَايْتِد',
     'مانشستر يونيتد',
     'نادي مانشستر يونايتد',
-  ])
+  ]) {
     assert.equal(matchClub(resolveClub(input)).name, 'Manchester United', input);
+  }
 });
 test('Arabic normalization handles diacritics, hamza, tatweel and Arabic ya', () => {
   assert.equal(normalize('أَهْلِــي'), 'اهلي');
@@ -84,7 +85,7 @@ test('comma, newline, numbered and bilingual lists match actual club identities'
     'يوفنتوس، إنتر ميلان، ميلان',
     'juve inter ac milan',
   ];
-  for (const input of inputs)
+  for (const input of inputs) {
     assert.deepEqual(
       parseAnswers(input, { scope: { kind: 'country', country: 'italy' } }).map(
         (r) => matchClub(r).name,
@@ -92,6 +93,7 @@ test('comma, newline, numbered and bilingual lists match actual club identities'
       ['Juventus', 'Inter Milan', 'AC Milan'],
       input,
     );
+  }
   assert.deepEqual(
     parseAnswers('ارسنال وتشيلسي وليفربول', { scope: { kind: 'country', country: 'england' } }).map(
       (r) => matchClub(r).name,
@@ -122,7 +124,9 @@ test('every selectable challenge has enough clubs to finish its level', () => {
   for (const target of levels) {
     const pool = challengesForLevel(target);
     assert.ok(pool.length > 1);
-    for (const c of pool) assert.ok(eligibleClubs(c).length >= target, `${target}: ${c.id}`);
+    for (const c of pool) {
+      assert.ok(eligibleClubs(c).length >= target, `${target}: ${c.id}`);
+    }
   }
   assert.ok(!challengesForLevel(100).some((c) => c.scope.kind === 'country'));
   assert.equal(new Set(clubs.map((c) => c.id)).size, clubs.length);
@@ -130,11 +134,12 @@ test('every selectable challenge has enough clubs to finish its level', () => {
   assert.ok(clubs.every((c) => c.name && c.arabic && c.country));
 });
 test('every canonical club name resolves in its own country in both languages', () => {
-  for (const c of clubs)
+  for (const c of clubs) {
     for (const name of [c.name, c.arabic]) {
       const result = resolveClub(name, { scope: { kind: 'country', country: c.country } });
       assert.equal('club' in result ? result.club.id : null, c.id, name);
     }
+  }
 });
 test('daily challenge is stable across time zones and changes at UTC midnight', () => {
   assert.equal(dayKey(new Date('2026-10-14T03:00:00+04:00')), '2026-10-13');
@@ -153,7 +158,7 @@ test('deadline uses wall-clock time and expires even while the tab is inactive',
   assert.equal(remainingSeconds(61000, 61000), 0);
   assert.equal(remainingSeconds(61000, 90000), 0);
 });
-for (const target of levels)
+for (const target of levels) {
   test(`the ${target}-club level counts unique answers in order and caps bulk submissions`, () => {
     const input = clubs
       .slice(0, target + 3)
@@ -180,6 +185,7 @@ for (const target of levels)
       ['duplicate', 'accepted'],
     );
   });
+}
 test('daily rounds have separate storage and sensible deadlines for each level', () => {
   assert.deepEqual(levels.map(durationForTarget), [60, 300, 600]);
   const now = new Date('2026-10-14T00:01:00Z');
@@ -189,7 +195,7 @@ test('daily rounds have separate storage and sensible deadlines for each level',
     [10, 50, 100],
   );
   assert.equal(new Set(daily.map((c) => `${c.key}:${c.challenge.target}`)).size, 3);
-  for (const n of levels)
+  for (const n of levels) {
     for (let day = 1; day <= 31; day++) {
       const challenge = dailyChallenge(
         new Date(`2026-10-${String(day).padStart(2, '0')}T12:00:00Z`),
@@ -197,4 +203,5 @@ test('daily rounds have separate storage and sensible deadlines for each level',
       );
       assert.ok(eligibleClubs(challenge.challenge).length >= n);
     }
+  }
 });

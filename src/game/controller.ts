@@ -58,6 +58,23 @@ const legacyPractice = z.object({
     found: z.array(clubIdSchema).max(100),
   }),
 });
+function migrateRound<R extends { phase: string }>(round: R, startedAt: number) {
+  if (round.phase === 'playing') {
+    return { ...round, startedAt };
+  }
+  if (round.phase === 'complete') {
+    return { ...round, elapsed: 0 };
+  }
+  return round;
+}
+
+function sessionTitle(kind: string, language: Language) {
+  if (kind === 'free') {
+    return language === 'en' ? 'Free time' : 'وقت حر';
+  }
+  return language === 'en' ? 'Practice' : 'تدريب';
+}
+
 function browserStorage(): StoragePort | null {
   try {
     return window.localStorage;
@@ -104,7 +121,9 @@ export function createGameController(
   }
   function restore(session: Session, value: unknown): Session {
     const result = wireRound.safeParse(value);
-    if (!result.success) return session;
+    if (!result.success) {
+      return session;
+    }
     const saved = result.data;
     const eligible = new Set(eligibleClubs(session.challenge).map((c) => c.id));
     if (
@@ -112,9 +131,10 @@ export function createGameController(
       new Set(saved.found).size !== saved.found.length ||
       saved.found.some((id) => !clubById.has(id) || !eligible.has(id)) ||
       (saved.phase === 'playing' && saved.startedAt > now())
-    )
+    ) {
       return session;
-    if (saved.phase === 'playing' && saved.found.length === session.challenge.target)
+    }
+    if (saved.phase === 'playing' && saved.found.length === session.challenge.target) {
       return {
         ...session,
         round: {
@@ -123,6 +143,7 @@ export function createGameController(
           elapsed: Math.floor((now() - saved.startedAt) / 1000),
         },
       };
+    }
     return { ...session, round: saved };
   }
   function newPractice(
@@ -146,7 +167,9 @@ export function createGameController(
   function load(mode: Mode, level: Level, force = false): Session {
     const key = keyFor(mode, level);
     const cached = sessions.get(key);
-    if (cached && !force) return transition(cached, { type: 'tick', now: now() }).session;
+    if (cached && !force) {
+      return transition(cached, { type: 'tick', now: now() }).session;
+    }
     let session: Session =
       mode === 'free'
         ? {
@@ -165,12 +188,7 @@ export function createGameController(
         saved = {
           ...old,
           version: 2,
-          round:
-            old.round.phase === 'playing'
-              ? { ...old.round, startedAt: now() }
-              : old.round.phase === 'complete'
-                ? { ...old.round, elapsed: 0 }
-                : old.round,
+          round: migrateRound(old.round, now()),
         };
       }
     }
@@ -187,7 +205,9 @@ export function createGameController(
         );
       }
     }
-    if (migrating) persist(session);
+    if (migrating) {
+      persist(session);
+    }
     sessions.set(key, session);
     return session;
   }
@@ -213,7 +233,9 @@ export function createGameController(
   }
   function publish(next: GameView) {
     view = { ...next, storageAvailable: available };
-    for (const listener of listeners) listener();
+    for (const listener of listeners) {
+      listener();
+    }
   }
   function dispatch(intent: Intent) {
     if (intent.type === 'language') {
@@ -231,7 +253,9 @@ export function createGameController(
       return;
     }
     if (intent.type === 'practice') {
-      if (view.mode !== 'practice') return;
+      if (view.mode !== 'practice') {
+        return;
+      }
       const session = newPractice(view.level, intent.category, view.session.challenge.id);
       persist(session);
       publish({ ...view, session, feedback: [] });
@@ -251,7 +275,9 @@ export function createGameController(
         ? { type: 'answer', text: intent.text, now: now() }
         : { type: intent.type, now: now() };
     const result = transition(view.session, action);
-    if (result.session === view.session && intent.type === 'tick') return;
+    if (result.session === view.session && intent.type === 'tick') {
+      return;
+    }
     persist(result.session);
     publish({ ...view, ...result });
   }
@@ -259,7 +285,9 @@ export function createGameController(
     browser = window;
     const external = (event: StorageEvent) => {
       const expected = storageKey(view.mode, view.level);
-      if (event.key !== expected || !event.newValue) return;
+      if (event.key !== expected || !event.newValue) {
+        return;
+      }
       const incoming = load(view.mode, view.level, true);
       publish({ ...view, session: incoming, feedback: [] });
     };
@@ -275,7 +303,7 @@ export function createGameController(
     const session = view.session;
     const filled = Math.round((session.round.found.length / session.challenge.target) * 10);
     const squares = '🟩'.repeat(filled) + '⬜'.repeat(10 - filled);
-    const title = `name × clubs. ${session.kind === 'free' ? (view.language === 'en' ? 'Free time' : 'وقت حر') : view.language === 'en' ? 'Practice' : 'تدريب'}`;
+    const title = `name × clubs. ${sessionTitle(session.kind, view.language)}`;
     const elapsed = ` · ${formatElapsed(elapsedSeconds(session, now()))}`;
     const text = `${title}\n${challengeLabel(session.challenge, view.language)}\n${squares} ${session.round.found.length}/${session.challenge.target}${elapsed}\n${browser?.location.origin ?? ''}`;
     try {
@@ -283,7 +311,9 @@ export function createGameController(
         await browser.navigator.share({ title: 'Name × Clubs', text });
         return { kind: 'shared' };
       }
-      if (!browser?.navigator.clipboard) return { kind: 'manual', text };
+      if (!browser?.navigator.clipboard) {
+        return { kind: 'manual', text };
+      }
       await browser.navigator.clipboard.writeText(text);
       return { kind: 'copied' };
     } catch (error) {
@@ -313,11 +343,13 @@ export function namedClubs(found: readonly ClubId[]) {
   });
 }
 export function elapsedSeconds(session: Session, now: number) {
-  return session.round.phase === 'complete'
-    ? session.round.elapsed
-    : session.round.phase === 'playing'
-      ? Math.max(0, Math.floor((now - session.round.startedAt) / 1000))
-      : 0;
+  if (session.round.phase === 'complete') {
+    return session.round.elapsed;
+  }
+  if (session.round.phase === 'playing') {
+    return Math.max(0, Math.floor((now - session.round.startedAt) / 1000));
+  }
+  return 0;
 }
 export function formatElapsed(seconds: number) {
   return `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;

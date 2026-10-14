@@ -47,8 +47,9 @@ export const AnswerList = memo(function AnswerList({
     if (
       container.current &&
       (found.length > previous.current.count || language !== previous.current.language)
-    )
+    ) {
       container.current.scrollTop = container.current.scrollHeight;
+    }
     previous.current = { count: found.length, language };
   }, [found.length, language]);
   return (

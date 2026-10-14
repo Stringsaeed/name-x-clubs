@@ -28,8 +28,9 @@ test('keeps Daily disabled and shows only compact mode choices', async ({ page }
   await expect(page.locator('.level-picker button')).toHaveText(['Mode 10', 'Mode 50', 'Mode 100']);
   await expect(page.locator('.sidebar, .hero-description, .eyebrow, .trust-strip')).toHaveCount(0);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Know your clubs?Prove it.');
-  if ((page.viewportSize()?.width ?? 0) > 760)
+  if ((page.viewportSize()?.width ?? 0) > 760) {
     await expect(page.locator('.hero-art img')).toBeVisible();
+  }
   await expect(page.getByRole('textbox')).toBeInViewport();
   const start = await page.getByRole('button', { name: 'Let’s play', exact: true }).boundingBox();
   const conversation = await page.locator('.conversation').boundingBox();
