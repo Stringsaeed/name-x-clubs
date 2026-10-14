@@ -5,7 +5,6 @@ import { type AnswerEvent, challengesForLevel, eligibleClubs } from './engine';
 import {
   type Language,
   type Level,
-  languageSchema,
   levelSchema,
   type Mode,
   modeSchema,
@@ -15,7 +14,6 @@ import { type RoundAction, transition } from './round';
 
 export type StoragePort = Pick<Storage, 'getItem' | 'setItem'>;
 export type GameView = Readonly<{
-  language: Language;
   mode: Mode;
   level: Level;
   session: Session;
@@ -23,7 +21,6 @@ export type GameView = Readonly<{
   storageAvailable: boolean;
 }>;
 export type Intent =
-  | { type: 'language'; language: Language }
   | { type: 'mode'; mode: Mode }
   | { type: 'level'; level: Level }
   | { type: 'practice'; category: string }
@@ -211,11 +208,9 @@ export function createGameController(
     sessions.set(key, session);
     return session;
   }
-  const language = languageSchema.safeParse(read('nxc-language'));
   const level = levelSchema.safeParse(read('nxc-level'));
   const mode = modeSchema.safeParse(read('nxc-mode'));
   let view: GameView = {
-    language: language.success ? language.data : 'en',
     level: level.success ? level.data : 10,
     mode: mode.success ? mode.data : 'free',
     session: load(mode.success ? mode.data : 'free', level.success ? level.data : 10),
@@ -238,11 +233,6 @@ export function createGameController(
     }
   }
   function dispatch(intent: Intent) {
-    if (intent.type === 'language') {
-      write('nxc-language', intent.language);
-      publish({ ...view, language: intent.language, feedback: [] });
-      return;
-    }
     if (intent.type === 'mode' || intent.type === 'level') {
       persist(view.session);
       const mode = intent.type === 'mode' ? intent.mode : view.mode;
@@ -297,15 +287,15 @@ export function createGameController(
       browser = null;
     };
   }
-  async function shareResult(): Promise<
-    { kind: 'shared' | 'copied' | 'cancelled' } | { kind: 'manual'; text: string }
-  > {
+  async function shareResult(
+    language: Language,
+  ): Promise<{ kind: 'shared' | 'copied' | 'cancelled' } | { kind: 'manual'; text: string }> {
     const session = view.session;
     const filled = Math.round((session.round.found.length / session.challenge.target) * 10);
     const squares = '🟩'.repeat(filled) + '⬜'.repeat(10 - filled);
-    const title = `name × clubs. ${sessionTitle(session.kind, view.language)}`;
+    const title = `name × clubs. ${sessionTitle(session.kind, language)}`;
     const elapsed = ` · ${formatElapsed(elapsedSeconds(session, now()))}`;
-    const text = `${title}\n${challengeLabel(session.challenge, view.language)}\n${squares} ${session.round.found.length}/${session.challenge.target}${elapsed}\n${browser?.location.origin ?? ''}`;
+    const text = `${title}\n${challengeLabel(session.challenge, language)}\n${squares} ${session.round.found.length}/${session.challenge.target}${elapsed}\n${browser?.location.origin ?? ''}`;
     try {
       if (browser?.navigator.share && browser.matchMedia('(pointer: coarse)').matches) {
         await browser.navigator.share({ title: 'Name × Clubs', text });

@@ -53,7 +53,7 @@ export function ResultPanel({
           className="button button-primary"
           type="button"
           onClick={async () => {
-            const result = await controller.shareResult();
+            const result = await controller.shareResult(language);
             if (result.kind === 'copied') {
               notify(t.copied);
             }

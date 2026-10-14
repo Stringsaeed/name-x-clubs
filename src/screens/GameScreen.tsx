@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useLayoutEffect, useState, useSyncExternalStore } from 'react';
 import { AnswerComposer } from '../components/AnswerComposer';
 import { AnswerList } from '../components/AnswerList';
@@ -7,20 +9,33 @@ import { ResultPanel } from '../components/ResultPanel';
 import { Timer } from '../components/Timer';
 import { categoryLabel, challengeParts } from '../content/labels';
 import { messages } from '../content/messages';
-import { createGameController } from '../game/controller';
+import * as browserStore from '../game/browserStore';
+import type { GameController } from '../game/controller';
 import { challengesForLevel } from '../game/engine';
 import { levels } from '../game/model';
+import type { Locale } from '../i18n/config';
 
-export function GameScreen() {
-  const [controller] = useState(() => createGameController());
-  const view = useSyncExternalStore(controller.subscribe, controller.getSnapshot);
-  const { session, language, mode, level } = view;
+type GameScreenProps = { lang: Locale; controller?: GameController };
+
+const serverSnapshot = () => browserStore.serverView;
+
+export function GameScreen({ lang: language, controller: injected }: GameScreenProps) {
+  const view = useSyncExternalStore(
+    injected?.subscribe ?? browserStore.subscribe,
+    injected?.getSnapshot ?? browserStore.getSnapshot,
+    serverSnapshot,
+  );
+  // Only touch the browser store from event handlers and effects, never during render.
+  const controller = (): GameController => injected ?? browserStore.getController();
+  const { session, mode, level } = view;
+  const [ready, setReady] = useState(false);
   const t = messages[language];
   const [help, setHelp] = useState(false);
   const [toast, setToast] = useState('');
   const playing = session.round.phase === 'playing';
   const complete = session.round.phase === 'complete';
-  useEffect(() => controller.connect(window), [controller]);
+  useEffect(() => injected?.connect(window), [injected]);
+  useEffect(() => setReady(true), []);
   useLayoutEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
@@ -50,7 +65,7 @@ export function GameScreen() {
   }, [toast]);
   const parts = challengeParts(session.challenge, language);
   const category = session.kind === 'practice' ? session.category : 'world';
-  const practice = () => controller.dispatch({ type: 'mode', mode: 'practice' });
+  const practice = () => controller().dispatch({ type: 'mode', mode: 'practice' });
   const empty = (
     <div className="chat-empty">
       <span className="empty-ball">
@@ -60,7 +75,7 @@ export function GameScreen() {
         <button
           className="button button-primary"
           type="button"
-          onClick={() => controller.dispatch({ type: 'start' })}
+          onClick={() => controller().dispatch({ type: 'start' })}
         >
           {t.start}
           <Icon name="arrow" />
@@ -70,7 +85,7 @@ export function GameScreen() {
   );
   return (
     <>
-      <div className="site-shell">
+      <div className="site-shell" data-ready={ready ? 'true' : undefined}>
         <header className="site-header">
           <a href="/" className="brand" aria-label="Name × Clubs home">
             <span className="brand-mark">
@@ -85,7 +100,7 @@ export function GameScreen() {
               type="button"
               className={`nav-item ${mode === 'free' ? 'active' : ''}`}
               aria-current={mode === 'free' ? 'page' : undefined}
-              onClick={() => controller.dispatch({ type: 'mode', mode: 'free' })}
+              onClick={() => controller().dispatch({ type: 'mode', mode: 'free' })}
             >
               <Icon name="clock" />
               {t.freeTime}
@@ -105,9 +120,7 @@ export function GameScreen() {
               className="language-button"
               type="button"
               aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
-              onClick={() =>
-                controller.dispatch({ type: 'language', language: language === 'en' ? 'ar' : 'en' })
-              }
+              onClick={() => window.location.assign(`/${language === 'en' ? 'ar' : 'en'}`)}
             >
               <Icon name="globe" />
               <span lang={language === 'en' ? 'ar' : 'en'}>
@@ -162,7 +175,7 @@ export function GameScreen() {
                     aria-pressed={target === level}
                     data-level={target}
                     key={target}
-                    onClick={() => controller.dispatch({ type: 'level', level: target })}
+                    onClick={() => controller().dispatch({ type: 'level', level: target })}
                   >
                     <strong>
                       {language === 'en' ? 'Mode' : 'وضع'} {target}
@@ -179,7 +192,7 @@ export function GameScreen() {
                       aria-label={t.pickCategory}
                       value={category}
                       onChange={(event) =>
-                        controller.dispatch({
+                        controller().dispatch({
                           type: 'practice',
                           category: event.currentTarget.value,
                         })
@@ -195,7 +208,9 @@ export function GameScreen() {
                     <button
                       className="shuffle-button"
                       type="button"
-                      onClick={() => controller.dispatch({ type: 'practice', category: 'random' })}
+                      onClick={() =>
+                        controller().dispatch({ type: 'practice', category: 'random' })
+                      }
                     >
                       <Icon name="shuffle" />
                       {t.surprise}
@@ -228,7 +243,7 @@ export function GameScreen() {
                     <button
                       className="text-button"
                       type="button"
-                      onClick={() => controller.dispatch({ type: 'finish' })}
+                      onClick={() => controller().dispatch({ type: 'finish' })}
                     >
                       {t.finish}
                     </button>
@@ -259,9 +274,9 @@ export function GameScreen() {
                 <ResultPanel
                   session={session}
                   language={language}
-                  controller={controller}
+                  controller={controller()}
                   notify={setToast}
-                  onNext={() => controller.dispatch({ type: 'restart' })}
+                  onNext={() => controller().dispatch({ type: 'restart' })}
                 />
               ) : (
                 <AnswerComposer
@@ -270,9 +285,9 @@ export function GameScreen() {
                   language={language}
                   feedback={view.feedback}
                   onSubmit={(text) => {
-                    const before = controller.getSnapshot().session.round.found.length;
-                    controller.dispatch({ type: 'answer', text });
-                    return controller.getSnapshot().session.round.found.length > before;
+                    const before = controller().getSnapshot().session.round.found.length;
+                    controller().dispatch({ type: 'answer', text });
+                    return controller().getSnapshot().session.round.found.length > before;
                   }}
                 />
               )}

@@ -1,5 +1,6 @@
 import { Component, type ReactNode, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { isLocale } from './i18n/config';
 import { GameScreen } from './screens/GameScreen';
 import './styles/game.css';
 
@@ -26,6 +27,14 @@ class GameBoundary extends Component<{ children: ReactNode }, { failed: boolean 
     );
   }
 }
+function storedLocale() {
+  try {
+    const value: unknown = JSON.parse(window.localStorage.getItem('nxc-language') ?? 'null');
+    return isLocale(value) ? value : 'en';
+  } catch {
+    return 'en';
+  }
+}
 const root = document.getElementById('root');
 if (!root) {
   throw new Error('Missing application root');
@@ -33,7 +42,7 @@ if (!root) {
 createRoot(root).render(
   <StrictMode>
     <GameBoundary>
-      <GameScreen />
+      <GameScreen lang={storedLocale()} />
     </GameBoundary>
   </StrictMode>,
 );
