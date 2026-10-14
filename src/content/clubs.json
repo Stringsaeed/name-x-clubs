@@ -1,0 +1,2366 @@
+[
+  {
+    "id": "england-0",
+    "country": "england",
+    "name": "Arsenal",
+    "arabic": "أرسنال",
+    "aliases": [
+      "arsenal fc",
+      "ارسنال",
+      "الارسنال",
+      "gunners"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-1",
+    "country": "england",
+    "name": "Manchester United",
+    "arabic": "مانشستر يونايتد",
+    "aliases": [
+      "man utd",
+      "man united",
+      "man u",
+      "manchester utd",
+      "mufc",
+      "مان يونايتد",
+      "مان يونايتيد",
+      "مانشستر يونيتد"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-2",
+    "country": "england",
+    "name": "Manchester City",
+    "arabic": "مانشستر سيتي",
+    "aliases": [
+      "man city",
+      "mancity",
+      "mcfc",
+      "مان سيتي",
+      "مانشستر سيتى"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-3",
+    "country": "england",
+    "name": "Liverpool",
+    "arabic": "ليفربول",
+    "aliases": [
+      "liverpool fc",
+      "lfc",
+      "ليفر",
+      "الليفر"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-4",
+    "country": "england",
+    "name": "Chelsea",
+    "arabic": "تشيلسي",
+    "aliases": [
+      "chelsea fc",
+      "تشلسي",
+      "تشيلسى"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-5",
+    "country": "england",
+    "name": "Tottenham Hotspur",
+    "arabic": "توتنهام هوتسبير",
+    "aliases": [
+      "tottenham",
+      "spurs",
+      "thfc",
+      "توتنهام",
+      "توتنهام هوتسبر"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-6",
+    "country": "england",
+    "name": "Newcastle United",
+    "arabic": "نيوكاسل يونايتد",
+    "aliases": [
+      "newcastle",
+      "nufc",
+      "نيوكاسل"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-7",
+    "country": "england",
+    "name": "Aston Villa",
+    "arabic": "أستون فيلا",
+    "aliases": [
+      "astonvilla",
+      "avfc",
+      "استون فيلا",
+      "أستون ڤيلا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-8",
+    "country": "england",
+    "name": "Everton",
+    "arabic": "إيفرتون",
+    "aliases": [
+      "everton fc",
+      "ايفرتون"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-9",
+    "country": "england",
+    "name": "West Ham United",
+    "arabic": "وست هام يونايتد",
+    "aliases": [
+      "west ham",
+      "westham",
+      "وست هام",
+      "ويست هام"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-10",
+    "country": "england",
+    "name": "Brighton & Hove Albion",
+    "arabic": "برايتون أند هوف ألبيون",
+    "aliases": [
+      "brighton",
+      "brighton and hove albion",
+      "brighton hove albion",
+      "برايتون"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-11",
+    "country": "england",
+    "name": "Crystal Palace",
+    "arabic": "كريستال بالاس",
+    "aliases": [
+      "palace",
+      "كريستال بالاس"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-12",
+    "country": "england",
+    "name": "Fulham",
+    "arabic": "فولهام",
+    "aliases": [
+      "fulham fc",
+      "فولام"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-13",
+    "country": "england",
+    "name": "Wolverhampton Wanderers",
+    "arabic": "وولفرهامبتون",
+    "aliases": [
+      "wolves",
+      "wolverhampton",
+      "ولفرهامبتون",
+      "الولفز"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-14",
+    "country": "england",
+    "name": "Nottingham Forest",
+    "arabic": "نوتنغهام فورست",
+    "aliases": [
+      "nottingham",
+      "forest",
+      "نوتنغهام",
+      "نوتينغهام فورست"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-15",
+    "country": "england",
+    "name": "Leicester City",
+    "arabic": "ليستر سيتي",
+    "aliases": [
+      "leicester",
+      "ليستر"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-16",
+    "country": "england",
+    "name": "Leeds United",
+    "arabic": "ليدز يونايتد",
+    "aliases": [
+      "leeds",
+      "ليدز"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-17",
+    "country": "england",
+    "name": "Southampton",
+    "arabic": "ساوثهامبتون",
+    "aliases": [
+      "saints",
+      "ساوثامبتون"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-18",
+    "country": "england",
+    "name": "Bournemouth",
+    "arabic": "بورنموث",
+    "aliases": [
+      "afc bournemouth",
+      "بورنموث"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-19",
+    "country": "england",
+    "name": "Brentford",
+    "arabic": "برينتفورد",
+    "aliases": [
+      "brentford fc",
+      "برنتفورد"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-20",
+    "country": "england",
+    "name": "Burnley",
+    "arabic": "بيرنلي",
+    "aliases": [
+      "burnley fc",
+      "بيرنلى"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-21",
+    "country": "england",
+    "name": "Sunderland",
+    "arabic": "سندرلاند",
+    "aliases": [
+      "sunderland afc"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-22",
+    "country": "england",
+    "name": "Sheffield United",
+    "arabic": "شيفيلد يونايتد",
+    "aliases": [
+      "sheffield utd",
+      "شيفيلد يونايتيد"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-23",
+    "country": "england",
+    "name": "Sheffield Wednesday",
+    "arabic": "شيفيلد وينزداي",
+    "aliases": [
+      "sheff wednesday",
+      "شيفيلد وينزدي"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-24",
+    "country": "england",
+    "name": "Ipswich Town",
+    "arabic": "إيبسويتش تاون",
+    "aliases": [
+      "ipswich",
+      "ايبسويتش"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-25",
+    "country": "england",
+    "name": "Norwich City",
+    "arabic": "نورويتش سيتي",
+    "aliases": [
+      "norwich",
+      "نورويتش"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-26",
+    "country": "england",
+    "name": "Watford",
+    "arabic": "واتفورد",
+    "aliases": [
+      "watford fc"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-27",
+    "country": "england",
+    "name": "Derby County",
+    "arabic": "ديربي كاونتي",
+    "aliases": [
+      "derby",
+      "ديربي"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-28",
+    "country": "england",
+    "name": "Blackburn Rovers",
+    "arabic": "بلاكبيرن روفرز",
+    "aliases": [
+      "blackburn",
+      "بلاكبيرن"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "england-29",
+    "country": "england",
+    "name": "Middlesbrough",
+    "arabic": "ميدلزبره",
+    "aliases": [
+      "boro",
+      "ميدلسبره"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-0",
+    "country": "spain",
+    "name": "Real Madrid",
+    "arabic": "ريال مدريد",
+    "aliases": [
+      "real",
+      "realmadrid",
+      "ريال",
+      "الريال",
+      "ريال مدريـد"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-1",
+    "country": "spain",
+    "name": "Barcelona",
+    "arabic": "برشلونة",
+    "aliases": [
+      "fc barcelona",
+      "barca",
+      "barça",
+      "fcb",
+      "برشلونه",
+      "البارسا",
+      "بارسا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-2",
+    "country": "spain",
+    "name": "Atlético Madrid",
+    "arabic": "أتلتيكو مدريد",
+    "aliases": [
+      "atletico",
+      "atletico madrid",
+      "atleti",
+      "اتليتيكو مدريد",
+      "اتلتيكو",
+      "اتليتكو مدريد",
+      "أتلتيكو"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-3",
+    "country": "spain",
+    "name": "Sevilla",
+    "arabic": "إشبيلية",
+    "aliases": [
+      "sevilla fc",
+      "seville",
+      "اشبيلية"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-4",
+    "country": "spain",
+    "name": "Valencia",
+    "arabic": "فالنسيا",
+    "aliases": [
+      "valencia cf",
+      "ڤالنسيا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-5",
+    "country": "spain",
+    "name": "Villarreal",
+    "arabic": "فياريال",
+    "aliases": [
+      "villarreal cf",
+      "villareal",
+      "ڤياريال"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-6",
+    "country": "spain",
+    "name": "Real Betis",
+    "arabic": "ريال بيتيس",
+    "aliases": [
+      "betis",
+      "بيتيس"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-7",
+    "country": "spain",
+    "name": "Athletic Bilbao",
+    "arabic": "أتلتيك بلباو",
+    "aliases": [
+      "athletic club",
+      "athletic",
+      "athletic bilbao",
+      "bilbao",
+      "اتلتيك بلباو",
+      "بلباو",
+      "أتلتيك بيلباو"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-8",
+    "country": "spain",
+    "name": "Real Sociedad",
+    "arabic": "ريال سوسيداد",
+    "aliases": [
+      "sociedad",
+      "سوسيداد"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-9",
+    "country": "spain",
+    "name": "Girona",
+    "arabic": "جيرونا",
+    "aliases": [
+      "girona fc",
+      "خيرونا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-10",
+    "country": "spain",
+    "name": "Celta Vigo",
+    "arabic": "سيلتا فيغو",
+    "aliases": [
+      "celta",
+      "rc celta",
+      "سيلتا فيجو",
+      "سيلتا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-11",
+    "country": "spain",
+    "name": "Espanyol",
+    "arabic": "إسبانيول",
+    "aliases": [
+      "rcd espanyol",
+      "اسبانيول"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-12",
+    "country": "spain",
+    "name": "Getafe",
+    "arabic": "خيتافي",
+    "aliases": [
+      "getafe cf",
+      "خيتافى"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-13",
+    "country": "spain",
+    "name": "Osasuna",
+    "arabic": "أوساسونا",
+    "aliases": [
+      "ca osasuna",
+      "اوساسونا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-14",
+    "country": "spain",
+    "name": "Mallorca",
+    "arabic": "مايوركا",
+    "aliases": [
+      "rcd mallorca",
+      "ريال مايوركا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-15",
+    "country": "spain",
+    "name": "Las Palmas",
+    "arabic": "لاس بالماس",
+    "aliases": [
+      "ud las palmas"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-16",
+    "country": "spain",
+    "name": "Deportivo La Coruña",
+    "arabic": "ديبورتيفو لاكورونيا",
+    "aliases": [
+      "deportivo",
+      "deportivo la coruna",
+      "la coruna",
+      "ديبورتيفو"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "spain-17",
+    "country": "spain",
+    "name": "Real Zaragoza",
+    "arabic": "ريال سرقسطة",
+    "aliases": [
+      "zaragoza",
+      "سرقسطة"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-0",
+    "country": "italy",
+    "name": "AC Milan",
+    "arabic": "إيه سي ميلان",
+    "aliases": [
+      "milan",
+      "acm",
+      "a c milan",
+      "اي سي ميلان",
+      "ميلان",
+      "اسي ميلان"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-1",
+    "country": "italy",
+    "name": "Inter Milan",
+    "arabic": "إنتر ميلان",
+    "aliases": [
+      "inter",
+      "internazionale",
+      "inter milano",
+      "fc internazionale",
+      "انتر ميلان",
+      "الانتر",
+      "إنتر",
+      "انتر"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-2",
+    "country": "italy",
+    "name": "Juventus",
+    "arabic": "يوفنتوس",
+    "aliases": [
+      "juve",
+      "juventus fc",
+      "يوفي",
+      "يوڤنتوس",
+      "اليوفي",
+      "يوفنتس"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-3",
+    "country": "italy",
+    "name": "Napoli",
+    "arabic": "نابولي",
+    "aliases": [
+      "ssc napoli",
+      "نابولى"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-4",
+    "country": "italy",
+    "name": "AS Roma",
+    "arabic": "روما",
+    "aliases": [
+      "roma",
+      "asroma",
+      "a s roma",
+      "اي اس روما"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-5",
+    "country": "italy",
+    "name": "Lazio",
+    "arabic": "لاتسيو",
+    "aliases": [
+      "ss lazio",
+      "لاتزيو"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-6",
+    "country": "italy",
+    "name": "Atalanta",
+    "arabic": "أتالانتا",
+    "aliases": [
+      "atalanta bc",
+      "اتالانتا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-7",
+    "country": "italy",
+    "name": "Fiorentina",
+    "arabic": "فيورنتينا",
+    "aliases": [
+      "acf fiorentina",
+      "فيورنتينا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-8",
+    "country": "italy",
+    "name": "Bologna",
+    "arabic": "بولونيا",
+    "aliases": [
+      "bologna fc",
+      "بولونيا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-9",
+    "country": "italy",
+    "name": "Torino",
+    "arabic": "تورينو",
+    "aliases": [
+      "torino fc",
+      "turin"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-10",
+    "country": "italy",
+    "name": "Genoa",
+    "arabic": "جنوى",
+    "aliases": [
+      "genoa cfc",
+      "جينوا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-11",
+    "country": "italy",
+    "name": "Sampdoria",
+    "arabic": "سامبدوريا",
+    "aliases": [
+      "uc sampdoria"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-12",
+    "country": "italy",
+    "name": "Parma",
+    "arabic": "بارما",
+    "aliases": [
+      "parma calcio"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-13",
+    "country": "italy",
+    "name": "Udinese",
+    "arabic": "أودينيزي",
+    "aliases": [
+      "udinese calcio",
+      "اودينيزي"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-14",
+    "country": "italy",
+    "name": "Sassuolo",
+    "arabic": "ساسولو",
+    "aliases": [
+      "us sassuolo"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-15",
+    "country": "italy",
+    "name": "Como",
+    "arabic": "كومو",
+    "aliases": [
+      "como 1907"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-16",
+    "country": "italy",
+    "name": "Cagliari",
+    "arabic": "كالياري",
+    "aliases": [
+      "cagliari calcio"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-17",
+    "country": "italy",
+    "name": "Hellas Verona",
+    "arabic": "هيلاس فيرونا",
+    "aliases": [
+      "verona",
+      "فيرونا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-18",
+    "country": "italy",
+    "name": "Palermo",
+    "arabic": "باليرمو",
+    "aliases": [
+      "palermo fc"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "italy-19",
+    "country": "italy",
+    "name": "Lecce",
+    "arabic": "ليتشي",
+    "aliases": [
+      "us lecce"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-0",
+    "country": "germany",
+    "name": "Bayern Munich",
+    "arabic": "بايرن ميونخ",
+    "aliases": [
+      "bayern",
+      "bayern munchen",
+      "bayern münchen",
+      "fc bayern",
+      "بايرن",
+      "البايرن",
+      "بايرن ميونيخ"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-1",
+    "country": "germany",
+    "name": "Borussia Dortmund",
+    "arabic": "بوروسيا دورتموند",
+    "aliases": [
+      "dortmund",
+      "bvb",
+      "دورتموند",
+      "بروسيا دورتموند"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-2",
+    "country": "germany",
+    "name": "Bayer Leverkusen",
+    "arabic": "باير ليفركوزن",
+    "aliases": [
+      "leverkusen",
+      "bayer 04 leverkusen",
+      "ليفركوزن"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-3",
+    "country": "germany",
+    "name": "RB Leipzig",
+    "arabic": "آر بي لايبزيغ",
+    "aliases": [
+      "leipzig",
+      "rasenballsport leipzig",
+      "لايبزيغ",
+      "لايبزيج"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-4",
+    "country": "germany",
+    "name": "Eintracht Frankfurt",
+    "arabic": "آينتراخت فرانكفورت",
+    "aliases": [
+      "frankfurt",
+      "eintracht",
+      "فرانكفورت",
+      "اينتراخت فرانكفورت"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-5",
+    "country": "germany",
+    "name": "Stuttgart",
+    "arabic": "شتوتغارت",
+    "aliases": [
+      "vfb stuttgart",
+      "شتوتجارت"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-6",
+    "country": "germany",
+    "name": "Wolfsburg",
+    "arabic": "فولفسبورغ",
+    "aliases": [
+      "vfl wolfsburg",
+      "فولفسبورج"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-7",
+    "country": "germany",
+    "name": "Werder Bremen",
+    "arabic": "فيردر بريمن",
+    "aliases": [
+      "bremen",
+      "werder",
+      "بريمن"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-8",
+    "country": "germany",
+    "name": "Borussia Mönchengladbach",
+    "arabic": "بوروسيا مونشنغلادباخ",
+    "aliases": [
+      "gladbach",
+      "monchengladbach",
+      "mönchengladbach",
+      "borussia monchengladbach",
+      "غلادباخ",
+      "مونشنغلادباخ"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-9",
+    "country": "germany",
+    "name": "Schalke 04",
+    "arabic": "شالكه 04",
+    "aliases": [
+      "schalke",
+      "شالكه",
+      "شالكة"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-10",
+    "country": "germany",
+    "name": "Hamburg",
+    "arabic": "هامبورغ",
+    "aliases": [
+      "hamburger sv",
+      "hsv",
+      "hamburg sv",
+      "هامبورج"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-11",
+    "country": "germany",
+    "name": "Hoffenheim",
+    "arabic": "هوفنهايم",
+    "aliases": [
+      "tsg hoffenheim",
+      "tsg 1899 hoffenheim"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-12",
+    "country": "germany",
+    "name": "Freiburg",
+    "arabic": "فرايبورغ",
+    "aliases": [
+      "sc freiburg",
+      "فرايبورج"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-13",
+    "country": "germany",
+    "name": "Mainz 05",
+    "arabic": "ماينز 05",
+    "aliases": [
+      "mainz",
+      "ماينز"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-14",
+    "country": "germany",
+    "name": "FC Köln",
+    "arabic": "كولن",
+    "aliases": [
+      "koln",
+      "köln",
+      "cologne",
+      "fc cologne"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-15",
+    "country": "germany",
+    "name": "Union Berlin",
+    "arabic": "يونيون برلين",
+    "aliases": [
+      "union",
+      "fc union berlin",
+      "اونيون برلين"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-16",
+    "country": "germany",
+    "name": "Hertha Berlin",
+    "arabic": "هيرتا برلين",
+    "aliases": [
+      "hertha",
+      "hertha bsc"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "germany-17",
+    "country": "germany",
+    "name": "Augsburg",
+    "arabic": "أوغسبورغ",
+    "aliases": [
+      "fc augsburg",
+      "اوغسبورغ"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-0",
+    "country": "france",
+    "name": "Paris Saint-Germain",
+    "arabic": "باريس سان جيرمان",
+    "aliases": [
+      "psg",
+      "paris saint germain",
+      "paris sg",
+      "باريس",
+      "بي اس جي",
+      "باريس سان جرمان"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-1",
+    "country": "france",
+    "name": "Marseille",
+    "arabic": "مارسيليا",
+    "aliases": [
+      "olympique marseille",
+      "olympique de marseille",
+      "om",
+      "مارسيليا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-2",
+    "country": "france",
+    "name": "Lyon",
+    "arabic": "ليون",
+    "aliases": [
+      "olympique lyon",
+      "olympique lyonnais",
+      "ol",
+      "أولمبيك ليون"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-3",
+    "country": "france",
+    "name": "Monaco",
+    "arabic": "موناكو",
+    "aliases": [
+      "as monaco",
+      "asm"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-4",
+    "country": "france",
+    "name": "Lille",
+    "arabic": "ليل",
+    "aliases": [
+      "losc",
+      "losc lille"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-5",
+    "country": "france",
+    "name": "Nice",
+    "arabic": "نيس",
+    "aliases": [
+      "ogc nice"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-6",
+    "country": "france",
+    "name": "Rennes",
+    "arabic": "رين",
+    "aliases": [
+      "stade rennais",
+      "rennais"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-7",
+    "country": "france",
+    "name": "Lens",
+    "arabic": "لانس",
+    "aliases": [
+      "rc lens"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-8",
+    "country": "france",
+    "name": "Saint-Étienne",
+    "arabic": "سانت إتيان",
+    "aliases": [
+      "saint etienne",
+      "st etienne",
+      "asse",
+      "سانت اتيان"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-9",
+    "country": "france",
+    "name": "Nantes",
+    "arabic": "نانت",
+    "aliases": [
+      "fc nantes"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-10",
+    "country": "france",
+    "name": "Strasbourg",
+    "arabic": "ستراسبورغ",
+    "aliases": [
+      "rc strasbourg",
+      "ستراسبورج"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-11",
+    "country": "france",
+    "name": "Montpellier",
+    "arabic": "مونبلييه",
+    "aliases": [
+      "montpellier hsc",
+      "مونبلييه"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-12",
+    "country": "france",
+    "name": "Bordeaux",
+    "arabic": "بوردو",
+    "aliases": [
+      "girondins bordeaux",
+      "girondins de bordeaux"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-13",
+    "country": "france",
+    "name": "Toulouse",
+    "arabic": "تولوز",
+    "aliases": [
+      "toulouse fc"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "france-14",
+    "country": "france",
+    "name": "Brest",
+    "arabic": "بريست",
+    "aliases": [
+      "stade brestois",
+      "brestois"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-0",
+    "country": "portugal",
+    "name": "Benfica",
+    "arabic": "بنفيكا",
+    "aliases": [
+      "sl benfica",
+      "sport lisboa e benfica",
+      "بينفيكا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-1",
+    "country": "portugal",
+    "name": "Porto",
+    "arabic": "بورتو",
+    "aliases": [
+      "fc porto"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-2",
+    "country": "portugal",
+    "name": "Sporting CP",
+    "arabic": "سبورتينغ لشبونة",
+    "aliases": [
+      "sporting",
+      "sporting lisbon",
+      "sporting clube de portugal",
+      "سبورتنج لشبونة",
+      "سبورتينغ",
+      "سبورتنج"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-3",
+    "country": "portugal",
+    "name": "Braga",
+    "arabic": "براغا",
+    "aliases": [
+      "sc braga",
+      "براغا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-4",
+    "country": "portugal",
+    "name": "Vitória Guimarães",
+    "arabic": "فيتوريا غيماريش",
+    "aliases": [
+      "vitoria guimaraes",
+      "guimaraes",
+      "vitoria sc",
+      "غيماريش"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-5",
+    "country": "portugal",
+    "name": "Boavista",
+    "arabic": "بوافيشتا",
+    "aliases": [
+      "boavista fc",
+      "بوافيستا"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-6",
+    "country": "portugal",
+    "name": "Famalicão",
+    "arabic": "فاماليكاو",
+    "aliases": [
+      "famalicao"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "portugal-7",
+    "country": "portugal",
+    "name": "Rio Ave",
+    "arabic": "ريو آفي",
+    "aliases": [
+      "rioave",
+      "ريو افي"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-0",
+    "country": "netherlands",
+    "name": "Ajax",
+    "arabic": "أياكس",
+    "aliases": [
+      "ajax amsterdam",
+      "afc ajax",
+      "اياكس"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-1",
+    "country": "netherlands",
+    "name": "PSV Eindhoven",
+    "arabic": "بي إس في آيندهوفن",
+    "aliases": [
+      "psv",
+      "eindhoven",
+      "ايندهوفن",
+      "بي اس في",
+      "آيندهوفن"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-2",
+    "country": "netherlands",
+    "name": "Feyenoord",
+    "arabic": "فينورد",
+    "aliases": [
+      "feyenoord rotterdam",
+      "فينورد روتردام"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-3",
+    "country": "netherlands",
+    "name": "AZ Alkmaar",
+    "arabic": "ألكمار",
+    "aliases": [
+      "az",
+      "alkmaar",
+      "اي زد الكمار"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-4",
+    "country": "netherlands",
+    "name": "Twente",
+    "arabic": "تفينتي",
+    "aliases": [
+      "fc twente",
+      "تفينتى"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-5",
+    "country": "netherlands",
+    "name": "Utrecht",
+    "arabic": "أوتريخت",
+    "aliases": [
+      "fc utrecht",
+      "اوتريخت"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-6",
+    "country": "netherlands",
+    "name": "Groningen",
+    "arabic": "خرونينغن",
+    "aliases": [
+      "fc groningen",
+      "غرونينغن"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "netherlands-7",
+    "country": "netherlands",
+    "name": "Heerenveen",
+    "arabic": "هيرنفين",
+    "aliases": [
+      "sc heerenveen"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "scotland-0",
+    "country": "scotland",
+    "name": "Celtic",
+    "arabic": "سيلتيك",
+    "aliases": [
+      "celtic fc",
+      "سلتيك"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "scotland-1",
+    "country": "scotland",
+    "name": "Rangers",
+    "arabic": "رينجرز",
+    "aliases": [
+      "rangers fc",
+      "glasgow rangers",
+      "غلاسكو رينجرز"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "scotland-2",
+    "country": "scotland",
+    "name": "Aberdeen",
+    "arabic": "أبردين",
+    "aliases": [
+      "aberdeen fc",
+      "ابردين"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "scotland-3",
+    "country": "scotland",
+    "name": "Hearts",
+    "arabic": "هارتس",
+    "aliases": [
+      "heart of midlothian",
+      "هارت أوف ميدلوثيان"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "scotland-4",
+    "country": "scotland",
+    "name": "Hibernian",
+    "arabic": "هيبرنيان",
+    "aliases": [
+      "hibs",
+      "هيبرنيان"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "scotland-5",
+    "country": "scotland",
+    "name": "Dundee United",
+    "arabic": "دندي يونايتد",
+    "aliases": [
+      "dundee utd",
+      "داندي يونايتد"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "turkey-0",
+    "country": "turkey",
+    "name": "Galatasaray",
+    "arabic": "غلطة سراي",
+    "aliases": [
+      "gala",
+      "galatasaray sk",
+      "جالاتا سراي",
+      "غلاطة سراي",
+      "غالاتاسراي"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "turkey-1",
+    "country": "turkey",
+    "name": "Fenerbahçe",
+    "arabic": "فنربخشة",
+    "aliases": [
+      "fenerbahce",
+      "fener",
+      "فنربهشة",
+      "فنرباتشي"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "turkey-2",
+    "country": "turkey",
+    "name": "Beşiktaş",
+    "arabic": "بشكتاش",
+    "aliases": [
+      "besiktas",
+      "beşiktaş jk",
+      "بيشكتاش"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "turkey-3",
+    "country": "turkey",
+    "name": "Trabzonspor",
+    "arabic": "طرابزون سبور",
+    "aliases": [
+      "trabzon",
+      "طرابزون"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "turkey-4",
+    "country": "turkey",
+    "name": "Başakşehir",
+    "arabic": "باشاك شهير",
+    "aliases": [
+      "basaksehir",
+      "istanbul basaksehir"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "turkey-5",
+    "country": "turkey",
+    "name": "Bursaspor",
+    "arabic": "بورصة سبور",
+    "aliases": [
+      "bursa",
+      "بورصا سبور"
+    ],
+    "region": "europe"
+  },
+  {
+    "id": "saudi-0",
+    "country": "saudi",
+    "name": "Al Hilal",
+    "arabic": "الهلال السعودي",
+    "aliases": [
+      "al hilal",
+      "alhilal",
+      "hilal",
+      "الهلال",
+      "هلال",
+      "الزعيم"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-1",
+    "country": "saudi",
+    "name": "Al Nassr",
+    "arabic": "النصر السعودي",
+    "aliases": [
+      "al nassr",
+      "alnassr",
+      "nassr",
+      "النصر",
+      "نصر"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-2",
+    "country": "saudi",
+    "name": "Al Ittihad",
+    "arabic": "الاتحاد السعودي",
+    "aliases": [
+      "al ittihad",
+      "alittihad",
+      "ittihad",
+      "الاتحاد",
+      "اتحاد",
+      "اتحاد جدة"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-3",
+    "country": "saudi",
+    "name": "Al Ahli Saudi",
+    "arabic": "الأهلي السعودي",
+    "aliases": [
+      "al ahli",
+      "al ahli saudi",
+      "alahli",
+      "ahli",
+      "الأهلي",
+      "اهلي",
+      "اهلي جدة",
+      "الأهلي جدة"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-4",
+    "country": "saudi",
+    "name": "Al Shabab Saudi",
+    "arabic": "الشباب السعودي",
+    "aliases": [
+      "al shabab",
+      "alshabab",
+      "shabab",
+      "الشباب"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-5",
+    "country": "saudi",
+    "name": "Al Ettifaq",
+    "arabic": "الاتفاق",
+    "aliases": [
+      "al ettifaq",
+      "ettifaq",
+      "al etifaq",
+      "الاتفاق السعودي"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-6",
+    "country": "saudi",
+    "name": "Al Taawoun",
+    "arabic": "التعاون",
+    "aliases": [
+      "al taawoun",
+      "taawoun"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-7",
+    "country": "saudi",
+    "name": "Al Fateh",
+    "arabic": "الفتح",
+    "aliases": [
+      "al fateh",
+      "fateh"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-8",
+    "country": "saudi",
+    "name": "Al Qadsiah",
+    "arabic": "القادسية السعودي",
+    "aliases": [
+      "al qadsiah",
+      "qadsiah",
+      "القادسية"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-9",
+    "country": "saudi",
+    "name": "Al Riyadh",
+    "arabic": "الرياض",
+    "aliases": [
+      "al riyadh",
+      "riyadh"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-10",
+    "country": "saudi",
+    "name": "Al Fayha",
+    "arabic": "الفيحاء",
+    "aliases": [
+      "al fayha",
+      "fayha"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-11",
+    "country": "saudi",
+    "name": "Damac",
+    "arabic": "ضمك",
+    "aliases": [
+      "damac fc",
+      "damak"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-12",
+    "country": "saudi",
+    "name": "Al Khaleej",
+    "arabic": "الخليج",
+    "aliases": [
+      "al khaleej",
+      "khaleej"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "saudi-13",
+    "country": "saudi",
+    "name": "Al Raed",
+    "arabic": "الرائد",
+    "aliases": [
+      "al raed",
+      "raed"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-0",
+    "country": "uae",
+    "name": "Al Ain",
+    "arabic": "العين",
+    "aliases": [
+      "al ain",
+      "alain",
+      "ain",
+      "العين الاماراتي"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-1",
+    "country": "uae",
+    "name": "Shabab Al Ahli",
+    "arabic": "شباب الأهلي",
+    "aliases": [
+      "shabab al ahli",
+      "shabab al ahli dubai",
+      "شباب الاهلي دبي"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-2",
+    "country": "uae",
+    "name": "Al Wasl",
+    "arabic": "الوصل",
+    "aliases": [
+      "al wasl",
+      "alwasl",
+      "wasl"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-3",
+    "country": "uae",
+    "name": "Al Wahda UAE",
+    "arabic": "الوحدة الإماراتي",
+    "aliases": [
+      "al wahda",
+      "alwahda",
+      "wahda",
+      "الوحدة"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-4",
+    "country": "uae",
+    "name": "Al Jazira",
+    "arabic": "الجزيرة",
+    "aliases": [
+      "al jazira",
+      "aljazira",
+      "jazira"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-5",
+    "country": "uae",
+    "name": "Sharjah",
+    "arabic": "الشارقة",
+    "aliases": [
+      "al sharjah",
+      "sharjah fc"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-6",
+    "country": "uae",
+    "name": "Al Nasr Dubai",
+    "arabic": "النصر الإماراتي",
+    "aliases": [
+      "al nasr",
+      "al nasr dubai",
+      "النصر",
+      "نصر",
+      "النصر دبي"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-7",
+    "country": "uae",
+    "name": "Baniyas",
+    "arabic": "بني ياس",
+    "aliases": [
+      "bani yas",
+      "بنيياس"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-8",
+    "country": "uae",
+    "name": "Ajman",
+    "arabic": "عجمان",
+    "aliases": [
+      "ajman club"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-9",
+    "country": "uae",
+    "name": "Kalba",
+    "arabic": "كلباء",
+    "aliases": [
+      "ittihad kalba",
+      "al ittihad kalba",
+      "اتحاد كلباء"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "uae-10",
+    "country": "uae",
+    "name": "Khor Fakkan",
+    "arabic": "خورفكان",
+    "aliases": [
+      "khorfakkan",
+      "خور فكان"
+    ],
+    "region": "asia"
+  },
+  {
+    "id": "egypt-0",
+    "country": "egypt",
+    "name": "Al Ahly",
+    "arabic": "الأهلي المصري",
+    "aliases": [
+      "al ahly",
+      "alahly",
+      "ahly",
+      "al ahli",
+      "الأهلي",
+      "اهلي",
+      "الاهلي القاهري"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-1",
+    "country": "egypt",
+    "name": "Zamalek",
+    "arabic": "الزمالك",
+    "aliases": [
+      "zamalek sc",
+      "الزمالك المصري"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-2",
+    "country": "egypt",
+    "name": "Pyramids",
+    "arabic": "بيراميدز",
+    "aliases": [
+      "pyramids fc"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-3",
+    "country": "egypt",
+    "name": "Ismaily",
+    "arabic": "الإسماعيلي",
+    "aliases": [
+      "ismaily sc",
+      "ismaili",
+      "اسماعيلي"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-4",
+    "country": "egypt",
+    "name": "Al Masry",
+    "arabic": "المصري",
+    "aliases": [
+      "al masry",
+      "el masry",
+      "المصري البورسعيدي"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-5",
+    "country": "egypt",
+    "name": "Al Ittihad Alexandria",
+    "arabic": "الاتحاد السكندري",
+    "aliases": [
+      "al ittihad alexandria",
+      "ittihad alexandria",
+      "الاتحاد"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-6",
+    "country": "egypt",
+    "name": "Smouha",
+    "arabic": "سموحة",
+    "aliases": [
+      "smouha sc"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-7",
+    "country": "egypt",
+    "name": "Enppi",
+    "arabic": "إنبي",
+    "aliases": [
+      "enppi sc",
+      "انبي"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-8",
+    "country": "egypt",
+    "name": "Ceramica Cleopatra",
+    "arabic": "سيراميكا كليوباترا",
+    "aliases": [
+      "ceramica",
+      "سيراميكا"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "egypt-9",
+    "country": "egypt",
+    "name": "ZED",
+    "arabic": "زد",
+    "aliases": [
+      "zed fc",
+      "زد اف سي"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "morocco-0",
+    "country": "morocco",
+    "name": "Raja Casablanca",
+    "arabic": "الرجاء الرياضي",
+    "aliases": [
+      "raja",
+      "raja ca",
+      "raja club athletic",
+      "الرجاء",
+      "رجاء"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "morocco-1",
+    "country": "morocco",
+    "name": "Wydad Casablanca",
+    "arabic": "الوداد الرياضي",
+    "aliases": [
+      "wydad",
+      "wac",
+      "wydad ac",
+      "الوداد",
+      "وداد"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "morocco-2",
+    "country": "morocco",
+    "name": "AS FAR",
+    "arabic": "الجيش الملكي",
+    "aliases": [
+      "far rabat",
+      "as far rabat",
+      "far",
+      "الجيش"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "morocco-3",
+    "country": "morocco",
+    "name": "FUS Rabat",
+    "arabic": "الفتح الرباطي",
+    "aliases": [
+      "fus",
+      "fath union sport"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "morocco-4",
+    "country": "morocco",
+    "name": "RS Berkane",
+    "arabic": "نهضة بركان",
+    "aliases": [
+      "berkane",
+      "rsb",
+      "بركان"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "morocco-5",
+    "country": "morocco",
+    "name": "Moghreb Tétouan",
+    "arabic": "المغرب التطواني",
+    "aliases": [
+      "moghreb tetouan",
+      "tetouan",
+      "تطوان"
+    ],
+    "region": "africa"
+  },
+  {
+    "id": "brazil-0",
+    "country": "brazil",
+    "name": "Flamengo",
+    "arabic": "فلامنغو",
+    "aliases": [
+      "cr flamengo",
+      "فلامنجو"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-1",
+    "country": "brazil",
+    "name": "Palmeiras",
+    "arabic": "بالميراس",
+    "aliases": [
+      "se palmeiras"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-2",
+    "country": "brazil",
+    "name": "Santos",
+    "arabic": "سانتوس",
+    "aliases": [
+      "santos fc"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-3",
+    "country": "brazil",
+    "name": "Corinthians",
+    "arabic": "كورينثيانز",
+    "aliases": [
+      "corinthians paulista",
+      "كورينثيانس"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-4",
+    "country": "brazil",
+    "name": "São Paulo",
+    "arabic": "ساو باولو",
+    "aliases": [
+      "sao paulo",
+      "sao paulo fc",
+      "ساوباولو"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-5",
+    "country": "brazil",
+    "name": "Fluminense",
+    "arabic": "فلومينينسي",
+    "aliases": [
+      "fluminense fc",
+      "فلومينينزي"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-6",
+    "country": "brazil",
+    "name": "Botafogo",
+    "arabic": "بوتافوغو",
+    "aliases": [
+      "botafogo fr",
+      "بوتافوجو"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-7",
+    "country": "brazil",
+    "name": "Vasco da Gama",
+    "arabic": "فاسكو دا غاما",
+    "aliases": [
+      "vasco",
+      "vasco da gama",
+      "فاسكو دي جاما"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-8",
+    "country": "brazil",
+    "name": "Grêmio",
+    "arabic": "غريميو",
+    "aliases": [
+      "gremio",
+      "جريميو"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-9",
+    "country": "brazil",
+    "name": "Internacional",
+    "arabic": "إنترناسيونال",
+    "aliases": [
+      "sport club internacional",
+      "انترناسيونال"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-10",
+    "country": "brazil",
+    "name": "Cruzeiro",
+    "arabic": "كروزيرو",
+    "aliases": [
+      "cruzeiro ec"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "brazil-11",
+    "country": "brazil",
+    "name": "Atlético Mineiro",
+    "arabic": "أتلتيكو مينيرو",
+    "aliases": [
+      "atletico mineiro",
+      "galo",
+      "اتلتيكو مينيرو"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-0",
+    "country": "argentina",
+    "name": "Boca Juniors",
+    "arabic": "بوكا جونيورز",
+    "aliases": [
+      "boca",
+      "بوكا"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-1",
+    "country": "argentina",
+    "name": "River Plate",
+    "arabic": "ريفر بليت",
+    "aliases": [
+      "river",
+      "ريفر"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-2",
+    "country": "argentina",
+    "name": "Racing Club",
+    "arabic": "راسينغ كلوب",
+    "aliases": [
+      "racing",
+      "racing club de avellaneda",
+      "راسينج"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-3",
+    "country": "argentina",
+    "name": "Independiente",
+    "arabic": "إنديبندينتي",
+    "aliases": [
+      "ca independiente",
+      "انديبندينتي"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-4",
+    "country": "argentina",
+    "name": "San Lorenzo",
+    "arabic": "سان لورينزو",
+    "aliases": [
+      "san lorenzo de almagro"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-5",
+    "country": "argentina",
+    "name": "Estudiantes",
+    "arabic": "إستوديانتيس",
+    "aliases": [
+      "estudiantes de la plata",
+      "استوديانتيس"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-6",
+    "country": "argentina",
+    "name": "Vélez Sarsfield",
+    "arabic": "فيليز سارسفيلد",
+    "aliases": [
+      "velez",
+      "velez sarsfield",
+      "فيليز"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "argentina-7",
+    "country": "argentina",
+    "name": "Newell's Old Boys",
+    "arabic": "نيولز أولد بويز",
+    "aliases": [
+      "newells",
+      "newells old boys",
+      "newell s old boys",
+      "نيولز"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-0",
+    "country": "usa",
+    "name": "Inter Miami",
+    "arabic": "إنتر ميامي",
+    "aliases": [
+      "inter miami cf",
+      "miami",
+      "انتر ميامي"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-1",
+    "country": "usa",
+    "name": "LA Galaxy",
+    "arabic": "لوس أنجلوس غالاكسي",
+    "aliases": [
+      "la galaxy",
+      "galaxy",
+      "los angeles galaxy",
+      "لوس انجلوس جالاكسي",
+      "غالاكسي"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-2",
+    "country": "usa",
+    "name": "Los Angeles FC",
+    "arabic": "لوس أنجلوس إف سي",
+    "aliases": [
+      "lafc",
+      "la fc",
+      "los angeles fc",
+      "لوس انجلوس اف سي"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-3",
+    "country": "usa",
+    "name": "Seattle Sounders",
+    "arabic": "سياتل ساوندرز",
+    "aliases": [
+      "seattle",
+      "seattle sounders fc",
+      "سياتل"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-4",
+    "country": "usa",
+    "name": "Atlanta United",
+    "arabic": "أتلانتا يونايتد",
+    "aliases": [
+      "atlanta",
+      "atlanta united fc",
+      "اتلانتا"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-5",
+    "country": "usa",
+    "name": "New York City FC",
+    "arabic": "نيويورك سيتي",
+    "aliases": [
+      "nycfc",
+      "new york city",
+      "نيو يورك سيتي"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-6",
+    "country": "usa",
+    "name": "New York Red Bulls",
+    "arabic": "نيويورك ريد بولز",
+    "aliases": [
+      "ny red bulls",
+      "red bulls",
+      "نيو يورك ريد بولز"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-7",
+    "country": "usa",
+    "name": "Columbus Crew",
+    "arabic": "كولومبوس كرو",
+    "aliases": [
+      "columbus",
+      "crew"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-8",
+    "country": "usa",
+    "name": "Portland Timbers",
+    "arabic": "بورتلاند تيمبرز",
+    "aliases": [
+      "portland",
+      "بورتلاند"
+    ],
+    "region": "americas"
+  },
+  {
+    "id": "usa-9",
+    "country": "usa",
+    "name": "Austin FC",
+    "arabic": "أوستن",
+    "aliases": [
+      "austin",
+      "اوستن"
+    ],
+    "region": "americas"
+  }
+]
