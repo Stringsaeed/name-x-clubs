@@ -1871,3 +1871,33 @@ html[lang="ar"] .level-button strong {
     height: var(--play-height, 100dvh);
   }
 }
+@media (min-width: 761px) {
+  .game-card {
+    padding: 20px 30px;
+  }
+  .challenge-heading {
+    margin: 14px 0 12px;
+  }
+  .timer {
+    width: 65px;
+    min-width: 65px;
+    height: 65px;
+  }
+  .chat-empty {
+    min-height: 0;
+    padding: 4px;
+  }
+  .empty-ball {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 10px;
+  }
+  .empty-ball .icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+.chat-empty {
+  min-height: 0;
+  padding: 4px;
+}

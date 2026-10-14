@@ -31,6 +31,13 @@ test('keeps Daily disabled and shows only compact mode choices', async ({ page }
   if ((page.viewportSize()?.width ?? 0) > 760)
     await expect(page.locator('.hero-art img')).toBeVisible();
   await expect(page.getByRole('textbox')).toBeInViewport();
+  const start = await page.getByRole('button', { name: 'Let’s play', exact: true }).boundingBox();
+  const conversation = await page.locator('.conversation').boundingBox();
+  expect(start).not.toBeNull();
+  expect(conversation).not.toBeNull();
+  expect((start?.y ?? 0) + (start?.height ?? 0)).toBeLessThanOrEqual(
+    (conversation?.y ?? 0) + (conversation?.height ?? 0),
+  );
   await page.screenshot({ path: testInfo.outputPath('free-time-layout.png') });
 });
 test('restores random practice mode, question and accepted clubs', async ({ page }) => {
