@@ -14,7 +14,9 @@
       "!.open-next",
       "!next-env.d.ts",
       "!src/locales/*/messages.ts",
-      "!.vscode"
+      "!.vscode",
+      "!.claude",
+      "!docs/design/mockups"
     ]
   },
   "formatter": {
