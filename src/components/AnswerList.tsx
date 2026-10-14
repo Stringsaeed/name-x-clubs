@@ -1,14 +1,10 @@
+import { useLingui } from '@lingui/react/macro';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import type { ClubId } from '../content/catalog';
 import { type Club, clubCrests, countryName } from '../content/catalog';
 import { namedClubs } from '../game/controller';
 import type { Language } from '../game/model';
 import { Icon } from './Icon';
-
-const text = {
-  en: { listLabel: 'Accepted clubs' },
-  ar: { listLabel: 'الأندية الصحيحة' },
-} as const;
 
 const CLUB_NAME_PREFIX = /^(AC |AS |Al |FC |RB )/;
 
@@ -81,6 +77,7 @@ export const AnswerList = memo(function AnswerListView({
   language,
   showEmpty,
 }: AnswerListProps) {
+  const { t } = useLingui();
   const container = useRef<HTMLDivElement>(null);
   const previous = useRef({ count: 0, language });
   // Rows present on first render (or before a round restart) must not replay the entrance animation.
@@ -117,7 +114,7 @@ export const AnswerList = memo(function AnswerListView({
         role="log"
         aria-live="polite"
         aria-relevant="additions"
-        aria-label={text[language].listLabel}
+        aria-label={t`Accepted clubs`}
       >
         {clubs.map((club, index) => (
           <AnswerRow

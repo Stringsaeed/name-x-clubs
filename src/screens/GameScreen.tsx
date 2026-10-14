@@ -48,13 +48,13 @@ export function GameScreen({ lang: language, controller: injected }: GameScreenP
           onHelp={openHelp}
         />
         <main>
-          <Hero language={language} />
+          <Hero />
           <div className="game-layout">
             <GameCard view={view} language={language} actions={actions} notify={showToast} />
           </div>
         </main>
       </div>
-      <HelpDialog open={helpOpen} language={language} onClose={closeHelp} />
+      <HelpDialog open={helpOpen} onClose={closeHelp} />
       {toastMessage && (
         <div className="toast" role="status">
           {toastMessage}

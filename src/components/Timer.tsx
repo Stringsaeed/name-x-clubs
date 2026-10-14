@@ -1,12 +1,14 @@
+import { useLingui } from '@lingui/react/macro';
 import { useEffect, useState } from 'react';
-import { messages } from '../content/messages';
 import { elapsedSeconds, formatElapsed } from '../game/controller';
-import type { Language, Session } from '../game/model';
+import type { Session } from '../game/model';
 import { Icon } from './Icon';
 
-export function Timer({ session, language }: { session: Session; language: Language }) {
+export function Timer({ session }: { session: Session }) {
+  const { t } = useLingui();
   const [now, setNow] = useState(Date.now);
   const playing = session.round.phase === 'playing';
+
   useEffect(() => {
     setNow(Date.now());
 
@@ -27,19 +29,21 @@ export function Timer({ session, language }: { session: Session; language: Langu
     };
   }, [playing]);
 
-  const elapsed = elapsedSeconds(session, now);
+  const elapsedText = formatElapsed(elapsedSeconds(session, now));
+  const caption = t({ message: 'elapsed', context: 'timer caption' });
+
   return (
     <div
       className={`timer ${playing ? 'running' : ''}`}
       id="timer"
       role="timer"
-      aria-label={`${messages[language].elapsed}: ${formatElapsed(elapsed)}`}
+      aria-label={`${caption}: ${elapsedText}`}
     >
       <Icon name="clock" />
       <span id="timer-text" dir="ltr">
-        {formatElapsed(elapsed)}
+        {elapsedText}
       </span>
-      <span className="timer-caption">{messages[language].elapsed}</span>
+      <span className="timer-caption">{caption}</span>
     </div>
   );
 }

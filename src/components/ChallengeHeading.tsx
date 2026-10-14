@@ -1,27 +1,26 @@
-import { challengeParts } from '../content/labels';
-import { messages } from '../content/messages';
+import { useLingui } from '@lingui/react/macro';
+import { challengeDescriptor, splitFocus } from '../content/labels';
 import type { Session } from '../game/model';
-import type { Locale } from '../i18n/config';
 import { Timer } from './Timer';
 
-export function ChallengeHeading({ session, language }: { session: Session; language: Locale }) {
-  const t = messages[language];
-  const parts = challengeParts(session.challenge, language);
+export function ChallengeHeading({ session }: { session: Session }) {
+  const { t, i18n } = useLingui();
   const isLetter = session.challenge.scope.kind === 'letter';
+  const { before, focus, after } = splitFocus(i18n._(challengeDescriptor(i18n, session.challenge)));
 
   return (
     <div className="challenge-heading">
       <div>
         <h2 id="challenge-title">
-          {parts.prefix}
+          {before}
           <span className="country-name" dir={isLetter ? 'ltr' : undefined}>
-            {parts.focus}
-            {parts.suffix}
+            {focus}
           </span>
+          {after}
         </h2>
-        {isLetter && <p className="challenge-detail">{t.letterDetail}</p>}
+        {isLetter && <p className="challenge-detail">{t`Use the club’s common English name.`}</p>}
       </div>
-      <Timer session={session} language={language} />
+      <Timer session={session} />
     </div>
   );
 }

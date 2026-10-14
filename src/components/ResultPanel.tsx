@@ -1,5 +1,5 @@
+import { useLingui } from '@lingui/react/macro';
 import { useEffect, useRef, useState } from 'react';
-import { messages } from '../content/messages';
 import type { GameController } from '../game/controller';
 import { formatElapsed } from '../game/controller';
 import type { Language, Session } from '../game/model';
@@ -17,6 +17,7 @@ export function ResultPanel({
   onNext: () => void;
   notify: (text: string) => void;
 }) {
+  const { t } = useLingui();
   const [manual, setManual] = useState('');
   const copy = useRef<HTMLTextAreaElement>(null);
   const share = useRef<HTMLButtonElement>(null);
@@ -32,7 +33,6 @@ export function ResultPanel({
   if (session.round.phase !== 'complete') {
     return null;
   }
-  const t = messages[language];
   const target = session.challenge.target;
   const won = session.round.found.length === target;
   const body = `${session.round.found.length} / ${target} · ${formatElapsed(session.round.elapsed)}`;
@@ -43,7 +43,7 @@ export function ResultPanel({
           <Icon name={won ? 'trophy' : 'ball'} />
         </span>
         <div>
-          <h3>{won ? t.winTitle : t.endTitle}</h3>
+          <h3>{won ? t`You know ball.` : t`Good shift.`}</h3>
           <p>{body}</p>
         </div>
       </div>
@@ -55,19 +55,19 @@ export function ResultPanel({
           onClick={async () => {
             const result = await onShare(language);
             if (result.kind === 'copied') {
-              notify(t.copied);
+              notify(t`Result copied. Send it to your football friends.`);
             }
             if (result.kind === 'manual') {
               setManual(result.text);
-              notify(t.copyManual);
+              notify(t`Select and copy your result below.`);
             }
           }}
         >
           <Icon name="share" />
-          {t.share}
+          {t`Share result`}
         </button>
         <button className="button button-outline" type="button" onClick={onNext}>
-          {t.again}
+          {t`Another round`}
           <Icon name="arrow" />
         </button>
       </div>
@@ -75,7 +75,7 @@ export function ResultPanel({
         <textarea
           ref={copy}
           className="copy-box"
-          aria-label={t.share}
+          aria-label={t`Share result`}
           rows={5}
           value={manual}
           readOnly

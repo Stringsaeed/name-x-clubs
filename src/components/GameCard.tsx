@@ -1,4 +1,4 @@
-import { messages } from '../content/messages';
+import { useLingui } from '@lingui/react/macro';
 import type { GameView } from '../game/controller';
 import type { useGameActions } from '../hooks/useGameActions';
 import type { Locale } from '../i18n/config';
@@ -19,25 +19,23 @@ type GameCardProps = {
 
 export function GameCard({ view, language, actions, notify }: GameCardProps) {
   const { session, mode, level } = view;
-  const t = messages[language];
+  const { t } = useLingui();
   const phase = session.round.phase;
   const category = session.kind === 'practice' ? session.category : 'world';
   const roundKey = `${session.kind}:${session.challenge.id}:${level}`;
 
   return (
     <section className="game-card" id="game-card" aria-labelledby="challenge-title">
-      <LevelPicker language={language} level={level} onLevelChange={actions.changeLevel} />
+      <LevelPicker level={level} onLevelChange={actions.changeLevel} />
       {mode === 'practice' && (
         <PracticeControls
-          language={language}
           level={level}
           category={category}
           onCategoryChange={actions.changeCategory}
         />
       )}
-      <ChallengeHeading session={session} language={language} />
+      <ChallengeHeading session={session} />
       <ProgressBar
-        language={language}
         level={level}
         foundCount={session.round.found.length}
         playing={phase === 'playing'}
@@ -51,7 +49,7 @@ export function GameCard({ view, language, actions, notify }: GameCardProps) {
       />
       {!view.storageAvailable && (
         <p className="storage-notice" role="status">
-          {t.unsupportedStorage}
+          {t`Your browser couldn’t save this round. Keep this tab open.`}
         </p>
       )}
       {phase === 'complete' ? (

@@ -1,26 +1,24 @@
-import { messages } from '../content/messages';
+import { useLingui } from '@lingui/react/macro';
 import type { Level } from '../game/model';
-import type { Locale } from '../i18n/config';
 
 type ProgressBarProps = {
-  language: Locale;
   level: Level;
   foundCount: number;
   playing: boolean;
   onFinish: () => void;
 };
 
-export function ProgressBar({ language, level, foundCount, playing, onFinish }: ProgressBarProps) {
-  const t = messages[language];
+export function ProgressBar({ level, foundCount, playing, onFinish }: ProgressBarProps) {
+  const { t } = useLingui();
 
   return (
     <>
       <div className="progress-heading">
-        <span>{t.yourClubs}</span>
+        <span>{t`YOUR CLUBS`}</span>
         <div className="progress-actions">
           {playing && (
             <button className="text-button" type="button" onClick={onFinish}>
-              {t.finish}
+              {t`Finish round`}
             </button>
           )}
           <span className="progress-count">
@@ -29,7 +27,7 @@ export function ProgressBar({ language, level, foundCount, playing, onFinish }: 
           </span>
         </div>
       </div>
-      <progress id="round-progress" max={level} value={foundCount} aria-label={t.yourClubs} />
+      <progress id="round-progress" max={level} value={foundCount} aria-label={t`YOUR CLUBS`} />
     </>
   );
 }

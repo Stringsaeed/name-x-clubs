@@ -1,27 +1,20 @@
+import { useLingui } from '@lingui/react/macro';
 import { memo } from 'react';
 import { type Level, levels } from '../game/model';
-import type { Locale } from '../i18n/config';
-
-const text = {
-  en: { pickerLabel: 'Choose a mode', levelPrefix: 'Mode' },
-  ar: { pickerLabel: 'اختر الوضع', levelPrefix: 'وضع' },
-} as const;
 
 type LevelPickerProps = {
-  language: Locale;
   level: Level;
   onLevelChange: (level: Level) => void;
 };
 
 export const LevelPicker = memo(function LevelPickerView({
-  language,
   level,
   onLevelChange,
 }: LevelPickerProps) {
-  const local = text[language];
+  const { t } = useLingui();
 
   return (
-    <fieldset className="level-picker" aria-label={local.pickerLabel}>
+    <fieldset className="level-picker" aria-label={t`Choose a mode`}>
       {levels.map((target) => (
         <button
           className={`level-button ${level === target ? 'active' : ''}`}
@@ -31,9 +24,7 @@ export const LevelPicker = memo(function LevelPickerView({
           key={target}
           onClick={() => onLevelChange(target)}
         >
-          <strong>
-            {local.levelPrefix} {target}
-          </strong>
+          <strong>{t({ message: `Mode ${target}`, context: 'difficulty level button' })}</strong>
         </button>
       ))}
     </fieldset>

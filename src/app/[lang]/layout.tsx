@@ -1,8 +1,10 @@
-import { msg } from '@lingui/core/macro';
+import { msg, t } from '@lingui/core/macro';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import '../../styles/game.css';
 import { alanSans, nunito } from '../../fonts';
+import { catalogs } from '../../i18n/catalogs';
+import { LinguiClientProvider } from '../../i18n/LinguiClientProvider';
 import { getServerI18n, type Locale, locales } from '../../i18n/server';
 
 type LayoutProps = { children: ReactNode; params: Promise<{ lang: string }> };
@@ -30,6 +32,9 @@ export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>):
 
 export default async function RootLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
+  const locale = lang as Locale;
+  const i18n = getServerI18n(locale);
+
   return (
     <html
       lang={lang}
@@ -37,9 +42,13 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       className={`${nunito.variable} ${alanSans.variable}`}
     >
       <body>
-        {children}
+        <LinguiClientProvider locale={locale} messages={catalogs[locale]}>
+          {children}
+        </LinguiClientProvider>
         <noscript>
-          This football game needs JavaScript to match your answers and save your progress.
+          {t(
+            i18n,
+          )`This football game needs JavaScript to match your answers and save your progress.`}
         </noscript>
       </body>
     </html>

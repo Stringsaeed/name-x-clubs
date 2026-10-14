@@ -7,6 +7,253 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Language: ar\n"
 
+#: src/components/AnswerList.tsx
+msgid "Accepted clubs"
+msgstr "الأندية الصحيحة"
+
+#: src/content/labels.ts
+msgid "{count, plural, one {# club} other {# clubs}}"
+msgstr "{count, plural, zero {# ناديًا} one {نادٍ واحد} two {ناديان} few {# أندية} many {# ناديًا} other {# نادٍ}}"
+
+#: src/content/labels.ts
+msgid "Asia"
+msgstr "آسيا"
+
+#: src/components/HelpDialog.tsx
+msgid "Your progress and elapsed time are saved in this browser."
+msgstr "تُحفظ إجاباتك والوقت المستغرق في هذا المتصفح."
+
+#: src/content/labels.ts
+msgid "Name {clubs} starting with <focus>{letter}.</focus>"
+msgstr "اذكر {clubs} تبدأ بحرف <focus>{letter}.</focus>"
+
+#: src/content/labels.ts
+msgid "Name {clubs} from <focus>{country}.</focus>"
+msgstr "اذكر {clubs} من <focus>{country}.</focus>"
+
+#: src/components/ChallengeHeading.tsx
+msgid "Use the club’s common English name."
+msgstr "نعتمد الاسم الإنجليزي الشائع للنادي."
+
+#: src/components/PracticeControls.tsx
+msgid "A random challenge"
+msgstr "تحدٍّ عشوائي"
+
+#: src/components/Header.tsx
+msgctxt "game mode tab"
+msgid "Practice"
+msgstr "تدرّب"
+
+#: src/components/Header.tsx
+msgid "Name × Clubs home"
+msgstr "الصفحة الرئيسية لـ Name × Clubs"
+
+#: src/components/HelpDialog.tsx
+msgid "Send one name at a time, or a list separated by commas, newlines, or “and”."
+msgstr "اكتب اسمًا واحدًا كل مرة، أو عدة أسماء تفصل بينها فاصلة أو سطر جديد أو حرف الواو."
+
+#: src/app/[lang]/error.tsx
+msgid "The game needs a quick restart."
+msgstr "اللعبة تحتاج إلى إعادة تشغيل سريعة."
+
+#: src/components/ProgressBar.tsx
+msgid "YOUR CLUBS"
+msgstr "قائمة أنديتك"
+
+#: src/app/[lang]/layout.tsx
+msgid "This football game needs JavaScript to match your answers and save your progress."
+msgstr "تحتاج هذه اللعبة إلى JavaScript لمطابقة إجاباتك وحفظ تقدمك."
+
+#: src/components/Header.tsx
+msgid "Switch to English"
+msgstr "Switch to English"
+
+#: src/components/HelpDialog.tsx
+msgid "One club, many ways to say it"
+msgstr "نادٍ واحد، بأكثر من طريقة"
+
+#: src/content/labels.ts
+msgid "the Americas"
+msgstr "الأمريكتين"
+
+#: src/components/HelpDialog.tsx
+msgid "This first edition includes a curated club collection, not every club in the world. If we miss one, try its full name."
+msgstr "هذه النسخة تضم مجموعة مختارة من الأندية، وليست كل أندية العالم. إذا لم نتعرف على اسم، جرّب الاسم الكامل."
+
+#: src/app/[lang]/error.tsx
+msgid "Reload the game to try again."
+msgstr "أعد تحميل اللعبة للمحاولة مرة أخرى."
+
+#: src/components/GameCard.tsx
+msgid "Your browser couldn’t save this round. Keep this tab open."
+msgstr "المتصفح لم يتمكن من حفظ الجولة. اترك هذه الصفحة مفتوحة."
+
+#: src/content/labels.ts
+msgid "Name <focus>{clubs}.</focus>"
+msgstr "اذكر <focus>{clubs}.</focus>"
+
+#: src/components/AnswerComposer.tsx
+msgid "Let’s play"
+msgstr "يلا نلعب"
+
+#: src/components/AnswerComposer.tsx
+msgid "“{input}” could mean more than one club. Try the full name."
+msgstr "«{input}» ممكن يشير لأكثر من نادٍ. جرّب الاسم الكامل."
+
+#: src/content/labels.ts
+msgid "Starting with {letter}"
+msgstr "حرف {letter}"
+
+#: src/components/Header.tsx
+msgid "Game modes"
+msgstr "أوضاع اللعب"
+
+#: src/content/labels.ts
+msgid "Name {clubs} from <focus>{region}.</focus>"
+msgstr "اذكر {clubs} من <focus>{region}.</focus>"
+
+#: src/components/Timer.tsx
+msgctxt "timer caption"
+msgid "elapsed"
+msgstr "المدة"
+
+#: src/components/ResultPanel.tsx
+msgid "You know ball."
+msgstr "واضح إنك كروي!"
+
+#: src/components/AnswerComposer.tsx
+msgid "Submit answer"
+msgstr "إرسال الإجابة"
+
+#: src/components/AnswerComposer.tsx
+msgid "{name} is already on your list. Try another club."
+msgstr "{name} موجود في تشكيلتك. جرّب ناديًا ثانيًا."
+
+#: src/components/Hero.tsx
+msgid "Know your clubs?"
+msgstr "تعرف الأندية؟"
+
+#: src/components/HelpDialog.tsx
+msgid "How many clubs have you got?"
+msgstr "كم نادٍ تقدر تذكر؟"
+
+#: src/components/HelpDialog.tsx
+msgid "Got it. Let’s play."
+msgstr "فهمت. يلا نلعب."
+
+#: src/components/Header.tsx
+msgid "Free time"
+msgstr "وقت حر"
+
+#: src/components/Hero.tsx
+msgid "Prove it."
+msgstr "ورّنا معرفتك."
+
+#: src/components/AnswerComposer.tsx
+msgid "Type a club name in English or Arabic"
+msgstr "اكتب اسم نادٍ بالعربية أو الإنجليزية"
+
+#: src/content/labels.ts
+msgid "Anywhere in the world"
+msgstr "أي مكان في العالم"
+
+#: src/components/LevelPicker.tsx
+msgctxt "difficulty level button"
+msgid "Mode {target}"
+msgstr "وضع {target}"
+
+#: src/components/AnswerComposer.tsx
+msgid "We couldn’t match “{input}”. Try the full name or another spelling."
+msgstr "ما تعرّفنا على «{input}». جرّب الاسم الكامل أو كتابة مختلفة."
+
+#: src/components/AnswerComposer.tsx
+msgid "{name}. That’s one!"
+msgstr "{name}. إجابة صحيحة!"
+
+#: src/components/PracticeControls.tsx
+msgid "Surprise me"
+msgstr "فاجئني"
+
+#: src/components/PracticeControls.tsx
+msgid "Pick your pitch"
+msgstr "اختر ملعبك"
+
+#: src/components/Hero.tsx
+msgid "An illustrated football pitch with shirts and a football"
+msgstr "رسم لملعب كرة قدم مع قمصان وكرة"
+
+#: src/components/Header.tsx
+msgid "How to play"
+msgstr "طريقة اللعب"
+
 #: src/app/[lang]/layout.tsx
 msgid "Name 10, 50 or 100 football clubs. Play at your own pace in English or Arabic."
 msgstr "اذكر ١٠ أو ٥٠ أو ١٠٠ نادٍ لكرة القدم. العب بالسرعة التي تناسبك بالإنجليزية أو العربية."
+
+#: src/components/ProgressBar.tsx
+msgid "Finish round"
+msgstr "إنهاء الجولة"
+
+#: src/components/HelpDialog.tsx
+msgid "Use English or Arabic, with or without accents. Small spelling mistakes are fine when the club is clear."
+msgstr "اكتب بالعربية أو الإنجليزية، بالتشكيل أو بدونه. نقبل الأخطاء الإملائية البسيطة إذا كان اسم النادي واضحًا."
+
+#: src/components/ResultPanel.tsx
+msgid "Select and copy your result below."
+msgstr "حدد النتيجة وانسخها من المربع."
+
+#: src/components/LevelPicker.tsx
+msgid "Choose a mode"
+msgstr "اختر الوضع"
+
+#: src/content/labels.ts
+msgid "Europe"
+msgstr "أوروبا"
+
+#: src/components/ResultPanel.tsx
+msgid "Result copied. Send it to your football friends."
+msgstr "نسخنا النتيجة. أرسلها لأصحابك الكرويين."
+
+#: src/components/Header.tsx
+msgid "Switch to Arabic"
+msgstr "التبديل إلى العربية"
+
+#: src/content/labels.ts
+msgid "Africa"
+msgstr "أفريقيا"
+
+#: src/components/ResultPanel.tsx
+msgid "Share result"
+msgstr "شارك النتيجة"
+
+#: src/components/AnswerComposer.tsx
+msgid "Type a club name…"
+msgstr "اكتب اسم نادٍ…"
+
+#: src/components/HelpDialog.tsx
+msgid "Name 10, 50 or 100 clubs at your own pace. The clock measures how long you take. Practice adds countries, regions and letters."
+msgstr "اذكر ١٠، ٥٠ أو ١٠٠ نادٍ على راحتك. المؤقت يحسب الوقت اللي استغرقته. التدريب يضيف دول ومناطق وحروف."
+
+#: src/app/[lang]/error.tsx
+msgid "Reload game"
+msgstr "إعادة تحميل اللعبة"
+
+#: src/components/ResultPanel.tsx
+msgid "Good shift."
+msgstr "محاولة حلوة."
+
+#: src/components/HelpDialog.tsx
+msgid "If a name could mean more than one club, add the city or country. Different names for the same club only count once."
+msgstr "إذا كان الاسم يشير لأكثر من نادٍ، أضف المدينة أو الدولة. الأسماء المختلفة للنادي نفسه تُحسب مرة واحدة."
+
+#: src/components/HelpDialog.tsx
+msgid "Close"
+msgstr "إغلاق"
+
+#: src/components/AnswerComposer.tsx
+msgid "{name} is a club, but doesn’t fit this challenge."
+msgstr "{name} نادٍ معروف، لكنه لا يناسب هذا التحدي."
+
+#: src/components/ResultPanel.tsx
+msgid "Another round"
+msgstr "جولة ثانية"

@@ -1,10 +1,11 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { afterEach, expect, test, vi } from 'vitest';
 import { type ClubId, clubs } from '../content/catalog';
 import { createGameController } from '../game/controller';
 import { useToast } from '../hooks/useToast';
 import { GameScreen } from '../screens/GameScreen';
+import { renderWithI18n } from '../test/renderWithI18n';
 import { pasteIntoValue } from './AnswerComposer';
 import { AnswerList } from './AnswerList';
 import { Timer } from './Timer';
@@ -28,7 +29,7 @@ test('Timer ticks once per second aligned to the second boundary, not four times
   const controller = createGameController();
   controller.dispatch({ type: 'start' });
   const intervalSpy = vi.spyOn(window, 'setInterval');
-  render(<Timer session={controller.getSnapshot().session} language="en" />);
+  renderWithI18n(<Timer session={controller.getSnapshot().session} />);
   expect(screen.getByRole('timer')).toHaveTextContent('00:00');
 
   act(() => vi.advanceTimersByTime(499));
@@ -57,7 +58,7 @@ function ToastHarness() {
 
 test('showing the same toast message twice restarts the 4s timer', () => {
   vi.useFakeTimers();
-  render(<ToastHarness />);
+  renderWithI18n(<ToastHarness />);
   const show = screen.getByRole('button', { name: 'show' });
 
   fireEvent.click(show);
@@ -81,7 +82,7 @@ test('pasting a newline-separated list converts newlines and tabs to commas at t
 test('pasting multiple lines into the answer field keeps them as a comma list', () => {
   const controller = createGameController();
   controller.dispatch({ type: 'start' });
-  render(<GameScreen lang="en" controller={controller} />);
+  renderWithI18n(<GameScreen lang="en" controller={controller} />);
   const input = screen.getByRole('textbox');
 
   fireEvent.paste(input, { clipboardData: { getData: () => 'Arsenal\nChelsea\nLiverpool' } });
@@ -96,7 +97,7 @@ test('pasting respects the maximum answer length', () => {
 });
 
 test('the start button sits in the composer slot and focuses the input in the same tap', () => {
-  render(<GameScreen lang="en" controller={createGameController()} />);
+  renderWithI18n(<GameScreen lang="en" controller={createGameController()} />);
 
   fireEvent.click(screen.getByRole('button', { name: 'Let’s play' }));
 
@@ -119,7 +120,7 @@ function ListHarness({ found }: { found: readonly ClubId[] }) {
 
 test('AnswerList rows do not re-render when unrelated parent state changes', () => {
   const found = clubs.slice(0, 5).map((club) => club.id);
-  render(<ListHarness found={found} />);
+  renderWithI18n(<ListHarness found={found} />);
   const iconRendersAfterMount = iconRenders.count;
   expect(iconRendersAfterMount).toBeGreaterThan(0);
 
@@ -131,7 +132,7 @@ test('AnswerList rows do not re-render when unrelated parent state changes', () 
 
 test('only rows added after mount play the entrance animation', () => {
   const ids = clubs.slice(0, 3).map((club) => club.id);
-  const view = render(<AnswerList found={ids.slice(0, 2)} language="en" showEmpty />);
+  const view = renderWithI18n(<AnswerList found={ids.slice(0, 2)} language="en" showEmpty />);
   expect(document.querySelectorAll('.answer-message.is-new')).toHaveLength(0);
 
   view.rerender(<AnswerList found={ids} language="en" showEmpty />);

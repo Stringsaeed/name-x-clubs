@@ -1,14 +1,9 @@
+import { useLingui } from '@lingui/react/macro';
 import { memo } from 'react';
-import { messages } from '../content/messages';
 import type { Mode } from '../game/model';
 import type { Locale } from '../i18n/config';
 import { writeLanguageCookie } from '../i18n/useLegacyLanguage';
 import { Icon } from './Icon';
-
-const text = {
-  en: { modesLabel: 'Game modes', switchLabel: 'Switch to Arabic', otherName: 'العربية' },
-  ar: { modesLabel: 'أوضاع اللعب', switchLabel: 'Switch to English', otherName: 'English' },
-} as const;
 
 type HeaderProps = {
   language: Locale;
@@ -23,13 +18,15 @@ export const Header = memo(function HeaderView({
   onModeChange,
   onHelp,
 }: HeaderProps) {
-  const t = messages[language];
-  const local = text[language];
+  const { t } = useLingui();
   const otherLanguage: Locale = language === 'en' ? 'ar' : 'en';
+  // Language names are shown in their own language so they stay findable after a wrong switch.
+  const otherLanguageName = otherLanguage === 'ar' ? 'العربية' : 'English';
+  const switchLabel = otherLanguage === 'ar' ? t`Switch to Arabic` : t`Switch to English`;
 
   return (
     <header className="site-header">
-      <a href="/" className="brand" aria-label="Name × Clubs home">
+      <a href="/" className="brand" aria-label={t`Name × Clubs home`}>
         <span className="brand-mark">
           <Icon name="ball" />
         </span>
@@ -37,7 +34,7 @@ export const Header = memo(function HeaderView({
           name<span className="brand-x">×</span>clubs<span className="brand-period">.</span>
         </span>
       </a>
-      <nav className="main-nav" aria-label={local.modesLabel}>
+      <nav className="main-nav" aria-label={t`Game modes`}>
         <button
           type="button"
           className={`nav-item ${mode === 'free' ? 'active' : ''}`}
@@ -45,7 +42,7 @@ export const Header = memo(function HeaderView({
           onClick={() => onModeChange('free')}
         >
           <Icon name="clock" />
-          {t.freeTime}
+          {t`Free time`}
         </button>
         <button
           type="button"
@@ -54,20 +51,20 @@ export const Header = memo(function HeaderView({
           onClick={() => onModeChange('practice')}
         >
           <Icon name="shuffle" />
-          {t.practice}
+          {t({ message: 'Practice', context: 'game mode tab' })}
         </button>
       </nav>
       <div className="header-actions">
         <a
           className="language-button"
           href={`/${otherLanguage}`}
-          aria-label={local.switchLabel}
+          aria-label={switchLabel}
           onClick={() => writeLanguageCookie(otherLanguage)}
         >
           <Icon name="globe" />
-          <span lang={otherLanguage}>{local.otherName}</span>
+          <span lang={otherLanguage}>{otherLanguageName}</span>
         </a>
-        <button className="help-button" type="button" aria-label={t.howToPlay} onClick={onHelp}>
+        <button className="help-button" type="button" aria-label={t`How to play`} onClick={onHelp}>
           <Icon name="help" />
         </button>
       </div>

@@ -1,6 +1,7 @@
+import { useLingui } from '@lingui/react/macro';
 import { type ClipboardEvent, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { messages } from '../content/messages';
+import type { Club } from '../content/catalog';
 import type { AnswerEvent } from '../game/engine';
 import type { Language, Session } from '../game/model';
 import { Icon } from './Icon';
@@ -28,24 +29,41 @@ export function pasteIntoValue(value: string, start: number, end: number, pasted
   };
 }
 
-function feedbackText(event: AnswerEvent, language: Language) {
-  const t = messages[language];
-  switch (event.kind) {
-    case 'accepted':
-      return t.accepted(language === 'en' ? event.club.name : event.club.arabic);
-    case 'duplicate':
-      return t.duplicate(language === 'en' ? event.club.name : event.club.arabic);
-    case 'wrong-category':
-      return t.wrong(language === 'en' ? event.club.name : event.club.arabic);
-    case 'ambiguous':
-      return t.ambiguous(event.input);
-    case 'unknown':
-      return t.unknown(event.input);
-    default: {
-      const exhaustive: never = event;
-      return exhaustive;
+function clubDisplayName(club: Club, language: Language) {
+  return language === 'ar' ? club.arabic : club.name;
+}
+
+function useFeedbackText(language: Language) {
+  const { t } = useLingui();
+
+  return (event: AnswerEvent): string => {
+    switch (event.kind) {
+      case 'accepted': {
+        const name = clubDisplayName(event.club, language);
+        return t`${name}. That’s one!`;
+      }
+      case 'duplicate': {
+        const name = clubDisplayName(event.club, language);
+        return t`${name} is already on your list. Try another club.`;
+      }
+      case 'wrong-category': {
+        const name = clubDisplayName(event.club, language);
+        return t`${name} is a club, but doesn’t fit this challenge.`;
+      }
+      case 'ambiguous': {
+        const input = event.input;
+        return t`“${input}” could mean more than one club. Try the full name.`;
+      }
+      case 'unknown': {
+        const input = event.input;
+        return t`We couldn’t match “${input}”. Try the full name or another spelling.`;
+      }
+      default: {
+        const exhaustive: never = event;
+        return exhaustive;
+      }
     }
-  }
+  };
 }
 
 function FeedbackLines({
@@ -55,6 +73,8 @@ function FeedbackLines({
   feedback: readonly AnswerEvent[];
   language: Language;
 }) {
+  const feedbackText = useFeedbackText(language);
+
   return (
     <div
       className={`answer-feedback ${feedback.length ? 'error' : ''}`}
@@ -65,7 +85,7 @@ function FeedbackLines({
     >
       {feedback.map((event) => (
         <div className="feedback-line" key={`${event.kind}:${event.input}`}>
-          {feedbackText(event, language)}
+          {feedbackText(event)}
         </div>
       ))}
     </div>
@@ -85,7 +105,7 @@ export function AnswerComposer({
   onSubmit: (text: string) => boolean;
   onStart: () => void;
 }) {
-  const t = messages[language];
+  const { t } = useLingui();
   const [value, setValue] = useState('');
   const input = useRef<HTMLInputElement>(null);
 
@@ -126,7 +146,7 @@ export function AnswerComposer({
       <div className="composer-stack">
         {idle && (
           <button className="button button-primary start-round" type="button" onClick={handleStart}>
-            {t.start}
+            {t`Let’s play`}
             <Icon name="arrow" />
           </button>
         )}
@@ -158,8 +178,8 @@ export function AnswerComposer({
               autoCapitalize="off"
               spellCheck={false}
               maxLength={MAX_ANSWER_LENGTH}
-              aria-label={t.inputLabel}
-              placeholder={t.placeholder}
+              aria-label={t`Type a club name in English or Arabic`}
+              placeholder={t`Type a club name…`}
               disabled={session.round.phase !== 'playing'}
               value={value}
               onChange={(event) => setValue(event.currentTarget.value)}
@@ -168,7 +188,7 @@ export function AnswerComposer({
             <button
               className="submit-answer"
               type="submit"
-              aria-label={t.submit}
+              aria-label={t`Submit answer`}
               disabled={session.round.phase !== 'playing'}
             >
               <Icon name="arrow" />
