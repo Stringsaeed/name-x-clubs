@@ -1,6 +1,6 @@
 # Leaderboards, Mode X and identity
 
-Status: proposal, 2026-10-14. Not implemented. Open decisions are listed at the end.
+Status: proposal, decided 2026-10-14. Not implemented. Open items are listed at the end.
 
 ## Platform facts
 
@@ -11,9 +11,9 @@ Status: proposal, 2026-10-14. Not implemented. Open decisions are listed at the 
 
 ## Mode X
 
-- **Rules.** One ranked board, "Mode X · 3:00": world scope, countdown timed by the server. The score is unique accepted clubs. Ties go to the earlier last accepted club, then the earlier finish. Stopping early is allowed.
-- **Shorter or longer rounds.** 1:00 and 5:00 can exist as unranked play. Several ranked durations would split a small player base into empty boards.
-- **The catalog caps the score.** Today it is 200 clubs. A larger Wikidata-based catalog changes what scores mean, so each round stores a `catalog_version`. See the open decision on seasons.
+- **Rules.** One ranked board, "Mode X · 15:00": world scope, countdown timed by the server. The score is unique accepted clubs. Ties go to the earlier last accepted club. Stopping early is allowed.
+- **Other durations.** Any other round length is unranked play. Several ranked durations would split a small player base into empty boards.
+- **The catalog caps the score.** Today it is 200 clubs. The planned catalog is about 1,500 clubs from a Wikidata build-time ingest, worldwide by popularity, with today's 200 as the curated core. A larger catalog changes what scores mean, so each round stores a `catalog_version`. See the open item on seasons.
 
 ## Architecture
 
@@ -24,9 +24,9 @@ Status: proposal, 2026-10-14. Not implemented. Open decisions are listed at the 
   - **Errors.** Tagged errors map to HTTP in one place: 400, 401, 404, 409, 422, 429, 403 and 503.
   - **Packages.** Effect 4 ships HTTP, Schema and SQL in `effect` itself. Use `@effect/sql-pg`, `@effect/sql-pglite` and `@effect/vitest` at 4.x, and do not install the v3-line `@effect/platform`.
   - **Bundle boundary.** A Biome `noRestrictedImports` rule keeps `effect` out of `src/game`, `src/components` and `src/screens`. A CI check fails if `.next/static` contains Effect.
-- **Database: Postgres on Neon** (Frankfurt, close to Gulf and Egypt players).
-  - On Vercel: a small `PgClient` pool on Neon's pooled endpoint.
-  - On Cloudflare: Hyperdrive, with a request-scoped client, because Workers cannot share sockets across requests.
+- **Hosting: Vercel** (Node runtime, Fluid Compute). Cloudflare stays possible but is not planned.
+- **Database: PlanetScale Postgres**, via standard `DATABASE_URL`. Neon remains a drop-in fallback, since the code only needs Postgres.
+  - A small `PgClient` pool on Vercel Functions.
   - Tests: PGlite runs the real migrations in-process.
   - D1 is rejected: it would lock in the host and add a second SQL dialect.
 - **Abuse protection.** Turnstile checks only when a round enters the board. Edge rate rules run in front of a Postgres fixed-window `RateLimit` service.
@@ -44,8 +44,9 @@ Status: proposal, 2026-10-14. Not implemented. Open decisions are listed at the 
    - Hard reject only impossible rounds: Mode 10 under 5 s, Mode 50 under 30 s, Mode 100 under 60 s.
    - Flag suspicious pace and hold the round off public boards.
    - Tune both from logged gaps after launch.
-6. **Entry caps.** Ranked rounds accept up to 120 characters, 3 clubs per entry and 10 entries per request. This blunts pasting a prepared list; see the open decisions.
+6. **Entry caps.** Ranked rounds accept up to 120 characters, 3 clubs per entry and 10 entries per request. This blunts pasting a prepared list.
 7. **Connection loss.** More than 15 s without the server continues the round locally as "unranked (connection)". Local and Practice rounds are never uploaded.
+8. **Mid-round changes.** Players cannot switch mode or level during a round. This is implemented.
 
 ## Identity
 
@@ -60,7 +61,7 @@ Status: proposal, 2026-10-14. Not implemented. Open decisions are listed at the 
   - Reserved words: `admin`, `official` and the game name.
   - Renames have a 30-day cooldown.
   - Profanity filtering uses `obscenity` for English. Arabic and Arabizi need a curated list reviewed by a native speaker.
-- **Display.** Anonymous players show as `Player #4F2A`.
+- **Display.** Anonymous players get a generated, stable bilingual football nickname: adjective + football noun + `#` + 4 characters, e.g. `Swift Striker #4K2Q` / `مهاجم سريع #4K2Q`. The words come from curated English and Arabic lists. A player can replace it with a username.
 - **Later.** Passkeys, and `identity_links(provider, subject)` for Game Center or Play Games if a native wrapper ships.
 
 ## Data model (Postgres, UUIDv7)
@@ -71,20 +72,19 @@ credentials(hash pk, player_id, kind /*session|device|recovery|transfer*/, expir
 handles(id, player_id, display, skeleton /*unique while claimed*/, held_until)
 identity_links(provider, subject, player_id, pk(provider, subject))
 rounds(id, player_id, mode, catalog_version, started_at, deadline_at, finished_at, status,
-       found, elapsed_ms, score_key, next_seq, flags)
+       found, elapsed_ms, score_key, next_seq, flags)  -- index (mode, status, finished_at, score_key)
 round_entries(round_id, seq, received_ms, client_ms, text, accepted, pk(round_id, seq))
-best_scores(mode, period /*d:2026-10-14|w:2026-W42|all*/, player_id, round_id, score_key, achieved_at,
-            pk(mode, period, player_id))  -- index (mode, period, score_key, achieved_at)
+best_scores(mode, player_id, round_id, score_key, achieved_at, pk(mode, player_id))  -- index (mode, score_key, achieved_at)
 rate_limits(key, window_start, count)
 ```
 
 - **One sort key.** `score_key` sorts every board ascending. Timed modes use `elapsed_ms`; Mode X uses `(10000 − clubs) × 10^7 + last_ms`.
-- **Updating bests.** Verifying a round upserts its three period rows in one transaction.
+- **Updating bests.** Verifying a round upserts the player's all-time row in `best_scores` in one transaction.
+- **Rolling windows.** The 24-hour and 7-day boards are computed from `rounds` finished inside the window: the best `score_key` per player, ordered by `score_key, achieved_at`. No reset time exists.
 - **Queries.** Top-N is `ORDER BY score_key, achieved_at LIMIT 50`. "My rank" is `1 + count(*)` of rows ahead of mine.
 - **Retention.**
   - Round entries: 30 days.
   - Unreferenced rounds: 180 days.
-  - Daily bests: 60 days.
   - IPs: kept only as daily-salted HMACs, for 7 days.
 - **Privacy.** `GET /api/me/export` and `DELETE /api/me` cover export and deletion. There is no email and no real name.
 
@@ -95,8 +95,8 @@ rate_limits(key, window_start, count)
 | `POST /api/rounds` | Start a ranked round and create the player if missing | no-store |
 | `GET /api/rounds/:id` | Resume after reload | no-store |
 | `POST /api/rounds/:id/answers` | `{seq, entries}` → authoritative `found`, events, phase | no-store |
-| `POST /api/rounds/:id/finish` | Finish and get day, week and all-time ranks (Turnstile if entering the board) | no-store |
-| `GET /api/leaderboards/:mode?period=` | Public board; never reads cookies | `s-maxage=30, stale-while-revalidate=60`; Cloudflare Cache API on Workers |
+| `POST /api/rounds/:id/finish` | Finish and get 24-hour, 7-day and all-time ranks (Turnstile if entering the board) | no-store |
+| `GET /api/leaderboards/:mode?period=24h\|7d\|all` | Public board; never reads cookies | `s-maxage=30, stale-while-revalidate=60` |
 | `GET /api/leaderboards/:mode/me` | My rank | private |
 | `GET/DELETE /api/me`, `GET /api/me/export`, `PUT /api/me/handle` | Profile, deletion, export, username | no-store |
 | `POST /api/identity/{recovery-code,transfer,redeem,restore}` | Move identity between browsers | rate-limited |
@@ -113,17 +113,27 @@ Recommendation: A while playing, and B's compact "To beat" card plus top 5 befor
 
 ## Phases
 
-0. **Spike.** Fix the matcher exploits (in progress). Prove Effect 4 with `sql-pg` against Neon on Vercel, and through Hyperdrive on Workers via OpenNext. Measure bundle size and cold start.
-1. **First boards.** Anonymous cookie, server rounds, the Mode 10 board (day and all time) and "my rank". Tests use `@effect/vitest` with `TestClock` and PGlite against forged times, `seq` replay, foreign round ids and impossible pace. Playwright covers a ranked round on the board, offline fallback and resume on reload.
-2. **Identity and more boards.** Usernames, moderation, recovery code, transfer link and banner, Turnstile, Modes 50 and 100, weekly boards.
-3. **Mode X and data lifecycle.** Mode X 3:00, retention sweep, export, deletion, report and hide.
+0. **Spike.** Fix the matcher exploits (in progress). Prove Effect 4 with `sql-pg` against PlanetScale Postgres on Vercel. Measure bundle size and cold start.
+1. **First boards.** Anonymous cookie, server rounds, the Mode 10 board (24 hours and all time) and "my rank". Tests use `@effect/vitest` with `TestClock` and PGlite against forged times, `seq` replay, foreign round ids and impossible pace. Playwright covers a ranked round on the board, offline fallback and resume on reload.
+2. **Identity and more boards.** Usernames, moderation, recovery code, transfer link and banner, Turnstile, Modes 50 and 100, 7-day boards.
+3. **Mode X and data lifecycle.** Mode X 15:00, retention sweep, export, deletion, report and hide.
 4. **Later.** Passkeys, native identity links, Redis cache only if p95 latency needs it.
 
-## Open decisions
+## Decisions
 
-1. Daily and weekly reset on UTC or Asia/Riyadh (GMT+3)?
-2. Mode X: a single ranked 3:00 board, with 1:00 and 5:00 unranked?
-3. Ranked entries: up to 3 clubs per entry (recommended), or exactly one? This decides how much pasting ranked play allows.
-4. Show anonymous players on public boards as `Player #4F2A`, or only players with a username?
-5. When the catalog grows from 200 to 1,200+ clubs: start a new season, or keep all-time boards running?
-6. Budget for about $5–25 a month: Neon beyond the free tier, and Workers Paid if Cloudflare is chosen.
+Owner decisions, 2026-10-14.
+
+1. **Database:** PlanetScale Postgres. Neon is a drop-in fallback.
+2. **Hosting:** Vercel (Node runtime, Fluid Compute). Cloudflare is not planned.
+3. **Mode X:** a single ranked 15:00 board. Scored by unique clubs; ties go to the earlier last accepted club.
+4. **Ranked entries:** up to 3 clubs per entry.
+5. **Leaderboard periods:** rolling windows of the last 24 hours, the last 7 days, and all time. No reset time.
+6. **Anonymous players:** a generated, stable bilingual football nickname (for example `Swift Striker #4K2Q` / `مهاجم سريع #4K2Q`). They can replace it with a username.
+7. **Catalog:** about 1,500 clubs from a Wikidata build-time ingest, worldwide by popularity, with today's 200 as the curated core.
+8. **Mid-round changes:** players cannot switch mode or level during a round. Implemented.
+9. **Domain:** production on the saeed.sh subdomain (see README).
+
+## Open
+
+- Seasons when the catalog grows: start a new season, or keep all-time boards running?
+- Budget confirmation.

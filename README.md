@@ -96,8 +96,10 @@ Run `pnpm assets:restore` to restore missing files from their reviewed sources. 
 
 ## Deploy
 
-**Vercel.** Import the repository, keep the framework preset as Next.js, and leave build settings empty. Set `NEXT_PUBLIC_SITE_URL` to the production origin (for example `https://example.com`). It is used for `metadataBase` and the hreflang alternates.
+Production is the Vercel project `name-x-clubs` (team `stringsaeeds-projects`), connected to GitHub `Stringsaeed/name-x-clubs`. Pushes to `main` deploy production; other branches get preview deployments, protected by Vercel Authentication. `NEXT_PUBLIC_SITE_URL` is set for production. It is used for `metadataBase` and the hreflang alternates.
 
-**Cloudflare.** Not configured yet. The plan is to use `@opennextjs/cloudflare`; no Cloudflare config is committed.
+Custom domains: `name-x-clubs.saeed.sh` and `clubs.saeed.sh` are attached. DNS for saeed.sh is on Cloudflare, so each needs a DNS-only (grey cloud) CNAME to `cname.vercel-dns.com`.
+
+Run the browser suite against any deployment with `E2E_BASE_URL=https://… pnpm test:e2e`. pnpm 12 rejects packages published less than 24 hours ago (`minimumReleaseAge`). If an install fails for that reason, pin to an older release.
 
 The earlier ChatGPT Sites prototype is retired and no longer published. Progress is stored per origin, so players do not carry saved rounds from the prototype URL to the new host.
