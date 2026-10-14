@@ -1,9 +1,17 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { clubs } from '../../src/content/catalog';
 
+async function gotoReady(page: Page, path = '/en') {
+  await page.goto(path);
+  await page.locator('.site-shell[data-ready]').waitFor();
+}
+async function reloadReady(page: Page) {
+  await page.reload();
+  await page.locator('.site-shell[data-ready]').waitFor();
+}
 test.beforeEach(async ({ page }) => {
   await page.clock.setFixedTime(new Date('2026-10-14T12:00:00Z'));
-  await page.goto('/');
+  await gotoReady(page);
 });
 async function practice(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: 'Practice', exact: true }).click();
@@ -14,7 +22,7 @@ test('accepts bilingual aliases once and resumes the free-time round', async ({ 
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
   expect(await page.getByRole('log').locator('li').count()).toBe(2);
   await expect(page.getByRole('status')).toContainText('already on your list');
-  await page.reload();
+  await reloadReady(page);
   await expect(page.getByRole('log').locator('li')).toHaveCount(2);
   await expect(page.getByRole('textbox')).toBeEnabled();
   await expect(page.locator('#timer-text')).toHaveText('00:00');
@@ -49,7 +57,7 @@ test('restores random practice mode, question and accepted clubs', async ({ page
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
   await page.getByRole('textbox').fill('Arsenal, Barcelona');
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
-  await page.reload();
+  await reloadReady(page);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText(question);
   await expect(page.getByRole('textbox')).toBeEnabled();
   await expect(page.getByRole('log').locator('li')).toHaveCount(2);
@@ -57,7 +65,9 @@ test('restores random practice mode, question and accepted clubs', async ({ page
 });
 test('plays in Arabic with real crests and a bottom composer', async ({ page }, testInfo) => {
   await practice(page);
-  await page.getByRole('button', { name: 'Switch to Arabic' }).click();
+  await page.getByRole('link', { name: 'Switch to Arabic' }).click();
+  await page.waitForURL(/\/ar/);
+  await page.locator('.site-shell[data-ready]').waitFor();
   await page.getByRole('button', { name: 'يلا نلعب', exact: true }).click();
   await page.getByRole('textbox').fill('الهلال السعودي، الأهلي المصري، العين، الزمالك');
   await page.getByRole('button', { name: 'إرسال الإجابة', exact: true }).click();
@@ -132,14 +142,26 @@ test('elapsed time rises without expiring and freezes on finishing across reload
   await page.clock.setFixedTime(new Date('2026-10-14T12:06:15Z'));
   await expect(page.locator('#timer-text')).toHaveText('06:15');
   await expect(page.getByRole('textbox')).toBeEnabled();
-  await page.reload();
+  await reloadReady(page);
   await expect(page.locator('#timer-text')).toHaveText('06:15');
   await page.getByRole('button', { name: 'Finish round', exact: true }).click();
   await expect(page.getByText('1 / 10 · 06:15', { exact: true })).toBeVisible();
   await page.clock.setFixedTime(new Date('2026-10-14T13:00:00Z'));
-  await page.reload();
+  await reloadReady(page);
   await expect(page.locator('#timer-text')).toHaveText('06:15');
   await page.getByRole('button', { name: 'Another round', exact: true }).click();
   await expect(page.locator('#timer-text')).toHaveText('00:00');
   await expect(page.getByRole('log').locator('li')).toHaveCount(0);
+});
+
+test('GET / redirects by language cookie', async ({ page, context }) => {
+  await page.goto('/');
+  await expect(page).toHaveURL(/\/en$/);
+  await context.addCookies([{ name: 'nxc-language', value: 'ar', url: 'http://127.0.0.1:4173' }]);
+  await page.goto('/');
+  await expect(page).toHaveURL(/\/ar$/);
+});
+test('serves /ar with rtl html before hydration', async ({ request }) => {
+  const res = await request.get('/ar');
+  expect(await res.text()).toContain('<html lang="ar" dir="rtl"');
 });
