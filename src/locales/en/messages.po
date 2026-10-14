@@ -19,6 +19,10 @@ msgstr "{count, plural, one {# club} other {# clubs}}"
 msgid "Asia"
 msgstr "Asia"
 
+#: src/components/leaderboard/BoardTable.tsx
+msgid "When"
+msgstr "When"
+
 #: src/components/HelpDialog.tsx
 msgid "Your progress and elapsed time are saved in this browser."
 msgstr "Your progress and elapsed time are saved in this browser."
@@ -38,6 +42,10 @@ msgstr "Use the club’s common English name."
 #: src/components/PracticeControls.tsx
 msgid "A random challenge"
 msgstr "A random challenge"
+
+#: src/components/leaderboard/BoardTable.tsx
+msgid "Rank"
+msgstr "Rank"
 
 #: src/components/Header.tsx
 #: src/game/session/share.ts
@@ -81,19 +89,40 @@ msgstr "the Americas"
 msgid "This first edition includes a curated club collection, not every club in the world. If we miss one, try its full name."
 msgstr "This first edition includes a curated club collection, not every club in the world. If we miss one, try its full name."
 
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "Last 24 hours"
+msgstr "Last 24 hours"
+
 #: src/app/[lang]/error.tsx
 msgid "Reload the game to try again."
 msgstr "Reload the game to try again."
 
+#: src/components/leaderboard/Podium.tsx
+msgid "Top 3"
+msgstr "Top 3"
+
 #: src/components/GameCard.tsx
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "Your browser couldn’t save this round. Keep this tab open."
+
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "Time period"
+msgstr "Time period"
+
+#: src/components/leaderboard/EmptyState.tsx
+msgid "No times yet"
+msgstr "No times yet"
+
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "Last 7 days"
+msgstr "Last 7 days"
 
 #: src/content/labels.ts
 msgid "Name <focus>{clubs}.</focus>"
 msgstr "Name <focus>{clubs}.</focus>"
 
 #: src/components/AnswerComposer.tsx
+#: src/components/leaderboard/EmptyState.tsx
 msgid "Let’s play"
 msgstr "Let’s play"
 
@@ -147,6 +176,15 @@ msgstr "Got it. Let’s play."
 msgid "Free time"
 msgstr "Free time"
 
+#: src/app/[lang]/leaderboard/error.tsx
+#: src/components/leaderboard/EmptyState.tsx
+msgid "Try again"
+msgstr "Try again"
+
+#: src/components/leaderboard/BoardTable.tsx
+msgid "You"
+msgstr "You"
+
 #: src/components/Hero.tsx
 msgid "Prove it."
 msgstr "Prove it."
@@ -155,10 +193,15 @@ msgstr "Prove it."
 msgid "Type a club name in English or Arabic"
 msgstr "Type a club name in English or Arabic"
 
+#: src/components/leaderboard/BoardTable.tsx
+msgid "Time"
+msgstr "Time"
+
 #: src/content/labels.ts
 msgid "Anywhere in the world"
 msgstr "Anywhere in the world"
 
+#: src/components/leaderboard/BoardTabs.tsx
 #: src/components/LevelPicker.tsx
 msgctxt "difficulty level button"
 msgid "Mode {target}"
@@ -204,6 +247,7 @@ msgstr "Use English or Arabic, with or without accents. Small spelling mistakes 
 msgid "Select and copy your result below."
 msgstr "Select and copy your result below."
 
+#: src/components/leaderboard/BoardTabs.tsx
 #: src/components/LevelPicker.tsx
 msgid "Choose a mode"
 msgstr "Choose a mode"
@@ -232,9 +276,24 @@ msgstr "Oceania"
 msgid "Share result"
 msgstr "Share result"
 
+#: src/app/[lang]/leaderboard/page.tsx
+#: src/components/Header.tsx
+#: src/components/leaderboard/LeaderboardScreen.tsx
+msgid "Leaderboard"
+msgstr "Leaderboard"
+
+#: src/app/[lang]/leaderboard/error.tsx
+#: src/components/leaderboard/EmptyState.tsx
+msgid "The board is unavailable right now"
+msgstr "The board is unavailable right now"
+
 #: src/components/AnswerComposer.tsx
 msgid "Type a club name…"
 msgstr "Type a club name…"
+
+#: src/components/leaderboard/BoardTable.tsx
+msgid "Player"
+msgstr "Player"
 
 #: src/components/HelpDialog.tsx
 msgid "Name 10, 50 or 100 clubs at your own pace. The clock measures how long you take. Practice adds countries, regions and letters."
@@ -247,6 +306,10 @@ msgstr "Reload game"
 #: src/components/ResultPanel.tsx
 msgid "Good shift."
 msgstr "Good shift."
+
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "All time"
+msgstr "All time"
 
 #: src/components/HelpDialog.tsx
 msgid "If a name could mean more than one club, add the city or country. Different names for the same club only count once."

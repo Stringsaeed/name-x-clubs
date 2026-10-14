@@ -11,7 +11,44 @@ type HeaderProps = {
   locked: boolean;
   onModeChange: (mode: Mode) => void;
   onHelp: () => void;
+  /** Which page the header sits on. The game page is the default. */
+  page?: 'game' | 'leaderboard';
+  /** Query string (with its `?`) kept when switching language on the leaderboard page. */
+  leaderboardQuery?: string;
 };
+
+const lockedLinkStyle = { opacity: 0.5, cursor: 'not-allowed' } as const;
+
+function LeaderboardLink({
+  language,
+  active,
+  locked,
+}: {
+  language: Locale;
+  active: boolean;
+  locked: boolean;
+}) {
+  const { t } = useLingui();
+
+  return (
+    <a
+      href={`/${language}/leaderboard`}
+      aria-disabled={locked}
+      tabIndex={locked ? -1 : undefined}
+      style={locked ? lockedLinkStyle : undefined}
+      className={`nav-item ${active ? 'active' : ''}`}
+      aria-current={active ? 'page' : undefined}
+      onClick={(event) => {
+        if (locked) {
+          event.preventDefault();
+        }
+      }}
+    >
+      <Icon name="trophy" />
+      {t`Leaderboard`}
+    </a>
+  );
+}
 
 export const Header = memo(function HeaderView({
   language,
@@ -19,16 +56,28 @@ export const Header = memo(function HeaderView({
   locked,
   onModeChange,
   onHelp,
+  page = 'game',
+  leaderboardQuery = '',
 }: HeaderProps) {
   const { t } = useLingui();
   const otherLanguage: Locale = language === 'en' ? 'ar' : 'en';
   // Language names are shown in their own language so they stay findable after a wrong switch.
   const otherLanguageName = otherLanguage === 'ar' ? 'العربية' : 'English';
+  const onLeaderboard = page === 'leaderboard';
+  const freeActive = !onLeaderboard && mode === 'free';
+  const practiceActive = !onLeaderboard && mode === 'practice';
+  const languageHref = onLeaderboard
+    ? `/${otherLanguage}/leaderboard${leaderboardQuery}`
+    : `/${otherLanguage}`;
   const switchLabel = otherLanguage === 'ar' ? t`Switch to Arabic` : t`Switch to English`;
 
   return (
     <header className="site-header">
-      <a href="/" className="brand" aria-label={t`Name × Clubs home`}>
+      <a
+        href={onLeaderboard ? `/${language}` : '/'}
+        className="brand"
+        aria-label={t`Name × Clubs home`}
+      >
         <span className="brand-mark">
           <Icon name="ball" />
         </span>
@@ -41,8 +90,8 @@ export const Header = memo(function HeaderView({
           type="button"
           disabled={locked}
           aria-disabled={locked}
-          className={`nav-item ${mode === 'free' ? 'active' : ''}`}
-          aria-current={mode === 'free' ? 'page' : undefined}
+          className={`nav-item ${freeActive ? 'active' : ''}`}
+          aria-current={freeActive ? 'page' : undefined}
           onClick={() => onModeChange('free')}
         >
           <Icon name="clock" />
@@ -52,18 +101,19 @@ export const Header = memo(function HeaderView({
           type="button"
           disabled={locked}
           aria-disabled={locked}
-          className={`nav-item ${mode === 'practice' ? 'active' : ''}`}
-          aria-current={mode === 'practice' ? 'page' : undefined}
+          className={`nav-item ${practiceActive ? 'active' : ''}`}
+          aria-current={practiceActive ? 'page' : undefined}
           onClick={() => onModeChange('practice')}
         >
           <Icon name="shuffle" />
           {t({ message: 'Practice', context: 'game mode tab' })}
         </button>
+        <LeaderboardLink language={language} active={onLeaderboard} locked={locked} />
       </nav>
       <div className="header-actions">
         <a
           className="language-button"
-          href={`/${otherLanguage}`}
+          href={languageHref}
           aria-label={switchLabel}
           onClick={() => writeLanguageCookie(otherLanguage)}
         >

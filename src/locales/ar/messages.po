@@ -19,6 +19,10 @@ msgstr "{count, plural, zero {# ناديًا} one {نادٍ واحد} two {نا�
 msgid "Asia"
 msgstr "آسيا"
 
+#: src/components/leaderboard/BoardTable.tsx
+msgid "When"
+msgstr "متى"
+
 #: src/components/HelpDialog.tsx
 msgid "Your progress and elapsed time are saved in this browser."
 msgstr "تُحفظ إجاباتك والوقت المستغرق في هذا المتصفح."
@@ -38,6 +42,10 @@ msgstr "نعتمد الاسم الإنجليزي الشائع للنادي."
 #: src/components/PracticeControls.tsx
 msgid "A random challenge"
 msgstr "تحدٍّ عشوائي"
+
+#: src/components/leaderboard/BoardTable.tsx
+msgid "Rank"
+msgstr "المركز"
 
 #: src/components/Header.tsx
 #: src/game/session/share.ts
@@ -81,19 +89,40 @@ msgstr "الأمريكتين"
 msgid "This first edition includes a curated club collection, not every club in the world. If we miss one, try its full name."
 msgstr "هذه النسخة تضم مجموعة مختارة من الأندية، وليست كل أندية العالم. إذا لم نتعرف على اسم، جرّب الاسم الكامل."
 
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "Last 24 hours"
+msgstr "آخر 24 ساعة"
+
 #: src/app/[lang]/error.tsx
 msgid "Reload the game to try again."
 msgstr "أعد تحميل اللعبة للمحاولة مرة أخرى."
 
+#: src/components/leaderboard/Podium.tsx
+msgid "Top 3"
+msgstr "أفضل 3"
+
 #: src/components/GameCard.tsx
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "المتصفح لم يتمكن من حفظ الجولة. اترك هذه الصفحة مفتوحة."
+
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "Time period"
+msgstr "الفترة"
+
+#: src/components/leaderboard/EmptyState.tsx
+msgid "No times yet"
+msgstr "لا توجد أوقات بعد"
+
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
 
 #: src/content/labels.ts
 msgid "Name <focus>{clubs}.</focus>"
 msgstr "اذكر <focus>{clubs}.</focus>"
 
 #: src/components/AnswerComposer.tsx
+#: src/components/leaderboard/EmptyState.tsx
 msgid "Let’s play"
 msgstr "يلا نلعب"
 
@@ -147,6 +176,15 @@ msgstr "فهمت. يلا نلعب."
 msgid "Free time"
 msgstr "وقت حر"
 
+#: src/app/[lang]/leaderboard/error.tsx
+#: src/components/leaderboard/EmptyState.tsx
+msgid "Try again"
+msgstr "حاول مرة أخرى"
+
+#: src/components/leaderboard/BoardTable.tsx
+msgid "You"
+msgstr "أنت"
+
 #: src/components/Hero.tsx
 msgid "Prove it."
 msgstr "ورّنا معرفتك."
@@ -155,10 +193,15 @@ msgstr "ورّنا معرفتك."
 msgid "Type a club name in English or Arabic"
 msgstr "اكتب اسم نادٍ بالعربية أو الإنجليزية"
 
+#: src/components/leaderboard/BoardTable.tsx
+msgid "Time"
+msgstr "الوقت"
+
 #: src/content/labels.ts
 msgid "Anywhere in the world"
 msgstr "أي مكان في العالم"
 
+#: src/components/leaderboard/BoardTabs.tsx
 #: src/components/LevelPicker.tsx
 msgctxt "difficulty level button"
 msgid "Mode {target}"
@@ -204,6 +247,7 @@ msgstr "اكتب بالعربية أو الإنجليزية، بالتشكيل �
 msgid "Select and copy your result below."
 msgstr "حدد النتيجة وانسخها من المربع."
 
+#: src/components/leaderboard/BoardTabs.tsx
 #: src/components/LevelPicker.tsx
 msgid "Choose a mode"
 msgstr "اختر الوضع"
@@ -232,9 +276,24 @@ msgstr "أوقيانوسيا"
 msgid "Share result"
 msgstr "شارك النتيجة"
 
+#: src/app/[lang]/leaderboard/page.tsx
+#: src/components/Header.tsx
+#: src/components/leaderboard/LeaderboardScreen.tsx
+msgid "Leaderboard"
+msgstr "المتصدرون"
+
+#: src/app/[lang]/leaderboard/error.tsx
+#: src/components/leaderboard/EmptyState.tsx
+msgid "The board is unavailable right now"
+msgstr "اللوحة غير متاحة الآن"
+
 #: src/components/AnswerComposer.tsx
 msgid "Type a club name…"
 msgstr "اكتب اسم نادٍ…"
+
+#: src/components/leaderboard/BoardTable.tsx
+msgid "Player"
+msgstr "اللاعب"
 
 #: src/components/HelpDialog.tsx
 msgid "Name 10, 50 or 100 clubs at your own pace. The clock measures how long you take. Practice adds countries, regions and letters."
@@ -247,6 +306,10 @@ msgstr "إعادة تحميل اللعبة"
 #: src/components/ResultPanel.tsx
 msgid "Good shift."
 msgstr "محاولة حلوة."
+
+#: src/components/leaderboard/BoardTabs.tsx
+msgid "All time"
+msgstr "كل الأوقات"
 
 #: src/components/HelpDialog.tsx
 msgid "If a name could mean more than one club, add the city or country. Different names for the same club only count once."
