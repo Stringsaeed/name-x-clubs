@@ -166,12 +166,18 @@ importers:
 
   .:
     dependencies:
+      '@effect/sql-pg':
+        specifier: 4.0.4
+        version: 4.0.4(effect@4.0.4)
       '@lingui/core':
         specifier: 6.9.1
         version: 6.9.1(@babel/core@7.29.7(supports-color@7.2.0))
       '@lingui/react':
         specifier: 6.9.1
         version: 6.9.1(@babel/core@7.29.7(supports-color@7.2.0))(react@19.3.0)
+      effect:
+        specifier: 4.0.4
+        version: 4.0.4
       next:
         specifier: 16.4.0
         version: 16.4.0(@babel/core@7.29.7(supports-color@7.2.0))(@playwright/test@1.64.0)(@types/node@24.19.2)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -191,6 +197,12 @@ importers:
       '@biomejs/biome':
         specifier: 2.5.15
         version: 2.5.15
+      '@effect/sql-pglite':
+        specifier: 4.0.4
+        version: 4.0.4(effect@4.0.4)
+      '@effect/vitest':
+        specifier: 4.0.4
+        version: 4.0.4(effect@4.0.4)(vitest@5.0.4)
       '@lingui/cli':
         specifier: 6.9.1
         version: 6.9.1(rolldown@1.2.13)(supports-color@7.2.0)
@@ -431,6 +443,25 @@ packages:
   '@csstools/css-tokenizer@4.0.2':
     resolution: {integrity: sha512-OoKoR0f76dCY666JlcbhmVTs2drYj1GUXZTYTcbUgJjh9Nv41aFfZ21bPQTERm5+L5cBDo466NltB2lplS5GBw==}
     engines: {node: '>=20.19.0'}
+
+  '@effect/sql-pg@4.0.4':
+    resolution: {integrity: sha512-41x5O2C+gRF3A/Sf+IkV+OOzo5BexsIubH1cib3m4NwhZcjQUQUrq5YbOw7fIuWmBODtAyHNXFjaeEtiXoPL9Q==}
+    peerDependencies:
+      effect: ^4.0.4
+
+  '@effect/sql-pglite@4.0.4':
+    resolution: {integrity: sha512-CgM2hfBQSDCFvka4lDvQleHDcg1QH3Xxic/2AC1rKU5ZSIFbIlQt386YdhaufwJpgSa9HYNRiY59ykENIIS3BA==}
+    peerDependencies:
+      effect: ^4.0.4
+
+  '@effect/vitest@4.0.4':
+    resolution: {integrity: sha512-l5KN46RbDVpqZxWzwXZtX6FVQiyzd+/hTYqL543uSDRo7hC0m19IeICh6O9U/nqCtfersqsNZnBjgHFfkuHsBw==}
+    peerDependencies:
+      effect: ^4.0.4
+      vitest: '>=5.0.0 <6.0.0'
+
+  '@electric-sql/pglite@0.5.9':
+    resolution: {integrity: sha512-GoQTRMZ/o4J3sMW4mLDtDFGNOm1xy5oH+iHDALWll3uERY6OF4BSnL1t7FZH2Mlw+RPceDBlFJgSaecO73c4EA==}
 
   '@emnapi/runtime@1.11.3':
     resolution: {integrity: sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==}
@@ -1318,6 +1349,9 @@ packages:
   dom-accessibility-api@0.6.3:
     resolution: {integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==}
 
+  effect@4.0.4:
+    resolution: {integrity: sha512-Sr50OeVSC3M5UkoUYUhFf3EULryhGaZZUf6OzDHTvaznOw7HRlxOKdF3/4nvQXHL22StOyMG3Cvo8Bt7xUp+Ng==}
+
   electron-to-chromium@1.5.453:
     resolution: {integrity: sha512-9r/nz9akllr3SZsHUhfK10ktUH6j0Dbo3cKdh91khw0FvR6HhXGnATmOq5X8ena2aq4GXLQ1koh3nvKaQJaNmQ==}
 
@@ -2158,6 +2192,22 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.2': {}
 
+  '@effect/sql-pg@4.0.4(effect@4.0.4)':
+    dependencies:
+      effect: 4.0.4
+
+  '@effect/sql-pglite@4.0.4(effect@4.0.4)':
+    dependencies:
+      '@electric-sql/pglite': 0.5.9
+      effect: 4.0.4
+
+  '@effect/vitest@4.0.4(effect@4.0.4)(vitest@5.0.4)':
+    dependencies:
+      effect: 4.0.4
+      vitest: 5.0.4(@types/node@24.19.2)(@vitest/coverage-v8@5.0.4)(jsdom@30.1.2)(vite@8.3.4(@types/node@24.19.2)(jiti@2.7.0))
+
+  '@electric-sql/pglite@0.5.9': {}
+
   '@emnapi/runtime@1.11.3':
     dependencies:
       tslib: 2.8.1
@@ -2818,6 +2868,8 @@ snapshots:
   dom-accessibility-api@0.5.16: {}
 
   dom-accessibility-api@0.6.3: {}
+
+  effect@4.0.4: {}
 
   electron-to-chromium@1.5.453: {}
 
