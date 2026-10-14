@@ -163,10 +163,10 @@ test('elapsed time rises without expiring and freezes on finishing across reload
   await expect(page.getByRole('log').locator('li')).toHaveCount(0);
 });
 
-test('GET / redirects by language cookie', async ({ page, context }) => {
+test('GET / redirects by language cookie', async ({ page, context, baseURL }) => {
   await page.goto('/');
   await expect(page).toHaveURL(/\/en$/);
-  await context.addCookies([{ name: 'nxc-language', value: 'ar', url: 'http://127.0.0.1:4173' }]);
+  await context.addCookies([{ name: 'nxc-language', value: 'ar', url: baseURL ?? page.url() }]);
   await page.goto('/');
   await expect(page).toHaveURL(/\/ar$/);
 });

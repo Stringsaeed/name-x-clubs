@@ -1,4 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+
+// Set E2E_BASE_URL to run the suite against a deployment instead of a local `next start`.
+const remoteBaseUrl = process.env.E2E_BASE_URL;
+const localBaseUrl = 'http://127.0.0.1:4173';
+
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
@@ -7,7 +12,7 @@ export default defineConfig({
   ...(process.env.CI ? { workers: 2 } : {}),
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:4173',
+    baseURL: remoteBaseUrl ?? localBaseUrl,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
@@ -15,10 +20,14 @@ export default defineConfig({
     { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'mobile-webkit', use: { ...devices['iPhone 13'] } },
   ],
-  webServer: {
-    command: 'pnpm exec next start -H 127.0.0.1 -p 4173',
-    url: 'http://127.0.0.1:4173/en',
-    reuseExistingServer: !process.env.CI,
-    timeout: 30000,
-  },
+  ...(remoteBaseUrl
+    ? {}
+    : {
+        webServer: {
+          command: 'pnpm exec next start -H 127.0.0.1 -p 4173',
+          url: `${localBaseUrl}/en`,
+          reuseExistingServer: !process.env.CI,
+          timeout: 30000,
+        },
+      }),
 });
