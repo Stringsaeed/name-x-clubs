@@ -361,10 +361,7 @@
     "name": "Real Madrid",
     "arabic": "ريال مدريد",
     "aliases": [
-      "real",
       "realmadrid",
-      "ريال",
-      "الريال",
       "ريال مدريـد"
     ],
     "region": "europe"
@@ -391,13 +388,10 @@
     "name": "Atlético Madrid",
     "arabic": "أتلتيكو مدريد",
     "aliases": [
-      "atletico",
       "atletico madrid",
       "atleti",
       "اتليتيكو مدريد",
-      "اتلتيكو",
-      "اتليتكو مدريد",
-      "أتلتيكو"
+      "اتليتكو مدريد"
     ],
     "region": "europe"
   },
@@ -538,7 +532,9 @@
     "arabic": "مايوركا",
     "aliases": [
       "rcd mallorca",
-      "ريال مايوركا"
+      "ريال مايوركا",
+      "real mallorca",
+      "real club deportivo mallorca"
     ],
     "region": "europe"
   },
@@ -597,14 +593,10 @@
     "name": "Inter Milan",
     "arabic": "إنتر ميلان",
     "aliases": [
-      "inter",
       "internazionale",
       "inter milano",
       "fc internazionale",
-      "انتر ميلان",
-      "الانتر",
-      "إنتر",
-      "انتر"
+      "انتر ميلان"
     ],
     "region": "europe"
   },
@@ -1150,7 +1142,9 @@
     "arabic": "ستراسبورغ",
     "aliases": [
       "rc strasbourg",
-      "ستراسبورج"
+      "ستراسبورج",
+      "racing strasbourg",
+      "racing club de strasbourg"
     ],
     "region": "europe"
   },
@@ -1241,7 +1235,10 @@
     "arabic": "براغا",
     "aliases": [
       "sc braga",
-      "براغا"
+      "براغا",
+      "sporting braga",
+      "sporting clube de braga",
+      "سبورتينغ براغا"
     ],
     "region": "europe"
   },
@@ -1542,11 +1539,8 @@
     "name": "Al Nassr",
     "arabic": "النصر السعودي",
     "aliases": [
-      "al nassr",
-      "alnassr",
-      "nassr",
-      "النصر",
-      "نصر"
+      "al nassr saudi",
+      "al nassr riyadh"
     ],
     "region": "asia"
   },
@@ -1556,12 +1550,10 @@
     "name": "Al Ittihad",
     "arabic": "الاتحاد السعودي",
     "aliases": [
-      "al ittihad",
-      "alittihad",
-      "ittihad",
-      "الاتحاد",
-      "اتحاد",
-      "اتحاد جدة"
+      "اتحاد جدة",
+      "al ittihad jeddah",
+      "ittihad jeddah",
+      "al ittihad saudi"
     ],
     "region": "asia"
   },
@@ -1571,14 +1563,11 @@
     "name": "Al Ahli Saudi",
     "arabic": "الأهلي السعودي",
     "aliases": [
-      "al ahli",
       "al ahli saudi",
-      "alahli",
-      "ahli",
-      "الأهلي",
-      "اهلي",
       "اهلي جدة",
-      "الأهلي جدة"
+      "الأهلي جدة",
+      "al ahli jeddah",
+      "ahli jeddah"
     ],
     "region": "asia"
   },
@@ -1776,11 +1765,9 @@
     "name": "Al Nasr Dubai",
     "arabic": "النصر الإماراتي",
     "aliases": [
-      "al nasr",
       "al nasr dubai",
-      "النصر",
-      "نصر",
-      "النصر دبي"
+      "النصر دبي",
+      "al nasr uae"
     ],
     "region": "asia"
   },
@@ -1834,13 +1821,10 @@
     "name": "Al Ahly",
     "arabic": "الأهلي المصري",
     "aliases": [
-      "al ahly",
-      "alahly",
-      "ahly",
-      "al ahli",
-      "الأهلي",
-      "اهلي",
-      "الاهلي القاهري"
+      "الاهلي القاهري",
+      "al ahly egypt",
+      "al ahly cairo",
+      "al ahly sc"
     ],
     "region": "africa"
   },
@@ -1896,8 +1880,7 @@
     "arabic": "الاتحاد السكندري",
     "aliases": [
       "al ittihad alexandria",
-      "ittihad alexandria",
-      "الاتحاد"
+      "ittihad alexandria"
     ],
     "region": "africa"
   },
