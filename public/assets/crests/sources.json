@@ -9,8 +9,14 @@
       "providerName": "Arsenal",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
-      "file": "england-0.png",
-      "sha256": "d9628514f2ab408faada90f97d5a5cbb60994c67c79d95409b6a204ff091c70c"
+      "file": "england-0.webp",
+      "sha256": "056f94349ee5e501f4140ce999e9cefe6453a6d887e1897056aeb15c0d7318e6",
+      "derivedFrom": {
+        "sha256": "d9628514f2ab408faada90f97d5a5cbb60994c67c79d95409b6a204ff091c70c",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-1": {
       "name": "Manchester United",
@@ -19,8 +25,14 @@
       "providerName": "Manchester United",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png",
-      "file": "england-1.png",
-      "sha256": "5e413a9e0903b1567721f4d0282a75dd5b8f9ad1001747b2d50e2e58af07637a"
+      "file": "england-1.webp",
+      "sha256": "40301af87e52e8897cfa9451e222d8eaac6da006c3f5a9d759372afab210ff79",
+      "derivedFrom": {
+        "sha256": "5e413a9e0903b1567721f4d0282a75dd5b8f9ad1001747b2d50e2e58af07637a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-2": {
       "name": "Manchester City",
@@ -29,8 +41,14 @@
       "providerName": "Manchester City",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
-      "file": "england-2.png",
-      "sha256": "c308d79858447c0bd3a899a2e761ca9a9da7834533d2d9d20fa2184479eff3bf"
+      "file": "england-2.webp",
+      "sha256": "18dcfd4340b4fe36a0c3ea7634dfa57f3fe7c47b0f7f4ae99fc83cf736f855eb",
+      "derivedFrom": {
+        "sha256": "c308d79858447c0bd3a899a2e761ca9a9da7834533d2d9d20fa2184479eff3bf",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-3": {
       "name": "Liverpool",
@@ -39,8 +57,14 @@
       "providerName": "Liverpool",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
-      "file": "england-3.png",
-      "sha256": "0954225ee7c90673fae44a5c570ee767e744ae30c297f8610b241205d7da078f"
+      "file": "england-3.webp",
+      "sha256": "20f7265d154075a834bf17f3d7ab237da6ba236346f015786180ca727d7a3ed3",
+      "derivedFrom": {
+        "sha256": "0954225ee7c90673fae44a5c570ee767e744ae30c297f8610b241205d7da078f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-4": {
       "name": "Chelsea",
@@ -49,8 +73,14 @@
       "providerName": "Chelsea",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
-      "file": "england-4.png",
-      "sha256": "353dd46cfcc6cb6780ee325c1034261d33ca75fc3a9e0dc1ae0708ea31e1da2b"
+      "file": "england-4.webp",
+      "sha256": "fd814edbf648bd0a5b9c200574ded0532932ffaad71aa65529ca6773efde1aab",
+      "derivedFrom": {
+        "sha256": "353dd46cfcc6cb6780ee325c1034261d33ca75fc3a9e0dc1ae0708ea31e1da2b",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-5": {
       "name": "Tottenham Hotspur",
@@ -59,8 +89,14 @@
       "providerName": "Tottenham Hotspur",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png",
-      "file": "england-5.png",
-      "sha256": "afa85e515ef710449097e28c226166e10199ddffd0c6f74f5fe3d9ac3943d395"
+      "file": "england-5.webp",
+      "sha256": "dc12214164a1a1c5aca4c0ade51f8119b566a3ba1730aa86419cf5be93294115",
+      "derivedFrom": {
+        "sha256": "afa85e515ef710449097e28c226166e10199ddffd0c6f74f5fe3d9ac3943d395",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-6": {
       "name": "Newcastle United",
@@ -69,8 +105,14 @@
       "providerName": "Newcastle United",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
-      "file": "england-6.png",
-      "sha256": "00d3b27d481a336ce9ea94fabe8142f286b8a06b5636d0bd0d880790f43def4e"
+      "file": "england-6.webp",
+      "sha256": "1786d53f678b10f0b23c75dea547020c2556d464840438a5385e36bcf1fff617",
+      "derivedFrom": {
+        "sha256": "00d3b27d481a336ce9ea94fabe8142f286b8a06b5636d0bd0d880790f43def4e",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-7": {
       "name": "Aston Villa",
@@ -79,8 +121,14 @@
       "providerName": "Aston Villa",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/362.png",
-      "file": "england-7.png",
-      "sha256": "22d0e72b95bda4e1f5adade65439869f0bfccc4bc17064275c6ee0d41789efdf"
+      "file": "england-7.webp",
+      "sha256": "5edcac6727ea563c03be857d01a9d4dcdc530ee13aa1fcffe893a8e7f39c23fe",
+      "derivedFrom": {
+        "sha256": "22d0e72b95bda4e1f5adade65439869f0bfccc4bc17064275c6ee0d41789efdf",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-8": {
       "name": "Everton",
@@ -89,8 +137,14 @@
       "providerName": "Everton",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/368.png",
-      "file": "england-8.png",
-      "sha256": "e6b293c1e8edc28439c6a8ddbb7a8b580b4d54f0555ff6833b3c70a8c5744ca0"
+      "file": "england-8.webp",
+      "sha256": "3e30dcb92ce6a117596f557c88c7e4e7163ede7c09c8a0525de571c18a809270",
+      "derivedFrom": {
+        "sha256": "e6b293c1e8edc28439c6a8ddbb7a8b580b4d54f0555ff6833b3c70a8c5744ca0",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-9": {
       "name": "West Ham United",
@@ -99,8 +153,14 @@
       "providerName": "West Ham United",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png",
-      "file": "england-9.png",
-      "sha256": "acfc0d5b6de933e35eea843670342fe37449dd579a18e6f2de4ec53f72d0d078"
+      "file": "england-9.webp",
+      "sha256": "870ecf92a8449e9aba31f9a2722423a2c878d51ff4b67ec66df57d48bf81c5da",
+      "derivedFrom": {
+        "sha256": "acfc0d5b6de933e35eea843670342fe37449dd579a18e6f2de4ec53f72d0d078",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-10": {
       "name": "Brighton & Hove Albion",
@@ -109,8 +169,14 @@
       "providerName": "Brighton & Hove Albion",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/331.png",
-      "file": "england-10.png",
-      "sha256": "94406ecb95442a3cc5fdef4da9911c785fb9b4f1b2992a7d6a4817ad0a47c343"
+      "file": "england-10.webp",
+      "sha256": "6886a8b5ae636177e5368706b4bca51ec0307d13c07576df53347661b673843c",
+      "derivedFrom": {
+        "sha256": "94406ecb95442a3cc5fdef4da9911c785fb9b4f1b2992a7d6a4817ad0a47c343",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-11": {
       "name": "Crystal Palace",
@@ -119,8 +185,14 @@
       "providerName": "Crystal Palace",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png",
-      "file": "england-11.png",
-      "sha256": "76192762ae054360660ecd2ac12a0c0a6f3e1fe14309d5a4f0c0ef07eb85a2b2"
+      "file": "england-11.webp",
+      "sha256": "d8c02613ab11cce999ca62a9e7508437451a33672d0255cc83b88b78dd4db230",
+      "derivedFrom": {
+        "sha256": "76192762ae054360660ecd2ac12a0c0a6f3e1fe14309d5a4f0c0ef07eb85a2b2",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-12": {
       "name": "Fulham",
@@ -129,8 +201,14 @@
       "providerName": "Fulham",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png",
-      "file": "england-12.png",
-      "sha256": "3749be8a0afee070774edd9fb89ee166a23f882bdf8c2e33dc143490ccf75fb9"
+      "file": "england-12.webp",
+      "sha256": "87ad71e58885994b98cbc8bcbfcf762522bec00921c37ef09ae291c7c85ac015",
+      "derivedFrom": {
+        "sha256": "3749be8a0afee070774edd9fb89ee166a23f882bdf8c2e33dc143490ccf75fb9",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-13": {
       "name": "Wolverhampton Wanderers",
@@ -139,8 +217,14 @@
       "providerName": "Wolverhampton Wanderers",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png",
-      "file": "england-13.png",
-      "sha256": "55c24076a4686a3a2ac988e5833b34c314850ad668d59a0c753d2fa828ec4ef5"
+      "file": "england-13.webp",
+      "sha256": "0b46ae678cbd3d9eb517a85a2b06829c88121421350daffc9061e66408b37040",
+      "derivedFrom": {
+        "sha256": "55c24076a4686a3a2ac988e5833b34c314850ad668d59a0c753d2fa828ec4ef5",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-14": {
       "name": "Nottingham Forest",
@@ -149,8 +233,14 @@
       "providerName": "Nottingham Forest",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
-      "file": "england-14.png",
-      "sha256": "ba488b624f2c0e0df2d543bce450b274a2c8a0feb0fc547c1af80f3a6fa52d49"
+      "file": "england-14.webp",
+      "sha256": "b5e6df2a5ed73255495effcd1db5569a3501baa35f58222b29e2e2826ab98dec",
+      "derivedFrom": {
+        "sha256": "ba488b624f2c0e0df2d543bce450b274a2c8a0feb0fc547c1af80f3a6fa52d49",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-15": {
       "name": "Leicester City",
@@ -159,8 +249,14 @@
       "providerName": "Leicester City",
       "league": "eng.3",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/375.png",
-      "file": "england-15.png",
-      "sha256": "bc07db5c2dc3d951fcc4f2cc297ad4e8b163f16fa59d334a877f6a67361a981e"
+      "file": "england-15.webp",
+      "sha256": "d70c4482fc17c8b11126cfac39ddac91ce28d877233a63b4a54ac0e227f1f34f",
+      "derivedFrom": {
+        "sha256": "bc07db5c2dc3d951fcc4f2cc297ad4e8b163f16fa59d334a877f6a67361a981e",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-16": {
       "name": "Leeds United",
@@ -169,8 +265,14 @@
       "providerName": "Leeds United",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/357.png",
-      "file": "england-16.png",
-      "sha256": "c6294437a4d61587459eac04519194c5edc9d422b2671c64dd8d56495a515d43"
+      "file": "england-16.webp",
+      "sha256": "b19b786f41a2dfecaee5eac91cfaafacef4905bb7012b6e57bfaa888abe41c42",
+      "derivedFrom": {
+        "sha256": "c6294437a4d61587459eac04519194c5edc9d422b2671c64dd8d56495a515d43",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-17": {
       "name": "Southampton",
@@ -179,8 +281,14 @@
       "providerName": "Southampton",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png",
-      "file": "england-17.png",
-      "sha256": "9f36255959bce7fc871f9b0a7c6e1bae29f744ecd3701eb2873a8f25e5c45ab6"
+      "file": "england-17.webp",
+      "sha256": "0ee05509f104231195964b732f7e61103049a189d961bf6c30fd1aa7feff1487",
+      "derivedFrom": {
+        "sha256": "9f36255959bce7fc871f9b0a7c6e1bae29f744ecd3701eb2873a8f25e5c45ab6",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-18": {
       "name": "Bournemouth",
@@ -189,8 +297,14 @@
       "providerName": "AFC Bournemouth",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png",
-      "file": "england-18.png",
-      "sha256": "62569a5527548f578088ab76ab980012389c75dac2a9e0f27e7b01cbb7d33ba0"
+      "file": "england-18.webp",
+      "sha256": "f3fca502c1a89a135f95c84c7f527ec43c6eac67b4be0c85debeecb6946a6739",
+      "derivedFrom": {
+        "sha256": "62569a5527548f578088ab76ab980012389c75dac2a9e0f27e7b01cbb7d33ba0",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-19": {
       "name": "Brentford",
@@ -199,8 +313,14 @@
       "providerName": "Brentford",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/337.png",
-      "file": "england-19.png",
-      "sha256": "fa28870f3c660e836607c4f103dc02e2cd0db68f981d4e44e3bee2a403f841de"
+      "file": "england-19.webp",
+      "sha256": "684b9dd4c8bbbbad9bdb584304eda9ae87d08f9b4a60638940266cf4d08eb8f4",
+      "derivedFrom": {
+        "sha256": "fa28870f3c660e836607c4f103dc02e2cd0db68f981d4e44e3bee2a403f841de",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-20": {
       "name": "Burnley",
@@ -209,8 +329,14 @@
       "providerName": "Burnley",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png",
-      "file": "england-20.png",
-      "sha256": "c99c5a7780e3bfc300ca507c22db762d9d2cd18028365634b16edf8c90bf97fe"
+      "file": "england-20.webp",
+      "sha256": "2d2ec2ebce286ec6fe65741b21529f35f1a67637e6f747a94973c087e4c0cabd",
+      "derivedFrom": {
+        "sha256": "c99c5a7780e3bfc300ca507c22db762d9d2cd18028365634b16edf8c90bf97fe",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-21": {
       "name": "Sunderland",
@@ -219,8 +345,14 @@
       "providerName": "Sunderland",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/366.png",
-      "file": "england-21.png",
-      "sha256": "0659a61b7f6acb7762dd0312c156ad7e60ca1d2adc9dfecf5a8e0c9e7f29af70"
+      "file": "england-21.webp",
+      "sha256": "1417dde6973eb9871bb258c985580767e97e3411959718fc1d2fe6c00b55d257",
+      "derivedFrom": {
+        "sha256": "0659a61b7f6acb7762dd0312c156ad7e60ca1d2adc9dfecf5a8e0c9e7f29af70",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-22": {
       "name": "Sheffield United",
@@ -229,8 +361,14 @@
       "providerName": "Sheffield United",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/398.png",
-      "file": "england-22.png",
-      "sha256": "ea02e403dce7d27a3c4cd97ced38c648c2bbd61ddf191e1b63ed4d7dedf241eb"
+      "file": "england-22.webp",
+      "sha256": "4efee3fe84191147027772fb4653fd2777f0a3bd345e4faabc40e885d2ff3037",
+      "derivedFrom": {
+        "sha256": "ea02e403dce7d27a3c4cd97ced38c648c2bbd61ddf191e1b63ed4d7dedf241eb",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-23": {
       "name": "Sheffield Wednesday",
@@ -239,8 +377,14 @@
       "providerName": "Sheffield Wednesday",
       "league": "eng.3",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/399.png",
-      "file": "england-23.png",
-      "sha256": "5274149df01e219ca6ed8dbdd3bb3d21a29c8b40f0468a528065b8baed811936"
+      "file": "england-23.webp",
+      "sha256": "1f1e4c750d0a07ac77ea3ec823bb1c048a9dadc6bfd40d504cf6fb469863bcf9",
+      "derivedFrom": {
+        "sha256": "5274149df01e219ca6ed8dbdd3bb3d21a29c8b40f0468a528065b8baed811936",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-24": {
       "name": "Ipswich Town",
@@ -249,8 +393,14 @@
       "providerName": "Ipswich Town",
       "league": "eng.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png",
-      "file": "england-24.png",
-      "sha256": "7307854df19ce25539886ffa4d422fff7b48911744b1bc005134a1d2a2ac43f1"
+      "file": "england-24.webp",
+      "sha256": "c123560d9a4fba25d0716dcea7c3b4279d8d25edf7db82a7e9f4b89b7503094a",
+      "derivedFrom": {
+        "sha256": "7307854df19ce25539886ffa4d422fff7b48911744b1bc005134a1d2a2ac43f1",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-25": {
       "name": "Norwich City",
@@ -259,8 +409,14 @@
       "providerName": "Norwich City",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/381.png",
-      "file": "england-25.png",
-      "sha256": "f4a5254bcfe633f9479ae766116d1bcc847cbd015dd0963547e1ecb07036437c"
+      "file": "england-25.webp",
+      "sha256": "1ffd4b6a1eedbf0ab6c47399b4f531bdedd654346d9ec827bd846d3a3a8631c8",
+      "derivedFrom": {
+        "sha256": "f4a5254bcfe633f9479ae766116d1bcc847cbd015dd0963547e1ecb07036437c",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-26": {
       "name": "Watford",
@@ -269,8 +425,14 @@
       "providerName": "Watford",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png",
-      "file": "england-26.png",
-      "sha256": "f7aff92c3a28ed0c6048a30ba4b90fedad5f3b1920a95fdc446d2af187075465"
+      "file": "england-26.webp",
+      "sha256": "02c73361d403794c21462eea13ef0bda05238c98ee436e0c2f28b022f52ae97a",
+      "derivedFrom": {
+        "sha256": "f7aff92c3a28ed0c6048a30ba4b90fedad5f3b1920a95fdc446d2af187075465",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-27": {
       "name": "Derby County",
@@ -279,8 +441,14 @@
       "providerName": "Derby County",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/374.png",
-      "file": "england-27.png",
-      "sha256": "c1597511433c2c8f80b57e5731af7ada9fe54f18af8f104c68ccb6a04a61c301"
+      "file": "england-27.webp",
+      "sha256": "9dd5699ed729c09a800b246551fc219d124f30c2705574a33bf59a1069f7aa9e",
+      "derivedFrom": {
+        "sha256": "c1597511433c2c8f80b57e5731af7ada9fe54f18af8f104c68ccb6a04a61c301",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-28": {
       "name": "Blackburn Rovers",
@@ -289,8 +457,14 @@
       "providerName": "Blackburn Rovers",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/365.png",
-      "file": "england-28.png",
-      "sha256": "c63bbbdcc03bd4ce76e299e3c63618eecc86f2d40f15260c81669f1a17c1cb39"
+      "file": "england-28.webp",
+      "sha256": "e52b9c01b5716132be6d8b7cb7877ae4c0eb4c299f632ee281ae51b020b61e59",
+      "derivedFrom": {
+        "sha256": "c63bbbdcc03bd4ce76e299e3c63618eecc86f2d40f15260c81669f1a17c1cb39",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "england-29": {
       "name": "Middlesbrough",
@@ -299,8 +473,14 @@
       "providerName": "Middlesbrough",
       "league": "eng.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
-      "file": "england-29.png",
-      "sha256": "64a8a15cbfce06e0359725645c89b97d526b82ed3433e6544d75e1c755c345c3"
+      "file": "england-29.webp",
+      "sha256": "dce27bf40a01c2c7c9513088771eec54dfe863ea15f068d095a627e68c2a8fa2",
+      "derivedFrom": {
+        "sha256": "64a8a15cbfce06e0359725645c89b97d526b82ed3433e6544d75e1c755c345c3",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-0": {
       "name": "Real Madrid",
@@ -309,8 +489,14 @@
       "providerName": "Real Madrid",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
-      "file": "spain-0.png",
-      "sha256": "d95a20e70454adfecbc60a9f7f78ec536fbb3dce133546382fe3ce5b051be603"
+      "file": "spain-0.webp",
+      "sha256": "643f4387448591f4ae8734018f9f378c07985ca676d9f005eef3f35f90abdc1b",
+      "derivedFrom": {
+        "sha256": "d95a20e70454adfecbc60a9f7f78ec536fbb3dce133546382fe3ce5b051be603",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-1": {
       "name": "Barcelona",
@@ -319,8 +505,14 @@
       "providerName": "Barcelona",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
-      "file": "spain-1.png",
-      "sha256": "ea00dff3f751fe42195acf23afba5179e0029812ea44ee854637339bdbbaf319"
+      "file": "spain-1.webp",
+      "sha256": "01eac2ac833eeb301586b6f4d83079d3952f0956972e44a3ca29384a1536496a",
+      "derivedFrom": {
+        "sha256": "ea00dff3f751fe42195acf23afba5179e0029812ea44ee854637339bdbbaf319",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-2": {
       "name": "Atlético Madrid",
@@ -329,8 +521,14 @@
       "providerName": "Atlético Madrid",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png",
-      "file": "spain-2.png",
-      "sha256": "066b6cd813219ee2f8cb00260b72510f009b062eb182529b7d710220f490fa9a"
+      "file": "spain-2.webp",
+      "sha256": "9825f88b8c5f3935cb2713965c658b098a9864583acf61e7c79504e128b09add",
+      "derivedFrom": {
+        "sha256": "066b6cd813219ee2f8cb00260b72510f009b062eb182529b7d710220f490fa9a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-3": {
       "name": "Sevilla",
@@ -339,8 +537,14 @@
       "providerName": "Sevilla",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png",
-      "file": "spain-3.png",
-      "sha256": "e4dfeb30cfaca600d44509d672603a662ecffe8e8b2991c76e541d1dd200c4f3"
+      "file": "spain-3.webp",
+      "sha256": "54d9532d287ea0e114bb617d822a955bdcf9014abc6d50e5734e67b49034ca12",
+      "derivedFrom": {
+        "sha256": "e4dfeb30cfaca600d44509d672603a662ecffe8e8b2991c76e541d1dd200c4f3",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-4": {
       "name": "Valencia",
@@ -349,8 +553,14 @@
       "providerName": "Valencia",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png",
-      "file": "spain-4.png",
-      "sha256": "4d97d8eccae3b063c5db8eb9af4efa0879601bd272a949ff5f368b63e1139e0b"
+      "file": "spain-4.webp",
+      "sha256": "7024cf0c008f19e670a7cbd74b4257c8869c07184896ae5e19593dfc123bb4c5",
+      "derivedFrom": {
+        "sha256": "4d97d8eccae3b063c5db8eb9af4efa0879601bd272a949ff5f368b63e1139e0b",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-5": {
       "name": "Villarreal",
@@ -359,8 +569,14 @@
       "providerName": "Villarreal",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png",
-      "file": "spain-5.png",
-      "sha256": "8ce013dcff3872dbbe43f0fab0573aa4b8b6bf9f18226d789eb3b6dfb8aa9561"
+      "file": "spain-5.webp",
+      "sha256": "3d8fd34e0775a99a9f78507df359ef645a1d5f7476f712d3fc9f2a1c0715dccc",
+      "derivedFrom": {
+        "sha256": "8ce013dcff3872dbbe43f0fab0573aa4b8b6bf9f18226d789eb3b6dfb8aa9561",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-6": {
       "name": "Real Betis",
@@ -369,8 +585,14 @@
       "providerName": "Real Betis",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/244.png",
-      "file": "spain-6.png",
-      "sha256": "9f003b067c1eaa6bc7fbc080296afa1fed7e02a809e365c4c65cdbbee04940b9"
+      "file": "spain-6.webp",
+      "sha256": "452fe61bc7be57705d319159201d95e86773a5b96eb90e23fb10c817b5b2e844",
+      "derivedFrom": {
+        "sha256": "9f003b067c1eaa6bc7fbc080296afa1fed7e02a809e365c4c65cdbbee04940b9",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-7": {
       "name": "Athletic Bilbao",
@@ -379,8 +601,14 @@
       "providerName": "Athletic Club",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
-      "file": "spain-7.png",
-      "sha256": "cbfe68f4de099df3e1b2011c96852bbef2e262fb7c6c4fb67f19aaa3035f85af"
+      "file": "spain-7.webp",
+      "sha256": "7b063fc2df4cce0ce6a08dac62258d0d00898ec860fa79f4534ac9e827928270",
+      "derivedFrom": {
+        "sha256": "cbfe68f4de099df3e1b2011c96852bbef2e262fb7c6c4fb67f19aaa3035f85af",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-8": {
       "name": "Real Sociedad",
@@ -389,8 +617,14 @@
       "providerName": "Real Sociedad",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
-      "file": "spain-8.png",
-      "sha256": "29418098dc8b9ce64c4d289c8da5d536d0dc7a9cd913da18490a7cd6d7f4e991"
+      "file": "spain-8.webp",
+      "sha256": "c76e5c9ecbbca5e0a6eb8388d8b7ff2efd4d888df6cb519bf34faa65f853f506",
+      "derivedFrom": {
+        "sha256": "29418098dc8b9ce64c4d289c8da5d536d0dc7a9cd913da18490a7cd6d7f4e991",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-9": {
       "name": "Girona",
@@ -399,8 +633,14 @@
       "providerName": "Girona",
       "league": "esp.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/9812.png",
-      "file": "spain-9.png",
-      "sha256": "6b62b3a6ccd64000ac38198158ba48b8880c63bd7e9545872f30cdc6687ffe6e"
+      "file": "spain-9.webp",
+      "sha256": "41432706ba8a0a3729c7b1ccbc0716b180116bbc4a6664413e0dc71dcf8bf394",
+      "derivedFrom": {
+        "sha256": "6b62b3a6ccd64000ac38198158ba48b8880c63bd7e9545872f30cdc6687ffe6e",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-10": {
       "name": "Celta Vigo",
@@ -409,8 +649,14 @@
       "providerName": "Celta Vigo",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
-      "file": "spain-10.png",
-      "sha256": "64c593917740aa8104b32a631a2c147701f97344dae9c2dac99680f9e8af493f"
+      "file": "spain-10.webp",
+      "sha256": "478234c525b4490e828be2ed8012ee6c23b7517db3e96a0d6191898d78b2adb9",
+      "derivedFrom": {
+        "sha256": "64c593917740aa8104b32a631a2c147701f97344dae9c2dac99680f9e8af493f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-11": {
       "name": "Espanyol",
@@ -419,8 +665,14 @@
       "providerName": "Espanyol",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/88.png",
-      "file": "spain-11.png",
-      "sha256": "d349db39ffb8901d7d458b7b5f04428b2b8e037d93daf3dd5f59e8649030d740"
+      "file": "spain-11.webp",
+      "sha256": "290b3aecee9948eefc89eb80e334916f155089698462fcd26aa87f47e36ae9b4",
+      "derivedFrom": {
+        "sha256": "d349db39ffb8901d7d458b7b5f04428b2b8e037d93daf3dd5f59e8649030d740",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-12": {
       "name": "Getafe",
@@ -429,8 +681,14 @@
       "providerName": "Getafe",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2922.png",
-      "file": "spain-12.png",
-      "sha256": "3727c33f3cc84e46404ed09a114a8f52c02a74b6e4dc12d46d543da2ebcb7672"
+      "file": "spain-12.webp",
+      "sha256": "a95a74b88fa351c6cd8f25cba386b063666ebd692c1c6c5d960713c08e63fa4a",
+      "derivedFrom": {
+        "sha256": "3727c33f3cc84e46404ed09a114a8f52c02a74b6e4dc12d46d543da2ebcb7672",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-13": {
       "name": "Osasuna",
@@ -439,8 +697,14 @@
       "providerName": "Osasuna",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
-      "file": "spain-13.png",
-      "sha256": "9ab267912caf9a1c5ac4909188f2eaab6a96db468d9f417fd8a42fca227f52db"
+      "file": "spain-13.webp",
+      "sha256": "6ac53cb92d5ed5b4203179eb72b18144708133ff6055af3d09cb52ca9d5de4c1",
+      "derivedFrom": {
+        "sha256": "9ab267912caf9a1c5ac4909188f2eaab6a96db468d9f417fd8a42fca227f52db",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-14": {
       "name": "Mallorca",
@@ -449,8 +713,14 @@
       "providerName": "Mallorca",
       "league": "esp.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/84.png",
-      "file": "spain-14.png",
-      "sha256": "a548c6437d50ccd3efbf7b4614253d8cd70d1e462b9e2a1bc0c08f42e60fd0df"
+      "file": "spain-14.webp",
+      "sha256": "78ab092a165ad5cb49ccf507be8aad36ee1ebdb75538f4ba6c529c54344f4bef",
+      "derivedFrom": {
+        "sha256": "a548c6437d50ccd3efbf7b4614253d8cd70d1e462b9e2a1bc0c08f42e60fd0df",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-15": {
       "name": "Las Palmas",
@@ -459,8 +729,14 @@
       "providerName": "Las Palmas",
       "league": "esp.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/98.png",
-      "file": "spain-15.png",
-      "sha256": "dc4bd936681bc0537059c59e90bef6e306a855fd3b41b8a3da78cd0ce83cde23"
+      "file": "spain-15.webp",
+      "sha256": "e64796f9d2656da2cac52ee13bdb72d05b8b9993ab00105bb79a42352c8befaa",
+      "derivedFrom": {
+        "sha256": "dc4bd936681bc0537059c59e90bef6e306a855fd3b41b8a3da78cd0ce83cde23",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-16": {
       "name": "Deportivo La Coruña",
@@ -469,8 +745,14 @@
       "providerName": "Deportivo",
       "league": "esp.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png",
-      "file": "spain-16.png",
-      "sha256": "f9959af4de3ec05b7fd0a49471bb632962df4ad64fcfcd26c3ca71d3d1a1405f"
+      "file": "spain-16.webp",
+      "sha256": "44940b03895549a867789eab70159b5b96d5543c5cd881bba5b84be2e68c8a3b",
+      "derivedFrom": {
+        "sha256": "f9959af4de3ec05b7fd0a49471bb632962df4ad64fcfcd26c3ca71d3d1a1405f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-0": {
       "name": "AC Milan",
@@ -479,8 +761,14 @@
       "providerName": "AC Milan",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png",
-      "file": "italy-0.png",
-      "sha256": "b59f086fb86ed4f77880d4b669b35a81869edaa3f4dda58df742b807bac43710"
+      "file": "italy-0.webp",
+      "sha256": "e8722ad11135cb8080e45e310e20f567e4832978ae5ba8583bf8de31ae65e97e",
+      "derivedFrom": {
+        "sha256": "b59f086fb86ed4f77880d4b669b35a81869edaa3f4dda58df742b807bac43710",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-1": {
       "name": "Inter Milan",
@@ -489,8 +777,14 @@
       "providerName": "Internazionale",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png",
-      "file": "italy-1.png",
-      "sha256": "e28b364fc2e3be3142783e4730395cfd2122a7ce7edabedd358a8706e4df27ec"
+      "file": "italy-1.webp",
+      "sha256": "d3923e0cf1d067d3dab98e0f8c44c3528eb85660e439677af506ba5c2b0ea3fe",
+      "derivedFrom": {
+        "sha256": "e28b364fc2e3be3142783e4730395cfd2122a7ce7edabedd358a8706e4df27ec",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-2": {
       "name": "Juventus",
@@ -499,8 +793,14 @@
       "providerName": "Juventus",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png",
-      "file": "italy-2.png",
-      "sha256": "1f935f1940115cd7e7092fdeeddf2611b92bd6eba3fceecf6f8bc13cfa59043a"
+      "file": "italy-2.webp",
+      "sha256": "251360837d1f491c6dfb53cc322451ba42501ad21d6eb20388afcb68e3985b40",
+      "derivedFrom": {
+        "sha256": "1f935f1940115cd7e7092fdeeddf2611b92bd6eba3fceecf6f8bc13cfa59043a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-3": {
       "name": "Napoli",
@@ -509,8 +809,14 @@
       "providerName": "Napoli",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png",
-      "file": "italy-3.png",
-      "sha256": "aec2cdbeb2d761323b2e4827e384af61b6d4784fef845f92032386cbd2d74a0f"
+      "file": "italy-3.webp",
+      "sha256": "03b2635fb8e5be7ab4fe697aef059c4d4c9301b97b4b30f0b58e675885883b63",
+      "derivedFrom": {
+        "sha256": "aec2cdbeb2d761323b2e4827e384af61b6d4784fef845f92032386cbd2d74a0f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-4": {
       "name": "AS Roma",
@@ -519,8 +825,14 @@
       "providerName": "AS Roma",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png",
-      "file": "italy-4.png",
-      "sha256": "fc53007e34b891ac25e25a0fb8fd1de92bbccef072db5105775bf7a5e30b543b"
+      "file": "italy-4.webp",
+      "sha256": "1889e3d109201ff392aa27652a12d61b4c0a6cafc9b005aa674a5775c416d3bb",
+      "derivedFrom": {
+        "sha256": "fc53007e34b891ac25e25a0fb8fd1de92bbccef072db5105775bf7a5e30b543b",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-5": {
       "name": "Lazio",
@@ -529,8 +841,14 @@
       "providerName": "Lazio",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/112.png",
-      "file": "italy-5.png",
-      "sha256": "b2726b30a7ebf03d38cc583ecb282b40d85d53f480301d473faba99a0b3f49d6"
+      "file": "italy-5.webp",
+      "sha256": "8eb19af6f56bf605228925efd9ead08e85b38f6f3818a248a49eeda6d2a656d2",
+      "derivedFrom": {
+        "sha256": "b2726b30a7ebf03d38cc583ecb282b40d85d53f480301d473faba99a0b3f49d6",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-6": {
       "name": "Atalanta",
@@ -539,8 +857,14 @@
       "providerName": "Atalanta",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png",
-      "file": "italy-6.png",
-      "sha256": "f6d0154ab7e503871678c006d75c458b8ea5fdac6bd2c923ec852d8e8535236a"
+      "file": "italy-6.webp",
+      "sha256": "bdcaddfa0b456906c989515da9448303d406cafa8a514c0f044a58d1b30205bd",
+      "derivedFrom": {
+        "sha256": "f6d0154ab7e503871678c006d75c458b8ea5fdac6bd2c923ec852d8e8535236a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-7": {
       "name": "Fiorentina",
@@ -549,8 +873,14 @@
       "providerName": "Fiorentina",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png",
-      "file": "italy-7.png",
-      "sha256": "329ef40b101be0b955e8504eef0d0971f2b2eddb5e7f1d0f1d0b1c552b739582"
+      "file": "italy-7.webp",
+      "sha256": "dae5814b27887aa7cf6fc480a2b9139b6dbdc29022f4c055132519aa8e059599",
+      "derivedFrom": {
+        "sha256": "329ef40b101be0b955e8504eef0d0971f2b2eddb5e7f1d0f1d0b1c552b739582",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-8": {
       "name": "Bologna",
@@ -559,8 +889,14 @@
       "providerName": "Bologna",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/107.png",
-      "file": "italy-8.png",
-      "sha256": "15e7ad37180b83c8d04338c4e1fae159aa00445a502249e130ef7cb099bba8e8"
+      "file": "italy-8.webp",
+      "sha256": "ce98cc2a5858f2cf6aecf4765b3b2095c5214bdfefbd8d845d4f743ade60ed20",
+      "derivedFrom": {
+        "sha256": "15e7ad37180b83c8d04338c4e1fae159aa00445a502249e130ef7cb099bba8e8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-9": {
       "name": "Torino",
@@ -569,8 +905,14 @@
       "providerName": "Torino",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/239.png",
-      "file": "italy-9.png",
-      "sha256": "fb5f0fc784f87adf5b8c2dfcf8a76cbe063a64a1719d409b18365006456dc475"
+      "file": "italy-9.webp",
+      "sha256": "d6655f027f45d5882ebb4ae2ebe12c1f136b1f6c733ef5e1c2cea06d12252a84",
+      "derivedFrom": {
+        "sha256": "fb5f0fc784f87adf5b8c2dfcf8a76cbe063a64a1719d409b18365006456dc475",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-10": {
       "name": "Genoa",
@@ -579,8 +921,14 @@
       "providerName": "Genoa",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png",
-      "file": "italy-10.png",
-      "sha256": "da402999023ff7f13136854149f77c17614580e23b9a19365fbeba02fb30a720"
+      "file": "italy-10.webp",
+      "sha256": "bcd8ee8309af4a7ca2448a79ff9b053079808b5414da40e63b91a6ab6e580537",
+      "derivedFrom": {
+        "sha256": "da402999023ff7f13136854149f77c17614580e23b9a19365fbeba02fb30a720",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-11": {
       "name": "Sampdoria",
@@ -589,8 +937,14 @@
       "providerName": "Sampdoria",
       "league": "ita.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2734.png",
-      "file": "italy-11.png",
-      "sha256": "3bdef8ebf117c80f6fadf7c26f539859c45cb1753064acb8f2154061f3bea42c"
+      "file": "italy-11.webp",
+      "sha256": "9702614da8151219b3a0be4e23a422f6701f0379cf4aba7280a42c21709e3f80",
+      "derivedFrom": {
+        "sha256": "3bdef8ebf117c80f6fadf7c26f539859c45cb1753064acb8f2154061f3bea42c",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-12": {
       "name": "Parma",
@@ -599,8 +953,14 @@
       "providerName": "Parma",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
-      "file": "italy-12.png",
-      "sha256": "e353c2abc95f2553fd197c8323ab6e08a0c9064eb37aee38d47260792b73e8de"
+      "file": "italy-12.webp",
+      "sha256": "1abb43da0e4e216424386624753afe50a2b8391fd213177f76a23e0fd28e10fd",
+      "derivedFrom": {
+        "sha256": "e353c2abc95f2553fd197c8323ab6e08a0c9064eb37aee38d47260792b73e8de",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-13": {
       "name": "Udinese",
@@ -609,8 +969,14 @@
       "providerName": "Udinese",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/118.png",
-      "file": "italy-13.png",
-      "sha256": "a820f601011ac9f582d06aa1e3d6fdf81e99915f1f3a3676bab13226a55ba267"
+      "file": "italy-13.webp",
+      "sha256": "623adee6f4e3d2ca657a0a45191536980c570106bd159a053f256b211588f6e4",
+      "derivedFrom": {
+        "sha256": "a820f601011ac9f582d06aa1e3d6fdf81e99915f1f3a3676bab13226a55ba267",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-14": {
       "name": "Sassuolo",
@@ -619,8 +985,14 @@
       "providerName": "Sassuolo",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/3997.png",
-      "file": "italy-14.png",
-      "sha256": "245750b7571cd46d1c7250a847e2e04b7ed6049472d29bf2ecf015c3a1b85349"
+      "file": "italy-14.webp",
+      "sha256": "d8593b7a2180aef79c971d22a9f41c8c624da08b8db34c9cb67a34661e752aa9",
+      "derivedFrom": {
+        "sha256": "245750b7571cd46d1c7250a847e2e04b7ed6049472d29bf2ecf015c3a1b85349",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-15": {
       "name": "Como",
@@ -629,8 +1001,14 @@
       "providerName": "Como",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
-      "file": "italy-15.png",
-      "sha256": "03bc6c5a5624ceb014f37814c004cbb271a43f28f1f36f2ff86e1c7445f7b77e"
+      "file": "italy-15.webp",
+      "sha256": "7b9760a0c06600022988bb62a2909558e33899988c94a18584b490508a128da0",
+      "derivedFrom": {
+        "sha256": "03bc6c5a5624ceb014f37814c004cbb271a43f28f1f36f2ff86e1c7445f7b77e",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-16": {
       "name": "Cagliari",
@@ -639,8 +1017,14 @@
       "providerName": "Cagliari",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2925.png",
-      "file": "italy-16.png",
-      "sha256": "5b75b091a619469b0f1e335dfd9fbd1527a6986b6f59fa662ae1c3ed709c8adf"
+      "file": "italy-16.webp",
+      "sha256": "28e1c9755c2bd7e4baad9bc1fb0b34e935d7e4e5892871728de42ac2c21ce78b",
+      "derivedFrom": {
+        "sha256": "5b75b091a619469b0f1e335dfd9fbd1527a6986b6f59fa662ae1c3ed709c8adf",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-17": {
       "name": "Hellas Verona",
@@ -649,8 +1033,14 @@
       "providerName": "Hellas Verona",
       "league": "ita.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/119.png",
-      "file": "italy-17.png",
-      "sha256": "b4f76f5d6e1fc27a7884a4c00571c17e22d91dc011f04192457c696c44c36d6c"
+      "file": "italy-17.webp",
+      "sha256": "c249b3e8e5ecdb1c1862c75dda0f6ad39d421ddfb49cb91f20b11495b642f3c3",
+      "derivedFrom": {
+        "sha256": "b4f76f5d6e1fc27a7884a4c00571c17e22d91dc011f04192457c696c44c36d6c",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-18": {
       "name": "Palermo",
@@ -659,8 +1049,14 @@
       "providerName": "Palermo",
       "league": "ita.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2923.png",
-      "file": "italy-18.png",
-      "sha256": "dee9abf452ec9981ed148d08646387b3eeee16ac373919259e3f201ac678bd94"
+      "file": "italy-18.webp",
+      "sha256": "982d0c06cacef1818d4e746f9d37347d4bff3fdafe0d36fa4b117778bbe995c0",
+      "derivedFrom": {
+        "sha256": "dee9abf452ec9981ed148d08646387b3eeee16ac373919259e3f201ac678bd94",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "italy-19": {
       "name": "Lecce",
@@ -669,8 +1065,14 @@
       "providerName": "Lecce",
       "league": "ita.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/113.png",
-      "file": "italy-19.png",
-      "sha256": "6a26f9f5594a6f36e401e6cddcfdd896f7ec5025a1959acb403ca81a70c367ba"
+      "file": "italy-19.webp",
+      "sha256": "a9d8f9edaa9f8d5b3df5de24de77ec316ae4283c7a864a51e6fd6efcd69ce3cc",
+      "derivedFrom": {
+        "sha256": "6a26f9f5594a6f36e401e6cddcfdd896f7ec5025a1959acb403ca81a70c367ba",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-0": {
       "name": "Bayern Munich",
@@ -679,8 +1081,14 @@
       "providerName": "Bayern Munich",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png",
-      "file": "germany-0.png",
-      "sha256": "07722d46b709639642f804abf618a96ec21e94f78f7bea4f19262e5f5626e497"
+      "file": "germany-0.webp",
+      "sha256": "ee5401ff03783ef4668f41bfe8fde13a1a3b7599eef77c5616f3f7b2422d7ef3",
+      "derivedFrom": {
+        "sha256": "07722d46b709639642f804abf618a96ec21e94f78f7bea4f19262e5f5626e497",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-1": {
       "name": "Borussia Dortmund",
@@ -689,8 +1097,14 @@
       "providerName": "Borussia Dortmund",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png",
-      "file": "germany-1.png",
-      "sha256": "201197af0f4d8bacfd5887e505095cb693ab78942ec4ec70a2858f567f447da4"
+      "file": "germany-1.webp",
+      "sha256": "aacdc2c763af551bae9fddf72e418254a0678080d314bb908952e17682bf5b5a",
+      "derivedFrom": {
+        "sha256": "201197af0f4d8bacfd5887e505095cb693ab78942ec4ec70a2858f567f447da4",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-2": {
       "name": "Bayer Leverkusen",
@@ -699,8 +1113,14 @@
       "providerName": "Bayer Leverkusen",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png",
-      "file": "germany-2.png",
-      "sha256": "2bad215de25b098f58862d7eed4185312c7cf4d2c04e9a740dbd7be6fd013c31"
+      "file": "germany-2.webp",
+      "sha256": "6e8066fd649e7ffd41a87f8c512e525b3abe7a5cecf110ac05fcd7f3025a5201",
+      "derivedFrom": {
+        "sha256": "2bad215de25b098f58862d7eed4185312c7cf4d2c04e9a740dbd7be6fd013c31",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-3": {
       "name": "RB Leipzig",
@@ -709,8 +1129,14 @@
       "providerName": "RB Leipzig",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png",
-      "file": "germany-3.png",
-      "sha256": "14cf16582b86bb6f843cea45057d8b423283e38718d846f78e5177807b56a449"
+      "file": "germany-3.webp",
+      "sha256": "55cd5954aa87e775c71f4074ee270ed29bf1cb7bfb74d2ab005a88d1c8a928e9",
+      "derivedFrom": {
+        "sha256": "14cf16582b86bb6f843cea45057d8b423283e38718d846f78e5177807b56a449",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-4": {
       "name": "Eintracht Frankfurt",
@@ -719,8 +1145,14 @@
       "providerName": "Eintracht Frankfurt",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/125.png",
-      "file": "germany-4.png",
-      "sha256": "2ed65fd5c458c39e4b2f01521f096cbf0eeef2fca7ce11a92fd8e945e330a753"
+      "file": "germany-4.webp",
+      "sha256": "c3684d6606ae7b692381fdc3a77a44988dd56a4c92402356aed1d43931b15d94",
+      "derivedFrom": {
+        "sha256": "2ed65fd5c458c39e4b2f01521f096cbf0eeef2fca7ce11a92fd8e945e330a753",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-5": {
       "name": "Stuttgart",
@@ -729,8 +1161,14 @@
       "providerName": "VfB Stuttgart",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
-      "file": "germany-5.png",
-      "sha256": "7fc84a86df4a6f08f75d8b1f91b100bbf5fed552dd88ec58bec085e0dc1fd737"
+      "file": "germany-5.webp",
+      "sha256": "016fd8c1d1a76347544b95556a9785f3965652e44eaa7e595949a0bd10631bb3",
+      "derivedFrom": {
+        "sha256": "7fc84a86df4a6f08f75d8b1f91b100bbf5fed552dd88ec58bec085e0dc1fd737",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-6": {
       "name": "Wolfsburg",
@@ -739,8 +1177,14 @@
       "providerName": "VfL Wolfsburg",
       "league": "ger.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/138.png",
-      "file": "germany-6.png",
-      "sha256": "9bde41df5c5d32c5f2ec76486d5c9e57a257c4fa00a218970945f3fa49e3f3e1"
+      "file": "germany-6.webp",
+      "sha256": "f7bb27b1d3ebe8884fc7bdb0dbb4fd0b6e0ab5784c34ef817a63958ad2dbd544",
+      "derivedFrom": {
+        "sha256": "9bde41df5c5d32c5f2ec76486d5c9e57a257c4fa00a218970945f3fa49e3f3e1",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-7": {
       "name": "Werder Bremen",
@@ -749,8 +1193,14 @@
       "providerName": "Werder Bremen",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/137.png",
-      "file": "germany-7.png",
-      "sha256": "82fc43de5706e62c3b31ba551c233d3e5d2dbf494f2ea78affc248b038f7d7b7"
+      "file": "germany-7.webp",
+      "sha256": "6a20b052a9606feafdb4eb8bc0c4c01b2af99ab308263d33898904df143b13dc",
+      "derivedFrom": {
+        "sha256": "82fc43de5706e62c3b31ba551c233d3e5d2dbf494f2ea78affc248b038f7d7b7",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-8": {
       "name": "Borussia Mönchengladbach",
@@ -759,8 +1209,14 @@
       "providerName": "Borussia Mönchengladbach",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/268.png",
-      "file": "germany-8.png",
-      "sha256": "ee9f2624be66c1681d798b8e8e5e78f9cdbfe7f5427128dca2b5c23419e14ece"
+      "file": "germany-8.webp",
+      "sha256": "4f7615283e1d7c6da05ad7bd281af0518ecf1b60a5e06d2e4e1ecc6c5dbb55c8",
+      "derivedFrom": {
+        "sha256": "ee9f2624be66c1681d798b8e8e5e78f9cdbfe7f5427128dca2b5c23419e14ece",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-9": {
       "name": "Schalke 04",
@@ -769,8 +1225,14 @@
       "providerName": "Schalke 04",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/133.png",
-      "file": "germany-9.png",
-      "sha256": "e0a4b6574db68c326b7a60460a91a839bb40c21051c985439d0a747820f12abb"
+      "file": "germany-9.webp",
+      "sha256": "2abff90c11489ea7ed793f3ea45c3b6435f57cc1158eb10008992d1d8e34dafb",
+      "derivedFrom": {
+        "sha256": "e0a4b6574db68c326b7a60460a91a839bb40c21051c985439d0a747820f12abb",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-10": {
       "name": "Hamburg",
@@ -779,8 +1241,14 @@
       "providerName": "Hamburg SV",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/127.png",
-      "file": "germany-10.png",
-      "sha256": "ccf4b20e1d61972943b633a67b4507109bd1f30f63d55d6f6676e288400f143d"
+      "file": "germany-10.webp",
+      "sha256": "2103f021ad65fe18382d8700901dee51342c3f928262fdb04e41816a8d6918df",
+      "derivedFrom": {
+        "sha256": "ccf4b20e1d61972943b633a67b4507109bd1f30f63d55d6f6676e288400f143d",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-11": {
       "name": "Hoffenheim",
@@ -789,8 +1257,14 @@
       "providerName": "TSG Hoffenheim",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/7911.png",
-      "file": "germany-11.png",
-      "sha256": "1c87a6e4aacb15ef1d7e11188f4b3a37aae226e54bdc6ce89e90d000d37f9ab8"
+      "file": "germany-11.webp",
+      "sha256": "cc124ef379540e3f37146d64ffa399ea2dbc8a6e736c624d7c3e56eb31c08868",
+      "derivedFrom": {
+        "sha256": "1c87a6e4aacb15ef1d7e11188f4b3a37aae226e54bdc6ce89e90d000d37f9ab8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-12": {
       "name": "Freiburg",
@@ -799,8 +1273,14 @@
       "providerName": "SC Freiburg",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/126.png",
-      "file": "germany-12.png",
-      "sha256": "e42dd4175dd1bae9cd11f82c068a1bf3818214540ae93a85e530a4fea3652808"
+      "file": "germany-12.webp",
+      "sha256": "7c2e3409a81e6c037a2889d4a734052f283328886c9c4a1a1cc6bbc6f0e262e9",
+      "derivedFrom": {
+        "sha256": "e42dd4175dd1bae9cd11f82c068a1bf3818214540ae93a85e530a4fea3652808",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-13": {
       "name": "Mainz 05",
@@ -809,8 +1289,14 @@
       "providerName": "Mainz",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png",
-      "file": "germany-13.png",
-      "sha256": "30831054c87ecb1ef66d03e0a61d24dcc4927ec95c1ba38e55f78b8a6f6d6308"
+      "file": "germany-13.webp",
+      "sha256": "ae557a499452d3dce66f3e2138f99613a3109b5356f11fb87de8c99bcd1735b7",
+      "derivedFrom": {
+        "sha256": "30831054c87ecb1ef66d03e0a61d24dcc4927ec95c1ba38e55f78b8a6f6d6308",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-14": {
       "name": "FC Köln",
@@ -819,8 +1305,14 @@
       "providerName": "FC Cologne",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
-      "file": "germany-14.png",
-      "sha256": "370e65c517614c3860f6be1037474761ecb645c0b5a6c3d8321b815be34e2b84"
+      "file": "germany-14.webp",
+      "sha256": "bb2d6109233acf2e723d0b20dfd2c372332d78b971f8db4b7e4cfe530a525968",
+      "derivedFrom": {
+        "sha256": "370e65c517614c3860f6be1037474761ecb645c0b5a6c3d8321b815be34e2b84",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-15": {
       "name": "Union Berlin",
@@ -829,8 +1321,14 @@
       "providerName": "1. FC Union Berlin",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/598.png",
-      "file": "germany-15.png",
-      "sha256": "36af495da6ee52fbddce0adbdf1941cc8b0f01a06211e510c584c3823dc78983"
+      "file": "germany-15.webp",
+      "sha256": "1902e8f94d9b0a9af0e298f6aae6c2e7766ea7a622d11e9f6de51e25e6cfd294",
+      "derivedFrom": {
+        "sha256": "36af495da6ee52fbddce0adbdf1941cc8b0f01a06211e510c584c3823dc78983",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-16": {
       "name": "Hertha Berlin",
@@ -839,8 +1337,14 @@
       "providerName": "Hertha Berlin",
       "league": "ger.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/129.png",
-      "file": "germany-16.png",
-      "sha256": "4fd28bec6ef76c659a9b29b6dcdc82079a9810590d6ce13c25692eaaef32d9d9"
+      "file": "germany-16.webp",
+      "sha256": "bd8a4abdb069d7b32c1d07382b0a73e4d3d845dcf8510091959ce62a4efb3afb",
+      "derivedFrom": {
+        "sha256": "4fd28bec6ef76c659a9b29b6dcdc82079a9810590d6ce13c25692eaaef32d9d9",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "germany-17": {
       "name": "Augsburg",
@@ -849,8 +1353,14 @@
       "providerName": "FC Augsburg",
       "league": "ger.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/3841.png",
-      "file": "germany-17.png",
-      "sha256": "e3a17796551f035f6562a9e24c890dc0bea56a3c83001ca822659a73d3f94076"
+      "file": "germany-17.webp",
+      "sha256": "79037c12f352ae3fb6ad7ade68298ce7405018f80f1748fdb35deb4b522023be",
+      "derivedFrom": {
+        "sha256": "e3a17796551f035f6562a9e24c890dc0bea56a3c83001ca822659a73d3f94076",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-0": {
       "name": "Paris Saint-Germain",
@@ -859,8 +1369,14 @@
       "providerName": "Paris Saint-Germain",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
-      "file": "france-0.png",
-      "sha256": "cf18f6f16223d362489647765642c6370651555250b8470890f83d80df9bacee"
+      "file": "france-0.webp",
+      "sha256": "71862137dfef4b5fbe567755c4839a36e99d1ad1d869627aa55e50b55d11ce69",
+      "derivedFrom": {
+        "sha256": "cf18f6f16223d362489647765642c6370651555250b8470890f83d80df9bacee",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-1": {
       "name": "Marseille",
@@ -869,8 +1385,14 @@
       "providerName": "Marseille",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png",
-      "file": "france-1.png",
-      "sha256": "72d68fbb41eaa4222b29234cb6a1a05ddc27ce7d4f49da3915c1f48e860402e5"
+      "file": "france-1.webp",
+      "sha256": "7d8ed08e1ac94cc53c8e8a7619bf32d9cbab90165606c1df8b940ca70f0918fc",
+      "derivedFrom": {
+        "sha256": "72d68fbb41eaa4222b29234cb6a1a05ddc27ce7d4f49da3915c1f48e860402e5",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-2": {
       "name": "Lyon",
@@ -879,8 +1401,14 @@
       "providerName": "Lyon",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png",
-      "file": "france-2.png",
-      "sha256": "8814b72c3e09f64c378826a17dc8615027c06f7699459f190df0e5abfcb92a1a"
+      "file": "france-2.webp",
+      "sha256": "ee2e534c2b2f401f1a4d976eaef5ed5b3c0e2eb2f41aee89f967e4b65dc1c6c1",
+      "derivedFrom": {
+        "sha256": "8814b72c3e09f64c378826a17dc8615027c06f7699459f190df0e5abfcb92a1a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-3": {
       "name": "Monaco",
@@ -889,8 +1417,14 @@
       "providerName": "AS Monaco",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
-      "file": "france-3.png",
-      "sha256": "0b908ad2f4a2f0f73cf58f5258049291f7295c75d50b68b286beb643c01b335f"
+      "file": "france-3.webp",
+      "sha256": "4452b34151c02b4f0f95f2241a24d570ff5993514dee0c61a078b65ab1bacd3c",
+      "derivedFrom": {
+        "sha256": "0b908ad2f4a2f0f73cf58f5258049291f7295c75d50b68b286beb643c01b335f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-4": {
       "name": "Lille",
@@ -899,8 +1433,14 @@
       "providerName": "Lille",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png",
-      "file": "france-4.png",
-      "sha256": "6121c24e7aa4098ba89c40b744bd49f83cf760f1de5f85c8ea4e11eb10ff1c1c"
+      "file": "france-4.webp",
+      "sha256": "d7aea50d118d2cb4005fd7ce1c43adcd1b3e528d5cecd9b90efc7a309eac75ac",
+      "derivedFrom": {
+        "sha256": "6121c24e7aa4098ba89c40b744bd49f83cf760f1de5f85c8ea4e11eb10ff1c1c",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-5": {
       "name": "Nice",
@@ -909,8 +1449,14 @@
       "providerName": "Nice",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png",
-      "file": "france-5.png",
-      "sha256": "b5034e788bf1e65c9e802257c2eebd0bb47f1e5071b9fc2a333006d665172f2f"
+      "file": "france-5.webp",
+      "sha256": "eb87e135a184eb9cc93403bf5293d4f748c1f1118badacc12591bffdf160aa36",
+      "derivedFrom": {
+        "sha256": "b5034e788bf1e65c9e802257c2eebd0bb47f1e5071b9fc2a333006d665172f2f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-6": {
       "name": "Rennes",
@@ -919,8 +1465,14 @@
       "providerName": "Stade Rennais",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/169.png",
-      "file": "france-6.png",
-      "sha256": "3ed4128ae9e642ce0cffa7abea0a92b571725b0e4eb4c990f1d01546ce52528a"
+      "file": "france-6.webp",
+      "sha256": "3ee5854106a56b16d2c2099eccc9942dfaf2c0de6a253d4f0fdc2c9ce3aad5bb",
+      "derivedFrom": {
+        "sha256": "3ed4128ae9e642ce0cffa7abea0a92b571725b0e4eb4c990f1d01546ce52528a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-7": {
       "name": "Lens",
@@ -929,8 +1481,14 @@
       "providerName": "Lens",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/175.png",
-      "file": "france-7.png",
-      "sha256": "d8a16b76650d065b1f4cde407062e5c32c98cf45c1e6f7e4c2cd275fd26f6330"
+      "file": "france-7.webp",
+      "sha256": "88179a9de5befdc696cf7eeab2fb60bd6d1766979c07b20b1440184f0f4a539d",
+      "derivedFrom": {
+        "sha256": "d8a16b76650d065b1f4cde407062e5c32c98cf45c1e6f7e4c2cd275fd26f6330",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-8": {
       "name": "Saint-Étienne",
@@ -939,8 +1497,14 @@
       "providerName": "Saint-Étienne",
       "league": "fra.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/178.png",
-      "file": "france-8.png",
-      "sha256": "9dd551e93fff74d1db4324d81edeebe910a30c425e0b1a45a9e9ef4632b1f342"
+      "file": "france-8.webp",
+      "sha256": "46d6b1137677b074d123257c5c89daf5575f3bf55bef8d77b6d3299a6188b332",
+      "derivedFrom": {
+        "sha256": "9dd551e93fff74d1db4324d81edeebe910a30c425e0b1a45a9e9ef4632b1f342",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-9": {
       "name": "Nantes",
@@ -949,8 +1513,14 @@
       "providerName": "Nantes",
       "league": "fra.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/165.png",
-      "file": "france-9.png",
-      "sha256": "71c06568019fe3bae937c747859a9906dc5f14d7c96091ded7e1a7c12fbffdd8"
+      "file": "france-9.webp",
+      "sha256": "e823475143c3cb4a3fb08bafd3289b389a64db7ab9824c9905a0d68ecaf04959",
+      "derivedFrom": {
+        "sha256": "71c06568019fe3bae937c747859a9906dc5f14d7c96091ded7e1a7c12fbffdd8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-10": {
       "name": "Strasbourg",
@@ -959,8 +1529,14 @@
       "providerName": "Strasbourg",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/180.png",
-      "file": "france-10.png",
-      "sha256": "ee5adbce067c7603a46bd1b701b6007ce6fbc98d4d128e58aff959f75ac5c7d1"
+      "file": "france-10.webp",
+      "sha256": "57ee932d78ce9f3d5363c8a20be79cad5f50973ce297fa4ba158ae13fdce28fa",
+      "derivedFrom": {
+        "sha256": "ee5adbce067c7603a46bd1b701b6007ce6fbc98d4d128e58aff959f75ac5c7d1",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-11": {
       "name": "Montpellier",
@@ -969,8 +1545,14 @@
       "providerName": "Montpellier",
       "league": "fra.2",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/274.png",
-      "file": "france-11.png",
-      "sha256": "054bfb7f88d77ef0311433c58dd4f8dd688703f3b4cca21fc4f1afdda9b3bb0b"
+      "file": "france-11.webp",
+      "sha256": "8e70d65590efe6ca1e404c252f78259bd2a1e7ca4c7cc220b0019459181ea946",
+      "derivedFrom": {
+        "sha256": "054bfb7f88d77ef0311433c58dd4f8dd688703f3b4cca21fc4f1afdda9b3bb0b",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-13": {
       "name": "Toulouse",
@@ -979,8 +1561,14 @@
       "providerName": "Toulouse",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
-      "file": "france-13.png",
-      "sha256": "0c56bb083f5565bc62d33d21c99aef979c8453fd1a0518398555e19e205a5ab7"
+      "file": "france-13.webp",
+      "sha256": "5a86fa7c6f35edc1bcbc6c46fbd02c1f0cae5a50f1cd24a22bfaab3ed40e0afe",
+      "derivedFrom": {
+        "sha256": "0c56bb083f5565bc62d33d21c99aef979c8453fd1a0518398555e19e205a5ab7",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-14": {
       "name": "Brest",
@@ -989,8 +1577,14 @@
       "providerName": "Brest",
       "league": "fra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/6997.png",
-      "file": "france-14.png",
-      "sha256": "d361bcf5c539018a276f0b3b3cbea590be8bba33cdffadc81dbb7e7995d0e617"
+      "file": "france-14.webp",
+      "sha256": "df67610c920f9f78a30bfffbf1c7a1ecd5bdc874cc176ca8ea86738c054216dd",
+      "derivedFrom": {
+        "sha256": "d361bcf5c539018a276f0b3b3cbea590be8bba33cdffadc81dbb7e7995d0e617",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-0": {
       "name": "Benfica",
@@ -999,8 +1593,14 @@
       "providerName": "Benfica",
       "league": "por.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png",
-      "file": "portugal-0.png",
-      "sha256": "8b409714f7ad6f3aeb681183c2a6ad3a5f6351c4fee95452eda374825cb977d1"
+      "file": "portugal-0.webp",
+      "sha256": "823a18a6890123e2b02a50c4cbe9c3b435d580d0bbf97f1071706d9dad3cacbe",
+      "derivedFrom": {
+        "sha256": "8b409714f7ad6f3aeb681183c2a6ad3a5f6351c4fee95452eda374825cb977d1",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-1": {
       "name": "Porto",
@@ -1009,8 +1609,14 @@
       "providerName": "FC Porto",
       "league": "por.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png",
-      "file": "portugal-1.png",
-      "sha256": "06e4bdfa66066ecc29717dc9452d09dfd7797509264786fb00be6df66b1cdb77"
+      "file": "portugal-1.webp",
+      "sha256": "f49ad17eb95690c5de732e6104ff522910818bd1632a064db1cf1ee8405f06e3",
+      "derivedFrom": {
+        "sha256": "06e4bdfa66066ecc29717dc9452d09dfd7797509264786fb00be6df66b1cdb77",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-2": {
       "name": "Sporting CP",
@@ -1019,8 +1625,14 @@
       "providerName": "Sporting CP",
       "league": "por.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
-      "file": "portugal-2.png",
-      "sha256": "e3dc6e95a70b4d6171b2cf83028b68082027877e9595ba000203be20b6f867b8"
+      "file": "portugal-2.webp",
+      "sha256": "cd63dd6ed07d251656ebbd068bdcf0bbe4c4b86c5e4a24cbb03c345bcf79c7ac",
+      "derivedFrom": {
+        "sha256": "e3dc6e95a70b4d6171b2cf83028b68082027877e9595ba000203be20b6f867b8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-3": {
       "name": "Braga",
@@ -1029,8 +1641,14 @@
       "providerName": "Braga",
       "league": "por.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2994.png",
-      "file": "portugal-3.png",
-      "sha256": "a398f64f8845a577a82044f6cbf389e32fcb1f725cef90991501a4bb106ee252"
+      "file": "portugal-3.webp",
+      "sha256": "610cdf4f40ebe893e0a438035c74bc07945b2e5d4926501d9e38add116dd322f",
+      "derivedFrom": {
+        "sha256": "a398f64f8845a577a82044f6cbf389e32fcb1f725cef90991501a4bb106ee252",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-7": {
       "name": "Rio Ave",
@@ -1039,8 +1657,14 @@
       "providerName": "Rio Ave",
       "league": "por.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png",
-      "file": "portugal-7.png",
-      "sha256": "ee08c425a7d922ffabebfbef0db170c79cb73530c6d7907076a37ed1cb4acc34"
+      "file": "portugal-7.webp",
+      "sha256": "4fbd109f6756de3c2756e66f447c4de6754cf63c4a5f15818e5162362b1cdd45",
+      "derivedFrom": {
+        "sha256": "ee08c425a7d922ffabebfbef0db170c79cb73530c6d7907076a37ed1cb4acc34",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-0": {
       "name": "Ajax",
@@ -1049,8 +1673,14 @@
       "providerName": "Ajax Amsterdam",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/139.png",
-      "file": "netherlands-0.png",
-      "sha256": "762ec0410e13692c37220cbfd8d76c2b666f098e51dd58fe9e1064ef09c7b42f"
+      "file": "netherlands-0.webp",
+      "sha256": "5c12da82ec66306868c70d40ca72af9a050f025c29bc0be4c61922fea60b3bef",
+      "derivedFrom": {
+        "sha256": "762ec0410e13692c37220cbfd8d76c2b666f098e51dd58fe9e1064ef09c7b42f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-1": {
       "name": "PSV Eindhoven",
@@ -1059,8 +1689,14 @@
       "providerName": "PSV Eindhoven",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png",
-      "file": "netherlands-1.png",
-      "sha256": "bc4f90eb0b6f2d4bd865de34ee6d6ebe6e8620c83d372871855608a4f123c5ab"
+      "file": "netherlands-1.webp",
+      "sha256": "5803000a03fce3c9115f957e514782220fd0c8c739f85a0d1dd998d50d533d86",
+      "derivedFrom": {
+        "sha256": "bc4f90eb0b6f2d4bd865de34ee6d6ebe6e8620c83d372871855608a4f123c5ab",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-2": {
       "name": "Feyenoord",
@@ -1069,8 +1705,14 @@
       "providerName": "Feyenoord Rotterdam",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/142.png",
-      "file": "netherlands-2.png",
-      "sha256": "f37bb33fa9f5d5ec9481c42204de29002d709989557104ab1470e337b8ce1513"
+      "file": "netherlands-2.webp",
+      "sha256": "c03f3c866c136891a5772c53dfeef82eb0795f7789458cd062d059e4074a0be4",
+      "derivedFrom": {
+        "sha256": "f37bb33fa9f5d5ec9481c42204de29002d709989557104ab1470e337b8ce1513",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-3": {
       "name": "AZ Alkmaar",
@@ -1079,8 +1721,14 @@
       "providerName": "AZ Alkmaar",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/140.png",
-      "file": "netherlands-3.png",
-      "sha256": "f5154eaa6a0e4b9311786116319933772be67b2accfccf83422dce40d039dcec"
+      "file": "netherlands-3.webp",
+      "sha256": "20069f854ad42e239e6492b1804e84a946e20493c90de0143e023c681ab4ae5c",
+      "derivedFrom": {
+        "sha256": "f5154eaa6a0e4b9311786116319933772be67b2accfccf83422dce40d039dcec",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-4": {
       "name": "Twente",
@@ -1089,8 +1737,14 @@
       "providerName": "FC Twente",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/152.png",
-      "file": "netherlands-4.png",
-      "sha256": "ad0d05e6592f5f2a60a5ff7b88a04fc97bbad77ad1d8550e74b20496a07acacc"
+      "file": "netherlands-4.webp",
+      "sha256": "46ebd7d22ab09f80726767d367d6f17073d9f300d7782f5b065f660424140ca7",
+      "derivedFrom": {
+        "sha256": "ad0d05e6592f5f2a60a5ff7b88a04fc97bbad77ad1d8550e74b20496a07acacc",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-5": {
       "name": "Utrecht",
@@ -1099,8 +1753,14 @@
       "providerName": "FC Utrecht",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/153.png",
-      "file": "netherlands-5.png",
-      "sha256": "80e0c17a257aa4140ac539ae5314539077cf0c391c0c0de2bd980cbd4140a4d4"
+      "file": "netherlands-5.webp",
+      "sha256": "10adc764d99f8fb599408b4fe70ca9621263cca11da87a5fb3fd1d4831f3c735",
+      "derivedFrom": {
+        "sha256": "80e0c17a257aa4140ac539ae5314539077cf0c391c0c0de2bd980cbd4140a4d4",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-6": {
       "name": "Groningen",
@@ -1109,8 +1769,14 @@
       "providerName": "FC Groningen",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/145.png",
-      "file": "netherlands-6.png",
-      "sha256": "72e5f86a4dc3985e6f915a6445f0888ac97e98ce3f2f6b19ffc5acfb9ad49607"
+      "file": "netherlands-6.webp",
+      "sha256": "d5aa5a00341d560bc79ef64bae536d5cb4fc03184e27420bf0377bcb5bc07218",
+      "derivedFrom": {
+        "sha256": "72e5f86a4dc3985e6f915a6445f0888ac97e98ce3f2f6b19ffc5acfb9ad49607",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "netherlands-7": {
       "name": "Heerenveen",
@@ -1119,8 +1785,14 @@
       "providerName": "Heerenveen",
       "league": "ned.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/146.png",
-      "file": "netherlands-7.png",
-      "sha256": "5078c0c7ff2a060e5bae559d6eb174f64c096e0a1a07dcc90fcdefa7323dbae6"
+      "file": "netherlands-7.webp",
+      "sha256": "23d09bc77cce00d076669faccf7b068fcded955aa50f24114cf80019803df3a9",
+      "derivedFrom": {
+        "sha256": "5078c0c7ff2a060e5bae559d6eb174f64c096e0a1a07dcc90fcdefa7323dbae6",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "scotland-0": {
       "name": "Celtic",
@@ -1129,8 +1801,14 @@
       "providerName": "Celtic",
       "league": "sco.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png",
-      "file": "scotland-0.png",
-      "sha256": "e71395f8fb117f91abf6afa772bbad0c2ccc745f476b3e85d59bd9baafd93db8"
+      "file": "scotland-0.webp",
+      "sha256": "29e9a1b7bd9fd764099b29ffe0db8feff7bf408f162a1674f6188d02b9bb481e",
+      "derivedFrom": {
+        "sha256": "e71395f8fb117f91abf6afa772bbad0c2ccc745f476b3e85d59bd9baafd93db8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "scotland-1": {
       "name": "Rangers",
@@ -1139,8 +1817,14 @@
       "providerName": "Rangers",
       "league": "sco.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/257.png",
-      "file": "scotland-1.png",
-      "sha256": "ccac3016ceb75e63545625f518d66d3c26b6fa59e077ae99f0406ff59d0dc203"
+      "file": "scotland-1.webp",
+      "sha256": "b5ac10cf19ed9ef5ce35b118e2e3bbb4249d013d9a7cf147b8c2c53f785290f5",
+      "derivedFrom": {
+        "sha256": "ccac3016ceb75e63545625f518d66d3c26b6fa59e077ae99f0406ff59d0dc203",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "scotland-2": {
       "name": "Aberdeen",
@@ -1149,8 +1833,14 @@
       "providerName": "Aberdeen",
       "league": "sco.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/263.png",
-      "file": "scotland-2.png",
-      "sha256": "dd346bf2aa9f0fc8422b561c267eebb9dbd73e9f1641fde98eb93247c75d69f4"
+      "file": "scotland-2.webp",
+      "sha256": "184ceb6a326f53b577a4429a286d075c0e9f283b8769454e1430e2afbbd8cb3a",
+      "derivedFrom": {
+        "sha256": "dd346bf2aa9f0fc8422b561c267eebb9dbd73e9f1641fde98eb93247c75d69f4",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "scotland-3": {
       "name": "Hearts",
@@ -1159,8 +1849,14 @@
       "providerName": "Heart of Midlothian",
       "league": "sco.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/262.png",
-      "file": "scotland-3.png",
-      "sha256": "d63b468ef7a8269258e778db73c80b41c60e4b8692d4421d19691e11b2e44031"
+      "file": "scotland-3.webp",
+      "sha256": "9316c4f5a85ad7b5de78b48af6a6224ed5da6bf0b32a284a074ec5b7fe3fd770",
+      "derivedFrom": {
+        "sha256": "d63b468ef7a8269258e778db73c80b41c60e4b8692d4421d19691e11b2e44031",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "scotland-4": {
       "name": "Hibernian",
@@ -1169,8 +1865,14 @@
       "providerName": "Hibernian",
       "league": "sco.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/258.png",
-      "file": "scotland-4.png",
-      "sha256": "d2844545bd64604cc8abd7685aa000a937d0e59c43b8b02664fa59bd43627ac3"
+      "file": "scotland-4.webp",
+      "sha256": "5a9c7e399326d5aab1e62cb5bd6d81f929e5e465531802db8ad734a5a32dabe2",
+      "derivedFrom": {
+        "sha256": "d2844545bd64604cc8abd7685aa000a937d0e59c43b8b02664fa59bd43627ac3",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "scotland-5": {
       "name": "Dundee United",
@@ -1179,8 +1881,14 @@
       "providerName": "Dundee United",
       "league": "sco.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/264.png",
-      "file": "scotland-5.png",
-      "sha256": "69d9f41b57ba0ad5191b7d0e35b5406e357b0028f12d69c31df5e8e1f3922464"
+      "file": "scotland-5.webp",
+      "sha256": "09992e8f701023b82af33775f348bd178686c30315f1d78b64fc0ce042267a70",
+      "derivedFrom": {
+        "sha256": "69d9f41b57ba0ad5191b7d0e35b5406e357b0028f12d69c31df5e8e1f3922464",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "turkey-0": {
       "name": "Galatasaray",
@@ -1189,8 +1897,14 @@
       "providerName": "Galatasaray",
       "league": "tur.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png",
-      "file": "turkey-0.png",
-      "sha256": "43ef45dde51fe7dc273bb6b119282abeb6aa384790e09229e6413cb350fc4a5f"
+      "file": "turkey-0.webp",
+      "sha256": "32ed6c4941481d3ce74a9ff9f06a5d2968b1f8039c6a8a0da2d007f3d545a796",
+      "derivedFrom": {
+        "sha256": "43ef45dde51fe7dc273bb6b119282abeb6aa384790e09229e6413cb350fc4a5f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "turkey-1": {
       "name": "Fenerbahçe",
@@ -1199,8 +1913,14 @@
       "providerName": "Fenerbahce",
       "league": "tur.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/436.png",
-      "file": "turkey-1.png",
-      "sha256": "e220d0aee24109a4a5bf63910dc949f704d735986c2cf513a412c8a3a355300a"
+      "file": "turkey-1.webp",
+      "sha256": "d9c3294482bedf0187b761a90d571112cd6bf9a08fab98f02bb697988d94f206",
+      "derivedFrom": {
+        "sha256": "e220d0aee24109a4a5bf63910dc949f704d735986c2cf513a412c8a3a355300a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "turkey-2": {
       "name": "Beşiktaş",
@@ -1209,8 +1929,14 @@
       "providerName": "Besiktas",
       "league": "tur.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/1895.png",
-      "file": "turkey-2.png",
-      "sha256": "c6b880bb37d9f0e4ac18ded4d9fd9dde7691752e63cf04171d2427154c5f9803"
+      "file": "turkey-2.webp",
+      "sha256": "2a5caa8b665f076aa25f3e96b45c1c3487a36fc3436efc1ed9606c00c6b4b90b",
+      "derivedFrom": {
+        "sha256": "c6b880bb37d9f0e4ac18ded4d9fd9dde7691752e63cf04171d2427154c5f9803",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "turkey-3": {
       "name": "Trabzonspor",
@@ -1219,8 +1945,14 @@
       "providerName": "Trabzonspor",
       "league": "tur.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/997.png",
-      "file": "turkey-3.png",
-      "sha256": "f7f47a7f66509c816905ebaf5487aa026f06a5798747716f3094f2d809f83ebe"
+      "file": "turkey-3.webp",
+      "sha256": "6e982ffcb0c10610c895fc5ffa844916066ef74655e24e6b3732a83e4290c13b",
+      "derivedFrom": {
+        "sha256": "f7f47a7f66509c816905ebaf5487aa026f06a5798747716f3094f2d809f83ebe",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "turkey-4": {
       "name": "Başakşehir",
@@ -1229,8 +1961,14 @@
       "providerName": "Istanbul Basaksehir",
       "league": "tur.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/7914.png",
-      "file": "turkey-4.png",
-      "sha256": "312217393bf7f5ae2b682cc9de39bceb01bdbe985ccc72d40aa5f4876ad8288b"
+      "file": "turkey-4.webp",
+      "sha256": "529bdad81ea194729c774c9d028834646b11025b14c720c6d297784945d37f98",
+      "derivedFrom": {
+        "sha256": "312217393bf7f5ae2b682cc9de39bceb01bdbe985ccc72d40aa5f4876ad8288b",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-0": {
       "name": "Al Hilal",
@@ -1239,8 +1977,14 @@
       "providerName": "Al Hilal",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/929.png",
-      "file": "saudi-0.png",
-      "sha256": "6d53f031f94abbf067ddd6d5b12ff859811fe9fbe23c5daeb81215358f4a42de"
+      "file": "saudi-0.webp",
+      "sha256": "6c22aee9d247b41f32e35899296e7b99d8a1aeee15305754d6f22540d3424715",
+      "derivedFrom": {
+        "sha256": "6d53f031f94abbf067ddd6d5b12ff859811fe9fbe23c5daeb81215358f4a42de",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-1": {
       "name": "Al Nassr",
@@ -1249,8 +1993,14 @@
       "providerName": "Al Nassr",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/817.png",
-      "file": "saudi-1.png",
-      "sha256": "5c2f8b5d60f3be57d11755e331ed21f2c5936275941f4ddb82a9c91f7e68c818"
+      "file": "saudi-1.webp",
+      "sha256": "c1ab38d1f86cdd511ae904e94b6d1cae0ab0c3ca9e3a6f698063ea7f735821dd",
+      "derivedFrom": {
+        "sha256": "5c2f8b5d60f3be57d11755e331ed21f2c5936275941f4ddb82a9c91f7e68c818",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-2": {
       "name": "Al Ittihad",
@@ -1259,8 +2009,14 @@
       "providerName": "Al Ittihad",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2276.png",
-      "file": "saudi-2.png",
-      "sha256": "b8bb2e9fd75cc7dc13907dcf58728e2a2e1bb80b3b1c62c095b1c4f16968d89a"
+      "file": "saudi-2.webp",
+      "sha256": "227d43f629d578974d0c3c791a1303a6e1375830bb45a04b1520519dadb97bdd",
+      "derivedFrom": {
+        "sha256": "b8bb2e9fd75cc7dc13907dcf58728e2a2e1bb80b3b1c62c095b1c4f16968d89a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-3": {
       "name": "Al Ahli Saudi",
@@ -1269,8 +2025,14 @@
       "providerName": "Al Ahli",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/8346.png",
-      "file": "saudi-3.png",
-      "sha256": "8020a8eec3a067ecb1cc8edf4dc564e4c01716390baf0dd9f849700c4dab7ccc"
+      "file": "saudi-3.webp",
+      "sha256": "05b6fcc94e03476559764c8eb93ca6813c81c5999ad81f869fa294eedc9aeaae",
+      "derivedFrom": {
+        "sha256": "8020a8eec3a067ecb1cc8edf4dc564e4c01716390baf0dd9f849700c4dab7ccc",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-4": {
       "name": "Al Shabab Saudi",
@@ -1279,8 +2041,14 @@
       "providerName": "Al Shabab",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/793.png",
-      "file": "saudi-4.png",
-      "sha256": "42f692b577421d0823ab2a76f05c8f12dcdf2e269c44b8cae645e51ccc45bc4a"
+      "file": "saudi-4.webp",
+      "sha256": "5d78e6576a86c5eadeec665ee6c1ccf142eb2960c14a628275c2fa5ead803980",
+      "derivedFrom": {
+        "sha256": "42f692b577421d0823ab2a76f05c8f12dcdf2e269c44b8cae645e51ccc45bc4a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-5": {
       "name": "Al Ettifaq",
@@ -1289,8 +2057,14 @@
       "providerName": "Al Ettifaq",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/8363.png",
-      "file": "saudi-5.png",
-      "sha256": "daac942279bdcc0c763b4d48a113845e1def57705652c61d2a14b95e596cc71d"
+      "file": "saudi-5.webp",
+      "sha256": "c648905349ac312bd75784f77b94bc8a43c90b33c9be0925dee45b40653b41fa",
+      "derivedFrom": {
+        "sha256": "daac942279bdcc0c763b4d48a113845e1def57705652c61d2a14b95e596cc71d",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-6": {
       "name": "Al Taawoun",
@@ -1299,8 +2073,14 @@
       "providerName": "Al Taawoun",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/18459.png",
-      "file": "saudi-6.png",
-      "sha256": "ba205756af7966f3d2391a4302fc5fec072a8a248248797d37ba7c6096fa5d55"
+      "file": "saudi-6.webp",
+      "sha256": "a1726397b00679a84764bbe1b4b6b530bbd2738eb4d4fe37d9c420868265a8ca",
+      "derivedFrom": {
+        "sha256": "ba205756af7966f3d2391a4302fc5fec072a8a248248797d37ba7c6096fa5d55",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-7": {
       "name": "Al Fateh",
@@ -1309,8 +2089,14 @@
       "providerName": "Al Fateh",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/13033.png",
-      "file": "saudi-7.png",
-      "sha256": "026132984b9b7052038f972f9dce13e3f7bac0a31ddf88bcf3f61cfc665caffd"
+      "file": "saudi-7.webp",
+      "sha256": "b1758097f48c7fde68c8166c0d28c8c6aae4ae3078e599d4a5acdef7a4932f16",
+      "derivedFrom": {
+        "sha256": "026132984b9b7052038f972f9dce13e3f7bac0a31ddf88bcf3f61cfc665caffd",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-8": {
       "name": "Al Qadsiah",
@@ -1319,8 +2105,14 @@
       "providerName": "Al Qadsiah",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/22022.png",
-      "file": "saudi-8.png",
-      "sha256": "63eb97f3607be4c3a93cc20e1f0d853702ba54af4cda139b67c415a57cfc9b21"
+      "file": "saudi-8.webp",
+      "sha256": "125c824d2f81f1cb8e0d90996ac0dce70de91e24719eeb1030edd7ede609a98d",
+      "derivedFrom": {
+        "sha256": "63eb97f3607be4c3a93cc20e1f0d853702ba54af4cda139b67c415a57cfc9b21",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-9": {
       "name": "Al Riyadh",
@@ -1329,8 +2121,14 @@
       "providerName": "Al Riyadh",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/21965.png",
-      "file": "saudi-9.png",
-      "sha256": "5cefbc213563a36cf48427813cd827ebd2b58e32a654458d9bd4578fe297b8ef"
+      "file": "saudi-9.webp",
+      "sha256": "3a37fa30896be39d2e0dc8cc2e059fb86278f918528fd44cd45f92ce76631760",
+      "derivedFrom": {
+        "sha256": "5cefbc213563a36cf48427813cd827ebd2b58e32a654458d9bd4578fe297b8ef",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-10": {
       "name": "Al Fayha",
@@ -1339,8 +2137,14 @@
       "providerName": "Al Fayha",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/21827.png",
-      "file": "saudi-10.png",
-      "sha256": "dfeba2930c13f2cb7defdf113b946d3f40f74cf5f1d17181fad19ccd527157c5"
+      "file": "saudi-10.webp",
+      "sha256": "18799485805f992e11a114de84bb48473d86d7e9ba43d4e275d673687eb8c533",
+      "derivedFrom": {
+        "sha256": "dfeba2930c13f2cb7defdf113b946d3f40f74cf5f1d17181fad19ccd527157c5",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-12": {
       "name": "Al Khaleej",
@@ -1349,8 +2153,14 @@
       "providerName": "Al Khaleej",
       "league": "ksa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/21829.png",
-      "file": "saudi-12.png",
-      "sha256": "ccf7f9c0cd3611ebc2588470879b414bf22c18c9d5884c654932b6b311e2187a"
+      "file": "saudi-12.webp",
+      "sha256": "8a553483753db27ed66b077a2ef6da04a4a30e888219b111a81f2ae26e7fc80f",
+      "derivedFrom": {
+        "sha256": "ccf7f9c0cd3611ebc2588470879b414bf22c18c9d5884c654932b6b311e2187a",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-0": {
       "name": "Flamengo",
@@ -1359,8 +2169,14 @@
       "providerName": "Flamengo",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png",
-      "file": "brazil-0.png",
-      "sha256": "1048604fd89ee99c6ed14952e5de911b749f9c8d123448f8558305d72880d11e"
+      "file": "brazil-0.webp",
+      "sha256": "d684bfbb2ca3a10d4dd1a78fc3831b6f6929efffea5b5503d43633bf5b9028e3",
+      "derivedFrom": {
+        "sha256": "1048604fd89ee99c6ed14952e5de911b749f9c8d123448f8558305d72880d11e",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-1": {
       "name": "Palmeiras",
@@ -1369,8 +2185,14 @@
       "providerName": "Palmeiras",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2029.png",
-      "file": "brazil-1.png",
-      "sha256": "d761b3ce9cd7c0e08d2f06763f03fa4550b0e9f26f5d743f5ad7b8813a9399c7"
+      "file": "brazil-1.webp",
+      "sha256": "07251149335c6027402b2d0c88cc85fd8b465ee783a6ff5799e37332446efc75",
+      "derivedFrom": {
+        "sha256": "d761b3ce9cd7c0e08d2f06763f03fa4550b0e9f26f5d743f5ad7b8813a9399c7",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-2": {
       "name": "Santos",
@@ -1379,8 +2201,14 @@
       "providerName": "Santos",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2674.png",
-      "file": "brazil-2.png",
-      "sha256": "c96db2b45e5b482a2eb49312538b6dba909ebcdc72be749ccc0895ffda593043"
+      "file": "brazil-2.webp",
+      "sha256": "2f91f60059b47f62e656957b9488cebf790ed8676329ce287b61a5ac7cf1e182",
+      "derivedFrom": {
+        "sha256": "c96db2b45e5b482a2eb49312538b6dba909ebcdc72be749ccc0895ffda593043",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-3": {
       "name": "Corinthians",
@@ -1389,8 +2217,14 @@
       "providerName": "Corinthians",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/874.png",
-      "file": "brazil-3.png",
-      "sha256": "1cfadd6f1391ad341977457182c739db1b88392bd8746eee7a8bad3ad48aecef"
+      "file": "brazil-3.webp",
+      "sha256": "141e239d1a728460ff69db8f58a5dd13945d2e973bf4873587afc1e4ef385fc6",
+      "derivedFrom": {
+        "sha256": "1cfadd6f1391ad341977457182c739db1b88392bd8746eee7a8bad3ad48aecef",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-4": {
       "name": "São Paulo",
@@ -1399,8 +2233,14 @@
       "providerName": "São Paulo",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2026.png",
-      "file": "brazil-4.png",
-      "sha256": "5262875d559702d5036db05824c55915ec2fbe6e19f9032e631d03215464bb8c"
+      "file": "brazil-4.webp",
+      "sha256": "3eb41059c6c161f54cc61362da093b7742baf9acd0135f9e69b20ca67a723983",
+      "derivedFrom": {
+        "sha256": "5262875d559702d5036db05824c55915ec2fbe6e19f9032e631d03215464bb8c",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-5": {
       "name": "Fluminense",
@@ -1409,8 +2249,14 @@
       "providerName": "Fluminense",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/3445.png",
-      "file": "brazil-5.png",
-      "sha256": "bcd48a780380ba426b521e094d4cae93806a4367615b78ff8f079c2627e7846f"
+      "file": "brazil-5.webp",
+      "sha256": "41bbdf088ba0635ce98b53c275261cf7dfb474b522fa805794b82d4809eb3f2d",
+      "derivedFrom": {
+        "sha256": "bcd48a780380ba426b521e094d4cae93806a4367615b78ff8f079c2627e7846f",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-6": {
       "name": "Botafogo",
@@ -1419,8 +2265,14 @@
       "providerName": "Botafogo",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png",
-      "file": "brazil-6.png",
-      "sha256": "163f6d95d067c9ac16d230bb0754e1bde063c38363c8b26b0cfba3dad90d71c9"
+      "file": "brazil-6.webp",
+      "sha256": "1fadb0968348a4a3dab2f21aca5bcc6b5d5b6ef75ff3f3025e2f6dcf7f534cb1",
+      "derivedFrom": {
+        "sha256": "163f6d95d067c9ac16d230bb0754e1bde063c38363c8b26b0cfba3dad90d71c9",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-7": {
       "name": "Vasco da Gama",
@@ -1429,8 +2281,14 @@
       "providerName": "Vasco da Gama",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/3454.png",
-      "file": "brazil-7.png",
-      "sha256": "9f270dcc2145b452f60030cd6b55dfc04953de7405a5f915d54eaf35915471be"
+      "file": "brazil-7.webp",
+      "sha256": "58a275184312148fc40ce45015c81d35f6677133cac03fb697da0333074f0998",
+      "derivedFrom": {
+        "sha256": "9f270dcc2145b452f60030cd6b55dfc04953de7405a5f915d54eaf35915471be",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-8": {
       "name": "Grêmio",
@@ -1439,8 +2297,14 @@
       "providerName": "Grêmio",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/6273.png",
-      "file": "brazil-8.png",
-      "sha256": "7deb2d881ab8b21d1ddb01c3c1ba9f72ed187656bd93be106ed7dc179ac3b0f7"
+      "file": "brazil-8.webp",
+      "sha256": "cafd42a294eb3109a3af67c1517f252e11274c5ebed1ec138ecf6103fbe9d218",
+      "derivedFrom": {
+        "sha256": "7deb2d881ab8b21d1ddb01c3c1ba9f72ed187656bd93be106ed7dc179ac3b0f7",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-9": {
       "name": "Internacional",
@@ -1449,8 +2313,14 @@
       "providerName": "Internacional",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/1936.png",
-      "file": "brazil-9.png",
-      "sha256": "5399d79c0c4c0762b341d130bcd6db5c16949a3428c51fd80f95cadfb837aef0"
+      "file": "brazil-9.webp",
+      "sha256": "f51040ddd8f73721cecb780896a2db1480617afb47256dfe07e1bd15fcc6feab",
+      "derivedFrom": {
+        "sha256": "5399d79c0c4c0762b341d130bcd6db5c16949a3428c51fd80f95cadfb837aef0",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-10": {
       "name": "Cruzeiro",
@@ -1459,8 +2329,14 @@
       "providerName": "Cruzeiro",
       "league": "bra.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/2022.png",
-      "file": "brazil-10.png",
-      "sha256": "abd123d21174423d411344b470ac860b8ca73930deffbe49a76ab5f8d12758d9"
+      "file": "brazil-10.webp",
+      "sha256": "700ee4be6e45de782c4f20c9b727a85901e4ded39c7d1a00b9c5605e160d16cd",
+      "derivedFrom": {
+        "sha256": "abd123d21174423d411344b470ac860b8ca73930deffbe49a76ab5f8d12758d9",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-0": {
       "name": "Boca Juniors",
@@ -1469,8 +2345,14 @@
       "providerName": "Boca Juniors",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/5.png",
-      "file": "argentina-0.png",
-      "sha256": "d158062774805fed9ab1250ab1567bd568c6639d5c3a4ddbcc8ba91d8d775840"
+      "file": "argentina-0.webp",
+      "sha256": "d0a632f32e59776227b0649fcdb6e46f90dad0be74ec7ed105adbd06b1bca2fb",
+      "derivedFrom": {
+        "sha256": "d158062774805fed9ab1250ab1567bd568c6639d5c3a4ddbcc8ba91d8d775840",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-1": {
       "name": "River Plate",
@@ -1479,8 +2361,14 @@
       "providerName": "River Plate",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/16.png",
-      "file": "argentina-1.png",
-      "sha256": "319234ea2fa12843ea26edad4c1260bca3d5dd2cd0db2cf23a6b724bc7c92f41"
+      "file": "argentina-1.webp",
+      "sha256": "0bc3538ce30bdd6b096604fd34f2e87104c34f15f283b0c7853a8b666877e76d",
+      "derivedFrom": {
+        "sha256": "319234ea2fa12843ea26edad4c1260bca3d5dd2cd0db2cf23a6b724bc7c92f41",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-2": {
       "name": "Racing Club",
@@ -1489,8 +2377,14 @@
       "providerName": "Racing Club",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/15.png",
-      "file": "argentina-2.png",
-      "sha256": "27c0ade004e86d4f6c3feb56b9460d7ac731504f68c036c38f95168fdcb5c0a8"
+      "file": "argentina-2.webp",
+      "sha256": "89169eaa3bb9e3dbfc884931451c4d6056c10430cd846c3004e00e8e98545ec9",
+      "derivedFrom": {
+        "sha256": "27c0ade004e86d4f6c3feb56b9460d7ac731504f68c036c38f95168fdcb5c0a8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-3": {
       "name": "Independiente",
@@ -1499,8 +2393,14 @@
       "providerName": "Independiente",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/11.png",
-      "file": "argentina-3.png",
-      "sha256": "07e3c05393abf885ac8e5b574573ded65f8c4da3a8a84e0232a96e6c57112b33"
+      "file": "argentina-3.webp",
+      "sha256": "1afcc38b2d42dd3ab94be132a2d385d07399e24d4018d9dc99a36b01937480cb",
+      "derivedFrom": {
+        "sha256": "07e3c05393abf885ac8e5b574573ded65f8c4da3a8a84e0232a96e6c57112b33",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-4": {
       "name": "San Lorenzo",
@@ -1509,8 +2409,14 @@
       "providerName": "San Lorenzo",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/18.png",
-      "file": "argentina-4.png",
-      "sha256": "a6df8007d0b48b7576cce97e4ad3578fc0779aeafe083c8d046bca16b294d837"
+      "file": "argentina-4.webp",
+      "sha256": "9eba77b82a130f1d9b38717526903686d07c398eb171e4d61a08d6a49510c14e",
+      "derivedFrom": {
+        "sha256": "a6df8007d0b48b7576cce97e4ad3578fc0779aeafe083c8d046bca16b294d837",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-5": {
       "name": "Estudiantes",
@@ -1519,8 +2425,14 @@
       "providerName": "Estudiantes de La Plata",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/8.png",
-      "file": "argentina-5.png",
-      "sha256": "820b85ffeb94977f6d4ee807428f4ac0bf9b1bf68e9fe629af2e5941a98e07d2"
+      "file": "argentina-5.webp",
+      "sha256": "03da3ed83d1d97e4e0820dc422508b2ddf05634458b0996016e7aa89b6bb09ec",
+      "derivedFrom": {
+        "sha256": "820b85ffeb94977f6d4ee807428f4ac0bf9b1bf68e9fe629af2e5941a98e07d2",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-6": {
       "name": "Vélez Sarsfield",
@@ -1529,8 +2441,14 @@
       "providerName": "Vélez Sarsfield",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/21.png",
-      "file": "argentina-6.png",
-      "sha256": "83c7a2d577e2083f50c7ae5272589b115438f7b01a763fa849a51fbebdb24dd1"
+      "file": "argentina-6.webp",
+      "sha256": "3f45dea92e084f6b778e80744c27e58b13156d6569149775ca4c04bc38111a2b",
+      "derivedFrom": {
+        "sha256": "83c7a2d577e2083f50c7ae5272589b115438f7b01a763fa849a51fbebdb24dd1",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "argentina-7": {
       "name": "Newell's Old Boys",
@@ -1539,8 +2457,14 @@
       "providerName": "Newell's Old Boys",
       "league": "arg.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/14.png",
-      "file": "argentina-7.png",
-      "sha256": "c46d082f14cabe81fef3b3027cf6a999773caf243dd6b56d6d39e8183d21feb8"
+      "file": "argentina-7.webp",
+      "sha256": "fd27a0a8851faa0167e68027ffbd19e355da336b451d7bb994f8d669bfecb672",
+      "derivedFrom": {
+        "sha256": "c46d082f14cabe81fef3b3027cf6a999773caf243dd6b56d6d39e8183d21feb8",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-0": {
       "name": "Inter Miami",
@@ -1549,8 +2473,14 @@
       "providerName": "Inter Miami CF",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
-      "file": "usa-0.png",
-      "sha256": "b25c562234206783bd03473394e8ee8613106baa910a43e20027a090a0a9af44"
+      "file": "usa-0.webp",
+      "sha256": "71392dd491f277a32c471f41eb5d6e5879a31e8859f6fce369c79ea97579d8bd",
+      "derivedFrom": {
+        "sha256": "b25c562234206783bd03473394e8ee8613106baa910a43e20027a090a0a9af44",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-1": {
       "name": "LA Galaxy",
@@ -1559,8 +2489,14 @@
       "providerName": "LA Galaxy",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/187.png",
-      "file": "usa-1.png",
-      "sha256": "56e443f9f8dfa490dce61bdd3b83a67dbe75e347f3757c06f85329c5bbb708c9"
+      "file": "usa-1.webp",
+      "sha256": "20b82320f7cb2b68ec2e1de24312df7bda8dea3071d7a68489b9f4a46a36cedc",
+      "derivedFrom": {
+        "sha256": "56e443f9f8dfa490dce61bdd3b83a67dbe75e347f3757c06f85329c5bbb708c9",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-2": {
       "name": "Los Angeles FC",
@@ -1569,8 +2505,14 @@
       "providerName": "LAFC",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/18966.png",
-      "file": "usa-2.png",
-      "sha256": "6991ceab40a475d2a99420d183916d74fb9071237144ddd6c004a7cafbf8da53"
+      "file": "usa-2.webp",
+      "sha256": "51487e4e0b1469dce639a111ae9bf4b11bbb35304c677a34ca4bd7fe300ea6a8",
+      "derivedFrom": {
+        "sha256": "6991ceab40a475d2a99420d183916d74fb9071237144ddd6c004a7cafbf8da53",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-3": {
       "name": "Seattle Sounders",
@@ -1579,8 +2521,14 @@
       "providerName": "Seattle Sounders FC",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
-      "file": "usa-3.png",
-      "sha256": "8fee2818263b5f01d29f80210856676f11c9d33f40d13d2add98759746ee1771"
+      "file": "usa-3.webp",
+      "sha256": "a9ce0a8a27790dc48a09c1fb4a6b810c85699621ebe18db2c72fab26ce58048e",
+      "derivedFrom": {
+        "sha256": "8fee2818263b5f01d29f80210856676f11c9d33f40d13d2add98759746ee1771",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-4": {
       "name": "Atlanta United",
@@ -1589,8 +2537,14 @@
       "providerName": "Atlanta United FC",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/18418.png",
-      "file": "usa-4.png",
-      "sha256": "666acab319c1aa1b032d9b4da8ed7fdee503f60a4f88b0b55dfa9b50a85a6117"
+      "file": "usa-4.webp",
+      "sha256": "9cf9cb0fb5338c4c2649479408e5921a9896acc599196c04699539a54a65f9da",
+      "derivedFrom": {
+        "sha256": "666acab319c1aa1b032d9b4da8ed7fdee503f60a4f88b0b55dfa9b50a85a6117",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-5": {
       "name": "New York City FC",
@@ -1599,8 +2553,14 @@
       "providerName": "New York City FC",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png",
-      "file": "usa-5.png",
-      "sha256": "eaee0253a180252bda39b9b0eefe3dd58f79f2009552f9e339838edb61b686f4"
+      "file": "usa-5.webp",
+      "sha256": "c8c7dfffb7002f2e06c2545437eaf565cfe077a1d87f0380632eeaddb6276155",
+      "derivedFrom": {
+        "sha256": "eaee0253a180252bda39b9b0eefe3dd58f79f2009552f9e339838edb61b686f4",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-7": {
       "name": "Columbus Crew",
@@ -1609,8 +2569,14 @@
       "providerName": "Columbus Crew",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/183.png",
-      "file": "usa-7.png",
-      "sha256": "ac250bd5a7aa5a4f730f84375281cf8ec57ba8f0845305a42aaabe0c665bcc52"
+      "file": "usa-7.webp",
+      "sha256": "3d642ac6b1969002f50212aff23bd3e4005ef518ae8579dae05f8b64c7575713",
+      "derivedFrom": {
+        "sha256": "ac250bd5a7aa5a4f730f84375281cf8ec57ba8f0845305a42aaabe0c665bcc52",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-8": {
       "name": "Portland Timbers",
@@ -1619,8 +2585,14 @@
       "providerName": "Portland Timbers",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/9723.png",
-      "file": "usa-8.png",
-      "sha256": "e3f53d022d295fc74149fe1f30b30a21497d425e9e5b273681645130a0d229fa"
+      "file": "usa-8.webp",
+      "sha256": "7c68d9825190b956eedac4df9fc9510e092a74e26b88fbfa7a19c5ecc6ee1a0d",
+      "derivedFrom": {
+        "sha256": "e3f53d022d295fc74149fe1f30b30a21497d425e9e5b273681645130a0d229fa",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-9": {
       "name": "Austin FC",
@@ -1629,8 +2601,14 @@
       "providerName": "Austin FC",
       "league": "usa.1",
       "url": "https://a.espncdn.com/i/teamlogos/soccer/500/20906.png",
-      "file": "usa-9.png",
-      "sha256": "7affb4865a4c87db3166cd09e41b10c43d636ae23fe05e974f4155e2111fd339"
+      "file": "usa-9.webp",
+      "sha256": "c490e6300fa9dd964f27d740ee9f2830494036140374d68e65c973d314166006",
+      "derivedFrom": {
+        "sha256": "7affb4865a4c87db3166cd09e41b10c43d636ae23fe05e974f4155e2111fd339",
+        "width": 96,
+        "height": 96,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "spain-17": {
       "name": "Real Zaragoza",
@@ -1640,8 +2618,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Real_Zaragoza",
       "imageName": "Real_Zaragoza_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/69/Real_Zaragoza_logo.svg/120px-Real_Zaragoza_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "spain-17.png",
-      "sha256": "47b36b1f76b2354ff2bb0459862762f71f82dda09f645b56ff068fd476376d53"
+      "file": "spain-17.webp",
+      "sha256": "f029dc2599e5c87c5d52a917856b820b321f46d0b09605048b4cec596e13a0df",
+      "derivedFrom": {
+        "sha256": "47b36b1f76b2354ff2bb0459862762f71f82dda09f645b56ff068fd476376d53",
+        "width": 120,
+        "height": 205,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "france-12": {
       "name": "Bordeaux",
@@ -1651,8 +2635,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/FC_Girondins_de_Bordeaux",
       "imageName": "FC_Girondins_de_Bordeaux_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/11/FC_Girondins_de_Bordeaux_logo.svg/120px-FC_Girondins_de_Bordeaux_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "france-12.png",
-      "sha256": "505726cd90fbc19375b38ca5e6575082350a601ee209a7dd809be62b768cb095"
+      "file": "france-12.webp",
+      "sha256": "4a280b4c569d1ed1037d836a3bdd5f18d297ac997e390c396b9482edd74fbabb",
+      "derivedFrom": {
+        "sha256": "505726cd90fbc19375b38ca5e6575082350a601ee209a7dd809be62b768cb095",
+        "width": 120,
+        "height": 147,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-4": {
       "name": "Vitória Guimarães",
@@ -1662,8 +2652,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Vit%C3%B3ria_S.C.",
       "imageName": "Vitória_Guimarães.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/d5/Vit%C3%B3ria_Guimar%C3%A3es.svg/120px-Vit%C3%B3ria_Guimar%C3%A3es.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "portugal-4.png",
-      "sha256": "3e22217ca66a31b06ebd8d8d191156d3be6acea814671a1ecd394d4aa8e5fc7c"
+      "file": "portugal-4.webp",
+      "sha256": "6893d83f6e3a6fac12e46a103bc521968bdb7273ecd8d09766c8bcddcf5b452a",
+      "derivedFrom": {
+        "sha256": "3e22217ca66a31b06ebd8d8d191156d3be6acea814671a1ecd394d4aa8e5fc7c",
+        "width": 120,
+        "height": 163,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-5": {
       "name": "Boavista",
@@ -1673,8 +2669,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Boavista_F.C.",
       "imageName": "Boavista_F.C._logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/40/Boavista_F.C._logo.svg/120px-Boavista_F.C._logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "portugal-5.png",
-      "sha256": "c551932dd49ca372b6819abe5b891cec2e4037290fd92dd4abd155d0227f8dcf"
+      "file": "portugal-5.webp",
+      "sha256": "9c2d142c6f754b6b3de2dfb7a0b598e6bcbc20d3842c4b3a6d57416425982377",
+      "derivedFrom": {
+        "sha256": "c551932dd49ca372b6819abe5b891cec2e4037290fd92dd4abd155d0227f8dcf",
+        "width": 120,
+        "height": 126,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "portugal-6": {
       "name": "Famalicão",
@@ -1684,8 +2686,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/F.C._Famalic%C3%A3o",
       "imageName": "F.C._Famalicão_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/0e/F.C._Famalic%C3%A3o_logo.svg/120px-F.C._Famalic%C3%A3o_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "portugal-6.png",
-      "sha256": "b622579683d7df57928e46aeed2a053702519b1574ceae33b5610d96ccaca362"
+      "file": "portugal-6.webp",
+      "sha256": "fa47b4157187a389eb30ba3c0b79c59ce76211a5e9509bbefa3fab98043fa4f8",
+      "derivedFrom": {
+        "sha256": "b622579683d7df57928e46aeed2a053702519b1574ceae33b5610d96ccaca362",
+        "width": 120,
+        "height": 116,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "turkey-5": {
       "name": "Bursaspor",
@@ -1695,8 +2703,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Bursaspor",
       "imageName": "Bursaspor_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3c/Bursaspor_logo.svg/120px-Bursaspor_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "turkey-5.png",
-      "sha256": "4272f08c280de5cc949cefd39e8e67beb31fb230511084fbb7f01c9c55950b8e"
+      "file": "turkey-5.webp",
+      "sha256": "04441f60b0f12691852a0d074c8a549d375f17f7ac2151fecf80575c865051b9",
+      "derivedFrom": {
+        "sha256": "4272f08c280de5cc949cefd39e8e67beb31fb230511084fbb7f01c9c55950b8e",
+        "width": 120,
+        "height": 131,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-11": {
       "name": "Damac",
@@ -1706,8 +2720,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Damac_Club",
       "imageName": "Damac_FC_Logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/7e/Damac_FC_Logo.svg/120px-Damac_FC_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "saudi-11.png",
-      "sha256": "d3eda789f01a208cd8694aa3b9ce6a6fa82115090c8064174c352ed343329eee"
+      "file": "saudi-11.webp",
+      "sha256": "e0fb00df583e4f460a79a1032295b3de5df93f7b5804e4ba3aa81d0c2673c718",
+      "derivedFrom": {
+        "sha256": "d3eda789f01a208cd8694aa3b9ce6a6fa82115090c8064174c352ed343329eee",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "saudi-13": {
       "name": "Al Raed",
@@ -1717,8 +2737,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Raed_S.FC",
       "imageName": "Al_Raed_FC.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/f3/Al_Raed_FC.svg/120px-Al_Raed_FC.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "saudi-13.png",
-      "sha256": "66c8a9598ced69b3bc88c96fcffd83f942ba3604b674b4eb283617392c49a739"
+      "file": "saudi-13.webp",
+      "sha256": "be82de99a4882621909b996f71e6a0ac7ae3a68b94d422927702b856d284e949",
+      "derivedFrom": {
+        "sha256": "66c8a9598ced69b3bc88c96fcffd83f942ba3604b674b4eb283617392c49a739",
+        "width": 120,
+        "height": 161,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-0": {
       "name": "Al Ain",
@@ -1728,8 +2754,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Ain_FC",
       "imageName": "Al_Ain_FC_logo_2024.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/6/62/Al_Ain_FC_logo_2024.png/120px-Al_Ain_FC_logo_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-0.png",
-      "sha256": "62daf36149a761b331caff319fe4a4fbf8d403f58bdcd6efd4995dbd40a94763"
+      "file": "uae-0.webp",
+      "sha256": "e94cef58a6b195361a6e844f0ad12a4b9e6cc9471090cca453a1fc59ec473751",
+      "derivedFrom": {
+        "sha256": "62daf36149a761b331caff319fe4a4fbf8d403f58bdcd6efd4995dbd40a94763",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-1": {
       "name": "Shabab Al Ahli",
@@ -1739,8 +2771,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Shabab_Al_Ahli_Club",
       "imageName": "Shabab_Al_Ahli_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/02/Shabab_Al_Ahli_logo.svg/120px-Shabab_Al_Ahli_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-1.png",
-      "sha256": "082ea51030456e3b1f75c670d5722004dc20648840dfdaa0749cf7b8e7006860"
+      "file": "uae-1.webp",
+      "sha256": "d5b2b5557a977f665ba02a760911294a15d177afb47963f84bdb6d02026e7fa5",
+      "derivedFrom": {
+        "sha256": "082ea51030456e3b1f75c670d5722004dc20648840dfdaa0749cf7b8e7006860",
+        "width": 120,
+        "height": 127,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-2": {
       "name": "Al Wasl",
@@ -1750,8 +2788,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Wasl_F.C.",
       "imageName": "Al_Wasl_FC_Logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3d/Al_Wasl_FC_Logo.svg/120px-Al_Wasl_FC_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-2.png",
-      "sha256": "1b1b7dfca4a1c4de97d968fd692b8d006d38c1303c573804804941ea7a94a1ea"
+      "file": "uae-2.webp",
+      "sha256": "dbf442124157a8562fe471e317ec304d2367ca7ac8c219e752dbcbc5ab2b0050",
+      "derivedFrom": {
+        "sha256": "1b1b7dfca4a1c4de97d968fd692b8d006d38c1303c573804804941ea7a94a1ea",
+        "width": 120,
+        "height": 125,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-4": {
       "name": "Al Jazira",
@@ -1761,8 +2805,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Jazira_Club",
       "imageName": "Al_Jazira_Club_logo_en_(2021).svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/ff/Al_Jazira_Club_logo_en_%282021%29.svg/120px-Al_Jazira_Club_logo_en_%282021%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-4.png",
-      "sha256": "b9d88bad2aec4894aa2ba90d8d67809f497ef845c6fea1e394fcc6e54a1c72b9"
+      "file": "uae-4.webp",
+      "sha256": "4af6a46b0a0223f73b77bd9c5f6c25372be85b31f01d61e2b82282ff22db95ee",
+      "derivedFrom": {
+        "sha256": "b9d88bad2aec4894aa2ba90d8d67809f497ef845c6fea1e394fcc6e54a1c72b9",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-5": {
       "name": "Sharjah",
@@ -1772,8 +2822,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Sharjah_FC",
       "imageName": "Sharjah_FC_New_Logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8a/Sharjah_FC_New_Logo.svg/120px-Sharjah_FC_New_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-5.png",
-      "sha256": "d12ef2d6aedb0d02b6c5aa858129f1278c6b3303e22b6c9d9c9561fb8a80688c"
+      "file": "uae-5.webp",
+      "sha256": "684107cd1bcbb254e6a95dabf1aad82489eadf57c68d25eb87a8adca69ec24b3",
+      "derivedFrom": {
+        "sha256": "d12ef2d6aedb0d02b6c5aa858129f1278c6b3303e22b6c9d9c9561fb8a80688c",
+        "width": 120,
+        "height": 151,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-6": {
       "name": "Al Nasr Dubai",
@@ -1783,8 +2839,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al-Nasr_SC_(Dubai)",
       "imageName": "AL_Nasr_SC_Logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/AL_Nasr_SC_Logo.png/120px-AL_Nasr_SC_Logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-6.png",
-      "sha256": "07e3297e434b81277719095c292d446c7e3196252d853942b39c238d12f8c2f0"
+      "file": "uae-6.webp",
+      "sha256": "6138acce069e89460f3c4ab9642955c856f9b3ead57aa1ae8edc6e4dfbcee9bd",
+      "derivedFrom": {
+        "sha256": "07e3297e434b81277719095c292d446c7e3196252d853942b39c238d12f8c2f0",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-7": {
       "name": "Baniyas",
@@ -1794,8 +2856,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Baniyas_Club",
       "imageName": "Baniyas_(2).png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a5/Baniyas_%282%29.png/120px-Baniyas_%282%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-7.png",
-      "sha256": "1e98a8768dfb6cff62077a27e2347ed85739a24f2c14c67ab1abb6a5d58ed09a"
+      "file": "uae-7.webp",
+      "sha256": "1822d5c33cc01544347e940c9d2cef44c5874ab549d9a2f29b092e7f57727005",
+      "derivedFrom": {
+        "sha256": "1e98a8768dfb6cff62077a27e2347ed85739a24f2c14c67ab1abb6a5d58ed09a",
+        "width": 120,
+        "height": 72,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-8": {
       "name": "Ajman",
@@ -1805,8 +2873,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Ajman_Club",
       "imageName": "Ajman_Club.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/71/Ajman_Club.png/120px-Ajman_Club.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-8.png",
-      "sha256": "3e4df7e2787e0926377b0882cb25e5b56e3e7b0ccc39cf620305d1b7acaead81"
+      "file": "uae-8.webp",
+      "sha256": "e06268018130f616cb4c0d64d3339331cbc3efccb9ae20cedc6083d6b42e09c2",
+      "derivedFrom": {
+        "sha256": "3e4df7e2787e0926377b0882cb25e5b56e3e7b0ccc39cf620305d1b7acaead81",
+        "width": 120,
+        "height": 117,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-9": {
       "name": "Kalba",
@@ -1816,8 +2890,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Kalba_FC",
       "imageName": "Kalba_FC_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/c0/Kalba_FC_logo.png/120px-Kalba_FC_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-9.png",
-      "sha256": "79d5195e57eab6bb3d82c3ed0536ae62b28a3ade0f1d3fba88e7cb379fb58f6d"
+      "file": "uae-9.webp",
+      "sha256": "e71aaa25641a07f7080619147f9a123a703a2b2ce15f9a3ed99b238d02aef2a9",
+      "derivedFrom": {
+        "sha256": "79d5195e57eab6bb3d82c3ed0536ae62b28a3ade0f1d3fba88e7cb379fb58f6d",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-10": {
       "name": "Khor Fakkan",
@@ -1827,8 +2907,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Khor_Fakkan_Club",
       "imageName": "Khor_Fakkan_SC.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/dc/Khor_Fakkan_SC.png/120px-Khor_Fakkan_SC.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-10.png",
-      "sha256": "62e84302894514be9b756c74d00bd66c1f49c4acf10a370d8df0df6dbb4bb074"
+      "file": "uae-10.webp",
+      "sha256": "7b9f15987f3502ffddee7a35d75eab6e84eac44cc56cb5177ab4aa801f7dfbc4",
+      "derivedFrom": {
+        "sha256": "62e84302894514be9b756c74d00bd66c1f49c4acf10a370d8df0df6dbb4bb074",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-0": {
       "name": "Al Ahly",
@@ -1838,8 +2924,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Ahly_SC",
       "imageName": "Al_Ahly_SC_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/70/Al_Ahly_SC_logo.svg/120px-Al_Ahly_SC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-0.png",
-      "sha256": "800b9ab89e3612f49b0e7a3c2b87aca99665f7b29c4f32d18149459b6a9a0b99"
+      "file": "egypt-0.webp",
+      "sha256": "5993843af8058a37ed34222fdedb59ec2399064f33bfce1e6d965db00e723575",
+      "derivedFrom": {
+        "sha256": "800b9ab89e3612f49b0e7a3c2b87aca99665f7b29c4f32d18149459b6a9a0b99",
+        "width": 120,
+        "height": 160,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-1": {
       "name": "Zamalek",
@@ -1849,8 +2941,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Zamalek_SC",
       "imageName": "Zamalek_SC_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/ef/Zamalek_SC_logo.svg/120px-Zamalek_SC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-1.png",
-      "sha256": "3162a798700af2c2a09549fdecc3624c1ad857d284e2847574ac2862ef93917a"
+      "file": "egypt-1.webp",
+      "sha256": "36aae2a7089ecf67e2a9c2bb64a5e587a5b902c6c3957aa6cb2616ce87ff33a2",
+      "derivedFrom": {
+        "sha256": "3162a798700af2c2a09549fdecc3624c1ad857d284e2847574ac2862ef93917a",
+        "width": 120,
+        "height": 167,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-2": {
       "name": "Pyramids",
@@ -1860,8 +2958,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Pyramids_FC",
       "imageName": "Pyramids_FC_(2020).png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/87/Pyramids_FC_%282020%29.png/120px-Pyramids_FC_%282020%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-2.png",
-      "sha256": "ba1e5398e94fae525b6e4774d37edf950d5a6cce5e1161a58e553e19d1b781de"
+      "file": "egypt-2.webp",
+      "sha256": "3c09131ff95d5377b6b3b428276600af7101a9fda68cb3b894290ddcca18068d",
+      "derivedFrom": {
+        "sha256": "ba1e5398e94fae525b6e4774d37edf950d5a6cce5e1161a58e553e19d1b781de",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-3": {
       "name": "Ismaily",
@@ -1871,8 +2975,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Ismaily_SC",
       "imageName": "Ismaily_SC_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/c/cc/Ismaily_SC_logo.png/120px-Ismaily_SC_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-3.png",
-      "sha256": "05952026f342cf1328b90f82a4655c6ab3f5e4f06d0644554a9b6fcec46cb7cf"
+      "file": "egypt-3.webp",
+      "sha256": "056ce1b0b5bd74fbe7a39ffd13f0c5c632e67d7173f8ffde5fc67cea8439f5ae",
+      "derivedFrom": {
+        "sha256": "05952026f342cf1328b90f82a4655c6ab3f5e4f06d0644554a9b6fcec46cb7cf",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-4": {
       "name": "Al Masry",
@@ -1882,8 +2992,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Masry_SC",
       "imageName": "Al_Masry_SC.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/54/Al_Masry_SC.png/120px-Al_Masry_SC.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-4.png",
-      "sha256": "4d5eb88734e1b87ad8175b688085c07e808c42bc1c5bd86392f08a93a6ae38d2"
+      "file": "egypt-4.webp",
+      "sha256": "40ba7a03f92ed49f50f154d2b1841ec6bcd01973b4d8c56c66f4ef2e3599b5b1",
+      "derivedFrom": {
+        "sha256": "4d5eb88734e1b87ad8175b688085c07e808c42bc1c5bd86392f08a93a6ae38d2",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-5": {
       "name": "Al Ittihad Alexandria",
@@ -1893,8 +3009,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Ittihad_Alexandria_Club",
       "imageName": "Al-Ittihad_Alexandria_Club_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/71/Al-Ittihad_Alexandria_Club_logo.png/120px-Al-Ittihad_Alexandria_Club_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-5.png",
-      "sha256": "d239112b5702cbf9f9e50e319a8c4eba6112d762e4b1d8ec92f1ddf64958b737"
+      "file": "egypt-5.webp",
+      "sha256": "3caaa31fdfdcaefecccd0faa3778cd21638048f4808d389f9f2aee61723f4577",
+      "derivedFrom": {
+        "sha256": "d239112b5702cbf9f9e50e319a8c4eba6112d762e4b1d8ec92f1ddf64958b737",
+        "width": 120,
+        "height": 181,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-6": {
       "name": "Smouha",
@@ -1904,8 +3026,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Smouha_SC",
       "imageName": "Smouha_SC_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3f/Smouha_SC_logo.png/120px-Smouha_SC_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-6.png",
-      "sha256": "7f642fbc0a35ec47d6d38ec7503e9fd697d69e9a4c086d024f61fbae18fe9f2b"
+      "file": "egypt-6.webp",
+      "sha256": "903a1cb5306cf54a0658999416832daa68063355e15febfaa0aa785959cf18e9",
+      "derivedFrom": {
+        "sha256": "7f642fbc0a35ec47d6d38ec7503e9fd697d69e9a4c086d024f61fbae18fe9f2b",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-7": {
       "name": "Enppi",
@@ -1915,8 +3043,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/ENPPI_SC",
       "imageName": "ENPPI_SC_Logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/eb/ENPPI_SC_Logo.svg/120px-ENPPI_SC_Logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-7.png",
-      "sha256": "da6eb7285b5720c695e884c92db38bb670076cbb2cfa4770bd8f4d3639fc0eec"
+      "file": "egypt-7.webp",
+      "sha256": "d341f818e82cf4a60ed0444080973c21829156f8a6afeab3bc17cc2870accf7f",
+      "derivedFrom": {
+        "sha256": "da6eb7285b5720c695e884c92db38bb670076cbb2cfa4770bd8f4d3639fc0eec",
+        "width": 120,
+        "height": 132,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-8": {
       "name": "Ceramica Cleopatra",
@@ -1926,8 +3060,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Ceramica_Cleopatra_FC",
       "imageName": "Ceramica_Cleopatra_FC_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/9/94/Ceramica_Cleopatra_FC_logo.png/120px-Ceramica_Cleopatra_FC_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-8.png",
-      "sha256": "0cb457ec68ee0cd0d187512f45d6dddeb999ec2843f5ac0eb0be4d37dc2a81e3"
+      "file": "egypt-8.webp",
+      "sha256": "b63c45c9d203538aa4aa83e6ab149f479d674c47a3e71146c580c2740e4aba3b",
+      "derivedFrom": {
+        "sha256": "0cb457ec68ee0cd0d187512f45d6dddeb999ec2843f5ac0eb0be4d37dc2a81e3",
+        "width": 120,
+        "height": 111,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "egypt-9": {
       "name": "ZED",
@@ -1937,8 +3077,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/ZED_FC",
       "imageName": "ZED_FC_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/39/ZED_FC_logo.png/120px-ZED_FC_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "egypt-9.png",
-      "sha256": "3897fc8cdc7dd0915eb895b861f3efe1643a36b1bda162d3c112c4cf287f9255"
+      "file": "egypt-9.webp",
+      "sha256": "d2dd78097a9c38d8914cc31af288eaa91ae0bb0ac62e8c3f2a34f35dea765064",
+      "derivedFrom": {
+        "sha256": "3897fc8cdc7dd0915eb895b861f3efe1643a36b1bda162d3c112c4cf287f9255",
+        "width": 120,
+        "height": 145,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "morocco-0": {
       "name": "Raja Casablanca",
@@ -1948,8 +3094,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Raja_CA",
       "imageName": "Raja_CA_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/b/bd/Raja_CA_logo.png/120px-Raja_CA_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "morocco-0.png",
-      "sha256": "fa447abd798a328539a079797f345b6b8de4a07339f30dfdccbce325c9ee3d1e"
+      "file": "morocco-0.webp",
+      "sha256": "54015de7b055ae472d1536bd696c80fd88467c52227972cac2cdd5686dc97fdb",
+      "derivedFrom": {
+        "sha256": "fa447abd798a328539a079797f345b6b8de4a07339f30dfdccbce325c9ee3d1e",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "morocco-1": {
       "name": "Wydad Casablanca",
@@ -1959,8 +3111,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Wydad_AC",
       "imageName": "Wydad_AC_crest_(2022).svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/18/Wydad_AC_crest_%282022%29.svg/120px-Wydad_AC_crest_%282022%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "morocco-1.png",
-      "sha256": "7bfad0fb62372a2fb0767a257c5aa58b995f33ca271afa66d708176f815d646e"
+      "file": "morocco-1.webp",
+      "sha256": "1dae9efead73a1666773c52bb0104b9995fd87d8fab7b950230704b7e460c900",
+      "derivedFrom": {
+        "sha256": "7bfad0fb62372a2fb0767a257c5aa58b995f33ca271afa66d708176f815d646e",
+        "width": 120,
+        "height": 155,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "morocco-2": {
       "name": "AS FAR",
@@ -1970,8 +3128,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/AS_FAR",
       "imageName": "AS_FAR_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/AS_FAR_logo.png/120px-AS_FAR_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "morocco-2.png",
-      "sha256": "96d97c3ae6d7da81d1ff705a1eb8ea11dc2fcc297bc5109172d8480f67b003db"
+      "file": "morocco-2.webp",
+      "sha256": "e9455fe19547df357929c2f3b0a76e953e17ff7059e9bb7b9d4379e3de170a4a",
+      "derivedFrom": {
+        "sha256": "96d97c3ae6d7da81d1ff705a1eb8ea11dc2fcc297bc5109172d8480f67b003db",
+        "width": 120,
+        "height": 142,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "morocco-3": {
       "name": "FUS Rabat",
@@ -1981,8 +3145,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Fath_Union_Sport",
       "imageName": "Fath_Union_Sport_logo.png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8a/Fath_Union_Sport_logo.png/120px-Fath_Union_Sport_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "morocco-3.png",
-      "sha256": "90fc0ff56aedc311534bf1de9074de7de6985ce98b05a80f180fe4b967b56046"
+      "file": "morocco-3.webp",
+      "sha256": "249cadf5000bab66d21d47eb5ee6809940b59089062c74d2ccdd10281f2713a7",
+      "derivedFrom": {
+        "sha256": "90fc0ff56aedc311534bf1de9074de7de6985ce98b05a80f180fe4b967b56046",
+        "width": 120,
+        "height": 145,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "morocco-4": {
       "name": "RS Berkane",
@@ -1992,8 +3162,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/RS_Berkane",
       "imageName": "RS_Berkane_(logo).png",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/de/RS_Berkane_%28logo%29.png/120px-RS_Berkane_%28logo%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "morocco-4.png",
-      "sha256": "6d23b161b2d3dd0060b785eb87489694d33311574da8e1ad3fc0770e702699c4"
+      "file": "morocco-4.webp",
+      "sha256": "8135b54244f95363e99288bd428934d37c224a1d29e54944d1cbc4d6eff0c021",
+      "derivedFrom": {
+        "sha256": "6d23b161b2d3dd0060b785eb87489694d33311574da8e1ad3fc0770e702699c4",
+        "width": 120,
+        "height": 120,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "morocco-5": {
       "name": "Moghreb Tétouan",
@@ -2004,7 +3180,13 @@
       "imageName": "Moghreb_Atlético_Tetuán_logo.webp",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a5/Moghreb_Atl%C3%A9tico_Tetu%C3%A1n_logo.webp/120px-Moghreb_Atl%C3%A9tico_Tetu%C3%A1n_logo.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
       "file": "morocco-5.webp",
-      "sha256": "be0e97bec9fb07fae13725ba6afb58e7e6d605d0c51325fb932e1bd873e14041"
+      "sha256": "f8c5c086666f82ac6808a8813c146ed5dea84d5708157b3726bfbab04da1f382",
+      "derivedFrom": {
+        "sha256": "be0e97bec9fb07fae13725ba6afb58e7e6d605d0c51325fb932e1bd873e14041",
+        "width": 120,
+        "height": 143,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "brazil-11": {
       "name": "Atlético Mineiro",
@@ -2014,8 +3196,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Clube_Atl%C3%A9tico_Mineiro",
       "imageName": "Clube_Atlético_Mineiro_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Clube_Atl%C3%A9tico_Mineiro_logo.svg/120px-Clube_Atl%C3%A9tico_Mineiro_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "brazil-11.png",
-      "sha256": "03d3dcfc09d45683b06a56a1f1bbd911eecf5e97a4e1c57563bb5ce85a673cb6"
+      "file": "brazil-11.webp",
+      "sha256": "61c81be20e30174db876b69bcf8cfc3f3828d0fdaf62c90e1899df22ba833a34",
+      "derivedFrom": {
+        "sha256": "03d3dcfc09d45683b06a56a1f1bbd911eecf5e97a4e1c57563bb5ce85a673cb6",
+        "width": 120,
+        "height": 179,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "usa-6": {
       "name": "New York Red Bulls",
@@ -2025,8 +3213,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/New_York_Red_Bulls",
       "imageName": "New_York_Red_Bulls_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/5/51/New_York_Red_Bulls_logo.svg/120px-New_York_Red_Bulls_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "usa-6.png",
-      "sha256": "a1e016b608898670501890a14812b373aa8d331ccb338080f4352f3ab990e551"
+      "file": "usa-6.webp",
+      "sha256": "c7c9a7caa02ec3ff7ef6665388859fac81971efef22d02098709d80498f37fb3",
+      "derivedFrom": {
+        "sha256": "a1e016b608898670501890a14812b373aa8d331ccb338080f4352f3ab990e551",
+        "width": 120,
+        "height": 97,
+        "transform": "sharp contain 64x64 webp"
+      }
     },
     "uae-3": {
       "name": "Al Wahda UAE",
@@ -2036,8 +3230,14 @@
       "sourcePage": "https://en.wikipedia.org/wiki/Al_Wahda_FC",
       "imageName": "Al_Wahda_FC_logo.svg",
       "url": "https://thumb.wikimedia.org/wikipedia/en/thumb/e/ef/Al_Wahda_FC_logo.svg/120px-Al_Wahda_FC_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-      "file": "uae-3.png",
-      "sha256": "168587b62277413171aea383a9c3f67257611201207285041492e09a2460d644"
+      "file": "uae-3.webp",
+      "sha256": "dead9543e9a9903d79ec3d1290f4d0d76a5a409bcc15c14b222ed1138b83b408",
+      "derivedFrom": {
+        "sha256": "168587b62277413171aea383a9c3f67257611201207285041492e09a2460d644",
+        "width": 120,
+        "height": 156,
+        "transform": "sharp contain 64x64 webp"
+      }
     }
   }
 }

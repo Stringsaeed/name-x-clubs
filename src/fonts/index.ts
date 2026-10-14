@@ -1,7 +1,7 @@
 import localFont from 'next/font/local';
 
 export const nunito = localFont({
-  src: './nunito.ttf',
+  src: './nunito.woff2',
   weight: '200 1000',
   style: 'normal',
   variable: '--font-nunito',
@@ -11,7 +11,7 @@ export const nunito = localFont({
 });
 
 export const alanSans = localFont({
-  src: './alan-sans.ttf',
+  src: './alan-sans.woff2',
   weight: '300 900',
   style: 'normal',
   variable: '--font-alan-sans',
