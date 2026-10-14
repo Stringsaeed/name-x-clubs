@@ -1,10 +1,11 @@
 import { z } from 'zod';
 import rawAmbiguous from './ambiguous.json' with { type: 'json' };
+import rawCatalogVersion from './catalog-version.json' with { type: 'json' };
 import rawClubs from './clubs.json' with { type: 'json' };
 import rawCountries from './countries.json' with { type: 'json' };
 import rawCrests from './crests.json' with { type: 'json' };
 
-export const regionSchema = z.enum(['europe', 'asia', 'africa', 'americas']);
+export const regionSchema = z.enum(['europe', 'asia', 'africa', 'americas', 'oceania']);
 
 export const countrySchema = z.object({
   en: z.string(),
@@ -27,7 +28,16 @@ const clubSchema = z.object({
   arabic: z.string().min(1),
   aliases: z.array(z.string()),
   region: regionSchema,
+  /** Wikidata item id of the club, e.g. `Q9617`. */
+  wikidata: z.string().regex(/^Q\d+$/),
+  /** Wikipedia language editions that cover the club; the catalog's popularity signal. */
+  sitelinks: z.number().int().nonnegative(),
 });
+
+/** Identifies this exact club list (`wd-<count>-<hash>`); the ranked backend stores it per round. */
+export const catalogVersion = z
+  .object({ version: z.string().min(1) })
+  .parse(rawCatalogVersion).version;
 
 export type ClubId = z.infer<typeof clubIdSchema>;
 
@@ -47,6 +57,11 @@ export const clubById = new Map(clubs.map((club) => [club.id, club]));
 const ambiguousTermSchema = z.object({
   terms: z.array(z.string().min(1)).min(1),
   candidates: z.array(clubIdSchema.refine((id) => clubById.has(id), 'Unknown club id')),
+  /**
+   * Hand-reviewed groups always ask which club was meant. Auto groups may be dropped when one
+   * club is far better known; see `dominantClub`.
+   */
+  curated: z.boolean().optional(),
 });
 
 export type AmbiguousTerm = Readonly<z.infer<typeof ambiguousTermSchema>>;

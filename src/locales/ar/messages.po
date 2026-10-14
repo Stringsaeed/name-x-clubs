@@ -224,6 +224,10 @@ msgstr "التبديل إلى العربية"
 msgid "Africa"
 msgstr "أفريقيا"
 
+#: src/content/labels.ts
+msgid "Oceania"
+msgstr "أوقيانوسيا"
+
 #: src/components/ResultPanel.tsx
 msgid "Share result"
 msgstr "شارك النتيجة"

@@ -1,0 +1,98 @@
+{
+  "england": {
+    "en": "England",
+    "ar": "إنجلترا",
+    "flag": "🏴",
+    "region": "europe"
+  },
+  "spain": {
+    "en": "Spain",
+    "ar": "إسبانيا",
+    "flag": "🇪🇸",
+    "region": "europe"
+  },
+  "italy": {
+    "en": "Italy",
+    "ar": "إيطاليا",
+    "flag": "🇮🇹",
+    "region": "europe"
+  },
+  "germany": {
+    "en": "Germany",
+    "ar": "ألمانيا",
+    "flag": "🇩🇪",
+    "region": "europe"
+  },
+  "france": {
+    "en": "France",
+    "ar": "فرنسا",
+    "flag": "🇫🇷",
+    "region": "europe"
+  },
+  "portugal": {
+    "en": "Portugal",
+    "ar": "البرتغال",
+    "flag": "🇵🇹",
+    "region": "europe"
+  },
+  "netherlands": {
+    "en": "Netherlands",
+    "ar": "هولندا",
+    "flag": "🇳🇱",
+    "region": "europe"
+  },
+  "scotland": {
+    "en": "Scotland",
+    "ar": "اسكتلندا",
+    "flag": "🏴",
+    "region": "europe"
+  },
+  "turkey": {
+    "en": "Türkiye",
+    "ar": "تركيا",
+    "flag": "🇹🇷",
+    "region": "europe"
+  },
+  "saudi": {
+    "en": "Saudi Arabia",
+    "ar": "السعودية",
+    "flag": "🇸🇦",
+    "region": "asia"
+  },
+  "uae": {
+    "en": "United Arab Emirates",
+    "ar": "الإمارات",
+    "flag": "🇦🇪",
+    "region": "asia"
+  },
+  "egypt": {
+    "en": "Egypt",
+    "ar": "مصر",
+    "flag": "🇪🇬",
+    "region": "africa"
+  },
+  "morocco": {
+    "en": "Morocco",
+    "ar": "المغرب",
+    "flag": "🇲🇦",
+    "region": "africa"
+  },
+  "brazil": {
+    "en": "Brazil",
+    "ar": "البرازيل",
+    "flag": "🇧🇷",
+    "region": "americas"
+  },
+  "argentina": {
+    "en": "Argentina",
+    "ar": "الأرجنتين",
+    "flag": "🇦🇷",
+    "region": "americas"
+  },
+  "usa": {
+    "en": "United States",
+    "ar": "الولايات المتحدة",
+    "flag": "🇺🇸",
+    "region": "americas"
+  }
+}

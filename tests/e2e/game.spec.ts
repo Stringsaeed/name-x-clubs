@@ -1,5 +1,18 @@
 import { expect, type Page, test } from '@playwright/test';
 import { clubs } from '../../src/content/catalog';
+import { resolveClub } from '../../src/game/engine';
+
+/** Names that mean one club anywhere in the world; "Liverpool", for one, needs a country. */
+function worldwideNames(count: number) {
+  return clubs
+    .filter((club) => {
+      const result = resolveClub(club.name);
+
+      return result.kind === 'match' && result.club.id === club.id;
+    })
+    .slice(0, count)
+    .map((club) => club.name);
+}
 
 async function gotoReady(page: Page, path = '/en') {
   await page.goto(path);
@@ -59,6 +72,11 @@ test('keeps Daily disabled and shows only compact mode choices', async ({ page }
   await page.screenshot({ path: testInfo.outputPath('free-time-layout.png') });
 });
 test('restores random practice mode, question and accepted clubs', async ({ page }) => {
+  // Math.random() = 0 picks the first challenge on offer (Europe), where both clubs below count.
+  await page.addInitScript(() => {
+    Math.random = () => 0;
+  });
+  await reloadReady(page);
   await practice(page);
   await page.getByRole('button', { name: 'Mode 50' }).click();
   await page.getByRole('button', { name: 'Surprise me', exact: true }).click();
@@ -98,12 +116,7 @@ test('caps a 100-club round and shows a complete result', async ({ page }) => {
   await practice(page);
   await page.getByRole('button', { name: 'Mode 100' }).click();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill(
-    clubs
-      .slice(0, 103)
-      .map((c) => c.name)
-      .join(', '),
-  );
+  await page.getByRole('textbox').fill(worldwideNames(103).join(', '));
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
   await expect(page.getByRole('log').locator('li')).toHaveCount(100);
   await expect(page.getByRole('heading', { name: 'You know ball.', exact: true })).toBeVisible();
@@ -113,12 +126,7 @@ test('scrolls long answer history without moving the composer', async ({ page })
   await practice(page);
   await page.getByRole('button', { name: 'Mode 100' }).click();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill(
-    clubs
-      .slice(0, 95)
-      .map((c) => c.name)
-      .join(', '),
-  );
+  await page.getByRole('textbox').fill(worldwideNames(95).join(', '));
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
   await expect(page.getByRole('log').locator('li')).toHaveCount(95);
   await expect(page.getByRole('textbox')).toBeInViewport();

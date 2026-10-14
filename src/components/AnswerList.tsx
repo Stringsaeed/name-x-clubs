@@ -2,20 +2,10 @@ import { useLingui } from '@lingui/react/macro';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import type { ClubId } from '../content/catalog';
 import { type Club, clubCrests, countryName } from '../content/catalog';
+import { clubInitials } from '../content/clubNames';
 import { namedClubs } from '../game/controller';
 import type { Language } from '../game/model';
 import { Icon } from './Icon';
-
-const CLUB_NAME_PREFIX = /^(AC |AS |Al |FC |RB )/;
-
-function clubInitials(club: Club) {
-  return club.name
-    .replace(CLUB_NAME_PREFIX, '')
-    .split(' ')
-    .map((part) => part[0])
-    .slice(0, 2)
-    .join('');
-}
 
 const Crest = memo(function CrestView({ club }: { club: Club }) {
   const [status, setStatus] = useState<'loading' | 'loaded' | 'failed'>('loading');
@@ -23,7 +13,7 @@ const Crest = memo(function CrestView({ club }: { club: Club }) {
 
   return (
     <span className={`crest-frame ${status === 'loaded' ? 'has-logo' : ''}`} aria-hidden="true">
-      <span className="club-crest">{clubInitials(club)}</span>
+      <span className="club-crest">{clubInitials(club.name)}</span>
       {crestUrl && status !== 'failed' && (
         // biome-ignore lint/performance/noImgElement: plain <img>; the app does not use next/image
         <img

@@ -45,9 +45,16 @@ test('every club crest has the correct identity, optimized local image and sourc
     JSON.parse(await readFile(join(root, 'sources.json'), 'utf8')),
   );
 
-  assert.equal(Object.keys(clubCrests).length, clubs.length);
+  const clubsWithCrest = clubs.filter((club) => clubCrests[club.id] !== undefined);
 
-  for (const club of clubs) {
+  assert.equal(
+    Object.keys(clubCrests).length,
+    clubsWithCrest.length,
+    'a crest for an unknown club',
+  );
+  assert.equal(Object.keys(sources).length, clubsWithCrest.length, 'a source for an unknown club');
+
+  for (const club of clubsWithCrest) {
     const source = sources[club.id];
     assert.ok(source);
     assert.equal(source.name, club.name);

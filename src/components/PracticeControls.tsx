@@ -1,8 +1,8 @@
 import { useLingui } from '@lingui/react/macro';
-import { memo } from 'react';
-import { categoryLabel } from '../content/labels';
+import { memo, useMemo } from 'react';
+import { categoryLabel, sortChallengesForPicker } from '../content/labels';
 import { challengesForLevel } from '../game/engine';
-import type { Level } from '../game/model';
+import type { Language, Level } from '../game/model';
 import { Icon } from './Icon';
 
 type PracticeControlsProps = {
@@ -19,6 +19,11 @@ export const PracticeControls = memo(function PracticeControlsView({
   onCategoryChange,
 }: PracticeControlsProps) {
   const { t, i18n } = useLingui();
+  const language = i18n.locale as Language;
+  const challenges = useMemo(
+    () => sortChallengesForPicker(challengesForLevel(level), language),
+    [level, language],
+  );
 
   return (
     <div className="practice-controls">
@@ -32,7 +37,7 @@ export const PracticeControls = memo(function PracticeControlsView({
           aria-disabled={locked}
           onChange={(event) => onCategoryChange(event.currentTarget.value)}
         >
-          {challengesForLevel(level).map((challenge) => (
+          {challenges.map((challenge) => (
             <option value={challenge.id} key={challenge.id}>
               {categoryLabel(i18n, challenge)}
             </option>

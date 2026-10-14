@@ -2,9 +2,7 @@ import type { I18n, MessageDescriptor } from '@lingui/core';
 import { msg, plural } from '@lingui/core/macro';
 import type { Challenge, Language } from '../game/model';
 import { getI18nFor } from '../i18n/instances';
-import { countryName } from './catalog';
-
-type Region = Extract<Challenge['scope'], { kind: 'region' }>['region'];
+import { countryName, type Region } from './catalog';
 
 const FOCUS_TAGS = /<\/?focus>/g;
 
@@ -26,6 +24,8 @@ export function regionLabel(i18n: I18n, region: Region): string {
       return i18n._(msg`Africa`);
     case 'americas':
       return i18n._(msg`the Americas`);
+    case 'oceania':
+      return i18n._(msg`Oceania`);
     default:
       return exhaustive(region);
   }
@@ -92,4 +92,46 @@ export function categoryLabel(i18n: I18n, challenge: Challenge): string {
     default:
       return exhaustive(scope);
   }
+}
+
+const PICKER_KIND_ORDER: Record<Challenge['scope']['kind'], number> = {
+  world: 0,
+  region: 1,
+  country: 2,
+  letter: 3,
+};
+
+function pickerRank(challenge: Challenge) {
+  return PICKER_KIND_ORDER[challenge.scope.kind];
+}
+
+function countryOf(challenge: Challenge) {
+  return challenge.scope.kind === 'country' ? challenge.scope.country : null;
+}
+
+/**
+ * Orders practice categories for the picker: World, regions, countries A to Z in the player's
+ * language, then letters. Regions keep their catalog order and letters stay alphabetical,
+ * because the sort is stable.
+ */
+export function sortChallengesForPicker(
+  challenges: readonly Challenge[],
+  language: Language,
+): Challenge[] {
+  const collator = new Intl.Collator(language);
+
+  return [...challenges].sort((first, second) => {
+    const byKind = pickerRank(first) - pickerRank(second);
+    const firstCountry = countryOf(first);
+    const secondCountry = countryOf(second);
+
+    if (byKind !== 0 || firstCountry === null || secondCountry === null) {
+      return byKind;
+    }
+
+    return collator.compare(
+      countryName(firstCountry, language),
+      countryName(secondCountry, language),
+    );
+  });
 }

@@ -21,11 +21,13 @@ for (const [input, expected] of [
   ['Real Mallorca', 'match: Mallorca'],
   ['Sporting Braga', 'match: Braga'],
   ['Racing Strasbourg', 'match: Strasbourg'],
-  ['Real Valladolid', 'unknown: Real Valladolid'],
-  ['Arsenal de Sarandi', 'unknown: Arsenal de Sarandi'],
-  ['Atletico Nacional', 'unknown: Atletico Nacional'],
-  ['الوحدة السعودي', 'unknown: الوحدة السعودي'],
-  ['الهلال السوداني', 'unknown: الهلال السوداني'],
+  ['Real Valladolid', 'match: Real Valladolid'],
+  ['Atletico Nacional', 'match: Atlético Nacional'],
+  ['الوحدة السعودي', 'match: Al Wehda'],
+  ['الهلال السوداني', 'match: Al-Hilal Club'],
+  ['Arsenal de Mendoza', 'unknown: Arsenal de Mendoza'],
+  ['Sporting Lokeren', 'unknown: Sporting Lokeren'],
+  ['Racing Ferrol', 'unknown: Racing Ferrol'],
 ] as const) {
   test(`"${input}" is one answer, not split into other clubs (H1)`, () => {
     expect(describe(parseAnswers(input))).toEqual([expected]);
@@ -33,16 +35,16 @@ for (const [input, expected] of [
 }
 
 test('club names typed without commas are still a list', () => {
-  expect(describe(parseAnswers('Arsenal Chelsea Liverpool'))).toEqual([
+  expect(describe(parseAnswers('Arsenal Chelsea Everton'))).toEqual([
     'match: Arsenal',
     'match: Chelsea',
-    'match: Liverpool',
+    'match: Everton',
   ]);
   expect(describe(parseAnswers('Arsenal and Chelsea'))).toEqual([
     'match: Arsenal',
     'match: Chelsea',
   ]);
-  expect(describe(parseAnswers('برشلونة وريال مدريد'))).toEqual([
+  expect(describe(parseAnswers('برشلونة وريال مدريد', country('spain')))).toEqual([
     'match: Barcelona',
     'match: Real Madrid',
   ]);

@@ -7,7 +7,8 @@ const countries = read('./out/countries.json');
 const ambiguous = read('./out/ambiguous.json');
 const src = read('../../src/content/clubs.json');
 const srcCountries = read('../../src/content/countries.json');
-const srcAmbiguous = read('../../src/content/ambiguous.json');
+const curatedAmbiguous = read('./curated-ambiguous.json');
+const coreIds = read('./core-ids.json');
 const problems = [];
 const byId = new Map(out.map((club) => [club.id, club]));
 
@@ -51,7 +52,13 @@ for (const club of out) {
   }
 }
 
-for (const group of srcAmbiguous) {
+for (const id of coreIds) {
+  if (!byId.has(id)) {
+    problems.push(`core club ${id} missing from the generated catalog`);
+  }
+}
+
+for (const group of curatedAmbiguous) {
   const next = ambiguous.find((entry) => entry.terms[0] === group.terms[0]);
   const ok =
     next &&

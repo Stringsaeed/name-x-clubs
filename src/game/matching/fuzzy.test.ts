@@ -24,8 +24,8 @@ test('two edits are allowed only from 10 characters', () => {
 });
 
 test('genuine typos still find their club', () => {
-  expect(approximateNames('Barcelonna')).toEqual(['Barcelona']);
-  expect(approximateNames('Liverpol')).toEqual(['Liverpool']);
+  expect(approximateNames('Barcelonna')).toEqual(['Barcelona', 'Barcelona S.C.']);
+  expect(approximateNames('Chelsae')).toEqual(['Chelsea']);
   expect(approximateNames('Mancester United')).toEqual(['Manchester United']);
   expect(approximateNames('manchster united')).toEqual(['Manchester United']);
   expect(approximateNames('arsenl')).toEqual(['Arsenal']);
@@ -33,7 +33,11 @@ test('genuine typos still find their club', () => {
   expect(approximateNames('Tottenham Hotspru')).toEqual(['Tottenham Hotspur']);
 });
 
-for (const input of ['Bayer', 'Bayer Munich', 'Angers', 'Randers', 'Juventude', 'الاهلي القطري']) {
+test('a typo of a name two clubs share finds both of them', () => {
+  expect(approximateNames('Liverpol')).toEqual(['Liverpool', 'Liverpool']);
+});
+
+for (const input of ['Bayer', 'Bayer Munich', 'Angers', 'Union Gent', 'الهلال الليبي']) {
   test(`"${input}" is not corrected to a different club (H3)`, () => {
     expect(approximateNames(input)).toEqual([]);
   });

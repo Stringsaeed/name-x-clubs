@@ -26,6 +26,7 @@
     "assets:restore": "node scripts/sync-crests.mjs",
     "catalog:ingest": "node scripts/catalog/ingest.mjs",
     "catalog:verify": "node scripts/catalog/verify.mjs",
+    "catalog:apply": "node scripts/catalog/apply.mjs",
     "start": "next start -H 127.0.0.1 -p 5173",
     "db:migrate": "node --conditions=react-server scripts/db-migrate.ts",
     "check:client-bundle": "node scripts/check-client-bundle.mjs"

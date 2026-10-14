@@ -80,6 +80,20 @@ function resolveTerm(term, byClub, stats) {
 
 const byLinks = (a, b) => b.links - a.links || a.id.localeCompare(b.id);
 
+/** Same rule as `dominantClub` in src/game/matching/scope.ts: 3× the next club's Wikipedia editions. */
+const DOMINANCE_RATIO = 3;
+
+function isDominant(candidates) {
+  const ranked = [...candidates].sort(byLinks);
+  const [first, second] = ranked;
+
+  if (!first || !second) {
+    return false;
+  }
+
+  return first.links > second.links && first.links >= DOMINANCE_RATIO * second.links;
+}
+
 /**
  * Mutates `clubs` (drops colliding Wikidata aliases) and returns Map(term -> candidate clubs)
  * for every term that more than one club legitimately holds.
@@ -118,6 +132,7 @@ export function mergeAmbiguity({ curated, shared, pinned }) {
   const groups = curated.map((group) => ({
     terms: [...group.terms],
     candidates: [...group.candidates],
+    curated: true,
   }));
   const curatedTerms = new Map();
 
@@ -135,7 +150,7 @@ export function mergeAmbiguity({ curated, shared, pinned }) {
 
     if (group) {
       group.candidates.push(...ids.filter((id) => !group.candidates.includes(id)));
-    } else if (!Object.hasOwn(pinned, term)) {
+    } else if (!Object.hasOwn(pinned, term) && !isDominant(candidates)) {
       const key = ids.join(',');
       const entry = autoByCandidates.get(key) ?? { terms: [], candidates: ids };
       entry.terms.push(term);

@@ -11,6 +11,14 @@ import {
   resolveClub,
   scoreAnswers,
 } from './engine';
+import { clubsNamedExactly } from './matching/aliases';
+
+/** A shared name such as "Sheffield" cannot pick one club by itself, even inside its own country. */
+function isSharedNameOf(name: string, clubId: string) {
+  const namedClubs = clubsNamedExactly(normalize(name)) ?? [];
+
+  return namedClubs.length > 1 && namedClubs.some((club) => club.id === clubId);
+}
 
 function matchClub(result: Resolution) {
   assert.ok(result.kind === 'match');
@@ -43,7 +51,10 @@ test('Arabic normalization handles diacritics, hamza, tatweel and Arabic ya', ()
 test('small, clear typos are tolerated and short guesses are not', () => {
   assert.equal(matchClub(resolveClub('manchster united')).name, 'Manchester United');
   assert.equal(matchClub(resolveClub('arsenl')).name, 'Arsenal');
-  assert.equal(matchClub(resolveClub('برشلونه')).name, 'Barcelona');
+  assert.equal(
+    matchClub(resolveClub('برشلونه', { scope: { kind: 'country', country: 'spain' } })).name,
+    'Barcelona',
+  );
   assert.equal(resolveClub('ps').kind, 'unknown');
   assert.equal(resolveClub('zzzzzzzzzz').kind, 'unknown');
 });
@@ -134,24 +145,51 @@ test('every selectable challenge has enough clubs to finish its level', () => {
       assert.ok(eligibleClubs(challenge).length >= target, `${target}: ${challenge.id}`);
     }
   }
-  assert.ok(!challengesForLevel(100).some((challenge) => challenge.scope.kind === 'country'));
-  assert.equal(new Set(clubs.map((club) => club.id)).size, clubs.length);
-  assert.ok(clubs.length >= 200);
-  assert.ok(clubs.every((club) => club.name && club.arabic && club.country));
+});
+
+test('country challenges exist exactly for countries with enough clubs for the level', () => {
+  const clubCounts = new Map<string, number>();
+
+  for (const club of clubs) {
+    clubCounts.set(club.country, (clubCounts.get(club.country) ?? 0) + 1);
+  }
+
+  for (const target of levels) {
+    const offered = challengesForLevel(target)
+      .flatMap((challenge) => (challenge.scope.kind === 'country' ? challenge.scope.country : []))
+      .sort();
+    const expected = [...clubCounts]
+      .filter(([, clubCount]) => clubCount >= target)
+      .map(([country]) => country)
+      .sort();
+
+    assert.deepEqual(offered, expected, `level ${target}`);
+  }
 });
 
 test('every canonical club name resolves in its own country in both languages', () => {
   for (const club of clubs) {
     for (const name of [club.name, club.arabic]) {
       const result = resolveClub(name, { scope: { kind: 'country', country: club.country } });
-      assert.equal('club' in result ? result.club.id : null, club.id, name);
+      const isSharedName = result.kind === 'ambiguous' && isSharedNameOf(name, club.id);
+
+      assert.ok(isSharedName || ('club' in result && result.club.id === club.id), name);
     }
   }
 });
 
+/** Clubs whose English and Arabic names each mean only them anywhere in the world. */
+const unambiguousClubs = clubs.filter((club) =>
+  [club.name, club.arabic].every((name) => {
+    const result = resolveClub(name);
+
+    return result.kind === 'match' && result.club.id === club.id;
+  }),
+);
+
 for (const target of levels) {
   test(`the ${target}-club level counts unique answers in order and caps bulk submissions`, () => {
-    const input = clubs
+    const input = unambiguousClubs
       .slice(0, target + 3)
       .map((club) => club.name)
       .join(', ');
@@ -159,11 +197,11 @@ for (const target of levels) {
     const scored = scoreAnswers([], results, target);
     assert.deepEqual(
       scored.found,
-      clubs.slice(0, target).map((club) => club.id),
+      unambiguousClubs.slice(0, target).map((club) => club.id),
     );
     assert.equal(scored.events.filter((event) => event.kind === 'accepted').length, target);
-    const first = clubs[0];
-    const last = clubs[target - 1];
+    const first = unambiguousClubs[0];
+    const last = unambiguousClubs[target - 1];
     assert.ok(first && last);
     const repeated = scoreAnswers(
       scored.found.slice(0, -1),

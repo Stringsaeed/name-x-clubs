@@ -5,13 +5,13 @@ import { lookupKeys, normalize, stripClubNoise } from './normalize';
 import { chooseInScope } from './scope';
 import { type Resolution, type ScopedChallenge, worldChallenge } from './types';
 
-/** The clubs a typed name spells exactly, trying each lookup key in turn, or `null`. */
-function exactCandidates(value: string): readonly Club[] | null {
+/** The clubs a typed name spells exactly, with the key that found them, or `null`. */
+function exactHit(value: string): { key: string; candidates: readonly Club[] } | null {
   for (const key of lookupKeys(value)) {
     const candidates = clubsNamedExactly(key);
 
     if (candidates) {
-      return candidates;
+      return { key, candidates };
     }
   }
 
@@ -23,13 +23,13 @@ export function resolveExactly(
   value: string,
   challenge: ScopedChallenge = worldChallenge,
 ): Resolution {
-  const candidates = exactCandidates(value);
+  const hit = exactHit(value);
 
-  if (!candidates) {
+  if (!hit) {
     return { kind: 'unknown' };
   }
 
-  return chooseInScope(candidates, challenge);
+  return chooseInScope(hit.candidates, challenge, hit.key);
 }
 
 /** Resolves one typed club name, forgiving small typos in longer names. */
@@ -43,11 +43,12 @@ export function resolveClub(
     return exact;
   }
 
-  const approximate = clubsNamedApproximately(stripClubNoise(normalize(value)));
+  const key = stripClubNoise(normalize(value));
+  const approximate = clubsNamedApproximately(key);
 
   if (approximate.length === 0) {
     return { kind: 'unknown' };
   }
 
-  return chooseInScope(approximate, challenge);
+  return chooseInScope(approximate, challenge, key);
 }

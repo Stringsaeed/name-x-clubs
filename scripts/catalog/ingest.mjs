@@ -1,13 +1,14 @@
 // Build-time catalog ingest: ~1,500 bilingual football clubs keyed by Wikidata QID.
 // Usage: pnpm catalog:ingest [--refresh]   (--refresh bypasses scripts/catalog/.cache)
-// Reads Wikidata (cached), src/content/*.json (curated core) and scripts/catalog/{rules,overrides}.json.
+// Reads Wikidata (cached) and scripts/catalog/{rules,overrides,core-ids,curated-*}.json.
+// Never reads src/content, so applying the catalog cannot turn the new clubs into the reviewed core.
 // Writes scripts/catalog/out/{clubs,countries,ambiguous.json} and report.md. Never touches src/.
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import curatedAmbiguous from '../../src/content/ambiguous.json' with { type: 'json' };
-import coreClubs from '../../src/content/clubs.json' with { type: 'json' };
-import curatedCountries from '../../src/content/countries.json' with { type: 'json' };
+import coreIds from './core-ids.json' with { type: 'json' };
+import curatedAmbiguous from './curated-ambiguous.json' with { type: 'json' };
+import curatedCountries from './curated-countries.json' with { type: 'json' };
 import { buildAliases, displayNames } from './lib/aliases.mjs';
 import { detectSharedTerms, mergeAmbiguity } from './lib/ambiguity.mjs';
 import { normalize } from './lib/clean.mjs';
@@ -180,9 +181,9 @@ function assertUniqueIds(records) {
     seen.add(record.id);
   }
 
-  for (const club of coreClubs) {
-    if (!seen.has(club.id)) {
-      throw new Error(`core club ${club.id} missing from the catalog`);
+  for (const id of coreIds) {
+    if (!seen.has(id)) {
+      throw new Error(`core club ${id} missing from the catalog`);
     }
   }
 }
@@ -219,7 +220,7 @@ const writeJson = (name, value) =>
 
 /** Core clubs first in their original order, then the new clubs by popularity. */
 function orderClubs(clubs) {
-  const coreOrder = new Map(coreClubs.map((club, index) => [club.id, index]));
+  const coreOrder = new Map(coreIds.map((id, index) => [id, index]));
   const core = clubs
     .filter((club) => club.core)
     .sort((a, b) => coreOrder.get(a.id) - coreOrder.get(b.id));

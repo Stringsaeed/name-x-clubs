@@ -10,7 +10,8 @@
       "spain-6",
       "spain-8",
       "spain-17"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -20,7 +21,8 @@
     "candidates": [
       "spain-0",
       "spain-2"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -31,7 +33,8 @@
     "candidates": [
       "spain-2",
       "brazil-11"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -43,7 +46,8 @@
       "italy-1",
       "brazil-9",
       "usa-0"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -53,7 +57,8 @@
     "candidates": [
       "england-1",
       "england-2"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -68,7 +73,8 @@
       "england-22",
       "scotland-5",
       "usa-4"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -80,7 +86,8 @@
       "england-15",
       "england-25",
       "usa-5"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -90,7 +97,8 @@
     "candidates": [
       "england-22",
       "england-23"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -101,7 +109,8 @@
     "candidates": [
       "germany-1",
       "germany-8"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -112,7 +121,8 @@
     "candidates": [
       "usa-1",
       "usa-2"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -124,7 +134,8 @@
     "candidates": [
       "usa-5",
       "usa-6"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -139,7 +150,8 @@
       "saudi-3",
       "wd-286659",
       "wd-2829200"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -153,7 +165,8 @@
       "saudi-2",
       "egypt-5",
       "wd-429501"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -166,7 +179,8 @@
     "candidates": [
       "saudi-1",
       "uae-6"
-    ]
+    ],
+    "curated": true
   },
   {
     "terms": [
@@ -189,39 +203,11 @@
   },
   {
     "terms": [
-      "liverpool",
-      "ليفربول"
-    ],
-    "candidates": [
-      "england-3",
-      "wd-1131189"
-    ]
-  },
-  {
-    "terms": [
       "the lilywhites"
     ],
     "candidates": [
       "england-5",
       "wd-19612"
-    ]
-  },
-  {
-    "terms": [
-      "النادي الملكي"
-    ],
-    "candidates": [
-      "spain-0",
-      "egypt-1"
-    ]
-  },
-  {
-    "terms": [
-      "برشلونه"
-    ],
-    "candidates": [
-      "spain-1",
-      "wd-248782"
     ]
   },
   {

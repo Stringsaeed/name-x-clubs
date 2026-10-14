@@ -27,10 +27,12 @@ afterEach(() => {
   }
 });
 
-function fixture() {
+/** `randomValue` picks the random practice challenge: 0 is the first one on offer, 0.99 the last. */
+function fixture(randomValue = 0.99) {
   const storage = new MemoryStorage();
   let time = at;
-  const create = () => createGameController({ storage, now: () => time, random: () => 0.99 });
+  const create = () =>
+    createGameController({ storage, now: () => time, random: () => randomValue });
 
   return {
     storage,
@@ -119,7 +121,7 @@ describe('saved game sessions', () => {
   });
 
   test('restores practice mode, a random question and accepted order', () => {
-    const f = fixture();
+    const f = fixture(0);
     const game = f.create();
     game.dispatch({ type: 'mode', mode: 'practice' });
     game.dispatch({ type: 'level', level: 50 });
@@ -294,7 +296,7 @@ describe('sessions changed by another tab', () => {
     const tabB = f.create();
     tabB.dispatch({ type: 'level', level: 50 });
     tabB.dispatch({ type: 'start' });
-    tabB.dispatch({ type: 'answer', text: 'Arsenal, Chelsea, Liverpool' });
+    tabB.dispatch({ type: 'answer', text: 'Arsenal, Chelsea, Everton' });
     announce(f.storage, 'nxc-v2-free-50');
 
     tabA.dispatch({ type: 'level', level: 50 });

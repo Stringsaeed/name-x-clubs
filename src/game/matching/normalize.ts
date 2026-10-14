@@ -16,8 +16,8 @@ const JOINING_PUNCTUATION = /['’.]/g;
 /** Every other run of punctuation, symbols (including "&") or spaces becomes one space. */
 const SEPARATORS = /[^\p{L}\p{N}]+/gu;
 
-/** Words that only say "football club": "Arsenal FC" is Arsenal. */
-const CLUB_SUFFIXES = /\b(?:football club|fc|afc|cf)\b/g;
+/** Words that only say "football club": "Arsenal FC" and "Barcelona SC" are the bare name. */
+const CLUB_SUFFIXES = /\b(?:football club|fc|afc|cf|sc)\b/g;
 
 /** The Arabic word for "club" in front of a name: "نادي الزمالك" is الزمالك. */
 const ARABIC_CLUB_PREFIX = /^نادي\s+/;

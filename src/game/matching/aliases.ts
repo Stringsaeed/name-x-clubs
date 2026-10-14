@@ -1,5 +1,5 @@
 import { ambiguousTerms, type Club, clubById, clubs } from '../../content/catalog';
-import { normalize } from './normalize';
+import { normalize, stripClubNoise } from './normalize';
 
 /** One spelling of a club name, split into words for typo matching. */
 export type IndexedAlias = Readonly<{ words: readonly string[]; clubs: readonly Club[] }>;
@@ -8,33 +8,72 @@ function namesOf(club: Club) {
   return [club.name, club.arabic, ...club.aliases];
 }
 
+function addClub(index: Map<string, Club[]>, key: string, club: Club) {
+  if (!key) {
+    return;
+  }
+
+  const matches = index.get(key) ?? [];
+
+  if (!matches.includes(club)) {
+    matches.push(club);
+  }
+
+  index.set(key, matches);
+}
+
 function buildAliasIndex() {
   const index = new Map<string, Club[]>();
 
   for (const club of clubs) {
     for (const name of namesOf(club)) {
+      addClub(index, normalize(name), club);
+    }
+  }
+
+  // "Barcelona S.C." also answers to "Barcelona" when another club is exactly that shorter name.
+  for (const club of clubs) {
+    for (const name of namesOf(club)) {
       const key = normalize(name);
-      const matches = index.get(key) ?? [];
+      const shorter = stripClubNoise(key);
 
-      if (!matches.includes(club)) {
-        matches.push(club);
+      if (shorter !== key && index.has(shorter)) {
+        addClub(index, shorter, club);
       }
-
-      index.set(key, matches);
     }
   }
 
   return index;
 }
 
-function buildAmbiguityIndex() {
+/**
+ * A club whose own name or Arabic name is a shared term always counts as one of its candidates,
+ * even when the catalog's candidate list was written without it.
+ */
+const curatedAmbiguousKeys = new Set(
+  ambiguousTerms
+    .filter((group) => group.curated)
+    .flatMap((group) => group.terms.map((term) => normalize(term))),
+);
+
+/** A hand-reviewed shared name, such as الأهلي. Popularity never picks a winner for these. */
+export function isCuratedAmbiguousTerm(key: string) {
+  return curatedAmbiguousKeys.has(key);
+}
+
+function buildAmbiguityIndex(aliasIndex: ReadonlyMap<string, readonly Club[]>) {
   const index = new Map<string, Club[]>();
 
   for (const { terms, candidates } of ambiguousTerms) {
-    const candidateClubs = candidates.flatMap((id) => clubById.get(id) ?? []);
+    const listedClubs = candidates.flatMap((id) => clubById.get(id) ?? []);
 
     for (const term of terms) {
-      index.set(normalize(term), candidateClubs);
+      const key = normalize(term);
+      const namedClubs = (aliasIndex.get(key) ?? []).filter(
+        (club) => normalize(club.name) === key || normalize(club.arabic) === key,
+      );
+
+      index.set(key, [...new Set([...listedClubs, ...namedClubs])]);
     }
   }
 
@@ -54,38 +93,51 @@ function groupByWordCount(index: ReadonlyMap<string, readonly Club[]>) {
   return groups;
 }
 
-/** Normalized name → every club that uses it. */
-const clubsByAlias: ReadonlyMap<string, readonly Club[]> = buildAliasIndex();
+type NameIndex = Readonly<{
+  /** Every known name. A shared name replaces an alias it collides with, even a canonical name. */
+  clubsByName: ReadonlyMap<string, readonly Club[]>;
+  namesByWordCount: ReadonlyMap<number, readonly IndexedAlias[]>;
+  /** Every word used in a club name. A word from this set is a real name, never a typo. */
+  catalogWords: ReadonlySet<string>;
+}>;
 
-/** Normalized shared name → the catalog clubs it could mean. */
-const clubsByAmbiguousTerm: ReadonlyMap<string, readonly Club[]> = buildAmbiguityIndex();
+function buildNameIndex(): NameIndex {
+  const clubsByAlias = buildAliasIndex();
+  const clubsByAmbiguousTerm = buildAmbiguityIndex(clubsByAlias);
+  const clubsByName = new Map([...clubsByAlias, ...clubsByAmbiguousTerm]);
 
-/** Every known name. A shared name replaces an alias it collides with, even a canonical name. */
-const clubsByName: ReadonlyMap<string, readonly Club[]> = new Map([
-  ...clubsByAlias,
-  ...clubsByAmbiguousTerm,
-]);
+  return {
+    clubsByName,
+    namesByWordCount: groupByWordCount(clubsByName),
+    catalogWords: new Set([...clubsByName.keys()].flatMap((key) => key.split(' '))),
+  };
+}
 
-const namesByWordCount = groupByWordCount(clubsByName);
+let nameIndex: NameIndex | undefined;
 
-/** Every word used in a club name. A word from this set is a real name, never a typo. */
-const catalogWords: ReadonlySet<string> = new Set(
-  [...clubsByName.keys()].flatMap((key) => key.split(' ')),
-);
+/**
+ * Building the index normalizes every name in the catalog, so it waits for the first answer
+ * instead of slowing the page load.
+ */
+function getNameIndex(): NameIndex {
+  nameIndex ??= buildNameIndex();
+
+  return nameIndex;
+}
 
 /**
  * The clubs a normalized key names exactly, or `null` if it names none. A shared name returns
  * all its candidates, even when one of them also uses it as an alias.
  */
 export function clubsNamedExactly(key: string): readonly Club[] | null {
-  return clubsByName.get(key) ?? null;
+  return getNameIndex().clubsByName.get(key) ?? null;
 }
 
 /** Every known name with this many words, for typo matching. */
 export function namesWithWordCount(count: number): readonly IndexedAlias[] {
-  return namesByWordCount.get(count) ?? [];
+  return getNameIndex().namesByWordCount.get(count) ?? [];
 }
 
 export function isCatalogWord(word: string) {
-  return catalogWords.has(word);
+  return getNameIndex().catalogWords.has(word);
 }
