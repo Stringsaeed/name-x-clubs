@@ -1,4 +1,5 @@
 import { clubs, countries, levels, challengesForLevel, durationForTarget, dailyStorageKey, scoreAnswers, dailyChallenge, dayKey, eligibleClubs, parseAnswers, remainingSeconds } from './engine.js';
+import { clubCrests } from './crests.js';
 const $ = id => document.getElementById(id);
 const messages = {
 en: {
@@ -112,7 +113,18 @@ function renderAnswers() {
     const hash = club.name.split('').reduce((n,c) => n+c.charCodeAt(0),0);
     const row = document.createElement('li');
     row.className = 'answer-message'; row.dataset.clubId = club.id;
-    row.innerHTML = `<span class="answer-index">${String(i+1).padStart(2,'0')}</span><span class="club-crest" style="--club-color:${colors[hash%colors.length]}" aria-hidden="true">${initials}</span><span class="answer-name"><strong lang="${lang}">${escape(clubName(club))}</strong><small>${escape(countries[club.country][lang])}</small></span><span class="answer-tick">${icon('check')}</span>`;
+    row.innerHTML = `<span class="answer-index">${String(i+1).padStart(2,'0')}</span><span class="crest-frame" aria-hidden="true"><span class="club-crest" style="--club-color:${colors[hash%colors.length]}">${initials}</span></span><span class="answer-name"><strong lang="${lang}">${escape(clubName(club))}</strong><small>${escape(countries[club.country][lang])}</small></span><span class="answer-tick">${icon('check')}</span>`;
+    if (clubCrests[club.id]) {
+      const frame = row.querySelector('.crest-frame');
+      const image = document.createElement('img');
+      image.className = 'club-logo'; image.alt = '';
+      image.width = 32; image.height = 32;
+      image.loading = 'lazy'; image.decoding = 'async';
+      image.addEventListener('load', () => frame.classList.add('has-logo'), { once: true });
+      image.addEventListener('error', () => { frame.classList.remove('has-logo'); image.remove(); }, { once: true });
+      image.src = clubCrests[club.id];
+      frame.append(image);
+    }
     list.append(row);
   }
   $('found-count').textContent = state.found.length;

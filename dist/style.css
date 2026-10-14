@@ -39,6 +39,11 @@ html[lang=ar]{font-family:'Alan Sans',Nunito,sans-serif}html[lang=ar] .brand,htm
 .answer-message{display:flex;align-items:center;gap:12px;padding:12px 15px;flex-shrink:0;background:#f1f6e8;border:1px solid #e2ebd5;border-radius:14px;border-end-start-radius:4px;animation:message-in .2s ease}
 .answer-index{font-family:Nunito,sans-serif;font-size:11px;font-weight:800;color:#9ba98b;min-width:19px;direction:ltr}
 .answer-message .club-crest{width:28px;height:33px;flex-shrink:0}
+.crest-frame{position:relative;display:grid;place-items:center;width:40px;height:40px;flex-shrink:0;background:#fffef9b3;border:1px solid #e4eadb;border-radius:10px}
+.club-logo{position:absolute;inset:4px;width:30px;height:30px;object-fit:contain;opacity:0;transition:opacity .15s}
+.crest-frame.has-logo .club-logo{opacity:1}
+.crest-frame.has-logo .club-crest{visibility:hidden}
+.answer-message .crest-frame .club-crest{width:24px;height:29px;font-size:8px}
 .answer-name{display:flex;flex-direction:column;gap:2px;min-width:0}
 .answer-name strong{font-size:14px;font-weight:800;line-height:1.45;overflow-wrap:anywhere}
 .answer-name small{font-size:10px;color:#96a287;font-weight:600}
