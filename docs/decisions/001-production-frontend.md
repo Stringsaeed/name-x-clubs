@@ -1,3 +1,5 @@
+Superseded by [002](002-nextjs.md).
+
 # Production frontend
 
 The game now uses React, TypeScript and Vite. Game rules remain pure TypeScript, and a single controller owns browser persistence, selection, time and round transitions. React subscribes to that controller and renders semantic components. Assets remain local and the deployment remains a static site at the existing origin.

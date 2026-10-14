@@ -1,19 +1,17 @@
-# Game verification
+# Verification
 
-Verified on 14 October 2026 against the Vite production build.
+Last local run: 14 October 2026, after the Next.js migration.
 
-| Gate | Result |
-| --- | --- |
-| Strict TypeScript and Biome | Passed |
-| Unit and component tests | 31 passed |
-| Desktop Chromium and mobile WebKit regression tests | 18 passed |
-| Reviewed local crest collection | 200 files validated against identities and checksums |
-| Free time and disabled Daily | Compact modes, no Daily entry, and previous daily saves left untouched |
-| Elapsed timing | Counts up beyond the old deadline, restores after refresh, freezes on finish and resets for another round |
-| Practice recovery | Mode, target, sampled question, phase, elapsed time and accepted clubs restored; legacy answers migrate |
-| Arabic RTL and bottom composer | Browser geometry checks passed; mobile screenshot retained in the test report |
-| GitHub CI execution | Configured; no GitHub remote run claimed |
+| Gate | Command | Result (2026-10-14) |
+| --- | --- | --- |
+| Unit and component tests | `npm test` | 37 passed (5 files) |
+| Lint and format | `npx biome check src tests *.ts scripts` | 0 errors, 22 warnings (complexity, shadowing, function length; addressed by the planned refactor) |
+| Catalog check | `npm run i18n:check` | Up to date and complete |
+| Production build with type-check | `npm run build` | Passed; `/en`, `/ar` prerendered, `/` dynamic redirect |
+| Desktop Chromium and mobile WebKit | `npm run test:e2e` | 22 passed |
+| Crest collection | crest tests in `npm test` | 200 files validated |
+| GitHub Actions | `.github/workflows/ci.yml` | see latest run; no remote run claimed |
 
-The first native browser run failed before tests started because the macOS command sandbox blocked application registration. The same WebKit binary launched successfully in the approved execution context. The test launcher now refuses that restricted context before starting a browser. The complete Chromium/WebKit suite subsequently passed outside the sandbox. No macOS security setting was changed.
+Reproduce with `npm run check`, then install browser engines with `npx playwright install chromium webkit` and run `npm run test:e2e` from a normal terminal. Browser tests start `next start` on port 4173. Generated `playwright-report/` and `test-results/` are ignored.
 
-Reproduce application checks with `npm run check`, then install the browser engines and run `npm run test:e2e` from a normal terminal. The browser tests start the production preview on port 4173. `playwright-report/` and `test-results/` are generated, ignored artifacts; CI uploads them after a run.
+Known issues and open checks are in [discovery.md](discovery.md).
