@@ -13,7 +13,8 @@ export type AnswerEntry = Readonly<{ text: string; clientMs: number }>;
 
 export type AnswersRequest = Readonly<{ seq: number; entries: readonly AnswerEntry[] }>;
 
-export type FinishRequest = Readonly<{ captchaToken?: string }>;
+/** `lang` picks the language of the player's display name; it defaults to the round's language. */
+export type FinishRequest = Readonly<{ captchaToken?: string; lang?: Locale }>;
 
 export type Phase = 'playing' | 'complete';
 
@@ -23,6 +24,8 @@ export type Started = Readonly<{
   roundId: string;
   startedAt: number;
   serverNow: number;
+  /** The player's own name: their username, else their nickname. Only ever sent to the owner. */
+  displayName: string;
   /** The session to (re)set in the cookie, which slides its expiry forward. */
   sessionToken: string;
 }>;
@@ -45,6 +48,7 @@ export type RoundView = Readonly<{
   nextSeq: number;
   found: readonly ClubId[];
   elapsedMs: number | null;
+  displayName: string;
 }>;
 
 export type Ranks = Readonly<{ day: number | null; week: number | null; all: number | null }>;
@@ -53,6 +57,7 @@ export type Finished = Readonly<{
   status: RoundStatus;
   elapsedMs: number | null;
   ranks: Ranks | null;
+  displayName: string;
 }>;
 
 export function phaseOf(status: RoundStatus): Phase {

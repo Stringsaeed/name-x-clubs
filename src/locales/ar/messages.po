@@ -65,6 +65,11 @@ msgstr "قائمة أنديتك"
 msgid "This football game needs JavaScript to match your answers and save your progress."
 msgstr "تحتاج هذه اللعبة إلى JavaScript لمطابقة إجاباتك وحفظ تقدمك."
 
+#: src/components/GameCard.tsx
+#: src/components/ResultPanel.tsx
+msgid "Not ranked"
+msgstr "خارج التصنيف"
+
 #: src/components/Header.tsx
 msgid "Switch to English"
 msgstr "Switch to English"
@@ -81,6 +86,10 @@ msgstr "الأمريكتين"
 msgid "This first edition includes a curated club collection, not every club in the world. If we miss one, try its full name."
 msgstr "هذه النسخة تضم مجموعة مختارة من الأندية، وليست كل أندية العالم. إذا لم نتعرف على اسم، جرّب الاسم الكامل."
 
+#: src/components/ResultPanel.tsx
+msgid "Last 24 hours"
+msgstr "آخر 24 ساعة"
+
 #: src/app/[lang]/error.tsx
 msgid "Reload the game to try again."
 msgstr "أعد تحميل اللعبة للمحاولة مرة أخرى."
@@ -88,6 +97,14 @@ msgstr "أعد تحميل اللعبة للمحاولة مرة أخرى."
 #: src/components/GameCard.tsx
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "المتصفح لم يتمكن من حفظ الجولة. اترك هذه الصفحة مفتوحة."
+
+#: src/components/ResultPanel.tsx
+msgid "Checking time…"
+msgstr "نتحقق من الوقت…"
+
+#: src/components/ResultPanel.tsx
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
 
 #: src/content/labels.ts
 msgid "Name <focus>{clubs}.</focus>"
@@ -129,6 +146,10 @@ msgstr "إرسال الإجابة"
 #: src/components/AnswerComposer.tsx
 msgid "{name} is already on your list. Try another club."
 msgstr "{name} موجود في تشكيلتك. جرّب ناديًا ثانيًا."
+
+#: src/components/ResultPanel.tsx
+msgid "Round complete · Mode {target}"
+msgstr "انتهت الجولة · وضع {target}"
 
 #: src/components/Hero.tsx
 msgid "Know your clubs?"
@@ -220,6 +241,10 @@ msgstr "نسخنا النتيجة. أرسلها لأصحابك الكرويين.
 msgid "Switch to Arabic"
 msgstr "التبديل إلى العربية"
 
+#: src/components/ResultPanel.tsx
+msgid "Under review"
+msgstr "قيد المراجعة"
+
 #: src/content/labels.ts
 msgid "Africa"
 msgstr "أفريقيا"
@@ -231,6 +256,10 @@ msgstr "أوقيانوسيا"
 #: src/components/ResultPanel.tsx
 msgid "Share result"
 msgstr "شارك النتيجة"
+
+#: src/components/ResultPanel.tsx
+msgid "Leaderboard"
+msgstr "لوحة الصدارة"
 
 #: src/components/AnswerComposer.tsx
 msgid "Type a club name…"
@@ -247,6 +276,10 @@ msgstr "إعادة تحميل اللعبة"
 #: src/components/ResultPanel.tsx
 msgid "Good shift."
 msgstr "محاولة حلوة."
+
+#: src/components/ResultPanel.tsx
+msgid "All time"
+msgstr "كل الأوقات"
 
 #: src/components/HelpDialog.tsx
 msgid "If a name could mean more than one club, add the city or country. Different names for the same club only count once."

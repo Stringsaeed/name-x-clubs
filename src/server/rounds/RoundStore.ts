@@ -2,7 +2,7 @@ import 'server-only';
 import { Context, Effect, Layer, Option, Schema } from 'effect';
 import { SqlClient, type SqlError } from 'effect/sql';
 import type { ClubId } from '../../content/catalog';
-import type { Locale } from '../../i18n/config';
+import { type Locale, locales } from '../../i18n/config';
 import { decodeFirstRow, jsonParam } from '../db/rows';
 import { type RankedMode, rankedModes } from './modes';
 import type { PaceFlag } from './pace';
@@ -22,6 +22,7 @@ const RoundRow = Schema.Struct({
   id: Schema.String,
   playerId: Schema.String,
   mode: Schema.Literals(rankedModes),
+  lang: Schema.Literals(locales),
   status: Schema.Literals(roundStatuses),
   startedAt: Schema.Date,
   finishedAt: Schema.NullOr(Schema.Date),
@@ -35,6 +36,8 @@ export type RoundRecord = Readonly<{
   id: string;
   playerId: string;
   mode: RankedMode;
+  /** The language the round started in. Owner-only responses name the player in it by default. */
+  lang: Locale;
   status: RoundStatus;
   startedAt: Date;
   finishedAt: Date | null;
@@ -111,8 +114,8 @@ export class RoundStore extends Context.Service<
       const sql = yield* SqlClient.SqlClient;
 
       const roundColumns = sql`
-        id::text AS id, player_id::text AS player_id, mode, status, started_at, finished_at, found,
-        next_seq, elapsed_ms, flags
+        id::text AS id, player_id::text AS player_id, mode, lang, status, started_at, finished_at,
+        found, next_seq, elapsed_ms, flags
       `;
 
       const create = Effect.fn('RoundStore.create')(function* (round: NewRound) {

@@ -11,7 +11,15 @@ import { PlayerStore } from '../identity/PlayerStore';
 import { Leaderboard } from '../leaderboard/Leaderboard';
 import { Rounds } from '../rounds/Rounds';
 import { callerFrom, checkOrigin, decodeStrict, readBody, sessionCookie } from './request';
-import { AnswersBody, BoardMode, BoardQuery, FinishBody, RoundId, StartBody } from './schemas';
+import {
+  AnswersBody,
+  BoardMode,
+  BoardQuery,
+  FinishBody,
+  ResumeQuery,
+  RoundId,
+  StartBody,
+} from './schemas';
 import { internalError, json, noStore, toResponse, unavailable } from './toResponse';
 
 export type AppServices = Rounds | Leaderboard | PlayerStore | ServerConfig | SqlClient.SqlClient;
@@ -47,6 +55,16 @@ function boardQueryFrom(request: Request) {
   });
 }
 
+function resumeQueryFrom(request: Request) {
+  const lang = new URL(request.url).searchParams.get('lang');
+
+  if (lang === null) {
+    return decodeStrict(ResumeQuery, {});
+  }
+
+  return decodeStrict(ResumeQuery, { lang });
+}
+
 const postGuard = (request: Request) =>
   ServerConfig.use((settings) => checkOrigin(request, settings));
 
@@ -75,9 +93,10 @@ const submitAnswers = (request: Request, id: string): Program =>
 const resumeRound = (request: Request, id: string): Program =>
   Effect.gen(function* () {
     const roundId = yield* roundIdFrom(id);
+    const { lang } = yield* resumeQueryFrom(request);
     const rounds = yield* Rounds;
 
-    return json(yield* rounds.resume(callerFrom(request), roundId));
+    return json(yield* rounds.resume(callerFrom(request), roundId, lang));
   });
 
 const finishRound = (request: Request, id: string): Program =>

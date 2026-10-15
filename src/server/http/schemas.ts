@@ -28,6 +28,12 @@ export const AnswersBody = Schema.Struct({
 
 export const FinishBody = Schema.Struct({
   captchaToken: Schema.optionalKey(Schema.String.check(Schema.isMaxLength(2048))),
+  lang: Schema.optionalKey(Schema.Literals(locales)),
+});
+
+/** `GET /api/rounds/:id?lang=` names the player in `lang`; without it, in the round's language. */
+export const ResumeQuery = Schema.Struct({
+  lang: Schema.optionalKey(Schema.Literals(locales)),
 });
 
 export const RoundId = Schema.String.check(Schema.isUUID());
