@@ -2,10 +2,11 @@ import { expect, type Page, test } from '@playwright/test';
 import { clubs } from '../../src/content/catalog';
 import { resolveClub } from '../../src/game/engine';
 import { suspiciousUnderMs } from '../../src/server/rounds/pace';
+import { skipWithoutDatabase, useOwnClientAddress } from './database';
 
 /**
  * Ranked Free time against a real server and database. Run it against a `next start` with
- * `DATABASE_URL` set; without a database every round falls back to local play.
+ * `DATABASE_URL` set; without a database the tests that need one are skipped.
  */
 
 /** Names that mean one club anywhere in the world. */
@@ -64,8 +65,16 @@ function chips(page: Page) {
   return page.locator('.ranked-chip');
 }
 
-test('a ranked Mode 10 round ends verified and appears on the 24-hour board', async ({ page }) => {
+test.beforeEach(async ({ context }) => {
+  await useOwnClientAddress(context);
+});
+
+test('a ranked Mode 10 round ends verified and appears on the 24-hour board', async ({
+  page,
+  request,
+}) => {
   test.setTimeout(60_000);
+  await skipWithoutDatabase(request);
 
   const names = worldwideNames(10);
   await gotoReady(page);
@@ -99,8 +108,8 @@ test('a ranked Mode 10 round ends verified and appears on the 24-hour board', as
   await page.waitForTimeout(Math.max(0, minimumMs - (Date.now() - startedAt)));
   await submit(page, names[9] ?? '');
 
-  // On an empty database this player is #1 everywhere. Other projects may rank meanwhile, so each
-  // chip is checked against the player's place on that board.
+  // Other tests may rank on the same board meanwhile, so each chip is checked against the
+  // player's place on that board.
   await expect(chips(page)).toHaveCount(3);
   const ranks = await Promise.all(periods.map((period) => boardRank(page, period, started)));
   expect(ranks).not.toContain(null);
@@ -112,7 +121,8 @@ test('a ranked Mode 10 round ends verified and appears on the 24-hour board', as
   expect(answerRequests).toBe(3);
   await expect(page.locator('.ranked-result-time')).toHaveText(/^00:1\d\.\d$/);
   await expect(page.locator('.ranked-result-player')).toHaveText(started.displayName);
-  await expect(page.getByRole('link', { name: 'Leaderboard', exact: true })).toHaveAttribute(
+  const resultPanel = page.locator('#result-panel');
+  await expect(resultPanel.getByRole('link', { name: 'Leaderboard', exact: true })).toHaveAttribute(
     'href',
     '/en/leaderboard?mode=t10&period=day',
   );
@@ -141,7 +151,8 @@ test('a round started offline is played locally and marked Not ranked', async ({
   expect(startRequests).toBeLessThanOrEqual(1);
 });
 
-test('reloading mid-round resumes the ranked round with its clubs', async ({ page }) => {
+test('reloading mid-round resumes the ranked round with its clubs', async ({ page, request }) => {
+  await skipWithoutDatabase(request);
   const names = worldwideNames(2);
   await gotoReady(page);
   const started = await startRanked(page);

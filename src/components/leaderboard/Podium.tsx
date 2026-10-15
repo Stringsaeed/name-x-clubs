@@ -1,4 +1,5 @@
 import { useLingui } from '@lingui/react/macro';
+import { PlayerName } from '../PlayerName';
 import { Avatar } from './Avatar';
 import { formatElapsed } from './format';
 import type { BoardRow, MyStanding } from './types';
@@ -30,7 +31,7 @@ export function Podium({
             <span className="lb-medal">{entry.rank}</span>
             <Avatar name={entry.name} anonymous={entry.anonymous} />
             <b className="lb-podium-name" dir="auto">
-              {entry.name}
+              <PlayerName name={entry.name} />
             </b>
             <span className="lb-podium-time" dir="ltr">
               {formatElapsed(entry.elapsedMs)}

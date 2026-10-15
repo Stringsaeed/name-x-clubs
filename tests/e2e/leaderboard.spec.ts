@@ -1,8 +1,10 @@
 import { expect, type Page, test } from '@playwright/test';
+import { skipWithoutDatabase } from './database';
 
 /**
- * Runs against a server whose database holds the leaderboard seed: Mode 10 has a board in every
- * period (fewer players in "day" than in "all"), and Mode 100 has no times at all.
+ * Runs against a server whose database holds fixtures/leaderboard-seed.sql: Mode 10 has a board in
+ * every period (fewer players in "day" than in "all"), and Mode 100 has no times at all. Ranked
+ * tests may add faster players to Mode 10 meanwhile, so no test expects a given player's place.
  */
 const timePattern = /^\d{2,}:\d{2}\.\d$/;
 
@@ -13,12 +15,15 @@ async function boardRowCount(page: Page) {
   return podium + rows;
 }
 
-test('shows the podium and the table for the default board', async ({ page }) => {
+test('shows the podium and the table for the default board', async ({ page, request }) => {
+  await skipWithoutDatabase(request);
   await page.goto('/en/leaderboard');
 
   await expect(page.getByRole('heading', { name: 'Leaderboard', level: 1 })).toBeVisible();
   await expect(page.locator('.lb-podium-card')).toHaveCount(3);
-  await expect(page.locator('.lb-podium-card.first')).toContainText('Omar K.');
+  await expect(
+    page.locator('.lb-podium-card, .lb-table tbody tr').filter({ hasText: 'Omar K.' }),
+  ).toHaveCount(1);
   await expect(page.locator('.lb-table tbody tr').first()).toBeVisible();
   await expect(page.locator('.lb-table tbody tr .lb-time span').first()).toHaveText(timePattern);
   await expect(page.locator('.lb-table tbody tr .lb-when').first()).toContainText('ago');
@@ -53,7 +58,8 @@ test('the tabs switch mode and period through the URL', async ({ page }) => {
   );
 });
 
-test('longer periods list more players', async ({ page }) => {
+test('longer periods list more players', async ({ page, request }) => {
+  await skipWithoutDatabase(request);
   await page.goto('/en/leaderboard?mode=t10&period=day');
   await expect(page.locator('.lb-podium-card')).toHaveCount(3);
   const dayRows = await boardRowCount(page);
@@ -77,7 +83,11 @@ test('an unknown query falls back to Mode 10 and the last 24 hours', async ({ pa
   );
 });
 
-test('the Arabic page is right to left with times kept left to right', async ({ page }) => {
+test('the Arabic page is right to left with times kept left to right', async ({
+  page,
+  request,
+}) => {
+  await skipWithoutDatabase(request);
   await page.goto('/ar/leaderboard?mode=t10&period=all');
 
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
@@ -90,7 +100,8 @@ test('the Arabic page is right to left with times kept left to right', async ({ 
   await expect(page.locator('.lb-podium-time').first()).toHaveAttribute('dir', 'ltr');
 });
 
-test('a mode with no times shows the empty state', async ({ page }) => {
+test('a mode with no times shows the empty state', async ({ page, request }) => {
+  await skipWithoutDatabase(request);
   await page.goto('/en/leaderboard?mode=t100&period=all');
 
   await expect(page.getByRole('heading', { name: 'No times yet' })).toBeVisible();

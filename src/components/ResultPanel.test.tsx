@@ -47,7 +47,9 @@ test('a verified round shows the server time, its ranks, the player and the lead
   expect(screen.getByText('01:42.3')).toBeInTheDocument();
   expect(screen.getByText('Round complete · Mode 10')).toBeInTheDocument();
   expect(chipTexts()).toEqual(['#1 · Last 24 hours', '#4 · Last 7 days', '#12 · All time']);
-  expect(screen.getByText('Swift Striker #4K2Q')).toBeInTheDocument();
+  expect(screen.getByText('#4K2Q').closest('[dir="auto"]')).toHaveTextContent(
+    'Swift Striker #4K2Q',
+  );
   expect(screen.getByRole('link', { name: 'Leaderboard' })).toHaveAttribute(
     'href',
     '/en/leaderboard?mode=t10&period=day',

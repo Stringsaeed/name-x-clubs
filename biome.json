@@ -16,6 +16,7 @@
       "!src/locales/*/messages.ts",
       "!.vscode",
       "!.claude",
+      "!.vercel",
       "!docs/design/mockups",
       "!scripts/catalog/.cache",
       "!scripts/catalog/out"

@@ -1,65 +1,26 @@
 [
   {
-    "terms": [
-      "real",
-      "ريال",
-      "الريال"
-    ],
-    "candidates": [
-      "spain-0",
-      "spain-6",
-      "spain-8",
-      "spain-17"
-    ]
+    "terms": ["real", "ريال", "الريال"],
+    "candidates": ["spain-0", "spain-6", "spain-8", "spain-17"]
   },
   {
-    "terms": [
-      "madrid",
-      "مدريد"
-    ],
-    "candidates": [
-      "spain-0",
-      "spain-2"
-    ]
+    "terms": ["madrid", "مدريد"],
+    "candidates": ["spain-0", "spain-2"]
   },
   {
-    "terms": [
-      "atletico",
-      "اتلتيكو",
-      "اتليتيكو"
-    ],
-    "candidates": [
-      "spain-2",
-      "brazil-11"
-    ]
+    "terms": ["atletico", "اتلتيكو", "اتليتيكو"],
+    "candidates": ["spain-2", "brazil-11"]
   },
   {
-    "terms": [
-      "inter",
-      "انتر",
-      "الانتر"
-    ],
-    "candidates": [
-      "italy-1",
-      "brazil-9",
-      "usa-0"
-    ]
+    "terms": ["inter", "انتر", "الانتر"],
+    "candidates": ["italy-1", "brazil-9", "usa-0"]
   },
   {
-    "terms": [
-      "manchester",
-      "مانشستر"
-    ],
-    "candidates": [
-      "england-1",
-      "england-2"
-    ]
+    "terms": ["manchester", "مانشستر"],
+    "candidates": ["england-1", "england-2"]
   },
   {
-    "terms": [
-      "united",
-      "يونايتد"
-    ],
+    "terms": ["united", "يونايتد"],
     "candidates": [
       "england-1",
       "england-6",
@@ -71,98 +32,35 @@
     ]
   },
   {
-    "terms": [
-      "city",
-      "سيتي"
-    ],
-    "candidates": [
-      "england-2",
-      "england-15",
-      "england-25",
-      "usa-5"
-    ]
+    "terms": ["city", "سيتي"],
+    "candidates": ["england-2", "england-15", "england-25", "usa-5"]
   },
   {
-    "terms": [
-      "sheffield",
-      "شيفيلد"
-    ],
-    "candidates": [
-      "england-22",
-      "england-23"
-    ]
+    "terms": ["sheffield", "شيفيلد"],
+    "candidates": ["england-22", "england-23"]
   },
   {
-    "terms": [
-      "borussia",
-      "بوروسيا",
-      "بروسيا"
-    ],
-    "candidates": [
-      "germany-1",
-      "germany-8"
-    ]
+    "terms": ["borussia", "بوروسيا", "بروسيا"],
+    "candidates": ["germany-1", "germany-8"]
   },
   {
-    "terms": [
-      "los angeles",
-      "la",
-      "لوس انجلوس"
-    ],
-    "candidates": [
-      "usa-1",
-      "usa-2"
-    ]
+    "terms": ["los angeles", "la", "لوس انجلوس"],
+    "candidates": ["usa-1", "usa-2"]
   },
   {
-    "terms": [
-      "new york",
-      "ny",
-      "نيويورك",
-      "نيو يورك"
-    ],
-    "candidates": [
-      "usa-5",
-      "usa-6"
-    ]
+    "terms": ["new york", "ny", "نيويورك", "نيو يورك"],
+    "candidates": ["usa-5", "usa-6"]
   },
   {
-    "terms": [
-      "al ahli",
-      "alahli",
-      "ahli",
-      "الأهلي",
-      "اهلي"
-    ],
-    "candidates": [
-      "egypt-0",
-      "saudi-3"
-    ]
+    "terms": ["al ahli", "alahli", "ahli", "الأهلي", "اهلي"],
+    "candidates": ["egypt-0", "saudi-3"]
   },
   {
-    "terms": [
-      "al ittihad",
-      "alittihad",
-      "ittihad",
-      "الاتحاد",
-      "اتحاد"
-    ],
-    "candidates": [
-      "saudi-2",
-      "egypt-5"
-    ]
+    "terms": ["al ittihad", "alittihad", "ittihad", "الاتحاد", "اتحاد"],
+    "candidates": ["saudi-2", "egypt-5"]
   },
   {
-    "terms": [
-      "al nasr",
-      "alnasr",
-      "nasr",
-      "النصر",
-      "نصر"
-    ],
-    "candidates": [
-      "saudi-1",
-      "uae-6"
-    ]
+    "terms": ["al nasr", "alnasr", "nasr", "النصر", "نصر"],
+    "candidates": ["saudi-1", "uae-6"]
   }
 ]

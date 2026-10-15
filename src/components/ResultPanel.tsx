@@ -6,6 +6,7 @@ import { formatRankedTime } from '../game/ranked/clock';
 import { type RankedOutcome, rankedModeFor } from '../game/ranked/rankedView';
 import type { ShareOutcome } from '../game/session/share';
 import { Icon } from './Icon';
+import { PlayerName } from './PlayerName';
 
 type SettledOutcome = Extract<RankedOutcome, { elapsedMs: number }>;
 
@@ -128,7 +129,9 @@ function RankedSummary({
         {settled?.displayName && (
           <span className="ranked-result-player">
             <Icon name="ball" />
-            <span dir="auto">{settled.displayName}</span>
+            <span dir="auto">
+              <PlayerName name={settled.displayName} />
+            </span>
           </span>
         )}
         <a className="ranked-result-board" href={leaderboardHref(language, session)}>

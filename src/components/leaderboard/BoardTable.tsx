@@ -1,5 +1,6 @@
 import { useLingui } from '@lingui/react/macro';
 import type { Locale } from '../../i18n/config';
+import { PlayerName } from '../PlayerName';
 import { Avatar } from './Avatar';
 import { formatElapsed, formatRelative } from './format';
 import type { BoardRow, MyStanding } from './types';
@@ -48,7 +49,7 @@ export function BoardTable({ entries, lang, nowMs, mine }: BoardTableProps) {
               <span className="lb-player">
                 <Avatar name={entry.name} anonymous={entry.anonymous} />
                 <span className="lb-name" dir="auto">
-                  {entry.name}
+                  <PlayerName name={entry.name} />
                 </span>
               </span>
             </td>

@@ -4,6 +4,14 @@ import { defineConfig, devices } from '@playwright/test';
 const remoteBaseUrl = process.env.E2E_BASE_URL;
 const localBaseUrl = 'http://127.0.0.1:4173';
 
+// The local server only gets a database through E2E_DATABASE_URL. Blank values stop Next.js from
+// filling them in from `.env.local`, whose database must never receive test players.
+const localServerEnv = {
+  DATABASE_URL: process.env.E2E_DATABASE_URL ?? '',
+  DATABASE_URL_UNPOOLED: '',
+  RATE_LIMIT_SECRET: 'e2e-only',
+};
+
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
@@ -25,6 +33,7 @@ export default defineConfig({
     : {
         webServer: {
           command: 'pnpm exec next start -H 127.0.0.1 -p 4173',
+          env: localServerEnv,
           url: `${localBaseUrl}/en`,
           reuseExistingServer: !process.env.CI,
           timeout: 30000,

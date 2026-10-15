@@ -142,7 +142,7 @@ test('a ranked Free time round ends with the server time and ranks', async () =>
   expect(screen.getByText('00:12.3')).toBeInTheDocument();
   const chips = [...document.querySelectorAll('.ranked-chip')].map((chip) => chip.textContent);
   expect(chips).toEqual(['#1 · Last 24 hours', '#1 · Last 7 days', '#1 · All time']);
-  expect(screen.getByText('Swift Striker #4K2Q')).toBeInTheDocument();
+  expect(document.querySelector('.ranked-result-player')).toHaveTextContent('Swift Striker #4K2Q');
 });
 
 test('a Free time round that cannot reach the server is played locally, not ranked', async () => {
