@@ -1,7 +1,8 @@
-import { fireEvent, screen, within } from '@testing-library/react';
+import { act, fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { expect, test } from 'vitest';
 import { createGameController } from '../game/controller';
+import { createFakeServer, memoryStorage } from '../game/ranked/fakeServer';
 import { renderWithI18n } from '../test/renderWithI18n';
 import { GameScreen } from './GameScreen';
 
@@ -95,4 +96,62 @@ test('disables mode, level and practice selectors while playing and re-enables t
   for (const element of selectors()) {
     expect(element).toBeEnabled();
   }
+});
+
+const rankedRoundId = '0192f0a4-0000-7000-8000-000000000003';
+
+function renderRanked() {
+  const server = createFakeServer();
+  const ranked = { api: server.api, storage: memoryStorage() };
+  renderWithI18n(<GameScreen lang="en" controller={createGameController()} ranked={ranked} />);
+
+  return server;
+}
+
+test('a ranked Free time round ends with the server time and ranks', async () => {
+  const user = userEvent.setup();
+  const server = renderRanked();
+  await user.click(screen.getByRole('button', { name: 'Let’s play' }));
+  const now = Date.now();
+  await act(() =>
+    server.take('/api/rounds').respond(201, {
+      roundId: rankedRoundId,
+      startedAt: now,
+      serverNow: now,
+      displayName: 'Swift Striker #4K2Q',
+    }),
+  );
+  await user.type(screen.getByRole('textbox'), 'Arsenal{Enter}');
+  await act(() =>
+    server.take(`/api/rounds/${rankedRoundId}/answers`).respond(200, {
+      nextSeq: 1,
+      found: ['arsenal'],
+      events: [],
+      phase: 'complete',
+      result: { status: 'verified', elapsedMs: 12_345 },
+    }),
+  );
+  await act(() =>
+    server.take(`/api/rounds/${rankedRoundId}/finish`).respond(200, {
+      status: 'verified',
+      elapsedMs: 12_345,
+      ranks: { day: 1, week: 1, all: 1 },
+      displayName: 'Swift Striker #4K2Q',
+    }),
+  );
+  expect(screen.getByText('00:12.3')).toBeInTheDocument();
+  const chips = [...document.querySelectorAll('.ranked-chip')].map((chip) => chip.textContent);
+  expect(chips).toEqual(['#1 · Last 24 hours', '#1 · Last 7 days', '#1 · All time']);
+  expect(screen.getByText('Swift Striker #4K2Q')).toBeInTheDocument();
+});
+
+test('a Free time round that cannot reach the server is played locally, not ranked', async () => {
+  const user = userEvent.setup();
+  const server = renderRanked();
+  await user.click(screen.getByRole('button', { name: 'Let’s play' }));
+  await act(() => server.take('/api/rounds').failNetwork());
+  expect(screen.getByText('Not ranked')).toBeInTheDocument();
+  await user.type(screen.getByRole('textbox'), 'Arsenal{Enter}');
+  expect(within(screen.getByRole('log')).getByText('Arsenal', { exact: true })).toBeInTheDocument();
+  expect(server.requests).toHaveLength(0);
 });

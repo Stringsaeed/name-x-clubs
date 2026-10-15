@@ -15,12 +15,18 @@ const HAS_LINE_BREAK = /[\r\n]/;
  * Turns a multi-line paste into a comma list inserted over the selection,
  * or returns null when the paste has no line breaks and should be left to the browser.
  */
-export function pasteIntoValue(value: string, start: number, end: number, pasted: string) {
+export function pasteIntoValue(
+  value: string,
+  start: number,
+  end: number,
+  pasted: string,
+  maxLength = MAX_ANSWER_LENGTH,
+) {
   if (!HAS_LINE_BREAK.test(pasted)) {
     return null;
   }
 
-  const room = Math.max(MAX_ANSWER_LENGTH - (value.length - (end - start)), 0);
+  const room = Math.max(maxLength - (value.length - (end - start)), 0);
   const inserted = pasted.trim().replace(LINE_BREAKS_AND_TABS, ', ').slice(0, room);
 
   return {
@@ -96,12 +102,15 @@ export function AnswerComposer({
   session,
   language,
   feedback,
+  maxLength = MAX_ANSWER_LENGTH,
   onSubmit,
   onStart,
 }: {
   session: Session;
   language: Language;
   feedback: readonly AnswerEvent[];
+  /** Ranked rounds take shorter entries than local ones. */
+  maxLength?: number | undefined;
   onSubmit: (text: string) => boolean;
   onStart: () => void;
 }) {
@@ -121,7 +130,8 @@ export function AnswerComposer({
     const field = event.currentTarget;
     const start = field.selectionStart ?? value.length;
     const end = field.selectionEnd ?? start;
-    const result = pasteIntoValue(value, start, end, event.clipboardData.getData('text'));
+    const pasted = event.clipboardData.getData('text');
+    const result = pasteIntoValue(value, start, end, pasted, maxLength);
 
     if (!result) {
       return;
@@ -177,7 +187,7 @@ export function AnswerComposer({
               autoComplete="off"
               autoCapitalize="off"
               spellCheck={false}
-              maxLength={MAX_ANSWER_LENGTH}
+              maxLength={maxLength}
               aria-label={t`Type a club name in English or Arabic`}
               placeholder={t`Type a club name…`}
               disabled={session.round.phase !== 'playing'}

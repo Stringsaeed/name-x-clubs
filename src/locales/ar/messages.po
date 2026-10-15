@@ -73,6 +73,11 @@ msgstr "قائمة أنديتك"
 msgid "This football game needs JavaScript to match your answers and save your progress."
 msgstr "تحتاج هذه اللعبة إلى JavaScript لمطابقة إجاباتك وحفظ تقدمك."
 
+#: src/components/GameCard.tsx
+#: src/components/ResultPanel.tsx
+msgid "Not ranked"
+msgstr "خارج التصنيف"
+
 #: src/components/Header.tsx
 msgid "Switch to English"
 msgstr "Switch to English"
@@ -90,6 +95,7 @@ msgid "This first edition includes a curated club collection, not every club in 
 msgstr "هذه النسخة تضم مجموعة مختارة من الأندية، وليست كل أندية العالم. إذا لم نتعرف على اسم، جرّب الاسم الكامل."
 
 #: src/components/leaderboard/BoardTabs.tsx
+#: src/components/ResultPanel.tsx
 msgid "Last 24 hours"
 msgstr "آخر 24 ساعة"
 
@@ -109,11 +115,16 @@ msgstr "المتصفح لم يتمكن من حفظ الجولة. اترك هذه
 msgid "Time period"
 msgstr "الفترة"
 
+#: src/components/ResultPanel.tsx
+msgid "Checking time…"
+msgstr "نتحقق من الوقت…"
+
 #: src/components/leaderboard/EmptyState.tsx
 msgid "No times yet"
 msgstr "لا توجد أوقات بعد"
 
 #: src/components/leaderboard/BoardTabs.tsx
+#: src/components/ResultPanel.tsx
 msgid "Last 7 days"
 msgstr "آخر 7 أيام"
 
@@ -158,6 +169,10 @@ msgstr "إرسال الإجابة"
 #: src/components/AnswerComposer.tsx
 msgid "{name} is already on your list. Try another club."
 msgstr "{name} موجود في تشكيلتك. جرّب ناديًا ثانيًا."
+
+#: src/components/ResultPanel.tsx
+msgid "Round complete · Mode {target}"
+msgstr "انتهت الجولة · وضع {target}"
 
 #: src/components/Hero.tsx
 msgid "Know your clubs?"
@@ -264,6 +279,10 @@ msgstr "نسخنا النتيجة. أرسلها لأصحابك الكرويين.
 msgid "Switch to Arabic"
 msgstr "التبديل إلى العربية"
 
+#: src/components/ResultPanel.tsx
+msgid "Under review"
+msgstr "قيد المراجعة"
+
 #: src/content/labels.ts
 msgid "Africa"
 msgstr "أفريقيا"
@@ -279,6 +298,7 @@ msgstr "شارك النتيجة"
 #: src/app/[lang]/leaderboard/page.tsx
 #: src/components/Header.tsx
 #: src/components/leaderboard/LeaderboardScreen.tsx
+#: src/components/ResultPanel.tsx
 msgid "Leaderboard"
 msgstr "المتصدرون"
 
@@ -308,6 +328,7 @@ msgid "Good shift."
 msgstr "محاولة حلوة."
 
 #: src/components/leaderboard/BoardTabs.tsx
+#: src/components/ResultPanel.tsx
 msgid "All time"
 msgstr "كل الأوقات"
 

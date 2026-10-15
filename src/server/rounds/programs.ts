@@ -8,10 +8,11 @@
 import 'server-only';
 import { Clock, Crypto, Effect, Option } from 'effect';
 import { SqlClient } from 'effect/sql';
+import type { Locale } from '../../i18n/config';
 import { Captcha } from '../captcha/Captcha';
 import { ServerConfig } from '../config';
 import { NotSignedIn, RoundClosed, RoundInProgress, RoundNotFound, SeqGap } from '../errors';
-import { type Player, PlayerStore } from '../identity/PlayerStore';
+import { displayNameFor, type Player, PlayerStore } from '../identity/PlayerStore';
 import { Leaderboard, periods } from '../leaderboard/Leaderboard';
 import { RateLimit, rateLimitRules } from '../rateLimit/RateLimit';
 import { catalogVersion } from './catalogVersion';
@@ -110,7 +111,13 @@ export const start = Effect.fn('Rounds.start')(function* (caller: Caller, reques
     startedAt: new Date(nowMs),
   });
 
-  return { roundId, startedAt: nowMs, serverNow: nowMs, sessionToken };
+  return {
+    roundId,
+    startedAt: nowMs,
+    serverNow: nowMs,
+    displayName: displayNameFor(player, request.lang),
+    sessionToken,
+  };
 });
 
 const recordVerified = Effect.fn('Rounds.recordVerified')(function* (
@@ -269,7 +276,11 @@ export const answer = Effect.fn('Rounds.answer')(function* (
   );
 });
 
-export const resume = Effect.fn('Rounds.resume')(function* (caller: Caller, roundId: string) {
+export const resume = Effect.fn('Rounds.resume')(function* (
+  caller: Caller,
+  roundId: string,
+  lang?: Locale,
+) {
   const store = yield* RoundStore;
   const player = yield* signedInPlayer(caller);
   const found = yield* store.find(roundId, player.id);
@@ -291,6 +302,7 @@ export const resume = Effect.fn('Rounds.resume')(function* (caller: Caller, roun
     nextSeq: round.nextSeq,
     found: round.found,
     elapsedMs: round.elapsedMs,
+    displayName: displayNameFor(player, lang ?? round.lang),
   };
 });
 
@@ -356,12 +368,13 @@ export const finish = Effect.fn('Rounds.finish')(function* (
   const round = yield* sql.withTransaction(
     Effect.flatMap(locked, (current) => settle(current, request)),
   );
+  const displayName = displayNameFor(player, request.lang ?? round.lang);
 
   if (round.status !== 'verified') {
-    return { status: round.status, elapsedMs: round.elapsedMs, ranks: null };
+    return { status: round.status, elapsedMs: round.elapsedMs, ranks: null, displayName };
   }
 
   const ranks = yield* ranksFor(round);
 
-  return { status: round.status, elapsedMs: round.elapsedMs, ranks };
+  return { status: round.status, elapsedMs: round.elapsedMs, ranks, displayName };
 });

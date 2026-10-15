@@ -1,6 +1,7 @@
 import 'server-only';
 import { Clock, Context, Crypto, Effect, Layer, Option, Schema } from 'effect';
 import { SqlClient, type SqlError } from 'effect/sql';
+import type { Locale } from '../../i18n/config';
 import { sha256Hex } from '../crypto';
 import { decodeFirstRow } from '../db/rows';
 import { type Nickname, Nicknames } from '../nicknames/Nicknames';
@@ -10,7 +11,8 @@ export const sessionLifetimeMs = 400 * 24 * 60 * 60 * 1000;
 
 const sessionTokenBytes = 32;
 
-export type Player = Readonly<{ id: string; nickname: Nickname }>;
+/** `username` is the player's chosen handle (Phase 2), or null while they play anonymously. */
+export type Player = Readonly<{ id: string; nickname: Nickname; username: string | null }>;
 
 export type NewPlayer = Readonly<{ player: Player; sessionToken: string }>;
 
@@ -23,12 +25,30 @@ const PlayerRow = Schema.Struct({
   id: Schema.String,
   nicknameEn: Schema.String,
   nicknameAr: Schema.String,
+  username: Schema.NullOr(Schema.String),
 });
 
 const decodePlayer = decodeFirstRow(PlayerRow);
 
 function toPlayer(row: typeof PlayerRow.Type): Player {
-  return { id: row.id, nickname: { en: row.nicknameEn, ar: row.nicknameAr } };
+  return {
+    id: row.id,
+    nickname: { en: row.nicknameEn, ar: row.nicknameAr },
+    username: row.username,
+  };
+}
+
+/** The name shown to the player and on boards: their username, else the nickname in `lang`. */
+export function displayNameFor(player: Player, lang: Locale) {
+  if (player.username !== null) {
+    return player.username;
+  }
+
+  if (lang === 'ar') {
+    return player.nickname.ar;
+  }
+
+  return player.nickname.en;
 }
 
 export class PlayerStore extends Context.Service<
@@ -54,9 +74,10 @@ export class PlayerStore extends Context.Service<
       const findBySession = Effect.fn('PlayerStore.findBySession')(function* (token: string) {
         const now = new Date(yield* Clock.currentTimeMillis);
         const rows = yield* sql`
-          SELECT p.id::text AS id, p.nickname_en, p.nickname_ar
+          SELECT p.id::text AS id, p.nickname_en, p.nickname_ar, h.display AS username
           FROM credentials c
           JOIN players p ON p.id = c.player_id
+          LEFT JOIN handles h ON h.id = p.handle_id
           WHERE c.token_hash = ${hashSessionToken(token)}
             AND c.kind = 'session'
             AND c.revoked_at IS NULL
@@ -89,7 +110,7 @@ export class PlayerStore extends Context.Service<
           }),
         );
 
-        return { player: { id, nickname }, sessionToken };
+        return { player: { id, nickname, username: null }, sessionToken };
       });
 
       const renewSession = Effect.fn('PlayerStore.renewSession')(function* (token: string) {

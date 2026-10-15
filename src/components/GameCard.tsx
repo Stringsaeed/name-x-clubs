@@ -1,7 +1,11 @@
 import { useLingui } from '@lingui/react/macro';
 import type { GameView } from '../game/controller';
+import { maxEntryLength } from '../game/ranked/answerQueue';
+import type { RankedSnapshot } from '../game/ranked/RankedRound';
+import { isRankedRoundOf, rankedOutcome } from '../game/ranked/rankedView';
 import type { useGameActions } from '../hooks/useGameActions';
 import type { Locale } from '../i18n/config';
+import '../styles/ranked.css';
 import { AnswerComposer } from './AnswerComposer';
 import { AnswerList } from './AnswerList';
 import { ChallengeHeading } from './ChallengeHeading';
@@ -12,17 +16,27 @@ import { ResultPanel } from './ResultPanel';
 
 type GameCardProps = {
   view: GameView;
+  ranked: RankedSnapshot | null;
   language: Locale;
   actions: ReturnType<typeof useGameActions>;
   notify: (message: string) => void;
 };
 
-export function GameCard({ view, language, actions, notify }: GameCardProps) {
+function NotRankedBadge() {
+  const { t } = useLingui();
+
+  return <p className="ranked-badge">{t`Not ranked`}</p>;
+}
+
+export function GameCard({ view, ranked, language, actions, notify }: GameCardProps) {
   const { session, mode, level } = view;
   const { t } = useLingui();
   const phase = session.round.phase;
   const category = session.kind === 'practice' ? session.category : 'world';
   const roundKey = `${session.kind}:${session.challenge.id}:${level}`;
+  const rankedRound = isRankedRoundOf(view, ranked) ? ranked : null;
+  const unranked = rankedRound?.status === 'unranked';
+  const sendsToServer = rankedRound?.status === 'connecting' || rankedRound?.status === 'live';
 
   return (
     <section className="game-card" id="game-card" aria-labelledby="challenge-title">
@@ -35,6 +49,7 @@ export function GameCard({ view, language, actions, notify }: GameCardProps) {
           onCategoryChange={actions.changeCategory}
         />
       )}
+      {unranked && phase === 'playing' && <NotRankedBadge />}
       <ChallengeHeading session={session} />
       <ProgressBar
         level={level}
@@ -56,6 +71,7 @@ export function GameCard({ view, language, actions, notify }: GameCardProps) {
       {phase === 'complete' ? (
         <ResultPanel
           session={session}
+          outcome={rankedOutcome(view, ranked)}
           language={language}
           onShare={actions.shareResult}
           notify={notify}
@@ -67,6 +83,7 @@ export function GameCard({ view, language, actions, notify }: GameCardProps) {
           session={session}
           language={language}
           feedback={view.feedback}
+          maxLength={sendsToServer ? maxEntryLength : undefined}
           onSubmit={actions.submitAnswer}
           onStart={actions.startRound}
         />

@@ -1,6 +1,7 @@
 import 'server-only';
 import { Context, Effect, Layer } from 'effect';
 import type { SqlError } from 'effect/sql';
+import type { Locale } from '../../i18n/config';
 import type {
   CaptchaFailed,
   NotSignedIn,
@@ -37,7 +38,7 @@ export class Rounds extends Context.Service<
       roundId: string,
       request: AnswersRequest,
     ): Effect.Effect<AnswersResponse, CommonError | SeqGap | RoundClosed>;
-    resume(caller: Caller, roundId: string): Effect.Effect<RoundView, CommonError>;
+    resume(caller: Caller, roundId: string, lang?: Locale): Effect.Effect<RoundView, CommonError>;
     finish(
       caller: Caller,
       roundId: string,
@@ -55,7 +56,7 @@ export class Rounds extends Context.Service<
       return Rounds.of({
         start: (caller, request) => withServices(start(caller, request)),
         answer: (caller, roundId, request) => withServices(answer(caller, roundId, request)),
-        resume: (caller, roundId) => withServices(resume(caller, roundId)),
+        resume: (caller, roundId, lang) => withServices(resume(caller, roundId, lang)),
         finish: (caller, roundId, request) => withServices(finish(caller, roundId, request)),
       });
     }),

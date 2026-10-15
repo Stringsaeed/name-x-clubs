@@ -73,6 +73,11 @@ msgstr "YOUR CLUBS"
 msgid "This football game needs JavaScript to match your answers and save your progress."
 msgstr "This football game needs JavaScript to match your answers and save your progress."
 
+#: src/components/GameCard.tsx
+#: src/components/ResultPanel.tsx
+msgid "Not ranked"
+msgstr "Not ranked"
+
 #: src/components/Header.tsx
 msgid "Switch to English"
 msgstr "Switch to English"
@@ -90,6 +95,7 @@ msgid "This first edition includes a curated club collection, not every club in 
 msgstr "This first edition includes a curated club collection, not every club in the world. If we miss one, try its full name."
 
 #: src/components/leaderboard/BoardTabs.tsx
+#: src/components/ResultPanel.tsx
 msgid "Last 24 hours"
 msgstr "Last 24 hours"
 
@@ -109,11 +115,16 @@ msgstr "Your browser couldn’t save this round. Keep this tab open."
 msgid "Time period"
 msgstr "Time period"
 
+#: src/components/ResultPanel.tsx
+msgid "Checking time…"
+msgstr "Checking time…"
+
 #: src/components/leaderboard/EmptyState.tsx
 msgid "No times yet"
 msgstr "No times yet"
 
 #: src/components/leaderboard/BoardTabs.tsx
+#: src/components/ResultPanel.tsx
 msgid "Last 7 days"
 msgstr "Last 7 days"
 
@@ -158,6 +169,10 @@ msgstr "Submit answer"
 #: src/components/AnswerComposer.tsx
 msgid "{name} is already on your list. Try another club."
 msgstr "{name} is already on your list. Try another club."
+
+#: src/components/ResultPanel.tsx
+msgid "Round complete · Mode {target}"
+msgstr "Round complete · Mode {target}"
 
 #: src/components/Hero.tsx
 msgid "Know your clubs?"
@@ -264,6 +279,10 @@ msgstr "Result copied. Send it to your football friends."
 msgid "Switch to Arabic"
 msgstr "Switch to Arabic"
 
+#: src/components/ResultPanel.tsx
+msgid "Under review"
+msgstr "Under review"
+
 #: src/content/labels.ts
 msgid "Africa"
 msgstr "Africa"
@@ -279,6 +298,7 @@ msgstr "Share result"
 #: src/app/[lang]/leaderboard/page.tsx
 #: src/components/Header.tsx
 #: src/components/leaderboard/LeaderboardScreen.tsx
+#: src/components/ResultPanel.tsx
 msgid "Leaderboard"
 msgstr "Leaderboard"
 
@@ -308,6 +328,7 @@ msgid "Good shift."
 msgstr "Good shift."
 
 #: src/components/leaderboard/BoardTabs.tsx
+#: src/components/ResultPanel.tsx
 msgid "All time"
 msgstr "All time"
 

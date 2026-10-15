@@ -9,6 +9,11 @@ const [arsenalLike = '', ...otherNames] = uniqueClubNames(12);
 
 const tenClubs = [arsenalLike, ...otherNames].slice(0, 10);
 
+/** A generated nickname: words, then `#` and a four-character tag. */
+const nicknamePattern = /^\S.* #[0-9A-Z]{4}$/;
+
+const arabicLetter = /[\u0600-\u06FF]/;
+
 let app: TestApp;
 
 beforeEach(async () => {
@@ -63,6 +68,7 @@ describe('starting a ranked round', () => {
       roundId: expect.any(String),
       startedAt: Date.parse('2026-10-14T12:00:00.000Z'),
       serverNow: Date.parse('2026-10-14T12:00:00.000Z'),
+      displayName: expect.stringMatching(nicknamePattern),
     });
     expect(cookie).toContain('HttpOnly');
     expect(cookie).toContain('SameSite=Lax');
@@ -257,7 +263,7 @@ describe('pace policy', () => {
     ).json();
 
     expect(answered.result).toEqual({ status: 'rejected', elapsedMs: 3_000 });
-    expect(finished).toEqual({ status: 'rejected', elapsedMs: 3_000, ranks: null });
+    expect(finished).toMatchObject({ status: 'rejected', elapsedMs: 3_000, ranks: null });
     expect(board.entries).toEqual([]);
   });
 
@@ -314,7 +320,12 @@ describe('resuming and finishing', () => {
     const { body, session } = await playTen(30);
     const first = await (await finish(body.roundId, session)).json();
     const again = await (await finish(body.roundId, session)).json();
-    const expected = { status: 'verified', elapsedMs: 30_000, ranks: { day: 1, week: 1, all: 1 } };
+    const expected = {
+      status: 'verified',
+      elapsedMs: 30_000,
+      ranks: { day: 1, week: 1, all: 1 },
+      displayName: expect.stringMatching(nicknamePattern),
+    };
 
     expect(first).toEqual(expected);
     expect(again).toEqual(expected);
@@ -326,8 +337,94 @@ describe('resuming and finishing', () => {
     const finished = await (await finish(body.roundId, session)).json();
     const late = await answer(body.roundId, session, 1, [otherNames[0] ?? '']);
 
-    expect(finished).toEqual({ status: 'abandoned', elapsedMs: null, ranks: null });
+    expect(finished).toEqual({
+      status: 'abandoned',
+      elapsedMs: null,
+      ranks: null,
+      displayName: expect.stringMatching(nicknamePattern),
+    });
     expect(late.status).toBe(409);
+  });
+});
+
+describe("the owner's display name", () => {
+  function resume(roundId: string, session: string, query = '') {
+    return app.routes.resumeRound(
+      apiRequest(`/api/rounds/${roundId}${query}`, { session }),
+      roundId,
+    );
+  }
+
+  function finishIn(roundId: string, session: string, lang: 'en' | 'ar') {
+    return app.routes.finishRound(
+      apiRequest(`/api/rounds/${roundId}/finish`, { body: { lang }, session }),
+      roundId,
+    );
+  }
+
+  it('names the player in the round language on start, and resume defaults to it', async () => {
+    const started = await app.routes.startRound(
+      apiRequest('/api/rounds', { body: { mode: 't10', lang: 'ar' } }),
+    );
+    const body = await started.json();
+    const session = sessionFrom(started);
+    const resumed = await (await resume(body.roundId, session)).json();
+
+    expect(body.displayName).toMatch(arabicLetter);
+    expect(body.displayName).toMatch(nicknamePattern);
+    expect(resumed.displayName).toBe(body.displayName);
+  });
+
+  it('uses the requested language on resume and finish, with one shared tag', async () => {
+    const { body, session } = await startRound();
+    const english = await (await resume(body.roundId, session, '?lang=en')).json();
+    const arabic = await (await resume(body.roundId, session, '?lang=ar')).json();
+    const finished = await (await finishIn(body.roundId, session, 'ar')).json();
+    const tag = (name: string) => name.slice(name.lastIndexOf('#'));
+
+    expect(english.displayName).toBe(body.displayName);
+    expect(english.displayName).not.toMatch(arabicLetter);
+    expect(arabic.displayName).toMatch(arabicLetter);
+    expect(tag(arabic.displayName)).toBe(tag(english.displayName));
+    expect(finished.displayName).toBe(arabic.displayName);
+  });
+
+  it('rejects an unknown resume language with 400', async () => {
+    const { body, session } = await startRound();
+    const response = await resume(body.roundId, session, '?lang=fr');
+
+    expect(response.status).toBe(400);
+  });
+
+  it('prefers a username over the nickname', async () => {
+    const { body, session } = await startRound();
+    await app.run(
+      Effect.gen(function* () {
+        const sql = yield* SqlClient.SqlClient;
+        const handleId = '0192a000-0000-7000-8000-000000000001';
+
+        yield* sql`
+          INSERT INTO handles (id, player_id, display, skeleton, created_at)
+          SELECT ${handleId}::uuid, player_id, 'saeed', 'saeed', now() FROM rounds
+          WHERE id = ${body.roundId}::uuid
+        `;
+        yield* sql`UPDATE players SET handle_id = ${handleId}::uuid`;
+      }),
+    );
+    const resumed = await (await resume(body.roundId, session, '?lang=ar')).json();
+    const finished = await (await finishIn(body.roundId, session, 'en')).json();
+
+    expect(resumed.displayName).toBe('saeed');
+    expect(finished.displayName).toBe('saeed');
+  });
+
+  it('keeps the name out of answers responses and is never cached', async () => {
+    const { body, session } = await startRound();
+    const answered = await answer(body.roundId, session, 0, [arsenalLike]);
+    const resumed = await resume(body.roundId, session);
+
+    expect(await answered.json()).not.toHaveProperty('displayName');
+    expect(resumed.headers.get('cache-control')).toBe('private, no-store');
   });
 });
 

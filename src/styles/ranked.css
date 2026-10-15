@@ -1,0 +1,142 @@
+/* Ranked rounds: the "Not ranked" badge and the server's result. */
+
+.ranked-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 16px 0 -10px;
+  padding: 4px 10px;
+  border: 1px solid #ecdcc8;
+  border-radius: 99px;
+  background: #fbf2e9;
+  color: #977246;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.result-header .ranked-badge {
+  margin: 0;
+  margin-inline-start: auto;
+  align-self: center;
+}
+
+.result-panel.is-ranked {
+  text-align: center;
+}
+
+.ranked-result-label {
+  margin: 0 0 6px;
+  color: #89917d;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.ranked-result-time {
+  margin: 0;
+  font-size: 56px;
+  font-weight: 1000;
+  letter-spacing: -2.5px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.ranked-result-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.ranked-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid #e0e8d1;
+  border-radius: 99px;
+  background: var(--soft);
+  color: #486040;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ranked-chip b {
+  font-weight: 1000;
+}
+
+.ranked-chip .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.ranked-chip.is-lead {
+  border-color: #bfe05a;
+  background: var(--lime);
+  color: var(--green);
+}
+
+.ranked-result-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 16px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ranked-result-player,
+.ranked-result-board {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ranked-result-player {
+  color: var(--muted);
+}
+
+.ranked-result-board {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: #bfe05a;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.ranked-result-player .icon,
+.ranked-result-board .icon {
+  width: 15px;
+  height: 15px;
+}
+
+html[lang="ar"] .ranked-result-board .icon {
+  transform: scaleX(-1);
+}
+
+.result-panel.is-ranked .result-actions {
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .ranked-result-time {
+    font-size: 44px;
+    letter-spacing: -2px;
+  }
+
+  .ranked-result-chips {
+    gap: 6px;
+    margin: 8px 0;
+  }
+
+  .ranked-chip {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
