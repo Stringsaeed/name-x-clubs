@@ -8,8 +8,13 @@ msgstr ""
 "Language: en\n"
 
 #: src/components/AnswerList.tsx
+#: src/components/StickerAlbum.tsx
 msgid "Accepted clubs"
 msgstr "Accepted clubs"
+
+#: src/components/AnswerComposer.tsx
+msgid "Game keyboard"
+msgstr "Game keyboard"
 
 #: src/content/labels.ts
 msgid "{count, plural, one {# club} other {# clubs}}"
@@ -22,6 +27,10 @@ msgstr "Asia"
 #: src/components/leaderboard/BoardTable.tsx
 msgid "When"
 msgstr "When"
+
+#: src/components/StickerAlbum.tsx
+msgid "Sticker album"
+msgstr "Sticker album"
 
 #: src/components/HelpDialog.tsx
 msgid "Your progress and elapsed time are saved in this browser."
@@ -111,6 +120,10 @@ msgstr "Top 3"
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "Your browser couldn’t save this round. Keep this tab open."
 
+#: src/components/StickerAlbum.tsx
+msgid "{remaining} left to collect"
+msgstr "{remaining} left to collect"
+
 #: src/components/leaderboard/BoardTabs.tsx
 msgid "Time period"
 msgstr "Time period"
@@ -122,6 +135,10 @@ msgstr "Checking time…"
 #: src/components/leaderboard/EmptyState.tsx
 msgid "No times yet"
 msgstr "No times yet"
+
+#: src/components/ClubKeyboard.tsx
+msgid "Delete"
+msgstr "Delete"
 
 #: src/components/leaderboard/BoardTabs.tsx
 #: src/components/ResultPanel.tsx
@@ -153,6 +170,10 @@ msgstr "Game modes"
 msgid "Name {clubs} from <focus>{region}.</focus>"
 msgstr "Name {clubs} from <focus>{region}.</focus>"
 
+#: src/components/StickerAlbum.tsx
+msgid "Album complete!"
+msgstr "Album complete!"
+
 #: src/components/Timer.tsx
 msgctxt "timer caption"
 msgid "elapsed"
@@ -178,6 +199,10 @@ msgstr "Round complete · Mode {target}"
 msgid "Know your clubs?"
 msgstr "Know your clubs?"
 
+#: src/components/AnswerComposer.tsx
+msgid "System keyboard"
+msgstr "System keyboard"
+
 #: src/components/HelpDialog.tsx
 msgid "How many clubs have you got?"
 msgstr "How many clubs have you got?"
@@ -185,6 +210,10 @@ msgstr "How many clubs have you got?"
 #: src/components/HelpDialog.tsx
 msgid "Got it. Let’s play."
 msgstr "Got it. Let’s play."
+
+#: src/components/StickerAlbum.tsx
+msgid "Next"
+msgstr "Next"
 
 #: src/components/Header.tsx
 #: src/game/session/share.ts
@@ -212,6 +241,10 @@ msgstr "Type a club name in English or Arabic"
 msgid "Time"
 msgstr "Time"
 
+#: src/components/ClubKeyboard.tsx
+msgid "Keyboard"
+msgstr "Keyboard"
+
 #: src/content/labels.ts
 msgid "Anywhere in the world"
 msgstr "Anywhere in the world"
@@ -226,6 +259,10 @@ msgstr "Mode {target}"
 msgid "We couldn’t match “{input}”. Try the full name or another spelling."
 msgstr "We couldn’t match “{input}”. Try the full name or another spelling."
 
+#: src/components/ThemeToggle.tsx
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
 #: src/components/AnswerComposer.tsx
 msgid "{name}. That’s one!"
 msgstr "{name}. That’s one!"
@@ -233,6 +270,18 @@ msgstr "{name}. That’s one!"
 #: src/components/PracticeControls.tsx
 msgid "Surprise me"
 msgstr "Surprise me"
+
+#: src/components/ClubKeyboard.tsx
+msgid "Shift"
+msgstr "Shift"
+
+#: src/components/ClubKeyboard.tsx
+msgid "Space"
+msgstr "Space"
+
+#: src/components/ThemeToggle.tsx
+msgid "Switch to light mode"
+msgstr "Switch to light mode"
 
 #: src/components/PracticeControls.tsx
 msgid "Pick your pitch"
@@ -246,11 +295,19 @@ msgstr "An illustrated football pitch with shirts and a football"
 msgid "How to play"
 msgstr "How to play"
 
+#: src/components/StickerAlbum.tsx
+msgid "Scroll to see more sticker slots"
+msgstr "Scroll to see more sticker slots"
+
 #: src/app/[lang]/layout.tsx
 msgid "Name 10, 50 or 100 football clubs. Play at your own pace in English or Arabic."
 msgstr "Name 10, 50 or 100 football clubs. Play at your own pace in English or Arabic."
 
-#: src/components/ProgressBar.tsx
+#: src/components/StickerAlbum.tsx
+msgid "More slots below"
+msgstr "More slots below"
+
+#: src/components/GameCard.tsx
 msgid "Finish round"
 msgstr "Finish round"
 
@@ -315,6 +372,10 @@ msgstr "Type a club name…"
 msgid "Player"
 msgstr "Player"
 
+#: src/components/ClubKeyboard.tsx
+msgid "Return"
+msgstr "Return"
+
 #: src/components/HelpDialog.tsx
 msgid "Name 10, 50 or 100 clubs at your own pace. The clock measures how long you take. Practice adds countries, regions and letters."
 msgstr "Name 10, 50 or 100 clubs at your own pace. The clock measures how long you take. Practice adds countries, regions and letters."
@@ -335,10 +396,6 @@ msgstr "All time"
 #: src/components/HelpDialog.tsx
 msgid "If a name could mean more than one club, add the city or country. Different names for the same club only count once."
 msgstr "If a name could mean more than one club, add the city or country. Different names for the same club only count once."
-
-#: src/components/HelpDialog.tsx
-msgid "Close"
-msgstr "Close"
 
 #: src/components/AnswerComposer.tsx
 msgid "{name} is a club, but doesn’t fit this challenge."

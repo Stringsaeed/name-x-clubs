@@ -45,7 +45,7 @@ export function GameScreen({ lang: language, controller: injected, ranked }: Gam
         />
         <main>
           <Hero />
-          <div className="game-layout">
+          <div className="game-layout album-layout">
             <GameCard
               view={view}
               ranked={snapshot.ranked}

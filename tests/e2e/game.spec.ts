@@ -29,10 +29,20 @@ test.beforeEach(async ({ page }) => {
 async function practice(page: import('@playwright/test').Page) {
   await page.getByRole('button', { name: 'Practice', exact: true }).click();
 }
+/** Phones start on the in-page keyboard, which does not take a pasted list. */
+async function submitAnswer(page: Page, text: string) {
+  const system = page.locator('[data-keyboard="system"]');
+  if (await system.isVisible()) {
+    await system.click();
+  }
+  const field = page.getByRole('textbox');
+  await expect(field).toBeEditable();
+  await field.fill(text);
+  await page.locator('#answer-form .submit-answer').click();
+}
 test('accepts bilingual aliases once and resumes the free-time round', async ({ page }) => {
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill('Arsenal, مانشستر يونايتد, Man Utd');
-  await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
+  await submitAnswer(page, 'Arsenal, مانشستر يونايتد, Man Utd');
   expect(await page.getByRole('log').locator('li').count()).toBe(2);
   await expect(page.getByRole('status')).toContainText('already on your list');
   await reloadReady(page);
@@ -82,8 +92,7 @@ test('restores random practice mode, question and accepted clubs', async ({ page
   await page.getByRole('button', { name: 'Surprise me', exact: true }).click();
   const question = await page.getByRole('heading', { level: 2 }).innerText();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill('Arsenal, Barcelona');
-  await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
+  await submitAnswer(page, 'Arsenal, Barcelona');
   await reloadReady(page);
   await expect(page.getByRole('heading', { level: 2 })).toHaveText(question);
   await expect(page.getByRole('textbox')).toBeEnabled();
@@ -96,8 +105,7 @@ test('plays in Arabic with real crests and a bottom composer', async ({ page }, 
   await page.waitForURL(/\/ar/);
   await page.locator('.site-shell[data-ready]').waitFor();
   await page.getByRole('button', { name: 'يلا نلعب', exact: true }).click();
-  await page.getByRole('textbox').fill('الهلال السعودي، الأهلي المصري، العين، الزمالك');
-  await page.getByRole('button', { name: 'إرسال الإجابة', exact: true }).click();
+  await submitAnswer(page, 'الهلال السعودي، الأهلي المصري، العين، الزمالك');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
   await expect(page.getByRole('log').locator('li')).toHaveCount(4);
   await expect(page.locator('.crest-frame.has-logo')).toHaveCount(4);
@@ -116,8 +124,7 @@ test('caps a 100-club round and shows a complete result', async ({ page }) => {
   await practice(page);
   await page.getByRole('button', { name: 'Mode 100' }).click();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill(worldwideNames(103).join(', '));
-  await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
+  await submitAnswer(page, worldwideNames(103).join(', '));
   await expect(page.getByRole('log').locator('li')).toHaveCount(100);
   await expect(page.getByRole('heading', { name: 'You know ball.', exact: true })).toBeVisible();
   await expect(page.getByText('100 / 100 · 00:00', { exact: true })).toBeVisible();
@@ -126,8 +133,7 @@ test('scrolls long answer history without moving the composer', async ({ page })
   await practice(page);
   await page.getByRole('button', { name: 'Mode 100' }).click();
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill(worldwideNames(95).join(', '));
-  await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
+  await submitAnswer(page, worldwideNames(95).join(', '));
   await expect(page.getByRole('log').locator('li')).toHaveCount(95);
   await expect(page.getByRole('textbox')).toBeInViewport();
   await page.getByRole('log').getByText('Arsenal', { exact: true }).scrollIntoViewIfNeeded();
@@ -137,8 +143,7 @@ test('keeps an initials badge when a crest request fails', async ({ page }) => {
   await page.route('**/assets/crests/england-0.webp', (route) => route.abort());
   await practice(page);
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill('Arsenal');
-  await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
+  await submitAnswer(page, 'Arsenal');
   const row = page.getByRole('log').locator('li');
   await expect(row.locator('img')).toHaveCount(0);
   await expect(row.locator('.club-crest')).toHaveText('A');
@@ -154,8 +159,7 @@ test('elapsed time rises without expiring and freezes on finishing across reload
   page,
 }) => {
   await page.getByRole('button', { name: 'Let’s play', exact: true }).click();
-  await page.getByRole('textbox').fill('Arsenal');
-  await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
+  await submitAnswer(page, 'Arsenal');
   await page.clock.setFixedTime(new Date('2026-10-14T12:06:15Z'));
   await expect(page.locator('#timer-text')).toHaveText('06:15');
   await expect(page.getByRole('textbox')).toBeEnabled();

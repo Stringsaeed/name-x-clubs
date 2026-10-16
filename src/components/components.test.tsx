@@ -8,6 +8,7 @@ import { GameScreen } from '../screens/GameScreen';
 import { renderWithI18n } from '../test/renderWithI18n';
 import { pasteIntoValue } from './AnswerComposer';
 import { AnswerList } from './AnswerList';
+import { deleteText, insertText } from './answerEdit';
 import { Timer } from './Timer';
 
 const iconRenders = vi.hoisted(() => ({ count: 0 }));
@@ -69,6 +70,15 @@ test('showing the same toast message twice restarts the 4s timer', () => {
 
   act(() => vi.advanceTimersByTime(1001));
   expect(screen.queryByText('Copied')).not.toBeInTheDocument();
+});
+
+test('the game keyboard inserts and deletes around the caret', () => {
+  expect(insertText('Ar', 2, 2, 's', 120)).toEqual({ value: 'Ars', caret: 3 });
+  expect(insertText('Arsenal', 0, 2, 'X', 120)).toEqual({ value: 'Xsenal', caret: 1 });
+  expect(insertText('abcd', 4, 4, 'ef', 5)).toEqual({ value: 'abcde', caret: 5 });
+  expect(deleteText('Arsenal', 7, 7)).toEqual({ value: 'Arsena', caret: 6 });
+  expect(deleteText('Arsenal', 2, 5)).toEqual({ value: 'Aral', caret: 2 });
+  expect(deleteText('A', 0, 0)).toEqual({ value: 'A', caret: 0 });
 });
 
 test('pasting a newline-separated list converts newlines and tabs to commas at the cursor', () => {

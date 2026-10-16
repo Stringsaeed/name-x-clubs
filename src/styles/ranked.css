@@ -7,10 +7,10 @@
   flex-shrink: 0;
   margin: 16px 0 -10px;
   padding: 4px 10px;
-  border: 1px solid #ecdcc8;
+  border: 1px solid var(--warning-line);
   border-radius: 99px;
-  background: #fbf2e9;
-  color: #977246;
+  background: var(--warning-bg);
+  color: var(--warning);
   font-size: 11px;
   font-weight: 900;
   white-space: nowrap;
@@ -28,7 +28,7 @@
 
 .ranked-result-label {
   margin: 0 0 6px;
-  color: #89917d;
+  color: var(--muted);
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 1.2px;
@@ -57,10 +57,10 @@
   align-items: center;
   gap: 5px;
   padding: 6px 12px;
-  border: 1px solid #e0e8d1;
+  border: 1px solid var(--line);
   border-radius: 99px;
   background: var(--soft);
-  color: #486040;
+  color: var(--green);
   font-size: 12px;
   font-weight: 800;
   white-space: nowrap;
@@ -76,9 +76,9 @@
 }
 
 .ranked-chip.is-lead {
-  border-color: #bfe05a;
+  border-color: var(--selected-line);
   background: var(--lime);
-  color: var(--green);
+  color: var(--on-accent);
 }
 
 .ranked-result-footer {

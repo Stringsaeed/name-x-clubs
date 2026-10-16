@@ -7,6 +7,11 @@ const serverTests = 'src/server/**/*.test.ts';
 export default defineConfig({
   // `lingui` runs first (enforce: 'pre') and transforms Lingui macros natively.
   plugins: [lingui({ macroTransform: true })],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   oxc: { jsx: { runtime: 'automatic' } },
   test: {
     restoreMocks: true,

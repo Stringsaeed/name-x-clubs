@@ -1,39 +1,16 @@
 import { useLingui } from '@lingui/react/macro';
-import { type ClipboardEvent, useEffect, useRef, useState } from 'react';
-import { flushSync } from 'react-dom';
+import { Button } from '@/components/ui/button';
 import type { Club } from '../content/catalog';
 import type { AnswerEvent } from '../game/engine';
 import type { Language, Session } from '../game/model';
+import { useAnswerDraft } from '../hooks/useAnswerDraft';
+import { ClubKeyboard } from './ClubKeyboard';
+import { ArrowGameIcon } from './fluidGameIcons';
 import { Icon } from './Icon';
 
 const MAX_ANSWER_LENGTH = 12000;
-const LINE_BREAKS_AND_TABS = /\s*[\r\n\t]+\s*/g;
 
-const HAS_LINE_BREAK = /[\r\n]/;
-
-/**
- * Turns a multi-line paste into a comma list inserted over the selection,
- * or returns null when the paste has no line breaks and should be left to the browser.
- */
-export function pasteIntoValue(
-  value: string,
-  start: number,
-  end: number,
-  pasted: string,
-  maxLength = MAX_ANSWER_LENGTH,
-) {
-  if (!HAS_LINE_BREAK.test(pasted)) {
-    return null;
-  }
-
-  const room = Math.max(maxLength - (value.length - (end - start)), 0);
-  const inserted = pasted.trim().replace(LINE_BREAKS_AND_TABS, ', ').slice(0, room);
-
-  return {
-    value: value.slice(0, start) + inserted + value.slice(end),
-    caret: start + inserted.length,
-  };
-}
+export { pasteIntoValue } from './answerEdit';
 
 function clubDisplayName(club: Club, language: Language) {
   return language === 'ar' ? club.arabic : club.name;
@@ -115,39 +92,7 @@ export function AnswerComposer({
   onStart: () => void;
 }) {
   const { t } = useLingui();
-  const [value, setValue] = useState('');
-  const input = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (session.round.phase === 'playing') {
-      input.current?.focus();
-    } else {
-      setValue('');
-    }
-  }, [session.round.phase]);
-
-  const handlePaste = (event: ClipboardEvent<HTMLInputElement>) => {
-    const field = event.currentTarget;
-    const start = field.selectionStart ?? value.length;
-    const end = field.selectionEnd ?? start;
-    const pasted = event.clipboardData.getData('text');
-    const result = pasteIntoValue(value, start, end, pasted, maxLength);
-
-    if (!result) {
-      return;
-    }
-
-    event.preventDefault();
-    setValue(result.value);
-    requestAnimationFrame(() => field.setSelectionRange(result.caret, result.caret));
-  };
-
-  // Focus has to happen inside the tap so iOS raises the keyboard: flush the round start first.
-  const handleStart = () => {
-    flushSync(onStart);
-    input.current?.focus();
-  };
-
+  const draft = useAnswerDraft(session, maxLength, onSubmit, onStart);
   const idle = session.round.phase === 'idle';
 
   return (
@@ -155,10 +100,14 @@ export function AnswerComposer({
       <FeedbackLines feedback={feedback} language={language} />
       <div className="composer-stack">
         {idle && (
-          <button className="button button-primary start-round" type="button" onClick={handleStart}>
+          <Button
+            className="start-round"
+            type="button"
+            trailingIcon={ArrowGameIcon}
+            onClick={draft.start}
+          >
             {t`Let’s play`}
-            <Icon name="arrow" />
-          </button>
+          </Button>
         )}
         <form
           className={`answer-form ${idle ? 'is-hidden' : ''}`}
@@ -166,24 +115,18 @@ export function AnswerComposer({
           id="answer-form"
           onSubmit={(event) => {
             event.preventDefault();
-            if (!value.trim()) {
-              return;
-            }
-            const accepted = onSubmit(value.trim());
-            if (accepted) {
-              setValue('');
-            } else {
-              input.current?.select();
-            }
+            draft.submit();
           }}
         >
           <div className="input-wrapper">
             <Icon name="ball" className="input-ball" />
             <input
-              ref={input}
+              ref={draft.input}
               id="club-input"
               type="text"
               dir="auto"
+              inputMode={draft.gameKeyboard.active ? 'none' : 'text'}
+              readOnly={draft.gameKeyboard.active}
               autoComplete="off"
               autoCapitalize="off"
               spellCheck={false}
@@ -191,9 +134,10 @@ export function AnswerComposer({
               aria-label={t`Type a club name in English or Arabic`}
               placeholder={t`Type a club name…`}
               disabled={session.round.phase !== 'playing'}
-              value={value}
-              onChange={(event) => setValue(event.currentTarget.value)}
-              onPaste={handlePaste}
+              value={draft.value}
+              onChange={draft.onChange}
+              onSelect={draft.onSelect}
+              onPaste={draft.onPaste}
             />
             <button
               className="submit-answer"
@@ -204,6 +148,36 @@ export function AnswerComposer({
               <Icon name="arrow" />
             </button>
           </div>
+          {draft.gameKeyboard.offered && !draft.gameKeyboard.active && (
+            <Button
+              className="game-keyboard-toggle"
+              type="button"
+              variant="ghost"
+              onClick={draft.useInPageKeyboard}
+            >
+              {t`Game keyboard`}
+            </Button>
+          )}
+          {draft.gameKeyboard.active && (
+            <>
+              <Button
+                className="game-keyboard-toggle"
+                type="button"
+                variant="ghost"
+                data-keyboard="system"
+                onClick={draft.useSystemKeyboard}
+              >
+                {t`System keyboard`}
+              </Button>
+              <ClubKeyboard
+                shift={draft.shift}
+                onShift={draft.toggleShift}
+                onCharacter={draft.typeCharacter}
+                onDelete={draft.remove}
+                onSubmit={draft.submit}
+              />
+            </>
+          )}
         </form>
       </div>
     </div>

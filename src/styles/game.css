@@ -1,23 +1,94 @@
 :root {
-  --paper: #f7f8f2;
-  --white: #fffefa;
-  --ink: #203e32;
-  --muted: #7a8478;
-  --line: #e4e8dc;
-  --green: #244f3b;
+  color-scheme: dark;
+  --paper: #111a16;
+  --white: #1b2720;
+  --ink: #edf3e7;
+  --muted: #acb9a4;
+  --line: #354638;
+  --green: #b9dc8b;
   --lime: #d2f571;
-  --soft: #eff3e7;
+  --soft: #263529;
+  --on-accent: #183020;
+  --on-green: #183020;
+  --accent-hover: #e0ffa0;
+  --selected: #304527;
+  --selected-line: #799d50;
+  --warning: #edbd83;
+  --warning-bg: #382c20;
+  --warning-line: #705437;
+  --shadow: #00000040;
+  --backdrop: #050d09b3;
+  --album-dot: #344331;
+  --album-seam: #41533c;
+  --album-ghost: #1b272099;
+  --key: #435148;
+  --key-pressed: #627366;
   --radius: 22px;
   font-family: var(--font-nunito), var(--font-alan-sans), sans-serif;
   color: var(--ink);
   background: var(--paper);
   font-synthesis: none;
 }
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #f7f8f2;
+  --white: #fffefa;
+  --ink: #203e32;
+  --muted: #5d6d56;
+  --line: #dce3d2;
+  --green: #244f3b;
+  --soft: #eff3e7;
+  --on-green: #fffef8;
+  --accent-hover: #326149;
+  --selected: #e6f0d6;
+  --selected-line: #789b4d;
+  --warning: #865d2e;
+  --warning-bg: #fbf2e9;
+  --warning-line: #ecdcc8;
+  --shadow: #203e3214;
+  --backdrop: #15342360;
+  --album-dot: #ccd5be;
+  --album-seam: #dfe5d5;
+  --album-ghost: #fffefa85;
+  --key: #fffefa;
+  --key-pressed: #c7d2bc;
+}
+.theme-button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  min-height: 42px;
+  flex-shrink: 0;
+  color: var(--muted);
+  border-radius: 10px;
+}
+.theme-button:hover {
+  color: var(--ink);
+  background: var(--soft);
+}
+@media (max-width: 760px) {
+  .header-actions {
+    gap: 6px;
+  }
+  .theme-button {
+    width: 28px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
+}
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+  mask: url("/assets/doodles.svg") 0 0 / 200px 200px repeat;
 }
 button,
 input,
@@ -46,7 +117,7 @@ a {
 button:focus-visible,
 a:focus-visible,
 select:focus-visible {
-  outline: 3px solid #86aa42;
+  outline: 3px solid var(--selected-line);
   outline-offset: 4px;
 }
 button {
@@ -100,6 +171,7 @@ a {
   place-items: center;
   border-radius: 13px;
   transform: rotate(-9deg);
+  color: var(--on-accent);
 }
 .brand-mark .icon {
   width: 26px;
@@ -113,13 +185,13 @@ a {
   margin: 0 3px;
 }
 .brand-period {
-  color: #92b653;
+  color: var(--muted);
 }
 .main-nav {
   display: flex;
   gap: 5px;
   padding: 5px;
-  background: #edf0e6;
+  background: var(--soft);
   border-radius: 14px;
 }
 .nav-item {
@@ -131,7 +203,7 @@ a {
   padding: 11px 16px;
   border-radius: 10px;
   white-space: nowrap;
-  color: #77816f;
+  color: var(--muted);
   transition:
     background 0.2s,
     color 0.2s;
@@ -143,7 +215,7 @@ a {
 .nav-item.active {
   background: var(--white);
   color: var(--ink);
-  box-shadow: 0 2px 5px #253c1910;
+  box-shadow: 0 2px 5px var(--shadow);
 }
 .header-actions {
   display: flex;
@@ -171,7 +243,7 @@ a {
   place-items: center;
   width: 32px;
   height: 42px;
-  color: #7a8478;
+  color: var(--muted);
 }
 .game-layout {
   display: grid;
@@ -184,7 +256,7 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 27px 30px 25px;
-  box-shadow: 0 4px 0 #e5e9dd50;
+  box-shadow: 0 4px 0 var(--shadow);
   scroll-margin-top: 22px;
 }
 .challenge-heading {
@@ -203,10 +275,10 @@ a {
   max-width: 440px;
 }
 .challenge-heading h2 .country-name {
-  color: #6d894b;
+  color: var(--green);
 }
 .challenge-detail {
-  color: #8a9282;
+  color: var(--muted);
   font-size: 11px;
   font-weight: 500;
   margin: 9px 0 0;
@@ -215,8 +287,8 @@ a {
   width: 91px;
   min-width: 91px;
   height: 91px;
-  background: #f2f5e9;
-  border: 1px solid #e7ecdb;
+  background: var(--soft);
+  border: 1px solid var(--line);
   border-radius: 50%;
   display: flex;
   flex-wrap: wrap;
@@ -225,7 +297,7 @@ a {
   align-content: center;
   gap: 4px;
   padding: 14px 9px;
-  color: #5c714a;
+  color: var(--green);
   direction: ltr;
 }
 .timer > .icon {
@@ -243,11 +315,11 @@ a {
   text-align: center;
   font-size: 8px;
   font-weight: 700;
-  color: #8d9a78;
+  color: var(--muted);
 }
 .timer.running {
-  border-color: #a5c16e;
-  background: #eff7df;
+  border-color: var(--selected-line);
+  background: var(--selected);
 }
 .progress-heading {
   display: flex;
@@ -257,13 +329,13 @@ a {
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 1.1px;
-  color: #89917d;
+  color: var(--muted);
 }
 .progress-count {
   font-size: 12px;
   letter-spacing: 0;
   font-weight: 700;
-  color: #a1a794;
+  color: var(--muted);
 }
 .progress-count strong {
   color: var(--ink);
@@ -290,8 +362,8 @@ a {
 .input-wrapper {
   display: flex;
   align-items: center;
-  border: 1.5px solid #dce3d2;
-  background: #fffefb;
+  border: 1.5px solid var(--line);
+  background: var(--soft);
   border-radius: 12px;
   padding: 5px 6px 5px 13px;
   gap: 10px;
@@ -300,13 +372,13 @@ a {
     border-color 0.2s;
 }
 .input-wrapper:focus-within {
-  border-color: #84a555;
-  box-shadow: 0 0 0 3px #9cc3651c;
+  border-color: var(--selected-line);
+  box-shadow: 0 0 0 3px var(--shadow);
 }
 .input-ball {
   width: 19px;
   height: 19px;
-  color: #a2ac97;
+  color: var(--muted);
 }
 #club-input {
   min-width: 0;
@@ -320,16 +392,16 @@ a {
   font-weight: 700;
 }
 #club-input::placeholder {
-  color: #a3ac99;
+  color: var(--muted);
   font-weight: 500;
 }
 #club-input:disabled {
-  color: #a3ac99;
+  color: var(--muted);
 }
 .submit-answer {
   border-radius: 8px;
   background: var(--green);
-  color: #f7faed;
+  color: var(--on-green);
   width: 35px;
   height: 35px;
   display: grid;
@@ -339,11 +411,11 @@ a {
     transform 0.2s;
 }
 .submit-answer:disabled {
-  background: #eef1e7;
-  color: #a6b197;
+  background: var(--soft);
+  color: var(--muted);
 }
 .submit-answer:not(:disabled):hover {
-  background: #3b654b;
+  background: var(--accent-hover);
   transform: translateX(1px);
 }
 .submit-answer .icon {
@@ -359,12 +431,12 @@ a {
   margin-top: 14px;
   padding: 11px 13px;
   border-radius: 9px;
-  background: #f4f6ed;
-  color: #6c7d52;
+  background: var(--soft);
+  color: var(--green);
 }
 .answer-feedback.error {
-  background: #fbf2e9;
-  color: #997344;
+  background: var(--warning-bg);
+  color: var(--warning);
 }
 .feedback-line + .feedback-line {
   margin-top: 4px;
@@ -396,23 +468,23 @@ a {
 }
 .button-primary {
   background: var(--green);
-  color: #fffef8;
-  box-shadow: 0 2px 0 #163e2c;
+  color: var(--on-green);
+  box-shadow: 0 2px 0 var(--shadow);
 }
 .button-primary:hover {
-  background: #326149;
+  background: var(--accent-hover);
 }
 .button-outline {
-  border: 1px solid #c4d0b4;
+  border: 1px solid var(--line);
   background: transparent;
-  color: #506745;
+  color: var(--green);
 }
 .button-outline:hover {
-  background: #e5eddb;
+  background: var(--soft);
 }
 .text-button {
   font-size: 10px;
-  color: #8a947f;
+  color: var(--muted);
   padding: 8px 0;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -422,14 +494,14 @@ a {
   color: var(--ink);
 }
 .practice-controls {
-  border-bottom: 1px solid #eceee5;
+  border-bottom: 1px solid var(--line);
   padding: 16px 0;
 }
 .practice-controls > label {
   display: block;
   font-size: 10px;
   font-weight: 800;
-  color: #8b977d;
+  color: var(--muted);
   margin-bottom: 7px;
 }
 .category-row {
@@ -439,10 +511,10 @@ a {
 .category-row select {
   flex: 1;
   min-width: 0;
-  border: 1px solid #dce4d0;
+  border: 1px solid var(--line);
   border-radius: 9px;
   padding: 9px 12px;
-  background: #f8faf2;
+  background: var(--soft);
   color: var(--ink);
   font-size: 12px;
   font-weight: 700;
@@ -452,7 +524,7 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid #dce4d0;
+  border: 1px solid var(--line);
   border-radius: 9px;
   padding: 8px 12px;
   font-size: 11px;
@@ -482,6 +554,7 @@ a {
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  color: var(--on-accent);
 }
 .result-header h3 {
   margin: 0 0 3px;
@@ -491,7 +564,7 @@ a {
 }
 .result-header p {
   margin: 0;
-  color: #8b967d;
+  color: var(--muted);
   font-size: 11px;
 }
 .result-actions {
@@ -500,34 +573,32 @@ a {
   flex-wrap: wrap;
   margin-top: 18px;
 }
-.result-actions .button {
+.result-actions > button,
+.result-actions > a {
+  flex: 1;
+  min-width: 0;
+  min-height: 43px;
   font-size: 11px;
+  font-weight: 800;
+  gap: 12px;
 }
-.help-dialog {
-  max-width: 470px;
-  width: calc(100% - 34px);
-  padding: 31px;
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: var(--white);
-  color: var(--ink);
-  box-shadow: 0 20px 100px #15342330;
+/* Fluid primary uses shadcn --foreground/--background; keep label readable on the card. */
+.result-actions > button.text-background {
+  color: var(--background);
+}
+.result-actions > button.text-background svg {
+  stroke: currentColor;
+}
+/* Icon + label as siblings must not sit in a trimmed block column. */
+.game-card button.group span[class*="text-box"] {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  text-box: normal;
+}
+.help-dialog-panel {
   max-height: calc(100dvh - 40px);
   overflow: auto;
-}
-.help-dialog::backdrop {
-  background: #15342360;
-  backdrop-filter: blur(4px);
-}
-.dialog-close {
-  position: absolute;
-  top: 15px;
-  inset-inline-end: 15px;
-  width: 35px;
-  height: 35px;
-  display: grid;
-  place-items: center;
-  color: #8b997b;
 }
 .dialog-ball {
   width: 47px;
@@ -537,26 +608,27 @@ a {
   display: grid;
   place-items: center;
   margin-bottom: 18px;
+  color: var(--on-accent);
 }
 .dialog-ball > .icon {
   width: 29px;
   height: 29px;
 }
-.help-dialog h2 {
+.help-dialog-panel h2 {
   font-size: 29px;
   line-height: 1.2;
   font-weight: 1000;
   letter-spacing: -0.8px;
   margin: 0 0 13px;
 }
-.help-dialog p,
-.help-dialog li {
+.help-dialog-panel p,
+.help-dialog-panel li {
   font-size: 12px;
-  color: #7d8b70;
+  color: var(--muted);
   line-height: 1.8;
 }
 .help-example {
-  background: #eef4e4;
+  background: var(--soft);
   border-radius: 12px;
   padding: 14px;
   margin: 16px 0;
@@ -566,22 +638,19 @@ a {
 }
 .help-example span {
   font-family: var(--font-nunito), var(--font-alan-sans), sans-serif;
-  color: #7e9068;
+  color: var(--muted);
   font-size: 11px;
   line-height: 1.7;
 }
-.help-dialog ul {
+.help-dialog-panel ul {
   padding-inline-start: 17px;
   display: grid;
   gap: 9px;
 }
-.help-dialog .help-footnote {
+.help-dialog-panel .help-footnote {
   font-size: 10px;
-  color: #9ba68e;
+  color: var(--muted);
   margin: 19px 0;
-}
-.help-dialog > .button {
-  width: 100%;
 }
 .toast {
   position: fixed;
@@ -591,10 +660,10 @@ a {
   padding: 12px 20px;
   max-width: calc(100% - 32px);
   background: var(--green);
-  color: #fffef8;
+  color: var(--on-green);
   border-radius: 12px;
   font-size: 12px;
-  box-shadow: 0 4px 20px #14372326;
+  box-shadow: 0 4px 20px var(--shadow);
   z-index: 10;
   text-align: center;
 }
@@ -605,7 +674,7 @@ a {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 9px;
-  background: #f7f9f0;
+  background: var(--soft);
   color: var(--ink);
   padding: 10px;
   margin-top: 10px;
@@ -637,7 +706,7 @@ html[lang="ar"] .submit-answer .icon {
 html[lang="ar"] .input-wrapper {
   padding: 5px 13px 5px 6px;
 }
-html[lang="ar"] .help-dialog h2 {
+html[lang="ar"] .help-dialog-panel h2 {
   letter-spacing: 0;
 }
 @keyframes pop-in {
@@ -775,7 +844,7 @@ html[lang="ar"] .help-dialog h2 {
   .game-card {
     padding: 20px;
     border-radius: 19px;
-    box-shadow: 0 3px 0 #e5e9dd50;
+    box-shadow: 0 3px 0 var(--shadow);
   }
   .challenge-heading {
     margin: 21px 0 24px;
@@ -850,14 +919,7 @@ html[lang="ar"] .help-dialog h2 {
   .result-header h3 {
     font-size: 22px;
   }
-  .result-actions .button {
-    flex: 1;
-    gap: 7px;
-  }
-  .help-dialog {
-    padding: 26px;
-  }
-  .help-dialog h2 {
+  .help-dialog-panel h2 {
     font-size: 26px;
   }
   html[lang="ar"] .challenge-heading h2 {
@@ -955,8 +1017,8 @@ html[lang="ar"] .help-dialog h2 {
 }
 .level-button {
   text-align: start;
-  border: 1px solid #e3e8db;
-  background: #f8faf3;
+  border: 1px solid var(--line);
+  background: var(--soft);
   padding: 11px 12px;
   border-radius: 11px;
   transition:
@@ -964,9 +1026,9 @@ html[lang="ar"] .help-dialog h2 {
     border-color 0.2s;
 }
 .level-button.active {
-  border-color: #9ab971;
-  background: #edf5dd;
-  box-shadow: inset 0 0 0 1px #9ab97120;
+  border-color: var(--selected-line);
+  background: var(--selected);
+  box-shadow: inset 0 0 0 1px var(--shadow);
 }
 .level-button strong {
   font-size: 13px;
@@ -992,16 +1054,6 @@ html[lang="ar"] .help-dialog h2 {
   margin: 0 0 7px;
   min-height: 25px;
 }
-.progress-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.progress-actions .text-button {
-  font-size: 9px;
-  min-height: 25px;
-  padding: 4px 0;
-}
 #round-progress {
   display: block;
   appearance: none;
@@ -1010,21 +1062,21 @@ html[lang="ar"] .help-dialog h2 {
   height: 4px;
   width: 100%;
   border-radius: 3px;
-  background: #edf1e4;
-  color: #a0c56a;
+  background: var(--soft);
+  color: var(--lime);
   overflow: hidden;
 }
 #round-progress::-webkit-progress-bar {
-  background: #edf1e4;
+  background: var(--soft);
   border-radius: 3px;
 }
 #round-progress::-webkit-progress-value {
-  background: #a0c56a;
+  background: var(--lime);
   border-radius: 3px;
   transition: width 0.2s;
 }
 #round-progress::-moz-progress-bar {
-  background: #a0c56a;
+  background: var(--lime);
   border-radius: 3px;
 }
 .conversation {
@@ -1033,7 +1085,7 @@ html[lang="ar"] .help-dialog h2 {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: #d4ddc5 transparent;
+  scrollbar-color: var(--selected-line) transparent;
   padding: 15px 4px;
   margin-inline: -4px;
   position: relative;
@@ -1052,8 +1104,8 @@ html[lang="ar"] .help-dialog h2 {
   gap: 12px;
   padding: 12px 15px;
   flex-shrink: 0;
-  background: #f1f6e8;
-  border: 1px solid #e2ebd5;
+  background: var(--soft);
+  border: 1px solid var(--line);
   border-radius: 14px;
   border-end-start-radius: 4px;
 }
@@ -1064,7 +1116,7 @@ html[lang="ar"] .help-dialog h2 {
   font-family: var(--font-nunito), sans-serif;
   font-size: 11px;
   font-weight: 800;
-  color: #9ba98b;
+  color: var(--muted);
   min-width: 19px;
   direction: ltr;
 }
@@ -1080,8 +1132,8 @@ html[lang="ar"] .help-dialog h2 {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  background: #fffef9b3;
-  border: 1px solid #e4eadb;
+  background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 10px;
 }
 .club-logo {
@@ -1118,13 +1170,13 @@ html[lang="ar"] .help-dialog h2 {
 }
 .answer-name small {
   font-size: 10px;
-  color: #96a287;
+  color: var(--muted);
   font-weight: 600;
 }
 .answer-tick {
   margin-inline-start: auto;
-  color: #88a664;
-  background: #e5efd6;
+  color: var(--green);
+  background: var(--soft);
   width: 23px;
   height: 23px;
   border-radius: 50%;
@@ -1151,9 +1203,9 @@ html[lang="ar"] .help-dialog h2 {
   height: 52px;
   display: grid;
   place-items: center;
-  background: #f0f4e6;
+  background: var(--soft);
   border-radius: 17px;
-  color: #a1b086;
+  color: var(--muted);
   margin-bottom: 14px;
   transform: rotate(-8deg);
 }
@@ -1170,7 +1222,7 @@ html[lang="ar"] .help-dialog h2 {
 }
 .chat-empty p {
   font-size: 11px;
-  color: #9aa38d;
+  color: var(--muted);
   line-height: 1.7;
   margin: 0 0 17px;
 }
@@ -1181,7 +1233,7 @@ html[lang="ar"] .help-dialog h2 {
 .answer-composer {
   margin-top: auto;
   padding-top: 14px;
-  border-top: 1px solid #e8ecdf;
+  border-top: 1px solid var(--line);
   background: var(--white);
 }
 .answer-composer .answer-feedback {
@@ -1206,7 +1258,27 @@ html[lang="ar"] .help-dialog h2 {
 .start-round {
   width: 100%;
   min-height: 56px;
+  height: auto;
   z-index: 1;
+  gap: 17px;
+  padding-block: 11px;
+  padding-inline: 19px;
+  font-size: 12px;
+  font-weight: 800;
+}
+.answer-composer .start-round.text-background {
+  --foreground: var(--green);
+  --background: var(--on-green);
+  color: var(--on-green);
+}
+.answer-composer .start-round.text-background .relative,
+.answer-composer .start-round.text-background svg {
+  color: inherit;
+  stroke: currentColor;
+}
+.answer-composer .start-round .icon {
+  width: 17px;
+  height: 17px;
 }
 .answer-form {
   transition:
@@ -1400,6 +1472,9 @@ html[lang="ar"] .level-button strong {
   .round-active .challenge-detail {
     margin-top: 5px;
   }
+  body.keyboard-open {
+    overflow: hidden;
+  }
   .keyboard-open .site-header {
     display: none;
   }
@@ -1469,8 +1544,8 @@ html[lang="ar"] .level-button strong {
 .storage-notice {
   font-size: 11px;
   line-height: 1.6;
-  color: #977246;
-  background: #fbf2e9;
+  color: var(--warning);
+  background: var(--warning-bg);
   border-radius: 8px;
   padding: 8px 10px;
   margin: 6px 0;
@@ -1559,7 +1634,15 @@ html[lang="ar"] .level-button strong {
     margin: 0;
   }
   .keyboard-open .game-card {
+    position: fixed;
+    top: var(--play-top, 0px);
+    left: 0;
+    right: 0;
+    width: auto;
     height: var(--play-height, 100dvh);
+    min-height: 0;
+    margin: 0;
+    z-index: 5;
     border-radius: 0;
     border: 0;
     padding: 10px 15px;
@@ -1593,7 +1676,7 @@ html[lang="ar"] .level-button strong {
   position: absolute;
   inset: auto -5px 2px;
   height: 16px;
-  background: var(--lime);
+  background: var(--selected);
   border-radius: 48% 28% 35% 22%;
   transform: rotate(-2deg);
   z-index: -1;
@@ -1601,17 +1684,17 @@ html[lang="ar"] .level-button strong {
 .hero-spark {
   width: 28px;
   height: 28px;
-  stroke: #8fae6c;
+  stroke: var(--green);
   stroke-width: 2.7;
   stroke-linecap: round;
-  position: absolute;
-  bottom: 12px;
+  display: inline-block;
+  vertical-align: 0.05em;
   margin-inline-start: 16px;
 }
 .hero-art {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   height: 100%;
   min-height: 0;
 }
@@ -1619,7 +1702,11 @@ html[lang="ar"] .level-button strong {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: right center;
   max-width: 490px;
+}
+html[dir="rtl"] .hero-art img {
+  object-position: left center;
 }
 @media (min-width: 761px) {
   .site-header {
@@ -1644,7 +1731,7 @@ html[lang="ar"] .level-button strong {
   .hero-spark {
     width: 22px;
     height: 22px;
-    bottom: 8px;
+    margin-inline-start: 10px;
   }
   .highlight::after {
     height: 12px;
@@ -1662,9 +1749,258 @@ html[lang="ar"] .level-button strong {
     height: calc(var(--play-height, 100dvh) - 127px);
   }
   .keyboard-open .game-card {
+    position: fixed;
+    top: var(--play-top, 0px);
+    left: 0;
+    right: 0;
+    width: auto;
     height: var(--play-height, 100dvh);
+    min-height: 0;
+    margin: 0;
+    z-index: 5;
   }
 }
+/* Safari keeps the focused field in view by scrolling the page, which leaves a
+   blank band above the keyboard. Pin the card to the visible area instead. */
+body.keyboard-open .site-header,
+body.keyboard-open .hero {
+  display: none;
+}
+body.keyboard-open .game-layout {
+  margin: 0;
+}
+body.keyboard-open .game-card {
+  position: fixed;
+  top: var(--play-top, 0px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--play-height, 100dvh);
+  max-height: var(--play-height, 100dvh);
+  min-height: 0;
+  margin: 0;
+  z-index: 30;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding-top: max(59px, env(safe-area-inset-top));
+  padding-inline: 12px;
+  /* The keyboard shortcut bar sits on top of the visual viewport's bottom edge. */
+  padding-bottom: 54px;
+}
+
+/* In-page keyboard: a short title bar stays up, then the card fills the rest of the phone. */
+body.game-keyboard {
+  overflow: hidden;
+}
+body.game-keyboard .hero {
+  display: none;
+}
+body.game-keyboard .site-shell {
+  position: fixed;
+  top: var(--play-top, 0px);
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  height: var(--play-height, 100dvh);
+  margin: 0;
+  padding: max(54px, env(safe-area-inset-top)) 0 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+body.game-keyboard .site-shell > main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+body.game-keyboard .game-layout {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body.game-keyboard .site-header {
+  display: flex;
+  flex-shrink: 0;
+  height: 42px;
+  margin: 0;
+  padding-inline: 14px;
+  position: relative;
+  border-bottom: 0;
+  background: transparent;
+}
+body.game-keyboard .main-nav {
+  display: none;
+}
+body.game-keyboard .brand {
+  font-size: 20px;
+  gap: 7px;
+}
+body.game-keyboard .brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+}
+body.game-keyboard .brand-mark .icon {
+  width: 18px;
+  height: 18px;
+}
+body.game-keyboard .game-card {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  margin: 0;
+  z-index: 1;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding-top: 4px;
+  padding-inline: 12px;
+  padding-bottom: 0;
+}
+body.game-keyboard .album-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+body.game-keyboard .album-layout .album-viewport.conversation {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+body.game-keyboard .level-picker,
+body.game-keyboard .practice-controls,
+body.game-keyboard .challenge-detail {
+  display: none !important;
+}
+body.game-keyboard .challenge-heading {
+  margin: 8px 0;
+}
+body.game-keyboard .challenge-heading h2 {
+  font-size: 18px;
+}
+body.game-keyboard .challenge-heading br {
+  display: none;
+}
+body.game-keyboard .timer-caption {
+  display: none;
+}
+body.game-keyboard .album-bottom {
+  max-inline-size: none;
+}
+body.game-keyboard .album-sheet .album-cells {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: none;
+  grid-auto-rows: minmax(74px, auto);
+  gap: 6px;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+body.game-keyboard .album-sheet[data-album-level="10"],
+body.game-keyboard .album-sheet[data-album-level="10"] .album-slot,
+body.game-keyboard .album-sheet[data-album-level="10"] .album-spacer {
+  height: auto;
+  overflow: visible;
+}
+body.game-keyboard .album-sheet[data-album-level="10"] .album-ghost,
+body.game-keyboard .album-sheet[data-album-level="10"] .album-sticker,
+body.game-keyboard .album-sheet[data-album-level="10"] .album-spacer {
+  min-height: 74px;
+}
+body.game-keyboard .album-sheet[data-album-level="10"] .album-sticker {
+  border-width: 2px;
+  border-radius: 12px;
+  padding-block: 6px 4px;
+  padding-inline: 5px;
+}
+body.game-keyboard .album-crest.crest-frame,
+body.game-keyboard .album-sheet[data-album-level="10"] .album-crest.crest-frame {
+  width: 34px;
+  height: 34px;
+}
+body.game-keyboard .album-sheet[data-album-level="10"] .album-club-name {
+  font-size: 11px;
+}
+
+.game-keyboard-toggle {
+  display: flex;
+  margin-inline-start: auto;
+  min-height: 28px;
+  padding-block: 2px;
+  font-size: 11px;
+}
+.club-keyboard {
+  --club-key-gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--club-key-gap);
+  margin-inline: -12px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  border: 0;
+  min-inline-size: 0;
+  padding: 8px 3px max(8px, env(safe-area-inset-bottom));
+  background: var(--paper);
+  font-family: system-ui, sans-serif;
+  user-select: none;
+}
+.club-keyboard-row {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: var(--club-key-gap);
+}
+.club-keyboard-row-home {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  padding-inline: calc((100% + var(--club-key-gap)) / 20);
+}
+.club-keyboard-row-bottom {
+  grid-template-columns: 1.5fr repeat(7, minmax(0, 1fr)) 1.5fr;
+}
+.club-keyboard-row-space {
+  grid-template-columns: minmax(0, 1fr) 24%;
+}
+.club-key {
+  height: 42px;
+  border-radius: 5px;
+  background: var(--key);
+  color: var(--ink);
+  box-shadow: 0 1px 0 var(--shadow);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0;
+}
+.club-key:active,
+.club-key-tool {
+  background: var(--key-pressed);
+  color: var(--ink);
+}
+.club-key-tool.is-on {
+  background: var(--lime);
+  color: var(--on-accent);
+}
+.club-key-space {
+  background: var(--key);
+}
+.club-key:focus-visible {
+  outline-offset: 1px;
+}
+
 @media (min-width: 761px) {
   .game-card {
     padding: 20px 30px;
@@ -1702,4 +2038,13 @@ html[lang="ar"] .level-button strong {
 .practice-controls select:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+@media (max-width: 360px) {
+  .header-actions {
+    gap: 4px;
+  }
+  .language-button > .icon {
+    display: none;
+  }
 }

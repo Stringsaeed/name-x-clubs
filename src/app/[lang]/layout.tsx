@@ -1,11 +1,14 @@
 import { msg, t } from '@lingui/core/macro';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import '../../styles/globals.css';
 import '../../styles/game.css';
+import { AppProviders } from '../../components/AppProviders';
 import { alanSans, nunito } from '../../fonts';
 import { catalogs } from '../../i18n/catalogs';
 import { LinguiClientProvider } from '../../i18n/LinguiClientProvider';
 import { getServerI18n, type Locale, locales } from '../../i18n/server';
+import { themeInitScript } from '../../theme';
 
 type LayoutProps = { children: ReactNode; params: Promise<{ lang: string }> };
 
@@ -15,7 +18,10 @@ export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export const viewport: Viewport = { themeColor: '#f7f8f2', viewportFit: 'cover' };
+export const viewport: Viewport = {
+  colorScheme: 'dark light',
+  viewportFit: 'cover',
+};
 
 export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>): Promise<Metadata> {
   const { lang } = await params;
@@ -37,13 +43,17 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 
   return (
     <html
+      suppressHydrationWarning
       lang={lang}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
       className={`${nunito.variable} ${alanSans.variable}`}
     >
+      <head>
+        <script>{themeInitScript}</script>
+      </head>
       <body>
         <LinguiClientProvider locale={locale} messages={catalogs[locale]}>
-          {children}
+          <AppProviders>{children}</AppProviders>
         </LinguiClientProvider>
         <noscript>
           {t(

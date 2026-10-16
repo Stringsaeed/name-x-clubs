@@ -1,5 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
+import { Button } from '@/components/ui/button';
 import type { Locale } from '../../i18n/config';
+import { ArrowGameIcon } from '../fluidGameIcons';
 import { Icon } from '../Icon';
 
 export function EmptyState({ lang }: { lang: Locale }) {
@@ -11,10 +13,13 @@ export function EmptyState({ lang }: { lang: Locale }) {
         <Icon name="trophy" />
       </span>
       <h2>{t`No times yet`}</h2>
-      <a className="button button-primary" href={`/${lang}`}>
+      <Button
+        className="lb-play-button"
+        render={<a href={`/${lang}`} />}
+        trailingIcon={ArrowGameIcon}
+      >
         {t`Let’s play`}
-        <Icon name="arrow" />
-      </a>
+      </Button>
     </div>
   );
 }
@@ -25,9 +30,9 @@ export function UnavailableState({ href }: { href: string }) {
   return (
     <div className="lb-empty" role="status">
       <h2>{t`The board is unavailable right now`}</h2>
-      <a className="button button-outline" href={href}>
-        {t`Try again`}
-      </a>
+      <Button asChild variant="tertiary">
+        <a href={href}>{t`Try again`}</a>
+      </Button>
     </div>
   );
 }

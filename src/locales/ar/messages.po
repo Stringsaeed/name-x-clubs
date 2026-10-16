@@ -8,8 +8,13 @@ msgstr ""
 "Language: ar\n"
 
 #: src/components/AnswerList.tsx
+#: src/components/StickerAlbum.tsx
 msgid "Accepted clubs"
 msgstr "الأندية الصحيحة"
+
+#: src/components/AnswerComposer.tsx
+msgid "Game keyboard"
+msgstr "لوحة اللعب"
 
 #: src/content/labels.ts
 msgid "{count, plural, one {# club} other {# clubs}}"
@@ -22,6 +27,10 @@ msgstr "آسيا"
 #: src/components/leaderboard/BoardTable.tsx
 msgid "When"
 msgstr "متى"
+
+#: src/components/StickerAlbum.tsx
+msgid "Sticker album"
+msgstr "ألبوم الملصقات"
 
 #: src/components/HelpDialog.tsx
 msgid "Your progress and elapsed time are saved in this browser."
@@ -111,6 +120,10 @@ msgstr "أفضل 3"
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "المتصفح لم يتمكن من حفظ الجولة. اترك هذه الصفحة مفتوحة."
 
+#: src/components/StickerAlbum.tsx
+msgid "{remaining} left to collect"
+msgstr "باقي {remaining}"
+
 #: src/components/leaderboard/BoardTabs.tsx
 msgid "Time period"
 msgstr "الفترة"
@@ -122,6 +135,10 @@ msgstr "نتحقق من الوقت…"
 #: src/components/leaderboard/EmptyState.tsx
 msgid "No times yet"
 msgstr "لا توجد أوقات بعد"
+
+#: src/components/ClubKeyboard.tsx
+msgid "Delete"
+msgstr "حذف"
 
 #: src/components/leaderboard/BoardTabs.tsx
 #: src/components/ResultPanel.tsx
@@ -153,6 +170,10 @@ msgstr "أوضاع اللعب"
 msgid "Name {clubs} from <focus>{region}.</focus>"
 msgstr "اذكر {clubs} من <focus>{region}.</focus>"
 
+#: src/components/StickerAlbum.tsx
+msgid "Album complete!"
+msgstr "اكتمل الألبوم"
+
 #: src/components/Timer.tsx
 msgctxt "timer caption"
 msgid "elapsed"
@@ -178,6 +199,10 @@ msgstr "انتهت الجولة · وضع {target}"
 msgid "Know your clubs?"
 msgstr "تعرف الأندية؟"
 
+#: src/components/AnswerComposer.tsx
+msgid "System keyboard"
+msgstr "لوحة النظام"
+
 #: src/components/HelpDialog.tsx
 msgid "How many clubs have you got?"
 msgstr "كم نادٍ تقدر تذكر؟"
@@ -185,6 +210,10 @@ msgstr "كم نادٍ تقدر تذكر؟"
 #: src/components/HelpDialog.tsx
 msgid "Got it. Let’s play."
 msgstr "فهمت. يلا نلعب."
+
+#: src/components/StickerAlbum.tsx
+msgid "Next"
+msgstr "التالي"
 
 #: src/components/Header.tsx
 #: src/game/session/share.ts
@@ -212,6 +241,10 @@ msgstr "اكتب اسم نادٍ بالعربية أو الإنجليزية"
 msgid "Time"
 msgstr "الوقت"
 
+#: src/components/ClubKeyboard.tsx
+msgid "Keyboard"
+msgstr "لوحة المفاتيح"
+
 #: src/content/labels.ts
 msgid "Anywhere in the world"
 msgstr "أي مكان في العالم"
@@ -226,6 +259,10 @@ msgstr "وضع {target}"
 msgid "We couldn’t match “{input}”. Try the full name or another spelling."
 msgstr "ما تعرّفنا على «{input}». جرّب الاسم الكامل أو كتابة مختلفة."
 
+#: src/components/ThemeToggle.tsx
+msgid "Switch to dark mode"
+msgstr "التبديل إلى الوضع الداكن"
+
 #: src/components/AnswerComposer.tsx
 msgid "{name}. That’s one!"
 msgstr "{name}. إجابة صحيحة!"
@@ -233,6 +270,18 @@ msgstr "{name}. إجابة صحيحة!"
 #: src/components/PracticeControls.tsx
 msgid "Surprise me"
 msgstr "فاجئني"
+
+#: src/components/ClubKeyboard.tsx
+msgid "Shift"
+msgstr "حرف كبير"
+
+#: src/components/ClubKeyboard.tsx
+msgid "Space"
+msgstr "مسافة"
+
+#: src/components/ThemeToggle.tsx
+msgid "Switch to light mode"
+msgstr "التبديل إلى الوضع الفاتح"
 
 #: src/components/PracticeControls.tsx
 msgid "Pick your pitch"
@@ -246,11 +295,19 @@ msgstr "رسم لملعب كرة قدم مع قمصان وكرة"
 msgid "How to play"
 msgstr "طريقة اللعب"
 
+#: src/components/StickerAlbum.tsx
+msgid "Scroll to see more sticker slots"
+msgstr "مرّر لترى خانات أكثر"
+
 #: src/app/[lang]/layout.tsx
 msgid "Name 10, 50 or 100 football clubs. Play at your own pace in English or Arabic."
 msgstr "اذكر ١٠ أو ٥٠ أو ١٠٠ نادٍ لكرة القدم. العب بالسرعة التي تناسبك بالإنجليزية أو العربية."
 
-#: src/components/ProgressBar.tsx
+#: src/components/StickerAlbum.tsx
+msgid "More slots below"
+msgstr "خانات أخرى تحت"
+
+#: src/components/GameCard.tsx
 msgid "Finish round"
 msgstr "إنهاء الجولة"
 
@@ -315,6 +372,10 @@ msgstr "اكتب اسم نادٍ…"
 msgid "Player"
 msgstr "اللاعب"
 
+#: src/components/ClubKeyboard.tsx
+msgid "Return"
+msgstr "إدخال"
+
 #: src/components/HelpDialog.tsx
 msgid "Name 10, 50 or 100 clubs at your own pace. The clock measures how long you take. Practice adds countries, regions and letters."
 msgstr "اذكر ١٠، ٥٠ أو ١٠٠ نادٍ على راحتك. المؤقت يحسب الوقت اللي استغرقته. التدريب يضيف دول ومناطق وحروف."
@@ -335,10 +396,6 @@ msgstr "كل الأوقات"
 #: src/components/HelpDialog.tsx
 msgid "If a name could mean more than one club, add the city or country. Different names for the same club only count once."
 msgstr "إذا كان الاسم يشير لأكثر من نادٍ، أضف المدينة أو الدولة. الأسماء المختلفة للنادي نفسه تُحسب مرة واحدة."
-
-#: src/components/HelpDialog.tsx
-msgid "Close"
-msgstr "إغلاق"
 
 #: src/components/AnswerComposer.tsx
 msgid "{name} is a club, but doesn’t fit this challenge."

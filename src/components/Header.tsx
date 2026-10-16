@@ -4,6 +4,7 @@ import type { Mode } from '../game/model';
 import type { Locale } from '../i18n/config';
 import { writeLanguageCookie } from '../i18n/useLegacyLanguage';
 import { Icon } from './Icon';
+import { ThemeToggle } from './ThemeToggle';
 
 type HeaderProps = {
   language: Locale;
@@ -111,6 +112,7 @@ export const Header = memo(function HeaderView({
         <LeaderboardLink language={language} active={onLeaderboard} locked={locked} />
       </nav>
       <div className="header-actions">
+        <ThemeToggle />
         <a
           className="language-button"
           href={languageHref}

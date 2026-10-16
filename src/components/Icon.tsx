@@ -32,6 +32,7 @@ const paths = {
       <path d="m12 7 5 3-2 5H9l-2-5 5-3Zm0 0V2.5m5 7.5 4.5-1m-6.5 6 3.5 5M9 15l-3.5 5M7 10l-4.5-1" />
     </>
   ),
+  moon: <path d="M20.8 13A9 9 0 0 1 11 3.2 9 9 0 1 0 20.8 13Z" />,
   sun: (
     <>
       <circle cx="12" cy="12" r="4" />
@@ -43,9 +44,22 @@ const paths = {
     <path d="M8 3h8v8a4 4 0 0 1-8 0V3ZM8 5H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 3v5m-4 1h8" />
   ),
 } satisfies Record<string, ReactNode>;
-export function Icon({ name, className = '' }: { name: keyof typeof paths; className?: string }) {
+export function Icon({
+  name,
+  className = '',
+  size,
+}: {
+  name: keyof typeof paths;
+  className?: string;
+  size?: number;
+}) {
   return (
-    <svg className={`icon ${className}`} viewBox="0 0 24 24" aria-hidden="true">
+    <svg
+      className={`icon ${className}`}
+      style={size === undefined ? undefined : { width: size, height: size }}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
       {paths[name]}
     </svg>
   );

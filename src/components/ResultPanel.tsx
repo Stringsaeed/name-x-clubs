@@ -1,10 +1,12 @@
 import { useLingui } from '@lingui/react/macro';
 import { useEffect, useRef, useState } from 'react';
+import { Button } from '@/components/ui/button';
 import { formatElapsed } from '../game/controller';
 import type { CompletedRound, Language, Session } from '../game/model';
 import { formatRankedTime } from '../game/ranked/clock';
 import { type RankedOutcome, rankedModeFor } from '../game/ranked/rankedView';
 import type { ShareOutcome } from '../game/session/share';
+import { ArrowGameIcon, ShareGameIcon } from './fluidGameIcons';
 import { Icon } from './Icon';
 import { PlayerName } from './PlayerName';
 
@@ -196,14 +198,12 @@ export function ResultPanel({
         <LocalSummary session={session} round={round} unranked={outcome.kind === 'unranked'} />
       )}
       <div className="result-actions">
-        <button ref={share} className="button button-primary" type="button" onClick={handleShare}>
-          <Icon name="share" />
+        <Button ref={share} type="button" leadingIcon={ShareGameIcon} onClick={handleShare}>
           {t`Share result`}
-        </button>
-        <button className="button button-outline" type="button" onClick={onNext}>
+        </Button>
+        <Button type="button" variant="tertiary" trailingIcon={ArrowGameIcon} onClick={onNext}>
           {t`Another round`}
-          <Icon name="arrow" />
-        </button>
+        </Button>
       </div>
       {manual && (
         <textarea

@@ -1,6 +1,6 @@
 import { act, fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { expect, test } from 'vitest';
+import { expect, test, vi } from 'vitest';
 import { createGameController } from '../game/controller';
 import { createFakeServer, memoryStorage } from '../game/ranked/fakeServer';
 import { renderWithI18n } from '../test/renderWithI18n';
@@ -58,6 +58,37 @@ test('keeps an initials fallback if a crest fails to load', async () => {
   }
   expect(row?.querySelector('img')).toBeNull();
   expect(row).toHaveTextContent('A');
+});
+
+test('a phone can type a club on the game keyboard and switch back to the system one', async () => {
+  vi.stubGlobal(
+    'matchMedia',
+    vi.fn().mockImplementation((query: string) => ({
+      matches: query.includes('pointer: coarse'),
+      media: query,
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    })),
+  );
+  const user = userEvent.setup();
+  renderWithI18n(<GameScreen lang="en" controller={createGameController()} />);
+  await user.click(screen.getByRole('button', { name: 'Let’s play' }));
+
+  const keyboard = screen.getByRole('group', { name: 'Keyboard' });
+  for (const letter of ['a', 'r', 's', 'e', 'n', 'a', 'l']) {
+    await user.click(within(keyboard).getByRole('button', { name: letter }));
+  }
+  expect(screen.getByRole('textbox')).toHaveValue('arsenal');
+  expect(screen.getByRole('textbox')).toHaveAttribute('readonly');
+  await user.click(within(keyboard).getByRole('button', { name: 'Return' }));
+  expect(within(screen.getByRole('log')).getByText('Arsenal', { exact: true })).toBeInTheDocument();
+
+  await user.click(screen.getByRole('button', { name: 'System keyboard' }));
+  expect(screen.queryByRole('group', { name: 'Keyboard' })).not.toBeInTheDocument();
+  expect(screen.getByRole('textbox')).not.toHaveAttribute('readonly');
+
+  await user.click(screen.getByRole('button', { name: 'Game keyboard' }));
+  expect(screen.getByRole('group', { name: 'Keyboard' })).toBeInTheDocument();
 });
 
 test('opens Free time with compact modes and no daily or promotional sections', () => {
