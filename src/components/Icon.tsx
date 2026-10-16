@@ -50,8 +50,8 @@ export function Icon({
   size,
 }: {
   name: keyof typeof paths;
-  className?: string;
-  size?: number;
+  className?: string | undefined;
+  size?: number | undefined;
 }) {
   return (
     <svg
