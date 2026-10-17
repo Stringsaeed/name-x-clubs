@@ -13,6 +13,12 @@ pnpm dev
 
 `pnpm dev` starts Next.js on `http://127.0.0.1:5173`. No account, database or runtime sports API is required by the game.
 
+The phone app is `apps/mobile`, Expo SDK 58. It plays the same free-time and practice rounds against the shared catalog. From the repo root:
+
+```sh
+pnpm --filter mobile start
+```
+
 Catalogs compile automatically: Turborepo runs `i18n:compile` before `dev`, `build`, `test` and `typecheck`. After changing UI text, run `pnpm i18n:extract` to update the PO catalogs in `apps/web/src/locales/`, then translate the new entries.
 
 ## Stack
@@ -51,6 +57,7 @@ For active development use `pnpm test:watch`, `pnpm typecheck`, or `pnpm format`
 
 ```text
 apps/web/                Next.js app. Turborepo runs its dev, build, and test tasks
+apps/mobile/             Expo SDK 58 app for the same free-time and practice rounds
 apps/web/src/app/        Routes: [lang]/layout (root layout, sets lang and dir), [lang]/page,
                          [lang]/error, route.ts (locale redirect), icon.svg
 apps/web/src/screens/    GameScreen, the client component that renders the game
