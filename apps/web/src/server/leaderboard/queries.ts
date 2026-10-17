@@ -15,8 +15,8 @@
  */
 import 'server-only';
 import type { Locale } from '@nxc/game/i18n/config';
+import type { RankedMode } from '@nxc/game/ranked/modes';
 import type { SqlClient } from 'effect/sql';
-import type { RankedMode } from '../rounds/modes';
 
 export const periods = ['day', 'week', 'all'] as const;
 

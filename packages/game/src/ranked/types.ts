@@ -1,8 +1,18 @@
-import type { ClubId } from '@nxc/game/content/catalog';
-import type { Locale } from '@nxc/game/i18n/config';
+import type { ClubId } from '../content/catalog';
+import type { Locale } from '../i18n/config';
 import type { RankedMode } from './modes';
-import type { RoundRecord, RoundStatus } from './RoundStore';
 import type { EntryEvent } from './replay';
+
+export const roundStatuses = [
+  'playing',
+  'complete',
+  'verified',
+  'flagged',
+  'rejected',
+  'abandoned',
+] as const;
+
+export type RoundStatus = (typeof roundStatuses)[number];
 
 /** What a request carries about who is asking. Read from headers by the HTTP layer. */
 export type Caller = Readonly<{ sessionToken: string | undefined; clientAddress: string }>;
@@ -68,7 +78,12 @@ export function phaseOf(status: RoundStatus): Phase {
   return 'complete';
 }
 
-type RoundSnapshot = Pick<RoundRecord, 'status' | 'elapsedMs' | 'found' | 'nextSeq'>;
+type RoundSnapshot = Readonly<{
+  status: RoundStatus;
+  elapsedMs: number | null;
+  found: readonly ClubId[];
+  nextSeq: number;
+}>;
 
 export function answersResponse(
   round: RoundSnapshot,

@@ -1,9 +1,9 @@
 import 'server-only';
+import type { Caller } from '@nxc/game/ranked/types';
 import { Effect, Schema } from 'effect';
 import type { ServerSettings } from '../config';
 import { InvalidRequest, OriginRejected } from '../errors';
 import { sessionLifetimeMs } from '../identity/PlayerStore';
-import type { Caller } from '../rounds/types';
 
 export const sessionCookieName = 'nxc_s';
 

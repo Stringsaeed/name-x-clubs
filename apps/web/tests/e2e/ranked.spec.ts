@@ -1,7 +1,7 @@
 import { clubs } from '@nxc/game/content/catalog';
 import { resolveClub } from '@nxc/game/engine';
+import { suspiciousUnderMs } from '@nxc/game/ranked/pace';
 import { expect, type Page, test } from '@playwright/test';
-import { suspiciousUnderMs } from '../../src/server/rounds/pace';
 import { skipWithoutDatabase, useOwnClientAddress } from './database';
 
 /**

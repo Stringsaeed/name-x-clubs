@@ -7,7 +7,7 @@
  */
 import type { ClubId } from '@nxc/game/content/catalog';
 import type { Locale } from '@nxc/game/i18n/config';
-import type { Ranks } from '../../server/rounds/types';
+import type { Ranks } from '@nxc/game/ranked/types';
 import { AnswerQueue, type QueuedEntry } from './answerQueue';
 import type {
   AnswersResponse,

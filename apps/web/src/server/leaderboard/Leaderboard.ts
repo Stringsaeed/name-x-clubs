@@ -1,10 +1,10 @@
 /** Public boards over rolling windows. The SQL and its index design are in `queries.ts`. */
 import 'server-only';
 import type { Locale } from '@nxc/game/i18n/config';
+import type { RankedMode } from '@nxc/game/ranked/modes';
 import { Clock, Context, Effect, Layer, Option, Schema } from 'effect';
 import { SqlClient, type SqlError } from 'effect/sql';
 import { decodeFirstRow, decodeRows } from '../db/rows';
-import type { RankedMode } from '../rounds/modes';
 import {
   type Period,
   standingQuery,

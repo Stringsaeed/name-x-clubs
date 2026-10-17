@@ -1,9 +1,9 @@
 import { randomUUID } from 'node:crypto';
 import { assert, describe, it } from '@effect/vitest';
+import type { RankedMode } from '@nxc/game/ranked/modes';
 import { Effect, Layer } from 'effect';
 import { SqlClient } from 'effect/sql';
 import { TestClock } from 'effect/testing';
-import type { RankedMode } from '../rounds/modes';
 import { testDatabase, testEpochMs } from '../testing/testApp';
 import { Leaderboard } from './Leaderboard';
 import { type BoardQuery, standingQuery, topQuery } from './queries';

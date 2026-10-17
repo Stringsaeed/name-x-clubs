@@ -1,8 +1,8 @@
 import 'server-only';
 import { locales } from '@nxc/game/i18n/config';
+import { rankedModes } from '@nxc/game/ranked/modes';
 import { Schema } from 'effect';
 import { periods } from '../leaderboard/Leaderboard';
-import { rankedModes } from '../rounds/modes';
 
 /** A ranked entry is one line from the composer, not a pasted list. */
 export const maxEntryLength = 120;

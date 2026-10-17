@@ -1,5 +1,5 @@
-import { describe, expect, it } from '@effect/vitest';
-import { uniqueClubNames } from '../testing/clubNames';
+import { describe, expect, it } from 'vitest';
+import { uniqueClubNames } from '../test/clubNames';
 import { batchFlags, paceVerdict } from './pace';
 import { maxAcceptedPerEntry, replayEntries, replayEntry } from './replay';
 

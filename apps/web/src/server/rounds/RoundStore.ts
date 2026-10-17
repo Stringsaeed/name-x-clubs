@@ -1,22 +1,12 @@
 import 'server-only';
 import type { ClubId } from '@nxc/game/content/catalog';
 import { type Locale, locales } from '@nxc/game/i18n/config';
+import { type RankedMode, rankedModes } from '@nxc/game/ranked/modes';
+import type { PaceFlag } from '@nxc/game/ranked/pace';
+import { type RoundStatus, roundStatuses } from '@nxc/game/ranked/types';
 import { Context, Effect, Layer, Option, Schema } from 'effect';
 import { SqlClient, type SqlError } from 'effect/sql';
 import { decodeFirstRow, jsonParam } from '../db/rows';
-import { type RankedMode, rankedModes } from './modes';
-import type { PaceFlag } from './pace';
-
-export const roundStatuses = [
-  'playing',
-  'complete',
-  'verified',
-  'flagged',
-  'rejected',
-  'abandoned',
-] as const;
-
-export type RoundStatus = (typeof roundStatuses)[number];
 
 const RoundRow = Schema.Struct({
   id: Schema.String,

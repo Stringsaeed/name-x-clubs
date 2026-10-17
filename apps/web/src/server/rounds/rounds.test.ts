@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it } from '@effect/vitest';
+import { uniqueClubNames } from '@nxc/game/test/clubNames';
 import { Effect } from 'effect';
 import { SqlClient } from 'effect/sql';
 import { sha256Hex } from '../crypto';
-import { uniqueClubNames } from '../testing/clubNames';
 import { apiRequest, makeTestApp, sessionFrom, type TestApp } from '../testing/testApp';
 
 const [arsenalLike = '', ...otherNames] = uniqueClubNames(12);

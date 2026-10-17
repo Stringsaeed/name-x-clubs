@@ -4,13 +4,13 @@
  */
 import 'server-only';
 import type { Locale } from '@nxc/game/i18n/config';
+import type { RankedMode } from '@nxc/game/ranked/modes';
 import { Effect, ManagedRuntime } from 'effect';
 import { ServerConfig } from './config';
 import { DatabaseLive } from './db/Database';
 import { type AppRuntime, makeRoutes } from './http/routes';
 import { appLayer } from './layers';
 import { type BoardEntry, Leaderboard, type Period } from './leaderboard/Leaderboard';
-import type { RankedMode } from './rounds/modes';
 
 let current: AppRuntime | undefined;
 

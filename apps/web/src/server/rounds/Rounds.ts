@@ -1,5 +1,15 @@
 import 'server-only';
 import type { Locale } from '@nxc/game/i18n/config';
+import type {
+  AnswersRequest,
+  AnswersResponse,
+  Caller,
+  Finished,
+  FinishRequest,
+  RoundView,
+  Started,
+  StartRequest,
+} from '@nxc/game/ranked/types';
 import { Context, Effect, Layer } from 'effect';
 import type { SqlError } from 'effect/sql';
 import type {
@@ -12,16 +22,6 @@ import type {
   SeqGap,
 } from '../errors';
 import { answer, finish, type RoundsServices, resume, start } from './programs';
-import type {
-  AnswersRequest,
-  AnswersResponse,
-  Caller,
-  Finished,
-  FinishRequest,
-  RoundView,
-  Started,
-  StartRequest,
-} from './types';
 
 type CommonError = SqlError.SqlError | NotSignedIn | RateLimited | RoundNotFound;
 

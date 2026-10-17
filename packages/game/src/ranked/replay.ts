@@ -2,10 +2,10 @@
  * Replays ranked entries through the same pure matcher the client uses (world scope), with the
  * ranked caps on top. No Effect and no I/O, so it is tested directly.
  */
-import type { ClubId } from '@nxc/game/content/catalog';
-import { type AnswerEvent, parseAnswers, scoreAnswers } from '@nxc/game/engine';
-import { worldChallenge } from '@nxc/game/matching/types';
-import type { Level } from '@nxc/game/model';
+import type { ClubId } from '../content/catalog';
+import { type AnswerEvent, parseAnswers, scoreAnswers } from '../engine';
+import { worldChallenge } from '../matching/types';
+import type { Level } from '../model';
 
 /** A ranked entry credits at most this many clubs, which blunts pasting a prepared list. */
 export const maxAcceptedPerEntry = 3;
