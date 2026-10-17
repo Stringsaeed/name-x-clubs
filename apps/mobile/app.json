@@ -14,9 +14,10 @@
     },
     "android": {
       "package": "sh.saeed.clubs",
+      "icon": "./assets/android-icon.png",
       "softwareKeyboardLayoutMode": "resize",
       "adaptiveIcon": {
-        "backgroundColor": "#111a16",
+        "backgroundColor": "#123C30",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
