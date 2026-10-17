@@ -28,10 +28,6 @@ msgstr "Asia"
 msgid "When"
 msgstr "When"
 
-#: src/components/StickerAlbum.tsx
-msgid "Sticker album"
-msgstr "Sticker album"
-
 #: src/components/HelpDialog.tsx
 msgid "Your progress and elapsed time are saved in this browser."
 msgstr "Your progress and elapsed time are saved in this browser."
@@ -44,7 +40,7 @@ msgstr "Name {clubs} starting with <focus>{letter}.</focus>"
 msgid "Name {clubs} from <focus>{country}.</focus>"
 msgstr "Name {clubs} from <focus>{country}.</focus>"
 
-#: src/components/ChallengeHeading.tsx
+#: src/components/AlbumHeader.tsx
 msgid "Use the club’s common English name."
 msgstr "Use the club’s common English name."
 
@@ -74,7 +70,7 @@ msgstr "Send one name at a time, or a list separated by commas, newlines, or “
 msgid "The game needs a quick restart."
 msgstr "The game needs a quick restart."
 
-#: src/components/ProgressBar.tsx
+#: src/components/AlbumHeader.tsx
 msgid "YOUR CLUBS"
 msgstr "YOUR CLUBS"
 
@@ -120,10 +116,6 @@ msgstr "Top 3"
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "Your browser couldn’t save this round. Keep this tab open."
 
-#: src/components/StickerAlbum.tsx
-msgid "{remaining} left to collect"
-msgstr "{remaining} left to collect"
-
 #: src/components/leaderboard/BoardTabs.tsx
 msgid "Time period"
 msgstr "Time period"
@@ -158,6 +150,10 @@ msgstr "Let’s play"
 msgid "“{input}” could mean more than one club. Try the full name."
 msgstr "“{input}” could mean more than one club. Try the full name."
 
+#: src/components/GameCard.tsx
+msgid "Done"
+msgstr "Done"
+
 #: src/content/labels.ts
 msgid "Starting with {letter}"
 msgstr "Starting with {letter}"
@@ -169,10 +165,6 @@ msgstr "Game modes"
 #: src/content/labels.ts
 msgid "Name {clubs} from <focus>{region}.</focus>"
 msgstr "Name {clubs} from <focus>{region}.</focus>"
-
-#: src/components/StickerAlbum.tsx
-msgid "Album complete!"
-msgstr "Album complete!"
 
 #: src/components/Timer.tsx
 msgctxt "timer caption"
@@ -306,10 +298,6 @@ msgstr "Name 10, 50 or 100 football clubs. Play at your own pace in English or A
 #: src/components/StickerAlbum.tsx
 msgid "More slots below"
 msgstr "More slots below"
-
-#: src/components/GameCard.tsx
-msgid "Done"
-msgstr "Done"
 
 #: src/components/HelpDialog.tsx
 msgid "Use English or Arabic, with or without accents. Small spelling mistakes are fine when the club is clear."

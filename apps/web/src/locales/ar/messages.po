@@ -28,10 +28,6 @@ msgstr "آسيا"
 msgid "When"
 msgstr "متى"
 
-#: src/components/StickerAlbum.tsx
-msgid "Sticker album"
-msgstr "ألبوم الملصقات"
-
 #: src/components/HelpDialog.tsx
 msgid "Your progress and elapsed time are saved in this browser."
 msgstr "تُحفظ إجاباتك والوقت المستغرق في هذا المتصفح."
@@ -44,7 +40,7 @@ msgstr "اذكر {clubs} تبدأ بحرف <focus>{letter}.</focus>"
 msgid "Name {clubs} from <focus>{country}.</focus>"
 msgstr "اذكر {clubs} من <focus>{country}.</focus>"
 
-#: src/components/ChallengeHeading.tsx
+#: src/components/AlbumHeader.tsx
 msgid "Use the club’s common English name."
 msgstr "نعتمد الاسم الإنجليزي الشائع للنادي."
 
@@ -74,7 +70,7 @@ msgstr "اكتب اسمًا واحدًا كل مرة، أو عدة أسماء ت
 msgid "The game needs a quick restart."
 msgstr "اللعبة تحتاج إلى إعادة تشغيل سريعة."
 
-#: src/components/ProgressBar.tsx
+#: src/components/AlbumHeader.tsx
 msgid "YOUR CLUBS"
 msgstr "قائمة أنديتك"
 
@@ -120,10 +116,6 @@ msgstr "أفضل 3"
 msgid "Your browser couldn’t save this round. Keep this tab open."
 msgstr "المتصفح لم يتمكن من حفظ الجولة. اترك هذه الصفحة مفتوحة."
 
-#: src/components/StickerAlbum.tsx
-msgid "{remaining} left to collect"
-msgstr "باقي {remaining}"
-
 #: src/components/leaderboard/BoardTabs.tsx
 msgid "Time period"
 msgstr "الفترة"
@@ -158,6 +150,10 @@ msgstr "يلا نلعب"
 msgid "“{input}” could mean more than one club. Try the full name."
 msgstr "«{input}» ممكن يشير لأكثر من نادٍ. جرّب الاسم الكامل."
 
+#: src/components/GameCard.tsx
+msgid "Done"
+msgstr "تم"
+
 #: src/content/labels.ts
 msgid "Starting with {letter}"
 msgstr "حرف {letter}"
@@ -169,10 +165,6 @@ msgstr "أوضاع اللعب"
 #: src/content/labels.ts
 msgid "Name {clubs} from <focus>{region}.</focus>"
 msgstr "اذكر {clubs} من <focus>{region}.</focus>"
-
-#: src/components/StickerAlbum.tsx
-msgid "Album complete!"
-msgstr "اكتمل الألبوم"
 
 #: src/components/Timer.tsx
 msgctxt "timer caption"
@@ -306,10 +298,6 @@ msgstr "اذكر ١٠ أو ٥٠ أو ١٠٠ نادٍ لكرة القدم. الع
 #: src/components/StickerAlbum.tsx
 msgid "More slots below"
 msgstr "خانات أخرى تحت"
-
-#: src/components/GameCard.tsx
-msgid "Done"
-msgstr "تم"
 
 #: src/components/HelpDialog.tsx
 msgid "Use English or Arabic, with or without accents. Small spelling mistakes are fine when the club is clear."
