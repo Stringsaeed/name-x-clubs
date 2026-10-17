@@ -8,7 +8,7 @@ import type { ClubId } from '@nxc/game/content/catalog';
 import type { Level, Round } from '@nxc/game/model';
 import { targetByMode } from '@nxc/game/ranked/modes';
 import type { Ranks } from '@nxc/game/ranked/types';
-import type { GameView } from '../controller';
+import type { GameView } from '../session/intents';
 import type { RankedMode } from './api';
 import type { RankedSnapshot } from './RankedRound';
 

@@ -7,7 +7,7 @@
  * clubs and clock are shown.
  */
 
-import type { Language, Level, Mode } from '../../../web/src/game/model';
+import type { Language, Level, Mode } from '@nxc/game/model';
 import type { RankedApi } from '../../../web/src/game/ranked/api';
 import type { RankedSnapshot } from '../../../web/src/game/ranked/RankedRound';
 import { RankedRound } from '../../../web/src/game/ranked/RankedRound';

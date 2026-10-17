@@ -40,6 +40,8 @@ jobs:
           restore-keys: |
             turbo-check-${{ runner.os }}-
       - run: pnpm lint && pnpm exec turbo run i18n:check test typecheck
+      - name: Bundle mobile for iOS and Android
+        run: pnpm --filter mobile exec expo export --platform ios --platform android --output-dir "${{ runner.temp }}/mobile-export" --max-workers 2
       - uses: actions/cache/save@v6.1.0
         if: success() && steps.turbo-cache.outputs.cache-hit != 'true'
         continue-on-error: true

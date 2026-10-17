@@ -1,4 +1,4 @@
-/* Generated from apps/web/src/content/crests.json. Metro bundles these crests with the app. */
+/* Generated from packages/game/src/content/crests.json. Metro bundles these crests with the app. */
 export const crestSources: Record<string, number> = {
   'argentina-0': require('../../web/public/assets/crests/argentina-0.webp'),
   'argentina-1': require('../../web/public/assets/crests/argentina-1.webp'),

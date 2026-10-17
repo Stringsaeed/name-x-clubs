@@ -5,7 +5,7 @@ import {
   modeSchema,
   type Session,
   secondsBetween,
-} from '../../../web/src/game/model';
+} from '@nxc/game/model';
 import { applyIntent, type GameView, type Intent } from '../../../web/src/game/session/intents';
 import { createSessionRepository } from '../../../web/src/game/session/repository';
 import {

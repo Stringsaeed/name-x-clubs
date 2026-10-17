@@ -1,7 +1,7 @@
-import { type Club, countryName, type Region } from '../../web/src/content/catalog';
-import type { AnswerEvent } from '../../web/src/game/engine';
-import { challengesForLevel } from '../../web/src/game/engine';
-import type { Challenge, Language, Session } from '../../web/src/game/model';
+import { type Club, countryName, type Region } from '@nxc/game/content/catalog';
+import type { AnswerEvent } from '@nxc/game/engine';
+import { challengesForLevel } from '@nxc/game/engine';
+import type { Challenge, Language, Session } from '@nxc/game/model';
 import { formatElapsed } from './game/engine';
 
 const regions: Record<Language, Record<Region, string>> = {

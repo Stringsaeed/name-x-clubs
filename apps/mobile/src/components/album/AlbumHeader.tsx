@@ -1,7 +1,7 @@
+import type { Language, Level, Session } from '@nxc/game/model';
 import { useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import type { Language, Level, Session } from '../../../../web/src/game/model';
 import { type Copy, categoryLabel, challengeLine } from '../../copy';
 import { elapsedSeconds, formatElapsed } from '../../game/engine';
 import { useColors } from '../../theme/ThemeProvider';

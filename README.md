@@ -20,7 +20,7 @@ npx expo run:ios        # or: npx expo run:android
 npx expo start --dev-client
 ```
 
-Set `EXPO_PUBLIC_API_URL` to point ranked rounds and the leaderboard at another server (default `https://clubs.saeed.sh`). Design notes live in `apps/mobile/docs/`.
+Set `EXPO_PUBLIC_API_URL` to point ranked rounds and the leaderboard at another server (default `https://clubs.saeed.sh`). For a local simulator, use `http://127.0.0.1:4100` on iOS or `http://10.0.2.2:4100` on the Android emulator, and include that origin in the API's `ALLOWED_ORIGINS`. Use the preview URL for preview testing and the production URL for production testing. Restart Expo after changing the URL. Design notes live in `apps/mobile/docs/`.
 
 Catalogs compile automatically: Turborepo runs `i18n:compile` before `dev`, `build`, `test` and `typecheck`. After changing UI text, run `pnpm i18n:extract` to update the PO catalogs in `apps/web/src/locales/`, then translate the new entries.
 
@@ -36,8 +36,8 @@ Catalogs compile automatically: Turborepo runs `i18n:compile` before `dev`, `bui
 | Unit and component tests | Vitest 5 and Testing Library |
 | Browser regression tests | Playwright against `next start`, desktop Chromium and mobile WebKit |
 | Formatting and lint | Biome 2 with readability rules |
-| Workspace | pnpm workspaces and Turborepo: `apps/web` (Next.js, UI only), `apps/api` (Hono on Vercel Functions), `packages/game` (`@nxc/game`: matcher, catalog, ranked contract), `packages/server` (`@nxc/server`: Effect services, Postgres, migrations) |
-| CI | GitHub Actions. A pull request runs once; a newer push cancels the run in progress. Lint and unit tests run beside the production build and Playwright |
+| Workspace | pnpm workspaces and Turborepo: `apps/web` (Next.js, UI only), `apps/mobile` (Expo), `apps/api` (Hono on Vercel Functions), `packages/game` (`@nxc/game`: matcher, catalog, ranked contract), `packages/server` (`@nxc/server`: Effect services, Postgres, migrations) |
+| CI | GitHub Actions. A pull request runs once; a newer push cancels the run in progress. Lint, unit tests, typechecks and iOS/Android bundles run beside the production build and Playwright |
 | Hosting | Vercel, one project with two Services (`web`, `api`) from the root `vercel.json`. Cloudflare would use `@opennextjs/cloudflare` |
 
 Dependencies use exact versions. The build does not require credentials or secrets.
@@ -68,6 +68,8 @@ Browser tests need a normal terminal outside restricted sandboxes. Native browse
 For active development use `pnpm test:watch`, `pnpm typecheck`, or `pnpm format`. `pnpm test:coverage` reports game-module coverage. Known issues and open checks are listed in [docs/discovery.md](docs/discovery.md).
 
 Run `pnpm --filter @nxc/game bench` to measure the large-paste parser cases separately. These benchmarks report timings without a fixed millisecond gate because runner speed and concurrent CI work affect elapsed time. The deterministic answer-limit check stays in the unit suite.
+
+CI also bundles mobile for both native platforms to catch Metro resolution and shared-asset errors. Run the same check locally with `pnpm --filter mobile exec expo export --platform ios --platform android --output-dir /tmp/nxc-mobile-export`. This checks the JavaScript bundles and assets; it does not build or launch a native app.
 
 ## Architecture
 

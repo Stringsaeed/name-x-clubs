@@ -1,6 +1,6 @@
+import type { Language } from '@nxc/game/model';
 import { useMemo } from 'react';
 import { ScrollView, StyleSheet, Switch } from 'react-native';
-import type { Language } from '../../../../web/src/game/model';
 import type { Copy } from '../../copy';
 import { cue, useFeedbackSettings } from '../../feedback/feedback';
 import { useLanguage, useSetLanguage } from '../../game/play';

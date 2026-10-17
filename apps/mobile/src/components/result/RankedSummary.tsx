@@ -1,5 +1,5 @@
+import type { CompletedRound, Session } from '@nxc/game/model';
 import { StyleSheet, View } from 'react-native';
-import type { CompletedRound, Session } from '../../../../web/src/game/model';
 import { formatRankedTime } from '../../../../web/src/game/ranked/clock';
 import type { RankedOutcome } from '../../../../web/src/game/ranked/rankedView';
 import { type Copy, formatRankChip } from '../../copy';

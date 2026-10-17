@@ -21,7 +21,7 @@ Routing:
 
 - On Vercel the project is one deployment with two Services (`vercel.json` at the repo root; the project's Root Directory must be the repo root). Top-level rewrites send `/api/(.*)` to the `api` service and everything else to `web`. The browser therefore still talks same-origin: the session cookie, origin check and CDN caching are unchanged.
 - The `web` service gets a service binding to `api` as `API_ORIGIN`. Server components (the leaderboard page) fetch public boards from `API_ORIGIN` with a 30 second revalidate instead of calling the Effect runtime.
-- Locally, `next.config.ts` rewrites `/api/:path*` to `API_ORIGIN`, which defaults to `http://127.0.0.1:4100`, the local Hono server. On Vercel the top-level rewrite wins before Next.js sees the request.
+- Locally, `proxy.ts` rewrites `/api/:path*` to `API_ORIGIN` at request time, which defaults to `http://127.0.0.1:4100`, the local Hono server. On Vercel the top-level rewrite wins before Next.js sees the request.
 
 Environments, each testable on its own:
 
@@ -34,7 +34,9 @@ Environments, each testable on its own:
 
 Browser tests run against any environment with `E2E_BASE_URL`. Migrations run in the API build when `VERCEL_ENV` is `production` or `preview`, and from `pnpm db:migrate` elsewhere.
 
-Out of scope here, planned for the mobile client: bearer-token sessions next to the cookie, CORS, API path versioning, and a native attestation check in place of the browser captcha.
+The Expo app in `apps/mobile` imports the engine, model, and catalog from `@nxc/game`. It still shares pure ranked-round, session, and leaderboard client modules and crest assets from `apps/web`; those modules and assets remain there. Metro uses Expo's workspace discovery instead of manually limiting its watch folders to the web app.
+
+Out of scope here: bearer-token sessions next to the cookie, CORS, API path versioning, and a native attestation check in place of the browser captcha.
 
 ## Consequences
 
