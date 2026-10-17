@@ -1,6 +1,6 @@
+import { clubIdSchema } from '@nxc/game/content/catalog';
+import type { Round, Session } from '@nxc/game/model';
 import { z } from 'zod';
-import { clubIdSchema } from '../../content/catalog';
-import type { Round, Session } from '../model';
 
 const maxFound = 100;
 

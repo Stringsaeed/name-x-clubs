@@ -3,8 +3,8 @@
  * import, so `next build` (which imports route modules) never needs `DATABASE_URL`.
  */
 import 'server-only';
+import type { Locale } from '@nxc/game/i18n/config';
 import { Effect, ManagedRuntime } from 'effect';
-import type { Locale } from '../i18n/config';
 import { ServerConfig } from './config';
 import { DatabaseLive } from './db/Database';
 import { type AppRuntime, makeRoutes } from './http/routes';

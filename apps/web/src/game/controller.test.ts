@@ -1,7 +1,7 @@
+import { clubs } from '@nxc/game/content/catalog';
+import { levels } from '@nxc/game/model';
 import { afterEach, describe, expect, test } from 'vitest';
-import { clubs } from '../content/catalog';
 import { createGameController, elapsedSeconds, type StoragePort } from './controller';
-import { levels } from './model';
 
 class MemoryStorage implements StoragePort {
   values = new Map<string, string>();

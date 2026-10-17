@@ -1,4 +1,4 @@
-import { type ClubId, clubById } from '../content/catalog';
+import { type ClubId, clubById } from '@nxc/game/content/catalog';
 import {
   type Language,
   type Level,
@@ -7,7 +7,7 @@ import {
   modeSchema,
   type Session,
   secondsBetween,
-} from './model';
+} from '@nxc/game/model';
 import { applyIntent, type GameView, type Intent, sessionView } from './session/intents';
 import { createSessionRepository, type SessionRepository } from './session/repository';
 import { buildShareText, deliverShare, type ShareOutcome } from './session/share';

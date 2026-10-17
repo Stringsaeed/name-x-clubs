@@ -1,7 +1,7 @@
 import { msg } from '@lingui/core/macro';
+import type { Language, Session } from '@nxc/game/model';
 import { challengeLabel } from '../../content/labels';
 import { getI18nFor } from '../../i18n/instances';
-import type { Language, Session } from '../model';
 
 export type ShareOutcome =
   | { kind: 'shared' | 'copied' | 'cancelled' }

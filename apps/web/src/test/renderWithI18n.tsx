@@ -1,7 +1,7 @@
 import { I18nProvider } from '@lingui/react';
+import type { Locale } from '@nxc/game/i18n/config';
 import { type RenderResult, render } from '@testing-library/react';
 import type { ReactElement, ReactNode } from 'react';
-import type { Locale } from '../i18n/config';
 import { getI18nFor } from '../i18n/instances';
 
 function withI18n(ui: ReactNode, locale: Locale): ReactElement {

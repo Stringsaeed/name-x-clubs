@@ -1,5 +1,6 @@
 'use client';
 
+import type { Locale } from '@nxc/game/i18n/config';
 import { useCallback, useEffect, useState } from 'react';
 import { GameCard } from '../components/GameCard';
 import { Header } from '../components/Header';
@@ -10,7 +11,6 @@ import { useGameActions } from '../hooks/useGameActions';
 import { type RankedSetup, useRankedPlay } from '../hooks/useRankedPlay';
 import { useToast } from '../hooks/useToast';
 import { useViewportHeight } from '../hooks/useViewportHeight';
-import type { Locale } from '../i18n/config';
 import { useLegacyLanguage } from '../i18n/useLegacyLanguage';
 
 type GameScreenProps = { lang: Locale; controller?: GameController; ranked?: RankedSetup };

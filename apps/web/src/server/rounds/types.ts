@@ -1,5 +1,5 @@
-import type { ClubId } from '../../content/catalog';
-import type { Locale } from '../../i18n/config';
+import type { ClubId } from '@nxc/game/content/catalog';
+import type { Locale } from '@nxc/game/i18n/config';
 import type { RankedMode } from './modes';
 import type { RoundRecord, RoundStatus } from './RoundStore';
 import type { EntryEvent } from './replay';

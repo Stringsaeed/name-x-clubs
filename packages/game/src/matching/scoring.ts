@@ -1,4 +1,4 @@
-import type { ClubId } from '../../content/catalog';
+import type { ClubId } from '../content/catalog';
 import type { Level } from '../model';
 import type { AnswerEvent, ParsedAnswer } from './types';
 

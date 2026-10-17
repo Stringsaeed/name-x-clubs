@@ -1,6 +1,6 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Locale } from '@nxc/game/i18n/config';
 import { Button } from '@/components/ui/button';
-import type { Locale } from '../../i18n/config';
 import { ArrowGameIcon } from '../fluidGameIcons';
 import { Icon } from '../Icon';
 

@@ -1,8 +1,8 @@
 import { useLingui } from '@lingui/react/macro';
+import type { CompletedRound, Language, Session } from '@nxc/game/model';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { formatElapsed } from '../game/controller';
-import type { CompletedRound, Language, Session } from '../game/model';
 import { formatRankedTime } from '../game/ranked/clock';
 import { type RankedOutcome, rankedModeFor } from '../game/ranked/rankedView';
 import type { ShareOutcome } from '../game/session/share';

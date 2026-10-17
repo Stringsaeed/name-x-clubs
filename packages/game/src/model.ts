@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { ClubId, Region } from '../content/catalog';
+import type { ClubId, Region } from './content/catalog';
 
 export const levelSchema = z.union([z.literal(10), z.literal(50), z.literal(100)]);
 

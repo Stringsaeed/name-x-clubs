@@ -1,5 +1,5 @@
+import { type ClubId, clubs } from '@nxc/game/content/catalog';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import { type ClubId, clubs } from '../../content/catalog';
 import { createGameController, type GameView } from '../controller';
 import { AnswerQueue, maxEntriesPerRequest, maxEntryLength } from './answerQueue';
 import { formatRankedTime, roundMsAt, serverOffset } from './clock';

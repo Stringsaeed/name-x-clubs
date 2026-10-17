@@ -1,4 +1,4 @@
-import type { Club } from '../../content/catalog';
+import type { Club } from '../content/catalog';
 import { clubsNamedExactly } from './aliases';
 import { clubsNamedApproximately } from './fuzzy';
 import { lookupKeys, normalize, stripClubNoise } from './normalize';

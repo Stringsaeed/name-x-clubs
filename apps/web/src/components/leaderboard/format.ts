@@ -1,4 +1,4 @@
-import type { Locale } from '../../i18n/config';
+import type { Locale } from '@nxc/game/i18n/config';
 
 const msPerSecond = 1000;
 const secondsPerMinute = 60;

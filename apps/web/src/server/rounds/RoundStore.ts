@@ -1,8 +1,8 @@
 import 'server-only';
+import type { ClubId } from '@nxc/game/content/catalog';
+import { type Locale, locales } from '@nxc/game/i18n/config';
 import { Context, Effect, Layer, Option, Schema } from 'effect';
 import { SqlClient, type SqlError } from 'effect/sql';
-import type { ClubId } from '../../content/catalog';
-import { type Locale, locales } from '../../i18n/config';
 import { decodeFirstRow, jsonParam } from '../db/rows';
 import { type RankedMode, rankedModes } from './modes';
 import type { PaceFlag } from './pace';

@@ -1,12 +1,12 @@
 import { readFileSync } from 'node:fs';
-import { normalize } from '../../src/game/matching/normalize.ts';
+import { normalize } from '@nxc/game/matching/normalize';
 
 const read = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
 const out = read('./out/clubs.json');
 const countries = read('./out/countries.json');
 const ambiguous = read('./out/ambiguous.json');
-const src = read('../../src/content/clubs.json');
-const srcCountries = read('../../src/content/countries.json');
+const src = read('../../../../packages/game/src/content/clubs.json');
+const srcCountries = read('../../../../packages/game/src/content/countries.json');
 const curatedAmbiguous = read('./curated-ambiguous.json');
 const coreIds = read('./core-ids.json');
 const problems = [];

@@ -1,4 +1,4 @@
-import { ambiguousTerms, type Club, clubById, clubs } from '../../content/catalog';
+import { ambiguousTerms, type Club, clubById, clubs } from '../content/catalog';
 import { normalize, stripClubNoise } from './normalize';
 
 /** One spelling of a club name, split into words for typo matching. */

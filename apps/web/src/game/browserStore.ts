@@ -1,5 +1,5 @@
+import { challengesForLevel } from '@nxc/game/engine';
 import { createGameController, type GameController, type GameView } from './controller';
-import { challengesForLevel } from './engine';
 
 let controller: GameController | null = null;
 

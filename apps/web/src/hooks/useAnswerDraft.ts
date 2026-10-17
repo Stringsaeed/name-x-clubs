@@ -1,3 +1,4 @@
+import type { Session } from '@nxc/game/model';
 import {
   type ChangeEvent,
   type Dispatch,
@@ -18,7 +19,6 @@ import {
   pasteIntoValue,
   selectionOf,
 } from '../components/answerEdit';
-import type { Session } from '../game/model';
 import { useGameKeyboard } from './useGameKeyboard';
 
 type DraftActions = {

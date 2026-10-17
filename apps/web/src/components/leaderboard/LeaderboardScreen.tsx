@@ -3,7 +3,7 @@
 import { useLingui } from '@lingui/react/macro';
 import { useCallback, useState } from 'react';
 import '../../styles/leaderboard.css';
-import type { Locale } from '../../i18n/config';
+import type { Locale } from '@nxc/game/i18n/config';
 import { Header } from '../Header';
 import { HelpDialog } from '../HelpDialog';
 import { BoardTable } from './BoardTable';

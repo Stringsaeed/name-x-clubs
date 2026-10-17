@@ -1,4 +1,4 @@
-import type { Club } from '../../content/catalog';
+import type { Club } from '../content/catalog';
 import type { Challenge } from '../model';
 
 /** Matching only needs to know which clubs a round accepts. */

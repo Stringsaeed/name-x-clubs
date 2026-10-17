@@ -1,6 +1,6 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Locale } from '@nxc/game/i18n/config';
 import Link from 'next/link';
-import type { Locale } from '../../i18n/config';
 import {
   type BoardMode,
   type BoardPeriod,

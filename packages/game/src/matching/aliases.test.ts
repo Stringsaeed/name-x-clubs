@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { ambiguousTerms, clubs } from '../../content/catalog';
+import { ambiguousTerms, clubs } from '../content/catalog';
 import { clubsNamedExactly } from './aliases';
 import { normalize } from './normalize';
 

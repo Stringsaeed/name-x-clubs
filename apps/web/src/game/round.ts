@@ -1,5 +1,5 @@
-import { type AnswerEvent, parseAnswers, scoreAnswers } from './engine';
-import { type PlayingRound, type Round, type Session, secondsBetween } from './model';
+import { type AnswerEvent, parseAnswers, scoreAnswers } from '@nxc/game/engine';
+import { type PlayingRound, type Round, type Session, secondsBetween } from '@nxc/game/model';
 
 export type RoundAction = (
   | { type: 'start' }

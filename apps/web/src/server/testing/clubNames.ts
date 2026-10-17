@@ -1,5 +1,5 @@
-import { clubs } from '../../content/catalog';
-import { parseAnswers } from '../../game/engine';
+import { clubs } from '@nxc/game/content/catalog';
+import { parseAnswers } from '@nxc/game/engine';
 
 /** Club names that each resolve to exactly one club worldwide, so every one scores. */
 export function uniqueClubNames(count: number): string[] {

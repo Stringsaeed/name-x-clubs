@@ -1,8 +1,8 @@
 import { useLingui } from '@lingui/react/macro';
+import { challengesForLevel } from '@nxc/game/engine';
+import type { Language, Level } from '@nxc/game/model';
 import { memo, useMemo } from 'react';
 import { categoryLabel, sortChallengesForPicker } from '../content/labels';
-import { challengesForLevel } from '../game/engine';
-import type { Language, Level } from '../game/model';
 import { Icon } from './Icon';
 
 type PracticeControlsProps = {

@@ -1,4 +1,4 @@
-import type { Level, Mode, Session } from '../model';
+import type { Level, Mode, Session } from '@nxc/game/model';
 import { freeSession, practiceSession, restoreSession } from './restore';
 import {
   type JsonStore,

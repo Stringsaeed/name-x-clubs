@@ -5,8 +5,8 @@
  * the next request. The server's `found` list and phase are the truth. When the server cannot be
  * reached for `connectionTimeoutMs`, the round stops being ranked and the local game carries on.
  */
-import type { ClubId } from '../../content/catalog';
-import type { Locale } from '../../i18n/config';
+import type { ClubId } from '@nxc/game/content/catalog';
+import type { Locale } from '@nxc/game/i18n/config';
 import type { Ranks } from '../../server/rounds/types';
 import { AnswerQueue, type QueuedEntry } from './answerQueue';
 import type {

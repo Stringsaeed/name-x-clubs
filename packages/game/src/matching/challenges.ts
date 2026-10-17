@@ -1,4 +1,4 @@
-import { countries, type Region, regionSchema } from '../../content/catalog';
+import { countries, type Region, regionSchema } from '../content/catalog';
 import type { Challenge, Level, Scope } from '../model';
 import { eligibleClubs } from './scope';
 

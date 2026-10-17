@@ -1,4 +1,4 @@
-import type { Club } from '../../content/catalog';
+import type { Club } from '../content/catalog';
 import { isCatalogWord, namesWithWordCount } from './aliases';
 
 /** Shorter names are too easy to confuse with other clubs to correct at all. */

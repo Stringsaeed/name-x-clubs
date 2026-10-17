@@ -1,8 +1,8 @@
 import type { I18n, MessageDescriptor } from '@lingui/core';
 import { msg, plural } from '@lingui/core/macro';
-import type { Challenge, Language } from '../game/model';
+import { countryName, type Region } from '@nxc/game/content/catalog';
+import type { Challenge, Language } from '@nxc/game/model';
 import { getI18nFor } from '../i18n/instances';
-import { countryName, type Region } from './catalog';
 
 const FOCUS_TAGS = /<\/?focus>/g;
 

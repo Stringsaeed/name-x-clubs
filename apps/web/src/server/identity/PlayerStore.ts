@@ -1,7 +1,7 @@
 import 'server-only';
+import type { Locale } from '@nxc/game/i18n/config';
 import { Clock, Context, Crypto, Effect, Layer, Option, Schema } from 'effect';
 import { SqlClient, type SqlError } from 'effect/sql';
-import type { Locale } from '../../i18n/config';
 import { sha256Hex } from '../crypto';
 import { decodeFirstRow } from '../db/rows';
 import { type Nickname, Nicknames } from '../nicknames/Nicknames';

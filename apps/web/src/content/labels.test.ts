@@ -1,6 +1,6 @@
+import { challengesForLevel } from '@nxc/game/engine';
+import type { Challenge } from '@nxc/game/model';
 import { expect, test } from 'vitest';
-import { challengesForLevel } from '../game/engine';
-import type { Challenge } from '../game/model';
 import { getI18nFor } from '../i18n/instances';
 import {
   categoryLabel,

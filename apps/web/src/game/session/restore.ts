@@ -1,5 +1,5 @@
-import { type ClubId, clubById } from '../../content/catalog';
-import { challengesForLevel, eligibleClubs } from '../engine';
+import { type ClubId, clubById } from '@nxc/game/content/catalog';
+import { challengesForLevel, eligibleClubs } from '@nxc/game/engine';
 import {
   type Challenge,
   type Level,
@@ -10,7 +10,7 @@ import {
   type Round,
   type Session,
   secondsBetween,
-} from '../model';
+} from '@nxc/game/model';
 import type { WireSession } from './wire';
 
 export type RestoreContext = Readonly<{ mode: Mode; level: Level; now: number }>;

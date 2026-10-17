@@ -1,6 +1,6 @@
+import { clubs } from '@nxc/game/content/catalog';
+import { resolveClub } from '@nxc/game/engine';
 import { expect, type Page, test } from '@playwright/test';
-import { clubs } from '../../src/content/catalog';
-import { resolveClub } from '../../src/game/engine';
 import { suspiciousUnderMs } from '../../src/server/rounds/pace';
 import { skipWithoutDatabase, useOwnClientAddress } from './database';
 

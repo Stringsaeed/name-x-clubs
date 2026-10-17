@@ -4,9 +4,9 @@
  * Practice, and Free time without a server, behave exactly as the local controller does. A ranked
  * round only adds to it: answers also go to the server, whose clubs and clock are shown.
  */
-import type { Locale } from '../../i18n/config';
+import type { Locale } from '@nxc/game/i18n/config';
+import type { Language, Level, Mode } from '@nxc/game/model';
 import type { GameController, GameView } from '../controller';
-import type { Language, Level, Mode } from '../model';
 import { buildShareText, deliverShare, type ShareOutcome } from '../session/share';
 import type { RankedApi } from './api';
 import { formatRankedTime } from './clock';

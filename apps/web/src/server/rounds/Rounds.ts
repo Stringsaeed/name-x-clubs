@@ -1,7 +1,7 @@
 import 'server-only';
+import type { Locale } from '@nxc/game/i18n/config';
 import { Context, Effect, Layer } from 'effect';
 import type { SqlError } from 'effect/sql';
-import type { Locale } from '../../i18n/config';
 import type {
   CaptchaFailed,
   NotSignedIn,

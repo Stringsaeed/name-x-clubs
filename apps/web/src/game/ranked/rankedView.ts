@@ -4,11 +4,11 @@
  * The local round answers instantly. While answers are on their way its clubs are shown on top of
  * the server's; once the server has caught up, its list and its clock win.
  */
-import type { ClubId } from '../../content/catalog';
+import type { ClubId } from '@nxc/game/content/catalog';
+import type { Level, Round } from '@nxc/game/model';
 import { targetByMode } from '../../server/rounds/modes';
 import type { Ranks } from '../../server/rounds/types';
 import type { GameView } from '../controller';
-import type { Level, Round } from '../model';
 import type { RankedMode } from './api';
 import type { RankedSnapshot } from './RankedRound';
 

@@ -65,9 +65,10 @@ apps/web/src/app/        Routes: [lang]/layout (root layout, sets lang and dir),
                          [lang]/error, route.ts (locale redirect), icon.svg
 apps/web/src/screens/    GameScreen, the client component that renders the game
 apps/web/src/components/ Answer list, composer, timer, results and accessible help dialog
-apps/web/src/game/       Pure matching/round logic, controller, browserStore (localStorage)
-apps/web/src/content/    Typed club catalog, generated crest paths and bilingual copy
-apps/web/src/i18n/       config, server (server-only), client provider, negotiate (locale choice)
+apps/web/src/game/       Round logic, controller, browserStore (localStorage)
+apps/web/src/content/    Bilingual copy (labels)
+apps/web/src/i18n/       server (server-only), client provider, negotiate (locale choice)
+packages/game/src/       @nxc/game: club catalog and content JSON, matcher (engine, matching/*, model), locale list
 apps/web/src/locales/    PO catalogs per locale; compiled messages.ts is generated and ignored
 apps/web/src/fonts/      Nunito and Alan Sans files and licenses, loaded with next/font
 apps/web/src/styles/     Game stylesheet
@@ -100,11 +101,11 @@ See [the architecture decisions](docs/decisions/) for the rationale behind the c
 
 ## Club data and artwork
 
-`apps/web/src/content/clubs.json` is the curated source of club names, Arabic names and aliases. `apps/web/src/content/catalog.ts` validates it and provides the typed catalog. Club IDs are stable; do not renumber existing records when adding a club.
+`packages/game/src/content/clubs.json` is the curated source of club names, Arabic names and aliases. `packages/game/src/content/catalog.ts` validates it and provides the typed catalog. Club IDs are stable; do not renumber existing records when adding a club.
 
 All crests are local files under `apps/web/public/assets/crests`. `sources.json` preserves reviewed identities, original ESPN/Wikipedia source URLs, retrieval date and checksums. Artwork and trademarks remain with their respective owners. Crests are plain `<img>` elements that load as needed and keep an initials fallback if unavailable. No external image service runs during play.
 
-Run `pnpm assets:restore` to restore missing files from their reviewed sources. Matching local files are retained. The script regenerates `apps/web/src/content/crests.json`; tests reject missing, mismatched or altered assets. Review identity mappings before adding artwork.
+Run `pnpm assets:restore` to restore missing files from their reviewed sources. Matching local files are retained. The script regenerates `packages/game/src/content/crests.json`; tests reject missing, mismatched or altered assets. Review identity mappings before adding artwork.
 
 ## Deploy
 

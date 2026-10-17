@@ -2,7 +2,7 @@
  * The browser side of the ranked rounds API (`/api/rounds`). Every call resolves, never throws:
  * a network failure comes back as `status: 0`, so callers handle one result shape.
  */
-import type { Locale } from '../../i18n/config';
+import type { Locale } from '@nxc/game/i18n/config';
 import type { RankedMode } from '../../server/rounds/modes';
 import type {
   AnswerEntry,

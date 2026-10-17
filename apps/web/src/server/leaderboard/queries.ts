@@ -14,8 +14,8 @@
  * (`rank()`), and "my rank" is one more than the players strictly ahead, which agrees with it.
  */
 import 'server-only';
+import type { Locale } from '@nxc/game/i18n/config';
 import type { SqlClient } from 'effect/sql';
-import type { Locale } from '../../i18n/config';
 import type { RankedMode } from '../rounds/modes';
 
 export const periods = ['day', 'week', 'all'] as const;

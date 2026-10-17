@@ -5,7 +5,7 @@
       "**",
       "!apps/web/public/assets",
       "!apps/web/src/app/icon.svg",
-      "!apps/web/src/content/*.json",
+      "!packages/game/src/content/*.json",
       "!package-lock.json",
       "!**/playwright-report",
       "!**/test-results",
@@ -110,6 +110,7 @@
     },
     {
       "includes": [
+        "packages/game/src/**",
         "apps/web/src/game/**",
         "apps/web/src/components/**",
         "apps/web/src/screens/**",

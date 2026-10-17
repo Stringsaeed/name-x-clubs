@@ -1,4 +1,4 @@
-import type { Level } from '../../game/model';
+import type { Level } from '@nxc/game/model';
 
 export const rankedModes = ['t10', 't50', 't100'] as const;
 

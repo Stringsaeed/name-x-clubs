@@ -1,10 +1,10 @@
 import { useLingui } from '@lingui/react/macro';
+import type { ClubId } from '@nxc/game/content/catalog';
+import { type Club, clubCrests, countryName } from '@nxc/game/content/catalog';
+import { clubInitials } from '@nxc/game/content/clubNames';
+import type { Language } from '@nxc/game/model';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
-import type { ClubId } from '../content/catalog';
-import { type Club, clubCrests, countryName } from '../content/catalog';
-import { clubInitials } from '../content/clubNames';
 import { namedClubs } from '../game/controller';
-import type { Language } from '../game/model';
 import { Icon } from './Icon';
 
 const Crest = memo(function CrestView({ club }: { club: Club }) {

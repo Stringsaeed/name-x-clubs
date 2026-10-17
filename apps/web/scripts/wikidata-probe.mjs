@@ -3,7 +3,7 @@
 // Usage: node scripts/wikidata-probe.mjs [--limit N | --only id,id]
 // Partial runs write docs/research/wikidata-probe.partial.json instead.
 import { mkdir, writeFile } from 'node:fs/promises';
-import clubs from '../src/content/clubs.json' with { type: 'json' };
+import clubs from '@nxc/game/content/clubs.json' with { type: 'json' };
 
 const UA = 'NameXClubs-research/0.1 (stringsaeed@gmail.com)';
 const API = 'https://www.wikidata.org/w/api.php';
@@ -56,7 +56,7 @@ const COUNTRY = {
   usa: ['Q30'],
 };
 
-// Same normalization as src/game/engine.ts, plus the key stripping resolveClub applies.
+// Same normalization as packages/game/src/engine.ts, plus the key stripping resolveClub applies.
 function normalize(value) {
   return value
     .toLowerCase()

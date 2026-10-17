@@ -6,9 +6,9 @@
  * consistency (see `pace.ts`).
  */
 import 'server-only';
+import type { Locale } from '@nxc/game/i18n/config';
 import { Clock, Crypto, Effect, Option } from 'effect';
 import { SqlClient } from 'effect/sql';
-import type { Locale } from '../../i18n/config';
 import { Captcha } from '../captcha/Captcha';
 import { ServerConfig } from '../config';
 import { NotSignedIn, RoundClosed, RoundInProgress, RoundNotFound, SeqGap } from '../errors';

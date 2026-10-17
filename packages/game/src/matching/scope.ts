@@ -1,5 +1,5 @@
-import { type Club, type ClubId, clubs } from '../../content/catalog';
-import { startingLetters } from '../../content/clubNames';
+import { type Club, type ClubId, clubs } from '../content/catalog';
+import { startingLetters } from '../content/clubNames';
 import type { Scope } from '../model';
 import { isCuratedAmbiguousTerm } from './aliases';
 import type { Resolution, ScopedChallenge } from './types';

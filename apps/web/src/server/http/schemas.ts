@@ -1,6 +1,6 @@
 import 'server-only';
+import { locales } from '@nxc/game/i18n/config';
 import { Schema } from 'effect';
-import { locales } from '../../i18n/config';
 import { periods } from '../leaderboard/Leaderboard';
 import { rankedModes } from '../rounds/modes';
 

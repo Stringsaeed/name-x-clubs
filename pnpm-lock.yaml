@@ -263,6 +263,9 @@ importers:
       '@lingui/react':
         specifier: 6.9.1
         version: 6.9.1(@babel/core@7.29.7(supports-color@7.2.0))(react@19.3.0)
+      '@nxc/game':
+        specifier: workspace:*
+        version: link:../../packages/game
       '@tailwindcss/postcss':
         specifier: 4.3.3
         version: 4.3.3
@@ -369,6 +372,22 @@ importers:
       vitest:
         specifier: 5.0.4
         version: 5.0.4(@types/node@24.19.2)(@vitest/coverage-v8@5.0.4)(jsdom@30.1.2)(vite@8.3.4(@types/node@24.19.2)(jiti@2.7.0)(terser@5.51.2))
+
+  packages/game:
+    dependencies:
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+    devDependencies:
+      '@types/node':
+        specifier: 24.19.2
+        version: 24.19.2
+      typescript:
+        specifier: 7.0.2
+        version: 7.0.2
+      vitest:
+        specifier: 5.0.4
+        version: 5.0.4(@types/node@24.19.2)(@vitest/coverage-v8@5.0.4)(jsdom@30.1.2)(vite@8.3.4(@types/node@24.19.2)(jiti@2.7.0))
 
 packages:
 

@@ -1,5 +1,5 @@
 import 'server-only';
-import { clubs } from '../../content/catalog';
+import { clubs } from '@nxc/game/content/catalog';
 import { sha256Hex } from '../crypto';
 
 /**
