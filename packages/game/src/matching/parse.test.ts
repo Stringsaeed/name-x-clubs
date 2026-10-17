@@ -81,31 +81,3 @@ test(`answers beyond ${MAX_ANSWERS_PER_SUBMIT} in one paste are ignored (M5)`, (
 
   expect(parseAnswers(text)).toHaveLength(MAX_ANSWERS_PER_SUBMIT);
 });
-
-function junkPaste(word: (index: number) => string) {
-  const parts = Array.from({ length: 2000 }, (_, index) => word(index));
-
-  return parts.join(', ').slice(0, 12_000);
-}
-
-function letter(index: number) {
-  return String.fromCharCode(97 + (index % 26));
-}
-
-const junkPastes = {
-  'ten-letter junk words': junkPaste((index) => `qwertyuio${letter(index)}`),
-  'near misses of club names': junkPaste((index) => `manchestr unitex${letter(index)}`),
-  'one line of junk words': junkPaste((index) => `zx${letter(index)}qv`).replaceAll(',', ''),
-};
-
-for (const [label, text] of Object.entries(junkPastes)) {
-  test(`a 12k-character paste of ${label} parses in under 150 ms (M5)`, () => {
-    parseAnswers(text);
-
-    const started = performance.now();
-    parseAnswers(text);
-    const elapsed = performance.now() - started;
-
-    expect(elapsed).toBeLessThan(150);
-  });
-}

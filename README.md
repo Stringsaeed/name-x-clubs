@@ -67,6 +67,8 @@ Browser tests need a normal terminal outside restricted sandboxes. Native browse
 
 For active development use `pnpm test:watch`, `pnpm typecheck`, or `pnpm format`. `pnpm test:coverage` reports game-module coverage. Known issues and open checks are listed in [docs/discovery.md](docs/discovery.md).
 
+Run `pnpm --filter @nxc/game bench` to measure the large-paste parser cases separately. These benchmarks report timings without a fixed millisecond gate because runner speed and concurrent CI work affect elapsed time. The deterministic answer-limit check stays in the unit suite.
+
 ## Architecture
 
 ```text
