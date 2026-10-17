@@ -103,7 +103,18 @@ export function callerFrom(request: Request): Caller {
   };
 }
 
-export function sessionCookie(token: string, settings: ServerSettings) {
+/** HTTPS requests, including those terminated at a proxy. */
+export function requestIsSecure(request: Request) {
+  const forwarded = request.headers.get('x-forwarded-proto')?.split(',')[0]?.trim().toLowerCase();
+
+  if (forwarded === 'https' || forwarded === 'http') {
+    return forwarded === 'https';
+  }
+
+  return new URL(request.url).protocol === 'https:';
+}
+
+export function sessionCookie(token: string, settings: ServerSettings, request: Request) {
   const attributes = [
     `${sessionCookieName}=${token}`,
     'Path=/',
@@ -112,7 +123,9 @@ export function sessionCookie(token: string, settings: ServerSettings) {
     'SameSite=Lax',
   ];
 
-  if (settings.secureCookies) {
+  // WebKit drops a Secure cookie set over plain HTTP, which is how local and CI
+  // `next start` serves the game. Production HTTPS still gets the flag.
+  if (settings.secureCookies && requestIsSecure(request)) {
     attributes.push('Secure');
   }
 

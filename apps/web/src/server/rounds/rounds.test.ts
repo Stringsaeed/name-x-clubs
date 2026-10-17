@@ -76,6 +76,29 @@ describe('starting a ranked round', () => {
     expect(cookie).not.toContain('Secure');
   });
 
+  it('marks the session cookie Secure only when the request arrived over HTTPS', async () => {
+    const secureApp = await makeTestApp({ secureCookies: true });
+
+    try {
+      const plain = await secureApp.routes.startRound(
+        apiRequest('/api/rounds', { body: { mode: 't10', lang: 'en' } }),
+      );
+      const proxied = await secureApp.routes.startRound(
+        apiRequest('/api/rounds', {
+          body: { mode: 't10', lang: 'en' },
+          headers: { 'x-forwarded-proto': 'https' },
+        }),
+      );
+
+      expect(plain.status).toBe(201);
+      expect(plain.headers.get('set-cookie')).not.toContain('Secure');
+      expect(proxied.status).toBe(201);
+      expect(proxied.headers.get('set-cookie')).toContain('Secure');
+    } finally {
+      await secureApp.dispose();
+    }
+  });
+
   it('stores only the SHA-256 of the session token', async () => {
     const { session } = await startRound();
     const hashes = await app.run(

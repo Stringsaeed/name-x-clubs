@@ -75,7 +75,7 @@ const startRound = (request: Request): Program =>
     const rounds = yield* Rounds;
     const settings = yield* ServerConfig;
     const { sessionToken, ...started } = yield* rounds.start(callerFrom(request), body);
-    const headers = { ...noStore, 'Set-Cookie': sessionCookie(sessionToken, settings) };
+    const headers = { ...noStore, 'Set-Cookie': sessionCookie(sessionToken, settings, request) };
 
     return json(started, 201, headers);
   });

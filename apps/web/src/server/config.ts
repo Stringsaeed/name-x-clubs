@@ -2,7 +2,7 @@ import 'server-only';
 import { Config, Context, Effect, Layer } from 'effect';
 
 export type ServerSettings = Readonly<{
-  /** Adds `Secure` to the session cookie. On in production. */
+  /** Adds `Secure` to the session cookie on HTTPS requests. True in production. */
   secureCookies: boolean;
   /** When on, a completed round waits at `complete` until `finish` passes the captcha. */
   captchaEnabled: boolean;
