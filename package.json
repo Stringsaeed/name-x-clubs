@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "vercel-build": "turbo run vercel-build",
     "typecheck": "turbo run typecheck",
     "i18n:compile": "turbo run i18n:compile",
     "lint": "biome check .",
@@ -28,8 +27,7 @@
     "catalog:verify": "pnpm --filter web catalog:verify",
     "catalog:apply": "pnpm --filter web catalog:apply",
     "start": "turbo run start",
-    "db:migrate": "turbo run db:migrate",
-    "check:client-bundle": "turbo run check:client-bundle"
+    "db:migrate": "turbo run db:migrate"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",

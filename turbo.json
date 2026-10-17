@@ -14,16 +14,8 @@
     "build": {
       "dependsOn": ["i18n:compile"],
       "env": ["NEXT_PUBLIC_SITE_URL"],
-      "outputs": [".next/**", "!.next/cache/**"]
-    },
-    "vercel-build": {
-      "cache": false,
-      "passThroughEnv": [
-        "VERCEL_ENV",
-        "DATABASE_URL",
-        "DATABASE_URL_UNPOOLED",
-        "NEXT_PUBLIC_SITE_URL"
-      ]
+      "outputs": [".next/**", "!.next/cache/**"],
+      "passThroughEnv": ["DATABASE_URL", "DATABASE_URL_UNPOOLED", "VERCEL_ENV"]
     },
     "dev": {
       "dependsOn": ["i18n:compile"],
@@ -54,9 +46,6 @@
     "db:migrate": {
       "cache": false,
       "passThroughEnv": ["DATABASE_URL", "DATABASE_URL_UNPOOLED", "VERCEL_ENV"]
-    },
-    "check:client-bundle": {
-      "dependsOn": ["build"]
     }
   }
 }

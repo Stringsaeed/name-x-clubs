@@ -1,0 +1,63 @@
+import type { Locale } from '@nxc/game/i18n/config';
+import type {
+  AnswersRequest,
+  AnswersResponse,
+  Caller,
+  Finished,
+  FinishRequest,
+  RoundView,
+  Started,
+  StartRequest,
+} from '@nxc/game/ranked/types';
+import { Context, Effect, Layer } from 'effect';
+import type { SqlError } from 'effect/sql';
+import type {
+  CaptchaFailed,
+  NotSignedIn,
+  RateLimited,
+  RoundClosed,
+  RoundInProgress,
+  RoundNotFound,
+  SeqGap,
+} from '../errors';
+import { answer, finish, type RoundsServices, resume, start } from './programs';
+
+type CommonError = SqlError.SqlError | NotSignedIn | RateLimited | RoundNotFound;
+
+/** The rounds API as a service. The programs live in `programs.ts`. */
+export class Rounds extends Context.Service<
+  Rounds,
+  {
+    start(
+      caller: Caller,
+      request: StartRequest,
+    ): Effect.Effect<Started, CommonError | RoundInProgress>;
+    answer(
+      caller: Caller,
+      roundId: string,
+      request: AnswersRequest,
+    ): Effect.Effect<AnswersResponse, CommonError | SeqGap | RoundClosed>;
+    resume(caller: Caller, roundId: string, lang?: Locale): Effect.Effect<RoundView, CommonError>;
+    finish(
+      caller: Caller,
+      roundId: string,
+      request: FinishRequest,
+    ): Effect.Effect<Finished, CommonError | CaptchaFailed>;
+  }
+>()('nxc/server/Rounds') {
+  static readonly layer = Layer.effect(
+    Rounds,
+    Effect.gen(function* () {
+      const services = yield* Effect.context<RoundsServices>();
+      const withServices = <A, E>(program: Effect.Effect<A, E, RoundsServices>) =>
+        Effect.provideContext(program, services);
+
+      return Rounds.of({
+        start: (caller, request) => withServices(start(caller, request)),
+        answer: (caller, roundId, request) => withServices(answer(caller, roundId, request)),
+        resume: (caller, roundId, lang) => withServices(resume(caller, roundId, lang)),
+        finish: (caller, roundId, request) => withServices(finish(caller, roundId, request)),
+      });
+    }),
+  );
+}

@@ -126,6 +126,7 @@ jobs:
             apps/web/.next/cache
           key: build-e2e-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
       - run: psql "$E2E_DATABASE_URL" -v ON_ERROR_STOP=1 -q -f apps/web/tests/e2e/fixtures/leaderboard-seed.sql
+      # Playwright starts the API (port 4101, E2E_DATABASE_URL) and `next start` itself.
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v7.0.2
         if: failure()

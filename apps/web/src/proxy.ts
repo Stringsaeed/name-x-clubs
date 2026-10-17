@@ -1,12 +1,21 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { languageCookie, negotiateLocale } from './i18n/negotiate';
+import { apiOrigin } from './lib/api';
 
 /**
- * `/` has no locale segment. The server layout still needs one to load Lingui.
- * A rewrite keeps the browser on the URL it opened. A redirect would change it.
+ * Two rewrites, both read at request time:
+ *
+ * - `/api/*` goes to the API service at `API_ORIGIN`. This only matters locally: on Vercel the
+ *   top-level service rewrite in `vercel.json` routes `/api` before Next.js sees the request.
+ * - `/` has no locale segment. The server layout still needs one to load Lingui. A rewrite keeps
+ *   the browser on the URL it opened. A redirect would change it.
  */
 export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
+
+  if (url.pathname.startsWith('/api/')) {
+    return NextResponse.rewrite(new URL(`${url.pathname}${url.search}`, apiOrigin()));
+  }
 
   if (url.pathname !== '/') {
     return NextResponse.next();
@@ -22,5 +31,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/',
+  matcher: ['/', '/api/:path*'],
 };
