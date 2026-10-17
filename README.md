@@ -28,7 +28,7 @@ Catalogs compile automatically: Turborepo runs `i18n:compile` before `dev`, `bui
 | Browser regression tests | Playwright against `next start`, desktop Chromium and mobile WebKit |
 | Formatting and lint | Biome 2 with readability rules |
 | Workspace | pnpm workspaces and Turborepo. The Next.js app is `apps/web` |
-| CI | GitHub Actions, a pinned Node version and committed pnpm lockfile |
+| CI | GitHub Actions. A pull request runs once; a newer push cancels the run in progress. Lint and unit tests run beside the production build and Playwright |
 | Hosting | Vercel, with the project Root Directory set to `apps/web`. Cloudflare would use `@opennextjs/cloudflare` |
 
 Dependencies use exact versions. The build does not require credentials or secrets.

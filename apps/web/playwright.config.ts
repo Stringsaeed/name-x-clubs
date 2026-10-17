@@ -17,7 +17,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  ...(process.env.CI ? { workers: 2 } : {}),
+  ...(process.env.CI ? { workers: 4 } : {}),
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
     baseURL: remoteBaseUrl ?? localBaseUrl,
