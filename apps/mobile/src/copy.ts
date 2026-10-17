@@ -1,0 +1,429 @@
+import { type Club, countryName, type Region } from '../../web/src/content/catalog';
+import type { AnswerEvent } from '../../web/src/game/engine';
+import { challengesForLevel } from '../../web/src/game/engine';
+import type { Challenge, Language, Session } from '../../web/src/game/model';
+import { formatElapsed } from './game/engine';
+
+const regions: Record<Language, Record<Region, string>> = {
+  en: {
+    europe: 'Europe',
+    asia: 'Asia',
+    africa: 'Africa',
+    americas: 'the Americas',
+    oceania: 'Oceania',
+  },
+  ar: {
+    europe: 'أوروبا',
+    asia: 'آسيا',
+    africa: 'أفريقيا',
+    americas: 'الأمريكتين',
+    oceania: 'أوقيانوسيا',
+  },
+};
+
+export type Copy = Readonly<{
+  freeTime: string;
+  practice: string;
+  letsPlay: string;
+  endRound: string;
+  endRoundTitle: string;
+  endRoundHint: string;
+  endRoundMessage: string;
+  keepPlaying: string;
+  anotherRound: string;
+  shareResult: string;
+  surpriseMe: string;
+  pickPitch: string;
+  randomChallenge: string;
+  anywhere: string;
+  placeholder: string;
+  submit: string;
+  youKnowBall: string;
+  goodShift: string;
+  storage: string;
+  modes: string;
+  levels: string;
+  language: string;
+  found: string;
+  leaderboard: string;
+  rank: string;
+  player: string;
+  time: string;
+  when: string;
+  you: string;
+  topThree: string;
+  last24h: string;
+  last7d: string;
+  allTime: string;
+  noTimesYet: string;
+  boardUnavailable: string;
+  tryAgain: string;
+  checkingTime: string;
+  underReview: string;
+  notRanked: string;
+  yourRank: string;
+  viewLeaderboard: string;
+  next: string;
+  moreBelow: string;
+  knowYourClubs: string;
+  proveIt: string;
+  letterHint: string;
+  settings: string;
+  sound: string;
+  haptics: string;
+  appearance: string;
+  dark: string;
+  light: string;
+  system: string;
+  close: string;
+  elapsed: string;
+  progress: string;
+  notRankedChip: string;
+  underReviewChip: string;
+  languageSetting: string;
+  englishName: string;
+  arabicName: string;
+  searchPitch: string;
+  noMatches: string;
+  sectionWorld: string;
+  sectionRegions: string;
+  sectionCountries: string;
+  sectionLetters: string;
+  roundComplete: (target: number) => string;
+  modeLabel: (target: number) => string;
+  /** The album eyebrow while playing: `Free time · Mode 10`, `Practice · Spain`. */
+  roundChip: (mode: string, detail: string) => string;
+  startingWith: (letter: string) => string;
+  clubs: (count: number) => string;
+}>;
+
+const english: Copy = {
+  freeTime: 'Free time',
+  practice: 'Practice',
+  letsPlay: 'Let’s play',
+  endRound: 'End round',
+  endRoundTitle: 'End the round?',
+  endRoundHint: 'Opens a confirmation before ending the round.',
+  endRoundMessage: 'You can’t resume this round after ending it.',
+  keepPlaying: 'Keep playing',
+  anotherRound: 'Another round',
+  shareResult: 'Share result',
+  surpriseMe: 'Surprise me',
+  pickPitch: 'Pick your pitch',
+  randomChallenge: 'A random challenge',
+  anywhere: 'Anywhere in the world',
+  placeholder: 'Type a club name…',
+  submit: 'Submit answer',
+  youKnowBall: 'You know ball.',
+  goodShift: 'Good shift.',
+  storage: 'This phone couldn’t save the round. It stays while the app is open.',
+  modes: 'Game modes',
+  levels: 'How many clubs',
+  language: 'العربية',
+  found: 'Your clubs',
+  leaderboard: 'Leaderboard',
+  rank: 'Rank',
+  player: 'Player',
+  time: 'Time',
+  when: 'When',
+  you: 'You',
+  topThree: 'Top three',
+  last24h: 'Last 24 hours',
+  last7d: 'Last 7 days',
+  allTime: 'All time',
+  noTimesYet: 'No times yet. Be the first on the board.',
+  boardUnavailable: 'The leaderboard isn’t available right now.',
+  tryAgain: 'Try again',
+  checkingTime: 'Checking your time…',
+  underReview: 'Your time is under review.',
+  notRanked: 'This round wasn’t ranked.',
+  yourRank: 'Your rank',
+  viewLeaderboard: 'View leaderboard',
+  next: 'Next',
+  moreBelow: 'More below',
+  knowYourClubs: 'Know your clubs?',
+  proveIt: 'Prove it.',
+  letterHint: 'Use the club’s common English name.',
+  settings: 'Settings',
+  sound: 'Sound',
+  haptics: 'Haptics',
+  appearance: 'Appearance',
+  dark: 'Dark',
+  light: 'Light',
+  system: 'System',
+  close: 'Close',
+  elapsed: 'Time',
+  progress: 'Progress',
+  notRankedChip: 'Not ranked',
+  underReviewChip: 'Under review',
+  languageSetting: 'Language',
+  englishName: 'English',
+  arabicName: 'العربية',
+  searchPitch: 'Search a country, region or letter',
+  noMatches: 'Nothing matches that. Try another word.',
+  sectionWorld: 'World',
+  sectionRegions: 'Regions',
+  sectionCountries: 'Countries',
+  sectionLetters: 'Letters',
+  roundComplete: (target) => `Round complete · Mode ${target}`,
+  modeLabel: (target) => `Mode ${target}`,
+  roundChip: (mode, detail) => `${mode} · ${detail}`,
+  startingWith: (letter) => `Starting with ${letter.toUpperCase()}`,
+  clubs: (count) => clubNoun('en', count),
+};
+
+const arabic: Copy = {
+  freeTime: 'وقت حر',
+  practice: 'تدرّب',
+  letsPlay: 'يلا نلعب',
+  endRound: 'إنهاء الجولة',
+  endRoundTitle: 'تنهي الجولة؟',
+  endRoundHint: 'يفتح رسالة تأكيد قبل إنهاء الجولة.',
+  endRoundMessage: 'ما تقدر تكمل هذه الجولة بعد إنهائها.',
+  keepPlaying: 'كمّل اللعب',
+  anotherRound: 'جولة ثانية',
+  shareResult: 'شارك النتيجة',
+  surpriseMe: 'فاجئني',
+  pickPitch: 'اختر ملعبك',
+  randomChallenge: 'تحدٍّ عشوائي',
+  anywhere: 'أي مكان في العالم',
+  placeholder: 'اكتب اسم نادٍ…',
+  submit: 'إرسال الإجابة',
+  youKnowBall: 'واضح إنك كروي!',
+  goodShift: 'محاولة حلوة.',
+  storage: 'الجهاز ما قدر يحفظ الجولة. تبقى طالما التطبيق مفتوح.',
+  modes: 'أوضاع اللعب',
+  levels: 'عدد الأندية',
+  language: 'English',
+  found: 'قائمة أنديتك',
+  leaderboard: 'المتصدرون',
+  rank: 'الترتيب',
+  player: 'اللاعب',
+  time: 'الوقت',
+  when: 'متى',
+  you: 'أنت',
+  topThree: 'أفضل ثلاثة',
+  last24h: 'آخر 24 ساعة',
+  last7d: 'آخر 7 أيام',
+  allTime: 'كل الأوقات',
+  noTimesYet: 'لا توجد أوقات بعد. كن أول من يظهر هنا.',
+  boardUnavailable: 'المتصدرون غير متاحين الآن.',
+  tryAgain: 'حاول مرة ثانية',
+  checkingTime: 'نتحقق من وقتك…',
+  underReview: 'وقتك قيد المراجعة.',
+  notRanked: 'هذه الجولة لم تُحتسب في الترتيب.',
+  yourRank: 'ترتيبك',
+  viewLeaderboard: 'عرض المتصدرين',
+  next: 'التالي',
+  moreBelow: 'المزيد بالأسفل',
+  knowYourClubs: 'تعرف أنديتك؟',
+  proveIt: 'أثبت ذلك.',
+  letterHint: 'استخدم الاسم الإنجليزي الشائع للنادي.',
+  settings: 'الإعدادات',
+  sound: 'الصوت',
+  haptics: 'الاهتزاز',
+  appearance: 'المظهر',
+  dark: 'داكن',
+  light: 'فاتح',
+  system: 'النظام',
+  close: 'إغلاق',
+  elapsed: 'الوقت',
+  progress: 'التقدّم',
+  notRankedChip: 'غير محتسبة',
+  underReviewChip: 'قيد المراجعة',
+  languageSetting: 'اللغة',
+  englishName: 'English',
+  arabicName: 'العربية',
+  searchPitch: 'ابحث عن دولة أو منطقة أو حرف',
+  noMatches: 'لا شيء يطابق بحثك. جرّب كلمة ثانية.',
+  sectionWorld: 'العالم',
+  sectionRegions: 'المناطق',
+  sectionCountries: 'الدول',
+  sectionLetters: 'الحروف',
+  roundComplete: (target) => `اكتملت الجولة · وضع ${target}`,
+  modeLabel: (target) => `وضع ${target}`,
+  roundChip: (mode, detail) => `${mode} · ${detail}`,
+  startingWith: (letter) => `تبدأ بحرف ${letter.toUpperCase()}`,
+  clubs: (count) => clubNoun('ar', count),
+};
+
+/** The wordmark. Always Latin, whatever the language. */
+export const brandName = 'name × clubs.';
+
+export function copyFor(language: Language): Copy {
+  return language === 'ar' ? arabic : english;
+}
+
+export function displayName(club: Club, language: Language) {
+  return language === 'ar' ? club.arabic : club.name;
+}
+
+function clubNoun(language: Language, count: number) {
+  if (language === 'en') {
+    return count === 1 ? '1 club' : `${count} clubs`;
+  }
+
+  if (count === 1) {
+    return 'نادٍ واحد';
+  }
+
+  if (count === 2) {
+    return 'ناديان';
+  }
+
+  if (count <= 10) {
+    return `${count} أندية`;
+  }
+
+  if (count <= 99) {
+    return `${count} ناديًا`;
+  }
+
+  return `${count} نادٍ`;
+}
+
+export type FocusedLine = Readonly<{ before: string; focus: string; after: string }>;
+
+export function challengeLine(challenge: Challenge, language: Language): FocusedLine {
+  const clubs = clubNoun(language, challenge.target);
+  const scope = challenge.scope;
+
+  if (language === 'ar') {
+    return arabicChallenge(scope, clubs);
+  }
+
+  return englishChallenge(scope, clubs);
+}
+
+function regionName(language: Language, region: Region) {
+  return regions[language][region] ?? region;
+}
+
+function englishChallenge(scope: Challenge['scope'], clubs: string): FocusedLine {
+  switch (scope.kind) {
+    case 'world':
+      return { before: 'Name ', focus: clubs, after: '.' };
+    case 'country':
+      return {
+        before: `Name ${clubs} from `,
+        focus: countryName(scope.country, 'en'),
+        after: '.',
+      };
+    case 'region':
+      return { before: `Name ${clubs} from `, focus: regionName('en', scope.region), after: '.' };
+    case 'letter':
+      return {
+        before: `Name ${clubs} starting with `,
+        focus: scope.letter.toUpperCase(),
+        after: '.',
+      };
+  }
+}
+
+function arabicChallenge(scope: Challenge['scope'], clubs: string): FocusedLine {
+  switch (scope.kind) {
+    case 'world':
+      return { before: 'اذكر ', focus: clubs, after: '.' };
+    case 'country':
+      return { before: `اذكر ${clubs} من `, focus: countryName(scope.country, 'ar'), after: '.' };
+    case 'region':
+      return { before: `اذكر ${clubs} من `, focus: regionName('ar', scope.region), after: '.' };
+    case 'letter':
+      return { before: `اذكر ${clubs} تبدأ بحرف `, focus: scope.letter.toUpperCase(), after: '.' };
+  }
+}
+
+export function categoryLabel(challenge: Challenge, language: Language, copy: Copy) {
+  const scope = challenge.scope;
+
+  switch (scope.kind) {
+    case 'world':
+      return copy.anywhere;
+    case 'country':
+      return countryName(scope.country, language);
+    case 'region':
+      return regionName(language, scope.region);
+    case 'letter':
+      return language === 'ar'
+        ? `حرف ${scope.letter.toUpperCase()}`
+        : `Starting with ${scope.letter.toUpperCase()}`;
+  }
+}
+
+const kindOrder: Record<Challenge['scope']['kind'], number> = {
+  world: 0,
+  region: 1,
+  country: 2,
+  letter: 3,
+};
+
+export function practiceChoices(level: Challenge['target'], language: Language) {
+  const collator = new Intl.Collator(language);
+
+  return [...challengesForLevel(level)].sort((first, second) => {
+    const byKind = kindOrder[first.scope.kind] - kindOrder[second.scope.kind];
+    const firstCountry = first.scope.kind === 'country' ? first.scope.country : null;
+    const secondCountry = second.scope.kind === 'country' ? second.scope.country : null;
+
+    if (byKind !== 0 || firstCountry === null || secondCountry === null) {
+      return byKind;
+    }
+
+    return collator.compare(
+      countryName(firstCountry, language),
+      countryName(secondCountry, language),
+    );
+  });
+}
+
+export function feedbackLine(event: AnswerEvent, language: Language) {
+  switch (event.kind) {
+    case 'accepted':
+      return language === 'ar'
+        ? `${displayName(event.club, language)}. إجابة صحيحة!`
+        : `${displayName(event.club, language)}. That’s one!`;
+    case 'duplicate':
+      return language === 'ar'
+        ? `${displayName(event.club, language)} موجود في تشكيلتك. جرّب ناديًا ثانيًا.`
+        : `${displayName(event.club, language)} is already on your list. Try another club.`;
+    case 'wrong-category':
+      return language === 'ar'
+        ? `${displayName(event.club, language)} نادٍ معروف، لكنه لا يناسب هذا التحدي.`
+        : `${displayName(event.club, language)} is a club, but doesn’t fit this challenge.`;
+    case 'ambiguous':
+      return language === 'ar'
+        ? `«${event.input}» ممكن يشير لأكثر من نادٍ. جرّب الاسم الكامل.`
+        : `“${event.input}” could mean more than one club. Try the full name.`;
+    case 'unknown':
+      return language === 'ar'
+        ? `ما تعرّفنا على «${event.input}». جرّب الاسم الكامل أو كتابة مختلفة.`
+        : `We couldn’t match “${event.input}”. Try the full name or another spelling.`;
+  }
+}
+
+const squares = 10;
+
+export function shareText(session: Session, language: Language, elapsedLabel: string) {
+  const found = session.round.found.length;
+  const target = session.challenge.target;
+  const filled = Math.round((found / target) * squares);
+  const bar = '🟩'.repeat(filled) + '⬜'.repeat(squares - filled);
+  const title = session.kind === 'free' ? copyFor(language).freeTime : copyFor(language).practice;
+  const line = challengeLine(session.challenge, language);
+
+  return [
+    `name × clubs. ${title}`,
+    `${line.before}${line.focus}${line.after}`,
+    `${bar} ${found}/${target} · ${elapsedLabel}`,
+    'https://clubs.saeed.sh',
+  ].join('\n');
+}
+
+export function resultElapsed(session: Session) {
+  return formatElapsed(session.round.phase === 'complete' ? session.round.elapsed : 0);
+}
+
+/** `#12`, the rank as a small chip shows it. */
+export function formatRankChip(rank: number) {
+  return `#${rank}`;
+}
