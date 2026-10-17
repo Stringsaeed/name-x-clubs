@@ -20,7 +20,9 @@
       "!docs/design/mockups",
       "!apps/web/scripts/catalog/.cache",
       "!apps/web/scripts/catalog/out",
-      "!**/.turbo"
+      "!**/.turbo",
+      "!apps/mobile/ios",
+      "!apps/mobile/android"
     ]
   },
   "formatter": {

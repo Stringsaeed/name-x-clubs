@@ -2,7 +2,7 @@ import { type Club, countryName, type Region } from '../../web/src/content/catal
 import type { AnswerEvent } from '../../web/src/game/engine';
 import { challengesForLevel } from '../../web/src/game/engine';
 import type { Challenge, Language, Session } from '../../web/src/game/model';
-import { formatElapsed } from './engine';
+import { formatElapsed } from './game/engine';
 
 const regions: Record<Language, Record<Region, string>> = {
   en: {
@@ -25,7 +25,11 @@ export type Copy = Readonly<{
   freeTime: string;
   practice: string;
   letsPlay: string;
-  done: string;
+  endRound: string;
+  endRoundTitle: string;
+  endRoundHint: string;
+  endRoundMessage: string;
+  keepPlaying: string;
   anotherRound: string;
   shareResult: string;
   surpriseMe: string;
@@ -41,13 +45,67 @@ export type Copy = Readonly<{
   levels: string;
   language: string;
   found: string;
+  leaderboard: string;
+  rank: string;
+  player: string;
+  time: string;
+  when: string;
+  you: string;
+  topThree: string;
+  last24h: string;
+  last7d: string;
+  allTime: string;
+  noTimesYet: string;
+  boardUnavailable: string;
+  tryAgain: string;
+  checkingTime: string;
+  underReview: string;
+  notRanked: string;
+  yourRank: string;
+  viewLeaderboard: string;
+  next: string;
+  moreBelow: string;
+  knowYourClubs: string;
+  proveIt: string;
+  letterHint: string;
+  settings: string;
+  sound: string;
+  haptics: string;
+  appearance: string;
+  dark: string;
+  light: string;
+  system: string;
+  close: string;
+  elapsed: string;
+  progress: string;
+  notRankedChip: string;
+  underReviewChip: string;
+  languageSetting: string;
+  englishName: string;
+  arabicName: string;
+  searchPitch: string;
+  noMatches: string;
+  sectionWorld: string;
+  sectionRegions: string;
+  sectionCountries: string;
+  sectionLetters: string;
+  roundComplete: (target: number) => string;
+  modeLabel: (target: number) => string;
+  /** The album eyebrow while playing: `Free time · Mode 10`, `Practice · Spain`. */
+  roundChip: (mode: string, detail: string) => string;
+  startingWith: (letter: string) => string;
+  clubs: (count: number) => string;
 }>;
 
 const english: Copy = {
   freeTime: 'Free time',
   practice: 'Practice',
   letsPlay: 'Let’s play',
-  done: 'Done',
+  endRound: 'End round',
+  endRoundTitle: 'End the round?',
+  endRoundHint: 'Opens a confirmation before ending the round.',
+  endRoundMessage: 'You can’t resume this round after ending it.',
+  keepPlaying: 'Keep playing',
   anotherRound: 'Another round',
   shareResult: 'Share result',
   surpriseMe: 'Surprise me',
@@ -63,13 +121,66 @@ const english: Copy = {
   levels: 'How many clubs',
   language: 'العربية',
   found: 'Your clubs',
+  leaderboard: 'Leaderboard',
+  rank: 'Rank',
+  player: 'Player',
+  time: 'Time',
+  when: 'When',
+  you: 'You',
+  topThree: 'Top three',
+  last24h: 'Last 24 hours',
+  last7d: 'Last 7 days',
+  allTime: 'All time',
+  noTimesYet: 'No times yet. Be the first on the board.',
+  boardUnavailable: 'The leaderboard isn’t available right now.',
+  tryAgain: 'Try again',
+  checkingTime: 'Checking your time…',
+  underReview: 'Your time is under review.',
+  notRanked: 'This round wasn’t ranked.',
+  yourRank: 'Your rank',
+  viewLeaderboard: 'View leaderboard',
+  next: 'Next',
+  moreBelow: 'More below',
+  knowYourClubs: 'Know your clubs?',
+  proveIt: 'Prove it.',
+  letterHint: 'Use the club’s common English name.',
+  settings: 'Settings',
+  sound: 'Sound',
+  haptics: 'Haptics',
+  appearance: 'Appearance',
+  dark: 'Dark',
+  light: 'Light',
+  system: 'System',
+  close: 'Close',
+  elapsed: 'Time',
+  progress: 'Progress',
+  notRankedChip: 'Not ranked',
+  underReviewChip: 'Under review',
+  languageSetting: 'Language',
+  englishName: 'English',
+  arabicName: 'العربية',
+  searchPitch: 'Search a country, region or letter',
+  noMatches: 'Nothing matches that. Try another word.',
+  sectionWorld: 'World',
+  sectionRegions: 'Regions',
+  sectionCountries: 'Countries',
+  sectionLetters: 'Letters',
+  roundComplete: (target) => `Round complete · Mode ${target}`,
+  modeLabel: (target) => `Mode ${target}`,
+  roundChip: (mode, detail) => `${mode} · ${detail}`,
+  startingWith: (letter) => `Starting with ${letter.toUpperCase()}`,
+  clubs: (count) => clubNoun('en', count),
 };
 
 const arabic: Copy = {
   freeTime: 'وقت حر',
   practice: 'تدرّب',
   letsPlay: 'يلا نلعب',
-  done: 'تم',
+  endRound: 'إنهاء الجولة',
+  endRoundTitle: 'تنهي الجولة؟',
+  endRoundHint: 'يفتح رسالة تأكيد قبل إنهاء الجولة.',
+  endRoundMessage: 'ما تقدر تكمل هذه الجولة بعد إنهائها.',
+  keepPlaying: 'كمّل اللعب',
   anotherRound: 'جولة ثانية',
   shareResult: 'شارك النتيجة',
   surpriseMe: 'فاجئني',
@@ -85,7 +196,59 @@ const arabic: Copy = {
   levels: 'عدد الأندية',
   language: 'English',
   found: 'قائمة أنديتك',
+  leaderboard: 'المتصدرون',
+  rank: 'الترتيب',
+  player: 'اللاعب',
+  time: 'الوقت',
+  when: 'متى',
+  you: 'أنت',
+  topThree: 'أفضل ثلاثة',
+  last24h: 'آخر 24 ساعة',
+  last7d: 'آخر 7 أيام',
+  allTime: 'كل الأوقات',
+  noTimesYet: 'لا توجد أوقات بعد. كن أول من يظهر هنا.',
+  boardUnavailable: 'المتصدرون غير متاحين الآن.',
+  tryAgain: 'حاول مرة ثانية',
+  checkingTime: 'نتحقق من وقتك…',
+  underReview: 'وقتك قيد المراجعة.',
+  notRanked: 'هذه الجولة لم تُحتسب في الترتيب.',
+  yourRank: 'ترتيبك',
+  viewLeaderboard: 'عرض المتصدرين',
+  next: 'التالي',
+  moreBelow: 'المزيد بالأسفل',
+  knowYourClubs: 'تعرف أنديتك؟',
+  proveIt: 'أثبت ذلك.',
+  letterHint: 'استخدم الاسم الإنجليزي الشائع للنادي.',
+  settings: 'الإعدادات',
+  sound: 'الصوت',
+  haptics: 'الاهتزاز',
+  appearance: 'المظهر',
+  dark: 'داكن',
+  light: 'فاتح',
+  system: 'النظام',
+  close: 'إغلاق',
+  elapsed: 'الوقت',
+  progress: 'التقدّم',
+  notRankedChip: 'غير محتسبة',
+  underReviewChip: 'قيد المراجعة',
+  languageSetting: 'اللغة',
+  englishName: 'English',
+  arabicName: 'العربية',
+  searchPitch: 'ابحث عن دولة أو منطقة أو حرف',
+  noMatches: 'لا شيء يطابق بحثك. جرّب كلمة ثانية.',
+  sectionWorld: 'العالم',
+  sectionRegions: 'المناطق',
+  sectionCountries: 'الدول',
+  sectionLetters: 'الحروف',
+  roundComplete: (target) => `اكتملت الجولة · وضع ${target}`,
+  modeLabel: (target) => `وضع ${target}`,
+  roundChip: (mode, detail) => `${mode} · ${detail}`,
+  startingWith: (letter) => `تبدأ بحرف ${letter.toUpperCase()}`,
+  clubs: (count) => clubNoun('ar', count),
 };
+
+/** The wordmark. Always Latin, whatever the language. */
+export const brandName = 'name × clubs.';
 
 export function copyFor(language: Language): Copy {
   return language === 'ar' ? arabic : english;
@@ -258,4 +421,9 @@ export function shareText(session: Session, language: Language, elapsedLabel: st
 
 export function resultElapsed(session: Session) {
   return formatElapsed(session.round.phase === 'complete' ? session.round.elapsed : 0);
+}
+
+/** `#12`, the rank as a small chip shows it. */
+export function formatRankChip(rank: number) {
+  return `#${rank}`;
 }

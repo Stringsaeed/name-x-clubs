@@ -2,53 +2,89 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect, useState } from 'react';
-import { PlayProvider } from '../play';
-import { loadEntries } from '../storage';
-import { colors } from '../theme';
+import { useEffect, useMemo, useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { hydrateFeedbackSettings } from '../feedback/feedback';
+import { PlayProvider } from '../game/play';
+import { loadEntries } from '../game/storage';
+import { fontAssets } from '../theme/fonts';
+import { readThemePreference, ThemeProvider, themeKey, useTheme } from '../theme/ThemeProvider';
 
-SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
-export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
-    Nunito: require('../../../web/src/fonts/nunito.ttf'),
-    AlanSans: require('../../../web/src/fonts/alan-sans.ttf'),
-  });
-  const [entries, setEntries] = useState<Record<string, string> | null>(null);
+type Entries = Record<string, string>;
+
+/** The saved entries, read once. Feedback settings are applied before the first render. */
+function useEntries() {
+  const [entries, setEntries] = useState<Entries | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    void loadEntries().then((saved) => {
-      if (!cancelled) {
+    loadEntries()
+      .catch((): Entries => ({}))
+      .then((saved) => {
+        if (cancelled) {
+          return;
+        }
+
+        hydrateFeedbackSettings(saved);
         setEntries(saved);
-      }
-    });
+      });
 
     return () => {
       cancelled = true;
     };
   }, []);
 
-  useEffect(() => {
-    if (fontsLoaded && entries) {
-      void SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, entries]);
+  return entries;
+}
 
-  if (!fontsLoaded || !entries) {
+export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts(fontAssets);
+  const entries = useEntries();
+  // A font that fails to load falls back to the system face rather than keeping the splash up.
+  const ready = (fontsLoaded || fontError !== null) && entries !== null;
+
+  useEffect(() => {
+    if (ready) {
+      SplashScreen.hideAsync().catch(() => {});
+    }
+  }, [ready]);
+
+  if (!ready) {
     return null;
   }
 
+  const saved = readThemePreference(entries[themeKey]);
+
   return (
-    <PlayProvider entries={entries}>
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: colors.paper },
-        }}
-      />
-    </PlayProvider>
+    <ThemeProvider initialPreference={saved === 'system' ? null : saved}>
+      <PlayProvider entries={entries}>
+        <SafeAreaProvider>
+          <ThemedStack />
+        </SafeAreaProvider>
+      </PlayProvider>
+    </ThemeProvider>
+  );
+}
+
+/** Inside the providers, so the status bar and screen background follow the theme. */
+function ThemedStack() {
+  const { scheme, colors } = useTheme();
+  const screenOptions = useMemo(
+    () => ({
+      headerShown: false,
+      contentStyle: { backgroundColor: colors.paper },
+      animation: 'slide_from_right' as const,
+    }),
+    [colors.paper],
+  );
+
+  return (
+    <>
+      <StatusBar style={scheme === 'dark' ? 'light' : 'dark'} />
+      <Stack screenOptions={screenOptions} />
+    </>
   );
 }

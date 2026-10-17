@@ -13,11 +13,14 @@ pnpm dev
 
 `pnpm dev` starts Next.js on `http://127.0.0.1:5173`. No account, database or runtime sports API is required by the game.
 
-The phone app is `apps/mobile`, Expo SDK 58. It plays the same free-time and practice rounds against the shared catalog. From the repo root:
+The phone app is `apps/mobile`, Expo SDK 58. It plays the same free-time and practice rounds against the shared catalog, ranks Free time rounds through the production API and shows the leaderboard. It needs a development build (sound uses `react-native-audio-api`, which is native). From `apps/mobile`:
 
 ```sh
-pnpm --filter mobile start
+npx expo run:ios        # or: npx expo run:android
+npx expo start --dev-client
 ```
+
+Set `EXPO_PUBLIC_API_URL` to point ranked rounds and the leaderboard at another server (default `https://clubs.saeed.sh`). Design notes live in `apps/mobile/docs/`.
 
 Catalogs compile automatically: Turborepo runs `i18n:compile` before `dev`, `build`, `test` and `typecheck`. After changing UI text, run `pnpm i18n:extract` to update the PO catalogs in `apps/web/src/locales/`, then translate the new entries.
 

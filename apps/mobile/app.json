@@ -6,7 +6,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "automatic",
     "backgroundColor": "#111a16",
     "ios": {
       "supportsTablet": true,
@@ -37,7 +37,8 @@
           "image": "./assets/splash-icon.png",
           "imageWidth": 180
         }
-      ]
+      ],
+      "react-native-audio-api"
     ]
   }
 }

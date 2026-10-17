@@ -5,15 +5,15 @@ import {
   modeSchema,
   type Session,
   secondsBetween,
-} from '../../web/src/game/model';
-import { applyIntent, type GameView, type Intent } from '../../web/src/game/session/intents';
-import { createSessionRepository } from '../../web/src/game/session/repository';
+} from '../../../web/src/game/model';
+import { applyIntent, type GameView, type Intent } from '../../../web/src/game/session/intents';
+import { createSessionRepository } from '../../../web/src/game/session/repository';
 import {
   createJsonStore,
   levelKey,
   modeKey,
   type StoragePort,
-} from '../../web/src/game/session/storage';
+} from '../../../web/src/game/session/storage';
 
 const defaultLevel: Level = 10;
 const defaultMode: Mode = 'free';
@@ -36,17 +36,26 @@ function initialView(
   };
 }
 
-export type Play = Readonly<{
+export type GameController = Readonly<{
   getSnapshot: () => GameView;
   subscribe: (listener: () => void) => () => void;
   dispatch: (intent: Intent) => void;
 }>;
 
-/** Same round rules as the website, with a synchronous storage port the phone fills first. */
-export function createPlay(port: StoragePort): Play {
-  const store = createJsonStore(port);
-  const now = () => Date.now();
-  const random = () => Math.random();
+export type GameControllerOptions = Readonly<{
+  storage: StoragePort | null;
+  now?: () => number;
+  random?: () => number;
+}>;
+
+/**
+ * Same round rules as the website's controller, which cannot be imported here because it pulls
+ * in the share text (lingui). Sharing is the phone's own, so it is left to the caller.
+ */
+export function createGameController(options: GameControllerOptions): GameController {
+  const store = createJsonStore(options.storage);
+  const now = options.now ?? Date.now;
+  const random = options.random ?? Math.random;
   const repository = createSessionRepository({ store, now, random });
   const listeners = new Set<() => void>();
   let view = initialView(store, repository);
