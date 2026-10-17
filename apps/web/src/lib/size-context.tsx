@@ -1,25 +1,18 @@
-"use client";
+'use client';
 
+import { createContext, type ReactNode, useCallback, useContext, useMemo, useState } from 'react';
 import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useMemo,
-  type ReactNode,
-} from "react";
-import {
-  typeStyles,
-  typeScale,
-  typeClasses,
-  typeClass,
   fieldTouchClass,
-  type TypeScaleRole,
   type TypeScalePair,
+  type TypeScaleRole,
   type TypeScaleStep,
-} from "@/lib/type-scale";
+  typeClass,
+  typeClasses,
+  typeScale,
+  typeStyles,
+} from '@/lib/type-scale';
 
-type SizeVariant = "default" | "compact";
+type SizeVariant = 'default' | 'compact';
 
 interface SizeClasses {
   /** The variant these classes belong to — handy for conditionals. */
@@ -66,34 +59,34 @@ const sizeMap: Record<SizeVariant, SizeClasses> = {
   // 36px — the default control height. Matches a 13px label with comfortable
   // breathing room and keeps controls a workable pointer target.
   default: {
-    variant: "default",
-    control: "h-9",
+    variant: 'default',
+    control: 'h-9',
     controlHeight: 36,
-    segmentItem: "h-7",
-    segmentPad: "p-1",
+    segmentItem: 'h-7',
+    segmentPad: 'p-1',
     text: typeClasses.default.body,
     field: `${typeClasses.default.body} ${fieldTouchClass}`,
     type: typeClasses.default,
-    px: "px-3",
-    itemPx: "px-2",
-    gap: "gap-2",
+    px: 'px-3',
+    itemPx: 'px-2',
+    gap: 'gap-2',
     icon: 16,
   },
   // 28px — the compact height for dense surfaces: filter bars, toolbars,
   // table headers, sidebars. One step down in text (12px) and icon (14px)
   // so the whole control shrinks together, not just its box.
   compact: {
-    variant: "compact",
-    control: "h-7",
+    variant: 'compact',
+    control: 'h-7',
     controlHeight: 28,
-    segmentItem: "h-6",
-    segmentPad: "p-0.5",
+    segmentItem: 'h-6',
+    segmentPad: 'p-0.5',
     text: typeClasses.compact.body,
     field: `${typeClasses.compact.body} ${fieldTouchClass}`,
     type: typeClasses.compact,
-    px: "px-2.5",
-    itemPx: "px-1.5",
-    gap: "gap-1",
+    px: 'px-2.5',
+    itemPx: 'px-1.5',
+    gap: 'gap-1',
     icon: 14,
   },
 };
@@ -101,9 +94,7 @@ const sizeMap: Record<SizeVariant, SizeClasses> = {
 /** The type scale resolved for the active ladder step (font size in px per
  *  role): explicit override > surrounding SizeProvider > "default". Line
  *  heights live in `typeStyles` and the --lh-* tokens. */
-function useTypeScale(
-  override?: SizeVariant | null
-): Record<TypeScaleRole, number> {
+function useTypeScale(override?: SizeVariant | null): Record<TypeScaleRole, number> {
   const variant = useSizeVariant(override);
   return {
     display: typeScale.display[variant],
@@ -126,7 +117,7 @@ const SizeContext = createContext<SizeContextValue | null>(null);
 /** Resolve the active size variant: explicit prop > provider > "default". */
 function useSizeVariant(override?: SizeVariant | null): SizeVariant {
   const ctx = useContext(SizeContext);
-  return override ?? ctx?.size ?? "default";
+  return override ?? ctx?.size ?? 'default';
 }
 
 /** Resolve size classes: explicit prop > provider > "default". */
@@ -136,14 +127,16 @@ function useSize(override?: SizeVariant | null): SizeClasses {
 
 function useSizeContext() {
   const ctx = useContext(SizeContext);
-  if (!ctx) throw new Error("useSizeContext must be used within a SizeProvider");
+  if (!ctx) {
+    throw new Error('useSizeContext must be used within a SizeProvider');
+  }
   return ctx;
 }
 
 function SizeProvider({
   children,
   size,
-  defaultSize = "default",
+  defaultSize = 'default',
 }: {
   children: ReactNode;
   /** Controlled variant — pin a whole region to one size (e.g. a compact
@@ -160,37 +153,33 @@ function SizeProvider({
   // removed.
   const setSize = useCallback(
     (next: SizeVariant) => {
-      if (isControlled) return;
+      if (isControlled) {
+        return;
+      }
       setInternalSize(next);
     },
-    [isControlled]
+    [isControlled],
   );
 
   const value = useMemo(
     () => ({ size: resolved, setSize, classes: sizeMap[resolved] }),
-    [resolved, setSize]
+    [resolved, setSize],
   );
 
   return <SizeContext.Provider value={value}>{children}</SizeContext.Provider>;
 }
 
+export type { SizeClasses, SizeVariant, TypeScalePair, TypeScaleRole, TypeScaleStep };
 export {
-  SizeProvider,
-  useSize,
-  useSizeVariant,
-  useSizeContext,
-  useTypeScale,
-  sizeMap,
-  typeStyles,
-  typeScale,
-  typeClasses,
-  typeClass,
   fieldTouchClass,
-};
-export type {
-  SizeVariant,
-  SizeClasses,
-  TypeScaleRole,
-  TypeScalePair,
-  TypeScaleStep,
+  SizeProvider,
+  sizeMap,
+  typeClass,
+  typeClasses,
+  typeScale,
+  typeStyles,
+  useSize,
+  useSizeContext,
+  useSizeVariant,
+  useTypeScale,
 };

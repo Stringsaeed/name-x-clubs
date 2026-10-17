@@ -1,7 +1,7 @@
 import {
   type ChangeEvent,
-  type ClipboardEvent as ReactClipboardEvent,
   type Dispatch,
+  type ClipboardEvent as ReactClipboardEvent,
   type RefObject,
   type SetStateAction,
   type SyntheticEvent,

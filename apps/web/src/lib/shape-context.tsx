@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
 import {
   createContext,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-  useMemo,
   type ReactNode,
-} from "react";
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
-type ShapeVariant = "pill" | "rounded";
+type ShapeVariant = 'pill' | 'rounded';
 
 interface ShapeClasses {
   /** The variant these classes belong to — handy for conditionals. */
@@ -40,40 +40,36 @@ interface ShapeClasses {
  * border separately as `borderWidth`. Together they form the visible
  * edge-to-edge distance. Clamping at zero prevents an invalid negative radius.
  */
-function nestedRadius(
-  outerRadius: number,
-  inset: number,
-  borderWidth = 0
-) {
+function nestedRadius(outerRadius: number, inset: number, borderWidth = 0) {
   return Math.max(0, outerRadius - inset - borderWidth);
 }
 
 const shapeMap: Record<ShapeVariant, ShapeClasses> = {
   pill: {
-    variant: "pill",
-    item: "rounded-[20px]",
-    bg: "rounded-[20px]",
+    variant: 'pill',
+    item: 'rounded-[20px]',
+    bg: 'rounded-[20px]',
     // +2px over `item` because the focus ring sits 2px outside the element
     // (top/left -2, width/height +4); this keeps the corners concentric so a
     // pill element gets a pill ring (matches the rounded-mode 8px→10px bump).
-    focusRing: "rounded-[22px]",
-    mergedBg: "rounded-2xl",
-    container: "rounded-3xl",
-    button: "rounded-[20px]",
-    input: "rounded-[20px]",
+    focusRing: 'rounded-[22px]',
+    mergedBg: 'rounded-2xl',
+    container: 'rounded-3xl',
+    button: 'rounded-[20px]',
+    input: 'rounded-[20px]',
     bgRadius: 20,
     containerRadius: 24,
     mergedRadius: 16,
   },
   rounded: {
-    variant: "rounded",
-    item: "rounded-lg",
-    bg: "rounded-lg",
-    focusRing: "rounded-[10px]",
-    mergedBg: "rounded-lg",
-    container: "rounded-xl",
-    button: "rounded-lg",
-    input: "rounded-lg",
+    variant: 'rounded',
+    item: 'rounded-lg',
+    bg: 'rounded-lg',
+    focusRing: 'rounded-[10px]',
+    mergedBg: 'rounded-lg',
+    container: 'rounded-xl',
+    button: 'rounded-lg',
+    input: 'rounded-lg',
     bgRadius: 8,
     containerRadius: 12,
     mergedRadius: 8,
@@ -94,19 +90,23 @@ const ShapeContext = createContext<ShapeContextValue | null>(null);
 // for pill. A consumer with no provider gets the corners the docs show.
 function useShape(): ShapeClasses {
   const ctx = useContext(ShapeContext);
-  if (!ctx) return shapeMap.rounded;
+  if (!ctx) {
+    return shapeMap.rounded;
+  }
   return ctx.classes;
 }
 
 function useShapeContext() {
   const ctx = useContext(ShapeContext);
-  if (!ctx) throw new Error("useShapeContext must be used within a ShapeProvider");
+  if (!ctx) {
+    throw new Error('useShapeContext must be used within a ShapeProvider');
+  }
   return ctx;
 }
 
 function ShapeProvider({
   children,
-  defaultShape = "rounded",
+  defaultShape = 'rounded',
 }: {
   children: ReactNode;
   defaultShape?: ShapeVariant;
@@ -119,21 +119,20 @@ function ShapeProvider({
   // timeout first keeps a double-press from removing the class mid-fade.
   const transitionShape = useCallback((callback: () => void) => {
     const root = document.documentElement;
-    root.classList.add("transitioning");
+    root.classList.add('transitioning');
     void root.offsetHeight;
     callback();
-    if (transitionTimeoutRef.current) clearTimeout(transitionTimeoutRef.current);
-    transitionTimeoutRef.current = setTimeout(
-      () => root.classList.remove("transitioning"),
-      200
-    );
+    if (transitionTimeoutRef.current) {
+      clearTimeout(transitionTimeoutRef.current);
+    }
+    transitionTimeoutRef.current = setTimeout(() => root.classList.remove('transitioning'), 200);
   }, []);
 
   const setShape = useCallback(
     (next: ShapeVariant) => {
       transitionShape(() => setShapeState(next));
     },
-    [transitionShape]
+    [transitionShape],
   );
 
   // Publish the current element radius as a CSS custom property so plain-CSS
@@ -142,22 +141,15 @@ function ShapeProvider({
   // globals.css. Set on <html> so portalled content sees it too.
   useEffect(() => {
     document.documentElement.style.setProperty(
-      "--shape-input-radius",
-      `${shapeMap[shape].bgRadius}px`
+      '--shape-input-radius',
+      `${shapeMap[shape].bgRadius}px`,
     );
   }, [shape]);
 
-  const value = useMemo(
-    () => ({ shape, setShape, classes: shapeMap[shape] }),
-    [shape, setShape]
-  );
+  const value = useMemo(() => ({ shape, setShape, classes: shapeMap[shape] }), [shape, setShape]);
 
-  return (
-    <ShapeContext.Provider value={value}>
-      {children}
-    </ShapeContext.Provider>
-  );
+  return <ShapeContext.Provider value={value}>{children}</ShapeContext.Provider>;
 }
 
-export { ShapeProvider, useShape, useShapeContext, shapeMap, nestedRadius };
-export type { ShapeVariant, ShapeClasses };
+export type { ShapeClasses, ShapeVariant };
+export { nestedRadius, ShapeProvider, shapeMap, useShape, useShapeContext };

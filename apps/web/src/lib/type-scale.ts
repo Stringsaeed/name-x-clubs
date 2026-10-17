@@ -1,4 +1,4 @@
-type TypeScaleVariant = "default" | "compact";
+type TypeScaleVariant = 'default' | 'compact';
 
 /** One role at one ladder step, in px. */
 interface TypeScalePair {
@@ -56,7 +56,7 @@ const typeScale = Object.fromEntries(
   typeScaleRoles.map((role) => [
     role,
     { default: typeStyles[role].default.size, compact: typeStyles[role].compact.size },
-  ])
+  ]),
 ) as Record<TypeScaleRole, TypeScaleStep>;
 
 // Class strings per role and step (size + leading). Arbitrary values over the CSS variables,
@@ -69,27 +69,30 @@ const typeScale = Object.fromEntries(
 // <generated:type-classes>
 const typeClasses = {
   default: {
-    display: "text-[length:var(--fs-display,28px)] leading-[var(--lh-display,34px)]",
-    title: "text-[length:var(--fs-title,16px)] leading-[var(--lh-title,22px)]",
-    subtitle: "text-[length:var(--fs-subtitle,14px)] leading-[var(--lh-subtitle,20px)]",
-    body: "text-[length:var(--fs-body,13px)] leading-[var(--lh-body,20px)]",
-    caption: "text-[length:var(--fs-caption,12px)] leading-[var(--lh-caption,16px)]",
-    micro: "text-[length:var(--fs-micro,11px)] leading-[var(--lh-micro,14px)]",
+    display: 'text-[length:var(--fs-display,28px)] leading-[var(--lh-display,34px)]',
+    title: 'text-[length:var(--fs-title,16px)] leading-[var(--lh-title,22px)]',
+    subtitle: 'text-[length:var(--fs-subtitle,14px)] leading-[var(--lh-subtitle,20px)]',
+    body: 'text-[length:var(--fs-body,13px)] leading-[var(--lh-body,20px)]',
+    caption: 'text-[length:var(--fs-caption,12px)] leading-[var(--lh-caption,16px)]',
+    micro: 'text-[length:var(--fs-micro,11px)] leading-[var(--lh-micro,14px)]',
   },
   compact: {
-    display: "text-[length:var(--fs-display-compact,24px)] leading-[var(--lh-display-compact,30px)]",
-    title: "text-[length:var(--fs-title-compact,15px)] leading-[var(--lh-title-compact,20px)]",
-    subtitle: "text-[length:var(--fs-subtitle-compact,13px)] leading-[var(--lh-subtitle-compact,18px)]",
-    body: "text-[length:var(--fs-body-compact,12px)] leading-[var(--lh-body-compact,18px)]",
-    caption: "text-[length:var(--fs-caption-compact,11px)] leading-[var(--lh-caption-compact,14px)]",
-    micro: "text-[length:var(--fs-micro-compact,10px)] leading-[var(--lh-micro-compact,12px)]",
+    display:
+      'text-[length:var(--fs-display-compact,24px)] leading-[var(--lh-display-compact,30px)]',
+    title: 'text-[length:var(--fs-title-compact,15px)] leading-[var(--lh-title-compact,20px)]',
+    subtitle:
+      'text-[length:var(--fs-subtitle-compact,13px)] leading-[var(--lh-subtitle-compact,18px)]',
+    body: 'text-[length:var(--fs-body-compact,12px)] leading-[var(--lh-body-compact,18px)]',
+    caption:
+      'text-[length:var(--fs-caption-compact,11px)] leading-[var(--lh-caption-compact,14px)]',
+    micro: 'text-[length:var(--fs-micro-compact,10px)] leading-[var(--lh-micro-compact,12px)]',
   },
 } as const satisfies Record<TypeScaleVariant, Record<TypeScaleRole, string>>;
 
 // </generated:type-classes>
 
 /** The class string for one role at one step (size + leading). */
-function typeClass(role: TypeScaleRole, variant: TypeScaleVariant = "default"): string {
+function typeClass(role: TypeScaleRole, variant: TypeScaleVariant = 'default'): string {
   return typeClasses[variant][role];
 }
 
@@ -97,7 +100,7 @@ function typeClass(role: TypeScaleRole, variant: TypeScaleVariant = "default"): 
  *  a focused field set under 16px, so touch screens get 16px. It sets the
  *  size only: the role's leading and the field's fixed height stay, and
  *  desktop keeps the role. `useSize().field` is body plus this. */
-const fieldTouchClass = "pointer-coarse:text-[16px]";
+const fieldTouchClass = 'pointer-coarse:text-[16px]';
 
-export { typeStyles, typeScale, typeScaleRoles, typeClasses, typeClass, fieldTouchClass };
-export type { TypeScaleRole, TypeScaleVariant, TypeScalePair, TypeScaleStep };
+export type { TypeScalePair, TypeScaleRole, TypeScaleStep, TypeScaleVariant };
+export { fieldTouchClass, typeClass, typeClasses, typeScale, typeScaleRoles, typeStyles };

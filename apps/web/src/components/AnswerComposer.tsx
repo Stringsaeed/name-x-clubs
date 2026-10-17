@@ -75,6 +75,45 @@ function FeedbackLines({
   );
 }
 
+function ComposerKeyboard({ draft }: { draft: ReturnType<typeof useAnswerDraft> }) {
+  const { t } = useLingui();
+
+  return (
+    <>
+      {draft.gameKeyboard.offered && !draft.gameKeyboard.active && (
+        <Button
+          className="game-keyboard-toggle"
+          type="button"
+          variant="ghost"
+          onClick={draft.useInPageKeyboard}
+        >
+          {t`Game keyboard`}
+        </Button>
+      )}
+      {draft.gameKeyboard.active && (
+        <>
+          <Button
+            className="game-keyboard-toggle"
+            type="button"
+            variant="ghost"
+            data-keyboard="system"
+            onClick={draft.useSystemKeyboard}
+          >
+            {t`System keyboard`}
+          </Button>
+          <ClubKeyboard
+            shift={draft.shift}
+            onShift={draft.toggleShift}
+            onCharacter={draft.typeCharacter}
+            onDelete={draft.remove}
+            onSubmit={draft.submit}
+          />
+        </>
+      )}
+    </>
+  );
+}
+
 export function AnswerComposer({
   session,
   language,
@@ -148,36 +187,7 @@ export function AnswerComposer({
               <Icon name="arrow" />
             </button>
           </div>
-          {draft.gameKeyboard.offered && !draft.gameKeyboard.active && (
-            <Button
-              className="game-keyboard-toggle"
-              type="button"
-              variant="ghost"
-              onClick={draft.useInPageKeyboard}
-            >
-              {t`Game keyboard`}
-            </Button>
-          )}
-          {draft.gameKeyboard.active && (
-            <>
-              <Button
-                className="game-keyboard-toggle"
-                type="button"
-                variant="ghost"
-                data-keyboard="system"
-                onClick={draft.useSystemKeyboard}
-              >
-                {t`System keyboard`}
-              </Button>
-              <ClubKeyboard
-                shift={draft.shift}
-                onShift={draft.toggleShift}
-                onCharacter={draft.typeCharacter}
-                onDelete={draft.remove}
-                onSubmit={draft.submit}
-              />
-            </>
-          )}
+          <ComposerKeyboard draft={draft} />
         </form>
       </div>
     </div>

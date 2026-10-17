@@ -179,6 +179,58 @@ async function candidates(club) {
   return found;
 }
 
+function blankFact() {
+  return {
+    p31: new Set(),
+    p17: new Set(),
+    partOf: new Set(),
+    names: [],
+    links: 0,
+    logo: false,
+    venue: false,
+    football: false,
+    inception: null,
+    dissolved: null,
+  };
+}
+
+function recordFact(fact, binding) {
+  const val = (property) => binding[property]?.value.split('/').pop();
+  if (binding.links) {
+    fact.links = Number(binding.links.value);
+  }
+  if (binding.p31) {
+    fact.p31.add(val('p31'));
+  }
+  if (binding.p17) {
+    fact.p17.add(val('p17'));
+  }
+  if (binding.p361) {
+    fact.partOf.add(val('p361'));
+  }
+  if (binding.p576) {
+    fact.dissolved = binding.p576.value.slice(0, 10);
+  }
+  if (binding.p571) {
+    fact.inception = binding.p571.value.slice(0, 4);
+  }
+  if (binding.p154) {
+    fact.logo = decodeURIComponent(binding.p154.value.split('/').pop());
+  }
+  if (binding.football) {
+    fact.football = true;
+  }
+  if (binding.p115) {
+    fact.venue = true;
+  }
+  if (binding.nameText) {
+    const prop = { P1448: 'official', P1813: 'short', P1449: 'nickname' }[
+      binding.nameProp.value.split('/').pop()
+    ];
+    fact.names.push({ prop, text: binding.nameText.value, lang: binding.nameText['xml:lang'] });
+  }
+}
+
 // 2. Candidate facts via SPARQL (types, country, sitelinks, name statements) ------
 async function facts(ids) {
   const out = new Map();
@@ -193,55 +245,11 @@ async function facts(ids) {
       UNION { VALUES ?nameProp { wdt:P1448 wdt:P1813 wdt:P1449 } ?item ?nameProp ?nameText FILTER(LANG(?nameText) IN ("en","ar")) }
     }`;
     const json = await get(SPARQL, { query }, 'application/sparql-results+json', 'POST');
-    for (const b of json.results.bindings) {
-      const id = b.item.value.split('/').pop();
-      const f = out.get(id) || {
-        p31: new Set(),
-        p17: new Set(),
-        partOf: new Set(),
-        names: [],
-        links: 0,
-        logo: false,
-        venue: false,
-        football: false,
-        inception: null,
-        dissolved: null,
-      };
-      const val = (k) => b[k]?.value.split('/').pop();
-      if (b.links) {
-        f.links = Number(b.links.value);
-      }
-      if (b.p31) {
-        f.p31.add(val('p31'));
-      }
-      if (b.p17) {
-        f.p17.add(val('p17'));
-      }
-      if (b.p361) {
-        f.partOf.add(val('p361'));
-      }
-      if (b.p576) {
-        f.dissolved = b.p576.value.slice(0, 10);
-      }
-      if (b.p571) {
-        f.inception = b.p571.value.slice(0, 4);
-      }
-      if (b.p154) {
-        f.logo = decodeURIComponent(b.p154.value.split('/').pop());
-      }
-      if (b.football) {
-        f.football = true;
-      }
-      if (b.p115) {
-        f.venue = true;
-      }
-      if (b.nameText) {
-        const prop = { P1448: 'official', P1813: 'short', P1449: 'nickname' }[
-          b.nameProp.value.split('/').pop()
-        ];
-        f.names.push({ prop, text: b.nameText.value, lang: b.nameText['xml:lang'] });
-      }
-      out.set(id, f);
+    for (const binding of json.results.bindings) {
+      const id = binding.item.value.split('/').pop();
+      const fact = out.get(id) || blankFact();
+      recordFact(fact, binding);
+      out.set(id, fact);
     }
     await sleep(500);
   }
@@ -275,9 +283,9 @@ async function terms(ids) {
 }
 
 // 4. Arabic Wikipedia redirects as an extra alias source -------------------------
-async function arRedirects(titles) {
+async function arRedirects(articleTitles) {
   const out = new Map();
-  await pool(chunks(titles, 50), 2, async (batch) => {
+  await pool(chunks(articleTitles, 50), 2, async (batch) => {
     let cont = {};
     do {
       const json = await get(ARWIKI, {
@@ -324,6 +332,35 @@ const termKeys = (id) => {
   );
 };
 
+function scorePoints(signals) {
+  let points = 0;
+  if (signals.isClub) {
+    points += 50;
+  }
+  if (signals.primaryMatch) {
+    points += 30;
+  } else if (signals.nameMatch) {
+    points += 15;
+  }
+  if (signals.excluded.length) {
+    points -= 80;
+  }
+  if (signals.multisport) {
+    points -= 10; // usable identity, but prefer a dedicated football-club item when one exists
+  }
+  if (signals.parentClub.length || signals.squad) {
+    points -= 45; // reserve / B / youth / women's side of a parent club
+  }
+  if (signals.countryOk) {
+    points += 40;
+  } else if (signals.hasCountry) {
+    points -= 30;
+  }
+  points += Math.max(0, 8 - signals.rank) * 2;
+  points += Math.min(25, Math.log2(1 + signals.links) * 3.5);
+  return Math.round(points);
+}
+
 function score(club, id, info) {
   const f = factMap.get(id);
   if (!f) {
@@ -351,34 +388,21 @@ function score(club, id, info) {
   const ourNames = `${club.name} ${club.aliases.join(' ')}`.toLowerCase();
   const squad =
     squadWord && !ourNames.split(/\s+/).includes(squadWord.toLowerCase()) ? squadWord : null;
-  let s = 0;
-  if (isClub) {
-    s += 50;
-  }
-  if (primaryMatch) {
-    s += 30;
-  } else if (nameMatch) {
-    s += 15;
-  }
-  if (excluded.length) {
-    s -= 80;
-  }
-  if (multisport) {
-    s -= 10; // usable identity, but prefer a dedicated football-club item when one exists
-  }
-  if (parentClub.length || squad) {
-    s -= 45; // reserve / B / youth / women's side of a parent club
-  }
-  if (countryOk) {
-    s += 40;
-  } else if (f.p17.size) {
-    s -= 30;
-  }
-  s += Math.max(0, 8 - info.rank) * 2;
-  s += Math.min(25, Math.log2(1 + f.links) * 3.5);
   return {
     id,
-    score: Math.round(s),
+    score: scorePoints({
+      isClub,
+      primaryMatch,
+      nameMatch,
+      excluded,
+      multisport,
+      parentClub,
+      squad,
+      countryOk,
+      hasCountry: f.p17.size > 0,
+      rank: info.rank,
+      links: f.links,
+    }),
     nameMatch,
     primaryMatch,
     isClub,
@@ -417,7 +441,7 @@ for (const c of catalog) {
 
 const isArabic = (s) => /[\u0600-\u06ff]/.test(s);
 const isLatin = (s) => /^[\p{Script=Latin}\p{N}\p{P}\p{Zs}\p{S}]+$/u.test(s);
-function noiseReason(alias, club, wdOwners) {
+function noiseReason(alias, club, aliasOwners) {
   const k = key(alias);
   if (!k || k.length < 2) {
     return 'too-short';
@@ -449,33 +473,66 @@ function noiseReason(alias, club, wdOwners) {
   if (owners.length) {
     return `collides-with-catalog:${owners.join(',')}`;
   }
-  const wdOthers = (wdOwners.get(k) || []).filter((id) => id !== club.id);
+  const wdOthers = (aliasOwners.get(k) || []).filter((id) => id !== club.id);
   if (wdOthers.length) {
     return `collides-with-wikidata-alias-of:${wdOthers.join(',')}`;
   }
   return null;
 }
 
+function wikidataStrings(term, fact) {
+  if (!term) {
+    return [];
+  }
+  return [
+    ...[term.en, ...term.aliasesEn].filter(Boolean).map((text) => ({ text, src: 'wd-en' })),
+    ...[term.ar, ...term.aliasesAr].filter(Boolean).map((text) => ({ text, src: 'wd-ar' })),
+    ...fact.names.map((n) => ({ text: n.text, src: `wd-${n.prop}-${n.lang}` })),
+    ...(term.enwiki ? [{ text: term.enwiki, src: 'enwiki-title' }] : []),
+    ...(term.arwiki ? [{ text: term.arwiki, src: 'arwiki-title' }] : []),
+  ];
+}
+
+function seniorHomonyms(list, top) {
+  return list.filter((c) => c !== top && c.isClub && !c.excluded.length && c.primaryMatch);
+}
+
+function matchReasons(top, second, margin, nameMatch, fact) {
+  const reasons = [];
+  if (top.multisport) {
+    reasons.push('multisport-item');
+  }
+  if (!top.countryOk) {
+    reasons.push('country-mismatch');
+  }
+  if (!nameMatch) {
+    reasons.push('no-name-overlap');
+  }
+  if (second && margin < 15) {
+    reasons.push(`close-second:${second.id}(${margin})`);
+  }
+  if (top.parentClub.length || top.squad) {
+    reasons.push(`reserve-or-youth:${top.squad || top.parentClub.join(',')}`);
+  }
+  if (!top.primaryMatch && nameMatch) {
+    reasons.push('primary-name-not-in-wikidata');
+  }
+  if (fact?.dissolved) {
+    reasons.push(`dissolved:${fact.dissolved}`);
+  }
+  return reasons;
+}
+
 // First pass: collect every Wikidata string per matched club so we can detect cross-club collisions.
-const rows = catalog.map((club, i) => {
-  const list = scored[i];
+function matchRow(club, list) {
   const top = list[0];
   // Runner-up = another senior club that also carries one of our primary names (true homonym).
-  const second = list.find((c) => c !== top && c.isClub && !c.excluded.length && c.primaryMatch);
-  const homonyms = list
-    .filter((c) => c !== top && c.isClub && !c.excluded.length && c.primaryMatch)
-    .map((c) => c.id);
+  const homonymList = seniorHomonyms(list, top);
+  const second = homonymList[0];
+  const homonyms = homonymList.map((c) => c.id);
   const t = top ? termMap.get(top.id) : null;
   const f = top ? factMap.get(top.id) : null;
-  const wdStrings = t
-    ? [
-        ...[t.en, ...t.aliasesEn].filter(Boolean).map((text) => ({ text, src: 'wd-en' })),
-        ...[t.ar, ...t.aliasesAr].filter(Boolean).map((text) => ({ text, src: 'wd-ar' })),
-        ...f.names.map((n) => ({ text: n.text, src: `wd-${n.prop}-${n.lang}` })),
-        ...(t.enwiki ? [{ text: t.enwiki, src: 'enwiki-title' }] : []),
-        ...(t.arwiki ? [{ text: t.arwiki, src: 'arwiki-title' }] : []),
-      ]
-    : [];
+  const wdStrings = wikidataStrings(t, f);
   const redirects = t?.arwiki
     ? (redirectMap.get(t.arwiki) || []).map((text) => ({ text, src: 'arwiki-redirect' }))
     : [];
@@ -488,36 +545,15 @@ const rows = catalog.map((club, i) => {
   const nameMatch = [...ours].some((k) => nameKeys.has(k));
   const margin = top && second ? top.score - second.score : 99;
   let status = 'unmatched';
-  const reasons = [];
+  let reasons = [];
   if (top?.isClub && !top.excluded.length) {
-    status = 'matched';
-    if (top.multisport) {
-      reasons.push('multisport-item');
-    }
-    if (!top.countryOk) {
-      reasons.push('country-mismatch');
-    }
-    if (!nameMatch) {
-      reasons.push('no-name-overlap');
-    }
-    if (second && margin < 15) {
-      reasons.push(`close-second:${second?.id}(${margin})`);
-    }
-    if (top.parentClub.length || top.squad) {
-      reasons.push(`reserve-or-youth:${top.squad || top.parentClub.join(',')}`);
-    }
-    if (!top.primaryMatch && nameMatch) {
-      reasons.push('primary-name-not-in-wikidata');
-    }
-    if (f?.dissolved) {
-      reasons.push(`dissolved:${f.dissolved}`);
-    }
-    if (reasons.length) {
-      status = 'uncertain';
-    }
+    reasons = matchReasons(top, second, margin, nameMatch, f);
+    status = reasons.length ? 'uncertain' : 'matched';
   }
   return { club, top, second, homonyms, t, f, wdStrings, redirects, status, reasons, ours };
-});
+}
+
+const rows = catalog.map((club, i) => matchRow(club, scored[i]));
 
 const wdOwners = new Map();
 for (const r of rows) {
@@ -529,97 +565,128 @@ for (const r of rows) {
   }
 }
 
-const results = rows.map((r) => {
-  const { club, top, t, f, ours } = r;
-  if (r.status === 'unmatched') {
-    return {
-      id: club.id,
-      name: club.name,
-      country: club.country,
-      status: 'unmatched',
-      candidates: scored[catalog.indexOf(club)]
-        .slice(0, 4)
-        .map(({ id, score, primaryMatch, isClub, p31 }) => ({
-          id,
-          label: termMap.get(id)?.en,
-          score,
-          primaryMatch,
-          isClub,
-          p31,
-        })),
-    };
-  }
-  const wdKeys = new Set(r.wdStrings.flatMap((s) => keysOf(s.text)));
-  const wdArKeys = new Set(
-    r.wdStrings.filter((s) => isArabic(s.text)).flatMap((s) => keysOf(s.text)),
-  );
-  const redirectKeys = new Set(r.redirects.flatMap((s) => keysOf(s.text)));
-  const ourAliases = club.aliases.map((a) => ({
-    a,
-    covered: keysOf(a).some((k) => wdKeys.has(k) || redirectKeys.has(k)),
-    coveredWd: keysOf(a).some((k) => wdKeys.has(k)),
-  }));
+function candidatePreview(club, take, pick) {
+  return scored[catalog.indexOf(club)].slice(0, take).map(pick);
+}
+
+function freshAliases(row, aliasOwners) {
   const fresh = new Map();
-  for (const s of [...r.wdStrings, ...r.redirects]) {
-    const k = key(s.text);
-    if (!k || ours.has(k) || ours.has(normalize(s.text)) || fresh.has(k)) {
+  for (const entry of [...row.wdStrings, ...row.redirects]) {
+    const normalized = key(entry.text);
+    const alreadyKnown =
+      !normalized ||
+      row.ours.has(normalized) ||
+      row.ours.has(normalize(entry.text)) ||
+      fresh.has(normalized);
+    if (alreadyKnown) {
       continue;
     }
-    fresh.set(k, { text: s.text, src: s.src, noise: noiseReason(s.text, club, wdOwners) });
+    fresh.set(normalized, {
+      text: entry.text,
+      src: entry.src,
+      noise: noiseReason(entry.text, row.club, aliasOwners),
+    });
   }
-  const newAliases = [...fresh.values()];
+  return [...fresh.values()];
+}
+
+function coverageOf(club, row, wdArKeys, redirectKeys, ourAliases) {
+  return {
+    arabicNameInWikidata: keysOf(club.arabic).some((k) => wdArKeys.has(k)),
+    arabicNameInWdOrRedirects: keysOf(club.arabic).some(
+      (k) => wdArKeys.has(k) || redirectKeys.has(k),
+    ),
+    ourAliases: ourAliases.length,
+    ourAliasesInWikidata: ourAliases.filter((x) => x.coveredWd).length,
+    ourAliasesInWdOrRedirects: ourAliases.filter((x) => x.covered).length,
+    missingFromWikidata: ourAliases.filter((x) => !x.covered).map((x) => x.a),
+    arwikiRedirects: row.redirects.length,
+  };
+}
+
+function unmatchedResult(club) {
   return {
     id: club.id,
     name: club.name,
     country: club.country,
-    status: r.status,
-    reasons: r.reasons,
+    status: 'unmatched',
+    candidates: candidatePreview(club, 4, ({ id, score: points, primaryMatch, isClub, p31 }) => ({
+      id,
+      label: termMap.get(id)?.en,
+      score: points,
+      primaryMatch,
+      isClub,
+      p31,
+    })),
+  };
+}
+
+function wikidataSnapshot(top, term, fact) {
+  return {
+    en: term?.en,
+    ar: term?.ar,
+    description: term?.descEn,
+    enwiki: term?.enwiki,
+    arwiki: term?.arwiki,
+    sitelinks: fact.links,
+    p31: top.p31,
+    hasLogoP154: Boolean(fact.logo),
+    logo: fact.logo || null,
+    hasVenueP115: fact.venue,
+    inception: fact.inception,
+    dissolved: fact.dissolved,
+    nameStatements: fact.names,
+  };
+}
+
+function probeResult(row, aliasOwners) {
+  const { club, top, t, f } = row;
+  if (row.status === 'unmatched') {
+    return unmatchedResult(club);
+  }
+  const wdKeys = new Set(row.wdStrings.flatMap((s) => keysOf(s.text)));
+  const wdArKeys = new Set(
+    row.wdStrings.filter((s) => isArabic(s.text)).flatMap((s) => keysOf(s.text)),
+  );
+  const redirectKeys = new Set(row.redirects.flatMap((s) => keysOf(s.text)));
+  const ourAliases = club.aliases.map((alias) => ({
+    a: alias,
+    covered: keysOf(alias).some((k) => wdKeys.has(k) || redirectKeys.has(k)),
+    coveredWd: keysOf(alias).some((k) => wdKeys.has(k)),
+  }));
+  const newAliases = freshAliases(row, aliasOwners);
+  return {
+    id: club.id,
+    name: club.name,
+    country: club.country,
+    status: row.status,
+    reasons: row.reasons,
     qid: top.id,
     score: top.score,
-    runnerUp: r.second ? { qid: r.second.id, score: r.second.score } : null,
-    homonymClubs: r.homonyms,
-    topCandidates: scored[catalog.indexOf(club)]
-      .slice(0, 3)
-      .map(({ id, score, primaryMatch, countryOk, squad }) => ({
+    runnerUp: row.second ? { qid: row.second.id, score: row.second.score } : null,
+    homonymClubs: row.homonyms,
+    topCandidates: candidatePreview(
+      club,
+      3,
+      ({ id, score: points, primaryMatch, countryOk, squad }) => ({
         id,
         label: termMap.get(id)?.en,
-        score,
+        score: points,
         primaryMatch,
         countryOk,
         squad,
-      })),
-    wikidata: {
-      en: t?.en,
-      ar: t?.ar,
-      description: t?.descEn,
-      enwiki: t?.enwiki,
-      arwiki: t?.arwiki,
-      sitelinks: f.links,
-      p31: top.p31,
-      hasLogoP154: Boolean(f.logo),
-      logo: f.logo || null,
-      hasVenueP115: f.venue,
-      inception: f.inception,
-      dissolved: f.dissolved,
-      nameStatements: f.names,
-    },
-    coverage: {
-      arabicNameInWikidata: keysOf(club.arabic).some((k) => wdArKeys.has(k)),
-      arabicNameInWdOrRedirects: keysOf(club.arabic).some(
-        (k) => wdArKeys.has(k) || redirectKeys.has(k),
-      ),
-      ourAliases: ourAliases.length,
-      ourAliasesInWikidata: ourAliases.filter((x) => x.coveredWd).length,
-      ourAliasesInWdOrRedirects: ourAliases.filter((x) => x.covered).length,
-      missingFromWikidata: ourAliases.filter((x) => !x.covered).map((x) => x.a),
-      arwikiRedirects: r.redirects.length,
-    },
+      }),
+    ),
+    wikidata: wikidataSnapshot(top, t, f),
+    coverage: coverageOf(club, row, wdArKeys, redirectKeys, ourAliases),
     newAliases: {
       clean: newAliases.filter((a) => !a.noise).map((a) => ({ text: a.text, src: a.src })),
       noisy: newAliases.filter((a) => a.noise),
     },
   };
-});
+}
+
+const results = rows.map((row) => probeResult(row, wdOwners));
 
 // --- summary -----------------------------------------------------------------
 const by = (s) => results.filter((r) => r.status === s);

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 // ---------------------------------------------------------------------------
 // Components never import an icon directly: they look one up by the role it
@@ -14,69 +14,68 @@
 // without the false alarm.
 // ---------------------------------------------------------------------------
 
-import { createContext, useContext, useMemo, type ComponentType, type ReactNode } from "react";
-
 import {
-  ChevronRight,
-  ChevronDown,
-  X,
-  Copy,
-  Menu,
-  Dot,
-  Monitor,
-  Sun,
-  Moon,
-  RectangleHorizontal,
-  Circle,
-  SquareLibrary,
-  Clock,
-  Star,
-  Settings,
-  Plus,
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   ArrowUp,
-  ArrowDown,
-  Search,
-  Loader,
-  Users,
-  Lock,
-  Mail,
   Bell,
-  Shield,
-  Palette,
-  Lightbulb,
-  Rocket,
-  Heart,
-  Paintbrush,
   Brain,
-  Globe,
-  User,
-  ImageIcon,
-  Link,
+  Calendar,
   Check,
-  RotateCcw,
-  Play,
-  Pause,
-  Pipette,
-  Home,
-  MessageCircle,
-  Inbox,
-  Pencil,
-  Scaling,
-  SkipForward,
-  CornerDownRight,
-  CornerDownLeft,
-  PanelLeft,
-  PanelRight,
+  ChevronDown,
+  ChevronRight,
   ChevronsUpDown,
+  Circle,
+  Clock,
+  Copy,
+  CornerDownLeft,
+  CornerDownRight,
+  Dot,
   Ellipsis,
   EllipsisVertical,
-  Calendar,
   Folder,
-  SlidersHorizontal,
+  Globe,
+  Heart,
+  Home,
+  ImageIcon,
+  Inbox,
   Info,
-} from "lucide-react";
+  Lightbulb,
+  Link,
+  Loader,
+  Lock,
+  Mail,
+  Menu,
+  MessageCircle,
+  Monitor,
+  Moon,
+  Paintbrush,
+  Palette,
+  PanelLeft,
+  PanelRight,
+  Pause,
+  Pencil,
+  Pipette,
+  Play,
+  Plus,
+  RectangleHorizontal,
+  Rocket,
+  RotateCcw,
+  Scaling,
+  Search,
+  Settings,
+  Shield,
+  SkipForward,
+  SlidersHorizontal,
+  SquareLibrary,
+  Star,
+  Sun,
+  User,
+  Users,
+  X,
+} from 'lucide-react';
+import { type ComponentType, createContext, type ReactNode, useContext, useMemo } from 'react';
 
 // The whole contract an icon has to meet. Components pass `strokeWidth` and
 // also animate stroke width through `className` (1.5 → 2 on hover is a
@@ -94,81 +93,126 @@ export type IconComponent = ComponentType<IconComponentProps>;
 // something else still fills the same slot (`more-horizontal` is Lucide's
 // Ellipsis).
 export type IconName =
-  | "chevron-right" | "chevron-down" | "x" | "copy" | "menu" | "dot"
-  | "monitor" | "sun" | "moon" | "rectangle-horizontal" | "circle"
-  | "square-library" | "clock" | "star" | "settings"
-  | "plus" | "arrow-left" | "arrow-right" | "arrow-up" | "arrow-down"
-  | "search" | "loader"
-  | "users" | "lock" | "mail" | "bell" | "shield" | "palette"
-  | "lightbulb" | "rocket" | "heart" | "paintbrush" | "brain"
-  | "globe" | "user"
-  | "image" | "link" | "check" | "rotate-ccw"
-  | "play" | "pause" | "pipette"
-  | "home" | "message-circle" | "inbox"
-  | "pencil" | "scaling" | "skip-forward" | "corner-down-right" | "corner-down-left"
-  | "panel-left" | "panel-right" | "chevrons-up-down" | "more-horizontal" | "more-vertical" | "calendar" | "folder"
-  | "sliders-horizontal" | "info";
+  | 'chevron-right'
+  | 'chevron-down'
+  | 'x'
+  | 'copy'
+  | 'menu'
+  | 'dot'
+  | 'monitor'
+  | 'sun'
+  | 'moon'
+  | 'rectangle-horizontal'
+  | 'circle'
+  | 'square-library'
+  | 'clock'
+  | 'star'
+  | 'settings'
+  | 'plus'
+  | 'arrow-left'
+  | 'arrow-right'
+  | 'arrow-up'
+  | 'arrow-down'
+  | 'search'
+  | 'loader'
+  | 'users'
+  | 'lock'
+  | 'mail'
+  | 'bell'
+  | 'shield'
+  | 'palette'
+  | 'lightbulb'
+  | 'rocket'
+  | 'heart'
+  | 'paintbrush'
+  | 'brain'
+  | 'globe'
+  | 'user'
+  | 'image'
+  | 'link'
+  | 'check'
+  | 'rotate-ccw'
+  | 'play'
+  | 'pause'
+  | 'pipette'
+  | 'home'
+  | 'message-circle'
+  | 'inbox'
+  | 'pencil'
+  | 'scaling'
+  | 'skip-forward'
+  | 'corner-down-right'
+  | 'corner-down-left'
+  | 'panel-left'
+  | 'panel-right'
+  | 'chevrons-up-down'
+  | 'more-horizontal'
+  | 'more-vertical'
+  | 'calendar'
+  | 'folder'
+  | 'sliders-horizontal'
+  | 'info';
 
 export const defaultIcons: Record<IconName, IconComponent> = {
-  "chevron-right": ChevronRight,
-  "chevron-down": ChevronDown,
-  "pipette": Pipette,
-  "x": X,
-  "copy": Copy,
-  "menu": Menu,
-  "dot": Dot,
-  "monitor": Monitor,
-  "sun": Sun,
-  "moon": Moon,
-  "rectangle-horizontal": RectangleHorizontal,
-  "circle": Circle,
-  "square-library": SquareLibrary,
-  "clock": Clock,
-  "star": Star,
-  "settings": Settings,
-  "plus": Plus,
-  "arrow-left": ArrowLeft,
-  "arrow-right": ArrowRight,
-  "arrow-up": ArrowUp,
-  "arrow-down": ArrowDown,
-  "search": Search,
-  "loader": Loader,
-  "users": Users,
-  "lock": Lock,
-  "mail": Mail,
-  "bell": Bell,
-  "shield": Shield,
-  "palette": Palette,
-  "lightbulb": Lightbulb,
-  "rocket": Rocket,
-  "heart": Heart,
-  "paintbrush": Paintbrush,
-  "brain": Brain,
-  "globe": Globe,
-  "user": User,
-  "image": ImageIcon,
-  "link": Link,
-  "check": Check,
-  "rotate-ccw": RotateCcw,
-  "play": Play,
-  "pause": Pause,
-  "home": Home,
-  "message-circle": MessageCircle,
-  "inbox": Inbox,
-  "pencil": Pencil,
-  "scaling": Scaling,
-  "skip-forward": SkipForward,
-  "corner-down-right": CornerDownRight,
-  "corner-down-left": CornerDownLeft,
-  "panel-left": PanelLeft,
-  "panel-right": PanelRight,
-  "chevrons-up-down": ChevronsUpDown,
-  "more-horizontal": Ellipsis,
-  "more-vertical": EllipsisVertical,
-  "calendar": Calendar,
-  "folder": Folder,
-  "sliders-horizontal": SlidersHorizontal,
-  "info": Info,
+  'chevron-right': ChevronRight,
+  'chevron-down': ChevronDown,
+  pipette: Pipette,
+  x: X,
+  copy: Copy,
+  menu: Menu,
+  dot: Dot,
+  monitor: Monitor,
+  sun: Sun,
+  moon: Moon,
+  'rectangle-horizontal': RectangleHorizontal,
+  circle: Circle,
+  'square-library': SquareLibrary,
+  clock: Clock,
+  star: Star,
+  settings: Settings,
+  plus: Plus,
+  'arrow-left': ArrowLeft,
+  'arrow-right': ArrowRight,
+  'arrow-up': ArrowUp,
+  'arrow-down': ArrowDown,
+  search: Search,
+  loader: Loader,
+  users: Users,
+  lock: Lock,
+  mail: Mail,
+  bell: Bell,
+  shield: Shield,
+  palette: Palette,
+  lightbulb: Lightbulb,
+  rocket: Rocket,
+  heart: Heart,
+  paintbrush: Paintbrush,
+  brain: Brain,
+  globe: Globe,
+  user: User,
+  image: ImageIcon,
+  link: Link,
+  check: Check,
+  'rotate-ccw': RotateCcw,
+  play: Play,
+  pause: Pause,
+  home: Home,
+  'message-circle': MessageCircle,
+  inbox: Inbox,
+  pencil: Pencil,
+  scaling: Scaling,
+  'skip-forward': SkipForward,
+  'corner-down-right': CornerDownRight,
+  'corner-down-left': CornerDownLeft,
+  'panel-left': PanelLeft,
+  'panel-right': PanelRight,
+  'chevrons-up-down': ChevronsUpDown,
+  'more-horizontal': Ellipsis,
+  'more-vertical': EllipsisVertical,
+  calendar: Calendar,
+  folder: Folder,
+  'sliders-horizontal': SlidersHorizontal,
+  info: Info,
 };
 
 const IconContext = createContext<Record<IconName, IconComponent> | null>(null);

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { createContext, useContext, type ReactNode } from "react";
+import { createContext, type ReactNode, useContext } from 'react';
 
 // ---------------------------------------------------------------------------
 // The surface level the children sit on, on an 8-step ladder (1 is the page).
@@ -18,13 +18,7 @@ export function useSurface(): number {
   return useContext(SurfaceContext);
 }
 
-export function SurfaceProvider({
-  value,
-  children,
-}: {
-  value: number;
-  children: ReactNode;
-}) {
+export function SurfaceProvider({ value, children }: { value: number; children: ReactNode }) {
   // Clamped to the ladder: a deep stack keeps resolving to a real surface
   // token instead of a level with no background or shadow defined.
   return (
