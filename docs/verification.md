@@ -12,6 +12,6 @@ Last local run: 14 October 2026, after the refactor, matcher fixes, asset optimi
 | Crest collection | crest tests in `pnpm test` | 200 WebP crests, 64×64, validated against reviewed sources |
 | GitHub Actions | `.github/workflows/ci.yml` | see latest run; no remote run claimed |
 
-Reproduce with `pnpm check`, then install browser engines with `pnpm exec playwright install chromium webkit` and run `pnpm test:e2e` from a normal terminal. Browser tests start `next start` on port 4173. Generated `playwright-report/` and `test-results/` are ignored.
+Reproduce with `pnpm check`, then install browser engines with `pnpm --filter web exec playwright install chromium webkit` and run `pnpm test:e2e` from a normal terminal. Browser tests start `next start` on port 4173. Generated `playwright-report/` and `test-results/` are ignored.
 
 Known issues and open checks are in [discovery.md](discovery.md).

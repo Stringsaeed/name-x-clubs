@@ -13,7 +13,7 @@ pnpm dev
 
 `pnpm dev` starts Next.js on `http://127.0.0.1:5173`. No account, database or runtime sports API is required by the game.
 
-Catalogs compile automatically: `dev`, `build`, `test` and `typecheck` run `pnpm i18n:compile` first. After changing UI text, run `pnpm i18n:extract` to update the PO catalogs in `src/locales/`, then translate the new entries.
+Catalogs compile automatically: Turborepo runs `i18n:compile` before `dev`, `build`, `test` and `typecheck`. After changing UI text, run `pnpm i18n:extract` to update the PO catalogs in `apps/web/src/locales/`, then translate the new entries.
 
 ## Stack
 
@@ -27,8 +27,9 @@ Catalogs compile automatically: `dev`, `build`, `test` and `typecheck` run `pnpm
 | Unit and component tests | Vitest 5 and Testing Library |
 | Browser regression tests | Playwright against `next start`, desktop Chromium and mobile WebKit |
 | Formatting and lint | Biome 2 with readability rules |
-| CI | GitHub Actions, a pinned Node version and committed pnpm lockfile |
-| Hosting | Vercel or Cloudflare, not yet chosen. Vercel works with no config; Cloudflare will use `@opennextjs/cloudflare` |
+| Workspace | pnpm workspaces and Turborepo. The Next.js app is `apps/web` |
+| CI | GitHub Actions. A pull request runs once; a newer push cancels the run in progress. Lint and unit tests run beside the production build and Playwright |
+| Hosting | Vercel, with the project Root Directory set to `apps/web`. Cloudflare would use `@opennextjs/cloudflare` |
 
 Dependencies use exact versions. The build does not require credentials or secrets.
 
@@ -36,11 +37,11 @@ Dependencies use exact versions. The build does not require credentials or secre
 
 ```sh
 pnpm check
-pnpm exec playwright install chromium webkit
+pnpm --filter web exec playwright install chromium webkit
 pnpm test:e2e
 ```
 
-`check` runs lint, the i18n catalog check, unit and component tests, and `next build`, which includes type-checking. `test:e2e` runs against `next start` on port 4173, so run `pnpm build` first. Traces and screenshots are retained on failure; `pnpm exec playwright show-report` opens the report.
+`check` runs lint, then Turborepo runs the i18n catalog check, unit and component tests, and `next build`, which includes type-checking. `pnpm test:e2e` builds the app first, then runs Playwright against `next start` on port 4173. Traces and screenshots are retained on failure; `pnpm --filter web exec playwright show-report` opens the report.
 
 Browser tests need a normal terminal outside restricted sandboxes. Native browsers may fail to register with macOS from a sandboxed process, and the test launcher refuses to start them there. Linux CI runs the same suite.
 
@@ -49,18 +50,19 @@ For active development use `pnpm test:watch`, `pnpm typecheck`, or `pnpm format`
 ## Architecture
 
 ```text
-src/app/                 Routes: [lang]/layout (root layout, sets lang and dir), [lang]/page,
+apps/web/                Next.js app. Turborepo runs its dev, build, and test tasks
+apps/web/src/app/        Routes: [lang]/layout (root layout, sets lang and dir), [lang]/page,
                          [lang]/error, route.ts (locale redirect), icon.svg
-src/screens/             GameScreen, the client component that renders the game
-src/components/          Answer list, composer, timer, results and accessible help dialog
-src/game/                Pure matching/round logic, controller, browserStore (localStorage)
-src/content/             Typed club catalog, generated crest paths and bilingual copy
-src/i18n/                config, server (server-only), client provider, negotiate (locale choice)
-src/locales/             PO catalogs per locale; compiled messages.ts is generated and ignored
-src/fonts/               Nunito and Alan Sans files and licenses, loaded with next/font
-src/styles/              Game stylesheet
-public/assets/           Pitch illustration and 200 reviewed club crests
-tests/e2e/               Browser tests against the production server
+apps/web/src/screens/    GameScreen, the client component that renders the game
+apps/web/src/components/ Answer list, composer, timer, results and accessible help dialog
+apps/web/src/game/       Pure matching/round logic, controller, browserStore (localStorage)
+apps/web/src/content/    Typed club catalog, generated crest paths and bilingual copy
+apps/web/src/i18n/       config, server (server-only), client provider, negotiate (locale choice)
+apps/web/src/locales/    PO catalogs per locale; compiled messages.ts is generated and ignored
+apps/web/src/fonts/      Nunito and Alan Sans files and licenses, loaded with next/font
+apps/web/src/styles/     Game stylesheet
+apps/web/public/assets/  Pitch illustration and 200 reviewed club crests
+apps/web/tests/e2e/      Browser tests against the production server
 ```
 
 Rendering model:
@@ -88,15 +90,15 @@ See [the architecture decisions](docs/decisions/) for the rationale behind the c
 
 ## Club data and artwork
 
-`src/content/clubs.json` is the curated source of club names, Arabic names and aliases. `src/content/catalog.ts` validates it and provides the typed catalog. Club IDs are stable; do not renumber existing records when adding a club.
+`apps/web/src/content/clubs.json` is the curated source of club names, Arabic names and aliases. `apps/web/src/content/catalog.ts` validates it and provides the typed catalog. Club IDs are stable; do not renumber existing records when adding a club.
 
-All crests are local files under `public/assets/crests`. `sources.json` preserves reviewed identities, original ESPN/Wikipedia source URLs, retrieval date and checksums. Artwork and trademarks remain with their respective owners. Crests are plain `<img>` elements that load as needed and keep an initials fallback if unavailable. No external image service runs during play.
+All crests are local files under `apps/web/public/assets/crests`. `sources.json` preserves reviewed identities, original ESPN/Wikipedia source URLs, retrieval date and checksums. Artwork and trademarks remain with their respective owners. Crests are plain `<img>` elements that load as needed and keep an initials fallback if unavailable. No external image service runs during play.
 
-Run `pnpm assets:restore` to restore missing files from their reviewed sources. Matching local files are retained. The script regenerates `src/content/crests.json`; tests reject missing, mismatched or altered assets. Review identity mappings before adding artwork.
+Run `pnpm assets:restore` to restore missing files from their reviewed sources. Matching local files are retained. The script regenerates `apps/web/src/content/crests.json`; tests reject missing, mismatched or altered assets. Review identity mappings before adding artwork.
 
 ## Deploy
 
-Production is the Vercel project `name-x-clubs` (team `stringsaeeds-projects`), connected to GitHub `Stringsaeed/name-x-clubs`. Pushes to `main` deploy production; other branches get preview deployments, protected by Vercel Authentication. `NEXT_PUBLIC_SITE_URL` is set for production. It is used for `metadataBase` and the hreflang alternates.
+Production is the Vercel project `name-x-clubs` (team `stringsaeeds-projects`), connected to GitHub `Stringsaeed/name-x-clubs`. The project Root Directory is `apps/web`, so Vercel installs this pnpm workspace from the repository root and builds the Next.js app. Pushes to `main` deploy production; other branches get preview deployments, protected by Vercel Authentication. `NEXT_PUBLIC_SITE_URL` is set for production. It is used for `metadataBase` and the hreflang alternates.
 
 Custom domains: `name-x-clubs.saeed.sh` and `clubs.saeed.sh` are attached. DNS for saeed.sh is on Cloudflare, so each needs a DNS-only (grey cloud) CNAME to `cname.vercel-dns.com`.
 

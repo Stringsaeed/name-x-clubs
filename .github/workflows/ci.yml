@@ -1,19 +1,59 @@
 name: Verify game
 on:
-  push:
   pull_request:
+  push:
+    branches:
+      - main
 permissions:
   contents: read
+  actions: write
+# One group per pull request, so a new push cancels the run already in progress.
+# Push events for a branch are not a second group: only main pushes run outside a PR.
 concurrency:
-  group: verify-${{ github.ref }}
+  group: verify-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+  TURBO_TELEMETRY_DISABLED: 1
 jobs:
-  verify:
+  check:
+    name: Lint and unit tests
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 1
+      - uses: pnpm/action-setup@v6.1.0
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/cache/restore@v6.1.0
+        id: turbo-cache
+        continue-on-error: true
+        with:
+          path: .turbo
+          key: turbo-check-${{ runner.os }}-${{ github.sha }}
+          restore-keys: |
+            turbo-check-${{ runner.os }}-
+      - run: pnpm lint && pnpm exec turbo run i18n:check test typecheck
+      - uses: actions/cache/save@v6.1.0
+        if: success() && steps.turbo-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        with:
+          path: .turbo
+          key: turbo-check-${{ runner.os }}-${{ github.sha }}
+
+  e2e:
+    name: Build and browser tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
     services:
       postgres:
-        image: postgres:17
+        image: postgres:17-alpine
         env:
           POSTGRES_PASSWORD: e2e
           POSTGRES_DB: nxc_e2e
@@ -21,31 +61,77 @@ jobs:
           - 5432:5432
         options: >-
           --health-cmd pg_isready
-          --health-interval 5s
+          --health-interval 2s
           --health-timeout 5s
-          --health-retries 10
+          --health-retries 15
     env:
       E2E_DATABASE_URL: postgres://postgres:e2e@127.0.0.1:5432/nxc_e2e
+      DATABASE_URL_UNPOOLED: postgres://postgres:e2e@127.0.0.1:5432/nxc_e2e
     steps:
       - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 1
       - uses: pnpm/action-setup@v6.1.0
       - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .node-version
           cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
-      - run: pnpm exec playwright install --with-deps chromium webkit
-      - run: pnpm db:migrate
-        env:
-          DATABASE_URL_UNPOOLED: ${{ env.E2E_DATABASE_URL }}
-      - run: psql "$E2E_DATABASE_URL" -v ON_ERROR_STOP=1 -q -f tests/e2e/fixtures/leaderboard-seed.sql
+      - id: playwright-version
+        run: echo "version=$(pnpm --filter web exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache/restore@v6.1.0
+        id: playwright-cache
+        continue-on-error: true
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+      - uses: actions/cache/restore@v6.1.0
+        id: build-cache
+        continue-on-error: true
+        with:
+          path: |
+            .turbo
+            apps/web/.next/cache
+          key: build-e2e-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            build-e2e-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-
+            build-e2e-${{ runner.os }}-
+      - name: Build, browsers, and database
+        run: |
+          set -uo pipefail
+          pnpm --filter web exec playwright install --with-deps chromium webkit &
+          browsers_pid=$!
+          pnpm build &
+          build_pid=$!
+          pnpm db:migrate &
+          migrate_pid=$!
+          code=0
+          wait "$browsers_pid" || code=$?
+          wait "$build_pid" || code=$?
+          wait "$migrate_pid" || code=$?
+          exit "$code"
+      - uses: actions/cache/save@v6.1.0
+        if: success() && steps.playwright-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+      - uses: actions/cache/save@v6.1.0
+        if: success() && steps.build-cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        with:
+          path: |
+            .turbo
+            apps/web/.next/cache
+          key: build-e2e-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+      - run: psql "$E2E_DATABASE_URL" -v ON_ERROR_STOP=1 -q -f apps/web/tests/e2e/fixtures/leaderboard-seed.sql
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v7.0.2
-        if: always()
+        if: failure()
         with:
           name: browser-test-report
           path: |
-            playwright-report/
-            test-results/
-          retention-days: 14
+            apps/web/playwright-report/
+            apps/web/test-results/
+          retention-days: 7
