@@ -129,12 +129,12 @@
               "level": "error",
               "options": {
                 "paths": {
-                  "effect": "Effect is server-only. Keep it under src/server so it stays out of the client bundle."
+                  "effect": "Effect is server-only. Keep it in packages/server so it stays out of the client bundle."
                 },
                 "patterns": [
                   {
                     "group": ["effect/**", "@effect/**"],
-                    "message": "Effect is server-only. Keep it under src/server so it stays out of the client bundle."
+                    "message": "Effect is server-only. Keep it in packages/server so it stays out of the client bundle."
                   }
                 ]
               }
