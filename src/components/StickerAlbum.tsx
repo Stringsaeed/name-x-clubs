@@ -15,9 +15,9 @@ import type { Club, ClubId } from '../content/catalog';
 import { clubCrests, countries, countryName } from '../content/catalog';
 import { clubInitials, shortClubWords } from '../content/clubNames';
 import { namedClubs } from '../game/controller';
-import type { Level } from '../game/model';
+import type { Level, Session } from '../game/model';
 import type { Locale } from '../i18n/config';
-import { Icon } from './Icon';
+import { AlbumHeader } from './AlbumHeader';
 
 const STICKER_TILTS = [
   '-1.4deg',
@@ -277,6 +277,7 @@ type StickerAlbumProps = {
   level: Level;
   language: Locale;
   playing: boolean;
+  session: Session;
 };
 
 export const StickerAlbum = memo(function StickerAlbumView({
@@ -284,6 +285,7 @@ export const StickerAlbum = memo(function StickerAlbumView({
   level,
   language,
   playing,
+  session,
 }: StickerAlbumProps) {
   const { t } = useLingui();
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -297,23 +299,13 @@ export const StickerAlbum = memo(function StickerAlbumView({
     }
   }, [found.length]);
 
-  const remaining = Math.max(0, level - clubs.length);
-
   return (
     <div
       className="album-shell"
       data-scroll-up={scrollState.up ? 'true' : undefined}
       data-scroll-down={scrollState.down ? 'true' : undefined}
     >
-      <div className="album-kicker">
-        <span className="album-edition">
-          <Icon name="ball" />
-          <span>{t`Sticker album`}</span>
-        </span>
-        <span className="album-remaining">
-          {remaining === 0 ? t`Album complete!` : t`${remaining} left to collect`}
-        </span>
-      </div>
+      <AlbumHeader session={session} level={level} foundCount={clubs.length} />
 
       <div
         className="album-viewport conversation"

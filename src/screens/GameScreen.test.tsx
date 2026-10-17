@@ -110,7 +110,7 @@ test('disables mode, level and practice selectors while playing and re-enables t
     screen.getByRole('button', { name: 'Mode 10' }),
     screen.getByRole('button', { name: 'Mode 50' }),
     screen.getByRole('button', { name: 'Mode 100' }),
-    screen.getByRole('combobox'),
+    screen.getByRole('combobox', { name: 'Pick your pitch' }),
     screen.getByRole('button', { name: 'Surprise me' }),
   ];
   for (const element of selectors()) {
@@ -123,7 +123,7 @@ test('disables mode, level and practice selectors while playing and re-enables t
   }
   expect(screen.getByRole('button', { name: 'Mode 10' })).toHaveAttribute('aria-pressed', 'true');
   expect(screen.getByRole('link', { name: 'Switch to Arabic' })).toBeInTheDocument();
-  await user.click(screen.getByRole('button', { name: /Finish/ }));
+  await user.click(screen.getByRole('button', { name: 'Done' }));
   for (const element of selectors()) {
     expect(element).toBeEnabled();
   }

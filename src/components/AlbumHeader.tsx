@@ -1,16 +1,25 @@
 import { useLingui } from '@lingui/react/macro';
+import { Progress } from '@/components/ui/progress';
 import { challengeDescriptor, splitFocus } from '../content/labels';
-import type { Session } from '../game/model';
+import type { Level, Session } from '../game/model';
 import { Timer } from './Timer';
 
-export function ChallengeHeading({ session }: { session: Session }) {
+export function AlbumHeader({
+  session,
+  level,
+  foundCount,
+}: {
+  session: Session;
+  level: Level;
+  foundCount: number;
+}) {
   const { t, i18n } = useLingui();
   const isLetter = session.challenge.scope.kind === 'letter';
   const { before, focus, after } = splitFocus(i18n._(challengeDescriptor(i18n, session.challenge)));
 
   return (
-    <div className="challenge-heading">
-      <div>
+    <div className="album-kicker album-header">
+      <div className="album-header-title">
         <h2 id="challenge-title">
           {before}
           <span className="country-name" dir={isLetter ? 'ltr' : undefined}>
@@ -20,6 +29,16 @@ export function ChallengeHeading({ session }: { session: Session }) {
         </h2>
         {isLetter && <p className="challenge-detail">{t`Use the club’s common English name.`}</p>}
       </div>
+      <Progress
+        className="round-progress album-header-track"
+        max={level}
+        value={foundCount}
+        aria-label={t`YOUR CLUBS`}
+      />
+      <span className="album-remaining" dir="ltr">
+        <strong id="found-count">{foundCount}</strong>
+        <span id="target-count">/{level}</span>
+      </span>
       <Timer session={session} />
     </div>
   );

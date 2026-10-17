@@ -165,7 +165,7 @@ test('elapsed time rises without expiring and freezes on finishing across reload
   await expect(page.getByRole('textbox')).toBeEnabled();
   await reloadReady(page);
   await expect(page.locator('#timer-text')).toHaveText('06:15');
-  await page.getByRole('button', { name: 'Finish round', exact: true }).click();
+  await page.getByRole('button', { name: 'Done', exact: true }).click();
   await expect(page.getByText('1 / 10 · 06:15', { exact: true })).toBeVisible();
   await page.clock.setFixedTime(new Date('2026-10-14T13:00:00Z'));
   await reloadReady(page);
@@ -175,12 +175,14 @@ test('elapsed time rises without expiring and freezes on finishing across reload
   await expect(page.getByRole('log').locator('li')).toHaveCount(0);
 });
 
-test('GET / redirects by language cookie', async ({ page, context, baseURL }) => {
+test('GET / keeps the URL and follows the language cookie', async ({ page, context, baseURL }) => {
   await page.goto('/');
-  await expect(page).toHaveURL(/\/en$/);
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await context.addCookies([{ name: 'nxc-language', value: 'ar', url: baseURL ?? page.url() }]);
   await page.goto('/');
-  await expect(page).toHaveURL(/\/ar$/);
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
 });
 test('serves /ar with rtl html before hydration', async ({ request }) => {
   const res = await request.get('/ar');

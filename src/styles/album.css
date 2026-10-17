@@ -76,29 +76,6 @@
   margin-inline-start: auto;
 }
 
-.album-deck {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
-  align-items: center;
-  gap: 20px;
-  padding-block: 8px 10px;
-  padding-inline: 14px;
-  background: var(--soft);
-  border: 1px solid var(--line);
-  border-radius: 15px;
-}
-
-.album-layout .challenge-heading {
-  margin: 0;
-  gap: 14px;
-}
-
-.album-layout .challenge-heading h2 {
-  font-size: 24px;
-  line-height: 1.2;
-  max-inline-size: none;
-}
-
 .album-layout .challenge-detail {
   margin-block-start: 4px;
 }
@@ -124,20 +101,8 @@
   font-size: 7px;
 }
 
-.album-progress {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.album-layout .progress-heading {
-  margin-block: 0 6px;
-  min-height: 22px;
-}
-
-.album-layout #round-progress {
+.album-layout .round-progress [data-slot="progress-track"] {
   height: 6px;
-  border-radius: 99px;
 }
 
 .album-shell {
@@ -166,6 +131,11 @@
     inset 0 2px 6px var(--shadow),
     inset 0 0 0 3px var(--shadow);
   overflow: hidden;
+}
+
+.album-shell:has([data-album-level='10']) {
+  background-image: radial-gradient(var(--album-dot) 0.85px, transparent 0.85px);
+  background-size: 14px 14px;
 }
 
 .album-kicker {
@@ -208,6 +178,75 @@
   border-radius: 99px;
   padding-block: 2px;
   padding-inline: 9px;
+}
+
+.album-header {
+  color: var(--ink);
+  text-transform: none;
+  letter-spacing: 0;
+  gap: 10px;
+}
+
+.album-header-title {
+  flex: 1 1 120px;
+  min-width: 0;
+}
+
+.album-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 1000;
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+}
+
+.album-header h2 .country-name {
+  color: var(--green);
+}
+
+.album-header .challenge-detail {
+  margin-block-start: 2px;
+}
+
+.album-header-track {
+  flex: 1 1 96px;
+  min-width: 72px;
+  max-width: 240px;
+}
+
+.album-header .round-progress [data-slot="progress-track"] {
+  height: 6px;
+  background: color-mix(in srgb, var(--ink) 16%, transparent);
+}
+
+.album-header .album-remaining {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.album-header .album-remaining strong {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.album-layout .album-header .timer {
+  flex: none;
+  width: auto;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  margin-inline-start: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.album-layout .album-header .timer-caption {
+  display: none;
 }
 
 .album-shell::before,
@@ -281,11 +320,7 @@
   margin: 0;
   padding-block: 12px;
   padding-inline: 14px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--selected-line) transparent;
+  overflow: hidden;
 }
 
 .album-sheet {
@@ -319,16 +354,31 @@
   gap: 12px;
 }
 
-.album-sheet[data-album-level="50"] .album-cells {
+.album-sheet[data-album-level="50"],
+.album-sheet[data-album-level="100"] {
+  height: 100%;
+  min-height: 0;
+}
+
+.album-sheet[data-album-level="50"] .album-cells,
+.album-sheet[data-album-level="100"] .album-cells {
+  height: 100%;
+  max-height: 100%;
   grid-template-columns: repeat(10, minmax(0, 1fr));
-  grid-auto-rows: minmax(82px, auto);
+  grid-auto-rows: minmax(0, 1fr);
+  align-content: stretch;
   gap: 8px;
 }
 
-.album-sheet[data-album-level="100"] .album-cells {
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  grid-auto-rows: minmax(84px, auto);
-  gap: 8px;
+.album-sheet[data-album-level="50"] .album-ghost,
+.album-sheet[data-album-level="50"] .album-sticker,
+.album-sheet[data-album-level="50"] .album-spacer,
+.album-sheet[data-album-level="100"] .album-ghost,
+.album-sheet[data-album-level="100"] .album-sticker,
+.album-sheet[data-album-level="100"] .album-spacer {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .album-slot,
@@ -744,8 +794,8 @@
 @media (max-width: 1040px) {
   .album-sheet[data-album-level="50"] .album-cells,
   .album-sheet[data-album-level="100"] .album-cells {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    grid-auto-rows: minmax(86px, auto);
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
   }
 
   .album-sheet[data-album-level="50"] .album-slot:nth-child(-n + 10) .album-tooltip,
@@ -785,15 +835,12 @@
     gap: 5px;
   }
 
-  .album-deck {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
-    padding-block: 8px;
-    padding-inline: 11px;
+  .album-header-track {
+    display: none;
   }
 
-  .album-layout .challenge-heading h2 {
-    font-size: 20px;
+  .album-header h2 {
+    font-size: 15px;
   }
 
   .album-shell {
@@ -808,33 +855,35 @@
 
   .album-sheet[data-album-level="10"] .album-cells {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-rows: minmax(92px, auto);
-    height: auto;
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    height: 100%;
+    max-height: 100%;
     gap: 8px;
   }
 
   .album-sheet[data-album-level="10"] {
-    height: auto;
+    height: 100%;
+    min-height: 0;
   }
 
   .album-sheet[data-album-level="10"] .album-cells {
-    overflow: visible;
-    max-height: none;
+    overflow: hidden;
+    max-height: 100%;
   }
 
   .album-sheet[data-album-level="10"] .album-slot,
   .album-sheet[data-album-level="10"] .album-spacer {
-    overflow: visible;
+    overflow: hidden;
     container-type: normal;
-    height: auto;
+    height: 100%;
+    min-height: 0;
   }
 
   .album-sheet[data-album-level="10"] .album-ghost,
   .album-sheet[data-album-level="10"] .album-sticker,
   .album-sheet[data-album-level="10"] .album-spacer {
-    min-height: 92px;
-    height: auto;
+    min-height: 0;
+    height: 100%;
   }
 
   .album-sheet[data-album-level="10"] .album-club-country {
@@ -859,9 +908,9 @@
 
   .album-sheet[data-album-level="50"] .album-cells,
   .album-sheet[data-album-level="100"] .album-cells {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-rows: minmax(84px, auto);
-    gap: 8px;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
+    gap: 6px;
   }
 }
 
@@ -875,10 +924,6 @@
   .album-layout .level-button {
     padding-inline: 6px;
     min-height: 36px;
-  }
-
-  .album-layout .challenge-heading h2 {
-    font-size: 18px;
   }
 
   .album-layout .timer {
@@ -906,11 +951,10 @@
     padding-inline: 8px;
   }
 
-  .album-sheet[data-album-level="10"] .album-cells,
-  .album-sheet[data-album-level="50"] .album-cells,
-  .album-sheet[data-album-level="100"] .album-cells {
+  .album-sheet[data-album-level="10"] .album-cells {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: minmax(82px, auto);
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, 1fr);
     gap: 7px;
   }
 }
@@ -922,6 +966,73 @@ html[lang="ar"] .album-next-tag {
 
 html[lang="ar"] .album-club-name {
   line-height: 1.3;
+}
+
+body:has(.album-layout):not(.keyboard-open):not(.game-keyboard) {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body:has(.album-layout):not(.keyboard-open):not(.game-keyboard) .site-shell {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body:has(.album-layout):not(.keyboard-open):not(.game-keyboard) .site-shell > main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body:has(.album-layout):not(.keyboard-open):not(.game-keyboard) .hero {
+  flex: none;
+}
+
+body:has(.album-layout):not(.keyboard-open):not(.game-keyboard) .album-layout.game-layout {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+}
+
+body:has(.album-layout):not(.keyboard-open):not(.game-keyboard) .game-card {
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* The keyboard card used to reserve 59px on top and 54px under the field for a
+   heading that no longer exists. That empty padding crushed the ten slots and
+   left a band above the keyboard. Done stays on the header row. */
+body.keyboard-open:not(.game-keyboard) .album-layout .game-card {
+  padding-top: max(8px, env(safe-area-inset-top));
+  padding-bottom: 8px;
+  gap: 8px;
+}
+
+body.keyboard-open:not(.game-keyboard) .album-top {
+  position: absolute;
+  z-index: 6;
+  top: max(8px, env(safe-area-inset-top));
+  inset-inline-end: 10px;
+  width: auto;
+  margin: 0;
+}
+
+body.keyboard-open:not(.game-keyboard) .album-header {
+  padding-inline-end: 84px;
 }
 
 @media (prefers-reduced-motion: reduce) {

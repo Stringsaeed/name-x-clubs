@@ -42,7 +42,7 @@ export function useLegacyLanguage(lang: Locale) {
     if (legacy === 'ar' && lang === 'en') {
       writeLanguageCookie('ar');
       removeLegacy();
-      window.location.replace('/ar');
+      window.location.reload();
       return;
     }
     writeLanguageCookie(lang);

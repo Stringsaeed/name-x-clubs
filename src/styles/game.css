@@ -1004,7 +1004,7 @@ html[lang="ar"] .help-dialog-panel h2 {
 .practice-controls,
 .challenge-heading,
 .progress-heading,
-#round-progress,
+.round-progress,
 .answer-composer,
 .result-panel {
   flex-shrink: 0;
@@ -1053,31 +1053,6 @@ html[lang="ar"] .help-dialog-panel h2 {
 .progress-heading {
   margin: 0 0 7px;
   min-height: 25px;
-}
-#round-progress {
-  display: block;
-  appearance: none;
-  -webkit-appearance: none;
-  border: 0;
-  height: 4px;
-  width: 100%;
-  border-radius: 3px;
-  background: var(--soft);
-  color: var(--lime);
-  overflow: hidden;
-}
-#round-progress::-webkit-progress-bar {
-  background: var(--soft);
-  border-radius: 3px;
-}
-#round-progress::-webkit-progress-value {
-  background: var(--lime);
-  border-radius: 3px;
-  transition: width 0.2s;
-}
-#round-progress::-moz-progress-bar {
-  background: var(--lime);
-  border-radius: 3px;
 }
 .conversation {
   flex: 1;
