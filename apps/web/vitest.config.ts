@@ -12,6 +12,8 @@ export default defineConfig({
   },
   oxc: { jsx: { runtime: 'automatic' } },
   test: {
+    // Separate package runners must not clear each other's module caches after a lockfile change.
+    fsModuleCachePath: 'node_modules/.vitest-cache',
     restoreMocks: true,
     coverage: { provider: 'v8', include: ['src/game/**/*.ts'] },
     projects: [
