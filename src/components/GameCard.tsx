@@ -1,4 +1,5 @@
 import { useLingui } from '@lingui/react/macro';
+import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { GameView } from '../game/controller';
 import { maxEntryLength } from '../game/ranked/answerQueue';
@@ -9,10 +10,8 @@ import type { Locale } from '../i18n/config';
 import '../styles/album.css';
 import '../styles/ranked.css';
 import { AnswerComposer } from './AnswerComposer';
-import { ChallengeHeading } from './ChallengeHeading';
 import { LevelPicker } from './LevelPicker';
 import { PracticeControls } from './PracticeControls';
-import { ProgressBar } from './ProgressBar';
 import { ResultPanel } from './ResultPanel';
 import { StickerAlbum } from './StickerAlbum';
 
@@ -64,17 +63,12 @@ export function GameCard({ view, ranked, language, actions, notify }: GameCardPr
               variant="destructive"
               size="compact"
               className="finish-round"
+              trailingIcon={X}
               onClick={actions.finishRound}
             >
-              {t`Finish round`}
+              {t`Done`}
             </Button>
           )}
-        </div>
-        <div className="album-deck">
-          <ChallengeHeading session={session} />
-          <div className="album-progress">
-            <ProgressBar level={level} foundCount={session.round.found.length} />
-          </div>
         </div>
       </div>
       <StickerAlbum
@@ -83,6 +77,7 @@ export function GameCard({ view, ranked, language, actions, notify }: GameCardPr
         level={level}
         language={language}
         playing={phase === 'playing'}
+        session={session}
       />
       <div className="album-bottom">
         {!view.storageAvailable && (

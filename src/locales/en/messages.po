@@ -308,8 +308,8 @@ msgid "More slots below"
 msgstr "More slots below"
 
 #: src/components/GameCard.tsx
-msgid "Finish round"
-msgstr "Finish round"
+msgid "Done"
+msgstr "Done"
 
 #: src/components/HelpDialog.tsx
 msgid "Use English or Arabic, with or without accents. Small spelling mistakes are fine when the club is clear."

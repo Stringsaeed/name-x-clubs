@@ -1,5 +1,6 @@
 import { msg, t } from '@lingui/core/macro';
 import type { Metadata, Viewport } from 'next';
+import { headers } from 'next/headers';
 import type { ReactNode } from 'react';
 import '../../styles/globals.css';
 import '../../styles/game.css';
@@ -23,11 +24,25 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
+function requestOrigin(headerStore: Headers) {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL;
+  if (configured) {
+    return new URL(configured);
+  }
+  const host =
+    headerStore.get('x-forwarded-host')?.split(',')[0]?.trim() || headerStore.get('host');
+  if (!host) {
+    return undefined;
+  }
+  const proto = headerStore.get('x-forwarded-proto')?.split(',')[0]?.trim() || 'http';
+  return new URL(`${proto}://${host}`);
+}
+
 export async function generateMetadata({ params }: Pick<LayoutProps, 'params'>): Promise<Metadata> {
   const { lang } = await params;
   const i18n = getServerI18n(lang as Locale);
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
+    metadataBase: requestOrigin(await headers()),
     title: 'Name × Clubs',
     alternates: { languages: { en: '/en', ar: '/ar' } },
     description: i18n._(
