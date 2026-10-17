@@ -17,8 +17,11 @@ export const themeInitScript = `(() => {
 export function applyDocumentTheme(theme: 'light' | 'dark') {
   document.documentElement.dataset.theme = theme;
   document.documentElement.classList.toggle('dark', theme === 'dark');
-  const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-  if (meta) {
-    meta.content = theme === 'light' ? '#f7f8f2' : '#111a16';
+  let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'theme-color';
+    document.head.appendChild(meta);
   }
+  meta.content = theme === 'light' ? '#f7f8f2' : '#111a16';
 }

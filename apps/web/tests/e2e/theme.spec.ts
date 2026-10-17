@@ -13,6 +13,7 @@ test('switches palettes and keeps the choice across reloads and languages', asyn
   await expect(root).toHaveCSS('color-scheme', 'light');
   await page.getByRole('button', { name: 'Switch to dark mode' }).waitFor();
   await page.getByRole('link', { name: 'Switch to Arabic' }).click();
+  await page.waitForURL('**/ar');
   await expect(root).toHaveCSS('color-scheme', 'light');
   await page.getByRole('button', { name: 'التبديل إلى الوضع الداكن' }).click();
   await expect(root).toHaveCSS('color-scheme', 'dark');

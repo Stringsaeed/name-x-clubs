@@ -47,7 +47,14 @@ async function startRanked(page: Page) {
 }
 
 async function submit(page: Page, text: string) {
-  await page.getByRole('textbox').fill(text);
+  // Phones start on the in-page keyboard, which makes the field read-only.
+  const system = page.locator('[data-keyboard="system"]');
+  if (await system.isVisible()) {
+    await system.click();
+  }
+  const field = page.getByRole('textbox');
+  await expect(field).toBeEditable();
+  await field.fill(text);
   await page.getByRole('button', { name: 'Submit answer', exact: true }).click();
 }
 
