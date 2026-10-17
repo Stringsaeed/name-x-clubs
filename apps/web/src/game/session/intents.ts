@@ -1,5 +1,5 @@
-import type { AnswerEvent } from '../engine';
-import type { Level, Mode, Session } from '../model';
+import type { AnswerEvent } from '@nxc/game/engine';
+import type { Level, Mode, Session } from '@nxc/game/model';
 import { type RoundAction, transition } from '../round';
 import type { SessionRepository } from './repository';
 import { practiceSession } from './restore';

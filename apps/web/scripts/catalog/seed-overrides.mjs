@@ -4,8 +4,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import clubs from '@nxc/game/content/clubs.json' with { type: 'json' };
 import probe from '../../docs/research/wikidata-probe.json' with { type: 'json' };
-import clubs from '../../src/content/clubs.json' with { type: 'json' };
 
 const OVERRIDES = join(dirname(fileURLToPath(import.meta.url)), 'overrides.json');
 

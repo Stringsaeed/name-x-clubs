@@ -1,6 +1,6 @@
 import { useLingui } from '@lingui/react/macro';
+import { type Level, levels } from '@nxc/game/model';
 import { memo } from 'react';
-import { type Level, levels } from '../game/model';
 
 type LevelPickerProps = {
   level: Level;

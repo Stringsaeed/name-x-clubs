@@ -1,3 +1,5 @@
+import type { Club } from '@nxc/game/content/catalog';
+import type { Language } from '@nxc/game/model';
 import { Image } from 'expo-image';
 import { memo, useEffect, useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -8,8 +10,6 @@ import Animated, {
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
-import type { Club } from '../../../../web/src/content/catalog';
-import type { Language } from '../../../../web/src/game/model';
 import { crestSources } from '../../crests';
 import { useColors } from '../../theme/ThemeProvider';
 import { radii } from '../../theme/tokens';

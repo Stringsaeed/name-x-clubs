@@ -1,9 +1,9 @@
-// Publishes the generated catalog: verifies scripts/catalog/out, then copies it into src/content.
+// Publishes the generated catalog: verifies scripts/catalog/out, then copies it into packages/game/src/content.
 // Usage: pnpm catalog:apply
 //
 // clubs.json is written one club per line so a catalog refresh reviews as a per-club diff
 // instead of one 300 KB line (minified) or 4,000 lines of single aliases (2-space). The other
-// two files are small and keep 2-space JSON. src/content/*.json is excluded from Biome.
+// two files are small and keep 2-space JSON. packages/game/src/content/*.json is excluded from Biome.
 // catalog-version.json holds the id the ranked backend stores with every round.
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -11,7 +11,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const outPath = (name) => fileURLToPath(new URL(`./out/${name}`, import.meta.url));
-const contentPath = (name) => fileURLToPath(new URL(`../../src/content/${name}`, import.meta.url));
+const contentPath = (name) =>
+  fileURLToPath(new URL(`../../../../packages/game/src/content/${name}`, import.meta.url));
 const readOut = (name) => JSON.parse(readFileSync(outPath(name), 'utf8'));
 const twoSpaceJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
 

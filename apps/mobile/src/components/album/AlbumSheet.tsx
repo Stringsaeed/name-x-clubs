@@ -1,3 +1,5 @@
+import type { Club } from '@nxc/game/content/catalog';
+import type { Language, Level } from '@nxc/game/model';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   FlatList,
@@ -16,8 +18,6 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
-import type { Club } from '../../../../web/src/content/catalog';
-import type { Language, Level } from '../../../../web/src/game/model';
 import type { Copy } from '../../copy';
 import { useColors } from '../../theme/ThemeProvider';
 import { radii } from '../../theme/tokens';

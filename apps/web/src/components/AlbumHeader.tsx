@@ -1,7 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Level, Session } from '@nxc/game/model';
 import { Progress } from '@/components/ui/progress';
 import { challengeDescriptor, splitFocus } from '../content/labels';
-import type { Level, Session } from '../game/model';
 import { Timer } from './Timer';
 
 export function AlbumHeader({

@@ -1,10 +1,10 @@
+import type { Locale } from '@nxc/game/i18n/config';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import type { GameController } from '../game/controller';
 import type { RankedApi } from '../game/ranked/api';
 import { getBrowserPlay, serverPlaySnapshot } from '../game/ranked/browserPlay';
 import { RankedPlay } from '../game/ranked/rankedPlay';
 import type { SessionStoragePort } from '../game/ranked/storedRound';
-import type { Locale } from '../i18n/config';
 
 /** Lets tests play ranked rounds against a fake API. */
 export type RankedSetup = Readonly<{ api: RankedApi; storage?: SessionStoragePort | null }>;

@@ -80,7 +80,7 @@ function resolveTerm(term, byClub, stats) {
 
 const byLinks = (a, b) => b.links - a.links || a.id.localeCompare(b.id);
 
-/** Same rule as `dominantClub` in src/game/matching/scope.ts: 3× the next club's Wikipedia editions. */
+/** Same rule as `dominantClub` in packages/game/src/matching/scope.ts: 3× the next club's Wikipedia editions. */
 const DOMINANCE_RATIO = 3;
 
 function isDominant(candidates) {

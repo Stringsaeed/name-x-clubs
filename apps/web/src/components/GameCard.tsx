@@ -1,4 +1,5 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Locale } from '@nxc/game/i18n/config';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { GameView } from '../game/controller';
@@ -6,7 +7,6 @@ import { maxEntryLength } from '../game/ranked/answerQueue';
 import type { RankedSnapshot } from '../game/ranked/RankedRound';
 import { isRankedRoundOf, rankedOutcome } from '../game/ranked/rankedView';
 import type { useGameActions } from '../hooks/useGameActions';
-import type { Locale } from '../i18n/config';
 import '../styles/album.css';
 import '../styles/ranked.css';
 import { AnswerComposer } from './AnswerComposer';

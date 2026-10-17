@@ -1,6 +1,6 @@
+import type { Language, Level, Session } from '@nxc/game/model';
 import { useMemo, useState } from 'react';
 import { type StyleProp, StyleSheet, type ViewStyle } from 'react-native';
-import type { Language, Level, Session } from '../../../../web/src/game/model';
 import type { Copy } from '../../copy';
 import { Card } from '../../ui';
 import { AlbumHeader } from './AlbumHeader';

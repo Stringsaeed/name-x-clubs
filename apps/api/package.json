@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.15.0"
+  },
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env.local --import tsx src/server.ts",
+    "start": "node --env-file-if-exists=.env.local --import tsx src/server.ts",
+    "build": "node --import tsx scripts/db-migrate.ts --vercel && node scripts/bundle.mjs",
+    "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/db-migrate.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nxc/game": "workspace:*",
+    "@nxc/server": "workspace:*",
+    "effect": "4.0.4",
+    "hono": "4.13.13"
+  },
+  "devDependencies": {
+    "@hono/node-server": "2.1.5",
+    "@types/node": "24.19.2",
+    "esbuild": "0.28.2",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,4 +1,4 @@
-import { defaultLocale, isLocale, type Locale } from './config';
+import { defaultLocale, isLocale, type Locale } from '@nxc/game/i18n/config';
 
 export const languageCookie = 'nxc-language';
 

@@ -1,3 +1,4 @@
+import type { CompletedRound, Session } from '@nxc/game/model';
 import { useEffect, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, {
@@ -6,7 +7,6 @@ import Animated, {
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-import type { CompletedRound, Session } from '../../../../web/src/game/model';
 import type { Copy } from '../../copy';
 import { formatElapsed } from '../../game/engine';
 import { useColors } from '../../theme/ThemeProvider';

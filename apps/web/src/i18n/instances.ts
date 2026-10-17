@@ -1,6 +1,6 @@
 import { type I18n, setupI18n } from '@lingui/core';
+import { defaultLocale, type Locale, locales } from '@nxc/game/i18n/config';
 import { catalogs } from './catalogs';
-import { defaultLocale, type Locale, locales } from './config';
 
 function createInstance(locale: Locale): I18n {
   return setupI18n({ locale, messages: { [locale]: catalogs[locale] } });

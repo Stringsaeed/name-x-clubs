@@ -1,0 +1,83 @@
+import { expect, test } from 'vitest';
+import type { Scope } from '../model';
+import { MAX_ANSWERS_PER_SUBMIT, parseAnswers } from './parse';
+import type { ParsedAnswer } from './types';
+
+function country(name: string): { scope: Scope } {
+  return { scope: { kind: 'country', country: name } };
+}
+
+function describe(answers: readonly ParsedAnswer[]) {
+  return answers.map((answer) => {
+    if (answer.kind === 'match' || answer.kind === 'wrong-category') {
+      return `${answer.kind}: ${answer.club.name}`;
+    }
+
+    return `${answer.kind}: ${answer.input}`;
+  });
+}
+
+for (const [input, expected] of [
+  ['Real Mallorca', 'match: Mallorca'],
+  ['Sporting Braga', 'match: Braga'],
+  ['Racing Strasbourg', 'match: Strasbourg'],
+  ['Real Valladolid', 'match: Real Valladolid'],
+  ['Atletico Nacional', 'match: Atlético Nacional'],
+  ['الوحدة السعودي', 'match: Al Wehda'],
+  ['الهلال السوداني', 'match: Al-Hilal Club'],
+  ['Arsenal de Mendoza', 'unknown: Arsenal de Mendoza'],
+  ['Sporting Lokeren', 'unknown: Sporting Lokeren'],
+  ['Racing Ferrol', 'unknown: Racing Ferrol'],
+] as const) {
+  test(`"${input}" is one answer, not split into other clubs (H1)`, () => {
+    expect(describe(parseAnswers(input))).toEqual([expected]);
+  });
+}
+
+test('club names typed without commas are still a list', () => {
+  expect(describe(parseAnswers('Arsenal Chelsea Everton'))).toEqual([
+    'match: Arsenal',
+    'match: Chelsea',
+    'match: Everton',
+  ]);
+  expect(describe(parseAnswers('Arsenal and Chelsea'))).toEqual([
+    'match: Arsenal',
+    'match: Chelsea',
+  ]);
+  expect(describe(parseAnswers('برشلونة وريال مدريد', country('spain')))).toEqual([
+    'match: Barcelona',
+    'match: Real Madrid',
+  ]);
+  expect(describe(parseAnswers('Arsenal Chelsea Juventus', country('england')))).toEqual([
+    'match: Arsenal',
+    'match: Chelsea',
+    'wrong-category: Juventus',
+  ]);
+});
+
+test('a shared name inside a run of names counts only when the round narrows it', () => {
+  expect(describe(parseAnswers('juve inter ac milan', country('italy')))).toEqual([
+    'match: Juventus',
+    'match: Inter Milan',
+    'match: AC Milan',
+  ]);
+  expect(describe(parseAnswers('juve inter ac milan'))).toEqual(['unknown: juve inter ac milan']);
+});
+
+test('emoji-only and dash-only answers are dropped (L3)', () => {
+  expect(describe(parseAnswers('🙂, ---, Arsenal, - , •'))).toEqual(['match: Arsenal']);
+  expect(parseAnswers('🙂🔥')).toEqual([]);
+});
+
+test('"&" joins names like "and" does', () => {
+  expect(describe(parseAnswers('Arsenal & Chelsea'))).toEqual(['match: Arsenal', 'match: Chelsea']);
+  expect(describe(parseAnswers('Brighton & Hove Albion'))).toEqual([
+    'match: Brighton & Hove Albion',
+  ]);
+});
+
+test(`answers beyond ${MAX_ANSWERS_PER_SUBMIT} in one paste are ignored (M5)`, () => {
+  const text = Array.from({ length: MAX_ANSWERS_PER_SUBMIT + 50 }, () => 'Arsenal').join(', ');
+
+  expect(parseAnswers(text)).toHaveLength(MAX_ANSWERS_PER_SUBMIT);
+});

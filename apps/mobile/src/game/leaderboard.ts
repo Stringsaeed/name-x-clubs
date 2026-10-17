@@ -1,7 +1,7 @@
+import type { Language } from '@nxc/game/model';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { BoardMode, BoardPeriod } from '../../../web/src/components/leaderboard/query';
 import type { BoardRow, MyStanding } from '../../../web/src/components/leaderboard/types';
-import type { Language } from '../../../web/src/game/model';
 import { appFetch } from './api';
 
 export type { BoardMode, BoardPeriod, BoardRow, MyStanding };

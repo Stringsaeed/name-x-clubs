@@ -17,14 +17,14 @@ Status: proposal, decided 2026-10-14. Not implemented. Open items are listed at 
 
 ## Architecture
 
-- **Client.** Plain TypeScript. `src/game/engine.ts` and `round.ts` stay pure and are imported by both client and server.
-- **Server.** Effect 4 under `src/server/**` (`server-only`), called from thin Next.js Route Handlers through one lazily created `ManagedRuntime`.
+- **Client.** Plain TypeScript. The matcher and ranked contract live in `packages/game` (`@nxc/game`) and stay pure and are imported by both client and server.
+- **Server.** Effect 4 in `packages/server` (`@nxc/server`), served by a Hono app in `apps/api` through one lazily created `ManagedRuntime`. See [decision 003](../decisions/003-api-service.md).
   - **Services.** `PlayerStore`, `RoundStore`, `Leaderboard`, `Moderation`, `RateLimit`, `Captcha` and `EdgeCache` are Context tags with Layers. Time comes from Effect `Clock`, so tests use `TestClock`.
   - **Schemas.** Effect Schema decodes requests and rejects excess properties, so a forged `elapsedMs` field becomes a 400.
   - **Errors.** Tagged errors map to HTTP in one place: 400, 401, 404, 409, 422, 429, 403 and 503.
   - **Packages.** Effect 4 ships HTTP, Schema and SQL in `effect` itself. Use `@effect/sql-pg`, `@effect/sql-pglite` and `@effect/vitest` at 4.x, and do not install the v3-line `@effect/platform`.
-  - **Bundle boundary.** A Biome `noRestrictedImports` rule keeps `effect` out of `src/game`, `src/components` and `src/screens`. A CI check fails if `.next/static` contains Effect.
-- **Hosting: Vercel** (Node runtime, Fluid Compute). Cloudflare stays possible but is not planned.
+  - **Bundle boundary.** A Biome `noRestrictedImports` rule keeps `effect` out of `apps/web` and `packages/game`; `apps/web` does not depend on `effect` or `@nxc/server`.
+- **Hosting: Vercel** (Node runtime, Fluid Compute): one project with two Services, `web` and `api`, from the root `vercel.json`; the project Root Directory is the repository root. Cloudflare stays possible but is not planned.
 - **Database: Neon Postgres** through the Vercel Marketplace integration (`DATABASE_URL` pooled, `DATABASE_URL_UNPOOLED` for migrations). The code only needs standard Postgres.
   - A small `PgClient` pool on Vercel Functions.
   - Tests: PGlite runs the real migrations in-process.

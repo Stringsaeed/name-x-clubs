@@ -1,10 +1,10 @@
+import { type ClubId, clubs } from '@nxc/game/content/catalog';
+import { challengesForLevel } from '@nxc/game/engine';
+import type { Locale } from '@nxc/game/i18n/config';
+import type { Session } from '@nxc/game/model';
 import { screen } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
-import { type ClubId, clubs } from '../content/catalog';
-import { challengesForLevel } from '../game/engine';
-import type { Session } from '../game/model';
 import type { RankedOutcome } from '../game/ranked/rankedView';
-import type { Locale } from '../i18n/config';
 import { renderWithI18n } from '../test/renderWithI18n';
 import { ResultPanel } from './ResultPanel';
 

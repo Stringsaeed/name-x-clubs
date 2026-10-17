@@ -2,8 +2,8 @@
 
 import { type Messages, setupI18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
+import type { Locale } from '@nxc/game/i18n/config';
 import { type ReactNode, useState } from 'react';
-import type { Locale } from './config';
 
 type LinguiClientProviderProps = {
   locale: Locale;

@@ -1,7 +1,7 @@
+import { type ClubId, clubs } from '@nxc/game/content/catalog';
 import { act, fireEvent, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { afterEach, expect, test, vi } from 'vitest';
-import { type ClubId, clubs } from '../content/catalog';
 import { createGameController } from '../game/controller';
 import { useToast } from '../hooks/useToast';
 import { GameScreen } from '../screens/GameScreen';

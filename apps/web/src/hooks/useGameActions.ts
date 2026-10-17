@@ -1,5 +1,5 @@
+import type { Language, Level, Mode } from '@nxc/game/model';
 import { useMemo } from 'react';
-import type { Language, Level, Mode } from '../game/model';
 import type { RankedPlay } from '../game/ranked/rankedPlay';
 
 /**

@@ -1,13 +1,13 @@
-import type { TextStyle } from 'react-native';
 import {
   type Club,
   type ClubId,
   clubById,
   countries,
   countryName,
-} from '../../../../web/src/content/catalog';
-import { clubInitials, shortClubWords } from '../../../../web/src/content/clubNames';
-import type { Language, Level } from '../../../../web/src/game/model';
+} from '@nxc/game/content/catalog';
+import { clubInitials, shortClubWords } from '@nxc/game/content/clubNames';
+import type { Language, Level } from '@nxc/game/model';
+import type { TextStyle } from 'react-native';
 import { displayName } from '../../copy';
 
 /** Degrees of tilt by slot, repeating every ten slots (the web's sticker table). */

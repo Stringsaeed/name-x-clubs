@@ -5,7 +5,8 @@
       "**",
       "!apps/web/public/assets",
       "!apps/web/src/app/icon.svg",
-      "!apps/web/src/content/*.json",
+      "!packages/game/src/content/*.json",
+      "!apps/api/dist",
       "!package-lock.json",
       "!**/playwright-report",
       "!**/test-results",
@@ -99,7 +100,12 @@
   },
   "overrides": [
     {
-      "includes": ["apps/web/scripts/**", "**/*.config.*"],
+      "includes": [
+        "apps/web/scripts/**",
+        "apps/api/scripts/**",
+        "apps/api/src/server.ts",
+        "**/*.config.*"
+      ],
       "linter": {
         "rules": {
           "suspicious": {
@@ -110,6 +116,7 @@
     },
     {
       "includes": [
+        "packages/game/src/**",
         "apps/web/src/game/**",
         "apps/web/src/components/**",
         "apps/web/src/screens/**",
@@ -122,12 +129,12 @@
               "level": "error",
               "options": {
                 "paths": {
-                  "effect": "Effect is server-only. Keep it under src/server so it stays out of the client bundle."
+                  "effect": "Effect is server-only. Keep it in packages/server so it stays out of the client bundle."
                 },
                 "patterns": [
                   {
                     "group": ["effect/**", "@effect/**"],
-                    "message": "Effect is server-only. Keep it under src/server so it stays out of the client bundle."
+                    "message": "Effect is server-only. Keep it in packages/server so it stays out of the client bundle."
                   }
                 ]
               }
@@ -137,7 +144,7 @@
       }
     },
     {
-      "includes": ["**/*.test.*", "src/test/**"],
+      "includes": ["**/*.test.*", "src/test/**", "packages/server/src/testing/**"],
       "linter": {
         "rules": {
           "complexity": {

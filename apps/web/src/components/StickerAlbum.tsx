@@ -1,6 +1,11 @@
 'use client';
 
 import { useLingui } from '@lingui/react/macro';
+import type { Club, ClubId } from '@nxc/game/content/catalog';
+import { clubCrests, countries, countryName } from '@nxc/game/content/catalog';
+import { clubInitials, shortClubWords } from '@nxc/game/content/clubNames';
+import type { Locale } from '@nxc/game/i18n/config';
+import type { Level, Session } from '@nxc/game/model';
 import {
   type CSSProperties,
   memo,
@@ -11,12 +16,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import type { Club, ClubId } from '../content/catalog';
-import { clubCrests, countries, countryName } from '../content/catalog';
-import { clubInitials, shortClubWords } from '../content/clubNames';
 import { namedClubs } from '../game/controller';
-import type { Level, Session } from '../game/model';
-import type { Locale } from '../i18n/config';
 import { AlbumHeader } from './AlbumHeader';
 
 const STICKER_TILTS = [

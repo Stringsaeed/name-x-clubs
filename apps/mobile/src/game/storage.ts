@@ -1,5 +1,5 @@
+import type { Language } from '@nxc/game/model';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import type { Language } from '../../../web/src/game/model';
 import type { SessionStoragePort } from '../../../web/src/game/ranked/storedRound';
 import type { StoragePort } from '../../../web/src/game/session/storage';
 

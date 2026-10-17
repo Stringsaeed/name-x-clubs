@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises';
-import clubs from '../src/content/clubs.json' with { type: 'json' };
+import clubs from '@nxc/game/content/clubs.json' with { type: 'json' };
 import { CREST_SIZE, toCrestWebp } from './optimize-assets.mjs';
 
 // Download only the reviewed club-to-source mappings. Never guess a club's badge
@@ -154,7 +154,7 @@ if (errors.length) {
     clubs.map((club) => [club.id, `/assets/crests/${sources[club.id].file}`]),
   );
   await writeFile(
-    new URL('../src/content/crests.json', import.meta.url),
+    new URL('../../../packages/game/src/content/crests.json', import.meta.url),
     `${JSON.stringify(paths, null, 2)}\n`,
   );
   console.log(`Verified and bundled ${clubs.length} club crests.`);

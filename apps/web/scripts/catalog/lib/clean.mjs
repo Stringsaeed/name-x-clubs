@@ -1,7 +1,7 @@
 // Name and alias cleaning: turn noisy Wikidata labels/aliases into clean display names and aliases.
-// Normalization is the game's own (src/game/matching/normalize.ts, loaded via Node's type stripping).
+// Normalization is the game's own (packages/game/src/matching/normalize.ts, loaded via Node's type stripping).
 
-import { normalize, stripClubNoise } from '../../../src/game/matching/normalize.ts';
+import { normalize, stripClubNoise } from '@nxc/game/matching/normalize';
 import rules from '../rules.json' with { type: 'json' };
 
 export { normalize, stripClubNoise };

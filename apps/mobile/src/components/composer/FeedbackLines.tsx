@@ -1,7 +1,7 @@
+import type { AnswerEvent } from '@nxc/game/engine';
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { FadeInDown, FadeOut } from 'react-native-reanimated';
-import type { AnswerEvent } from '../../../../web/src/game/engine';
 import { feedbackLine } from '../../copy';
 import { useLanguage } from '../../game/play';
 import { useColors } from '../../theme/ThemeProvider';

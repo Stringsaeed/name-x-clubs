@@ -1,3 +1,4 @@
+import type { Language, Level, Mode } from '@nxc/game/model';
 import {
   createContext,
   type ReactNode,
@@ -8,7 +9,6 @@ import {
   useSyncExternalStore,
 } from 'react';
 import { Share } from 'react-native';
-import type { Language, Level, Mode } from '../../../web/src/game/model';
 import { formatRankedTime } from '../../../web/src/game/ranked/clock';
 import {
   isRankedRoundOf,

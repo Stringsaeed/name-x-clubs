@@ -2,9 +2,9 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { clubCrests, clubs } from '@nxc/game/content/catalog';
 import { test } from 'vitest';
 import { z } from 'zod';
-import { clubCrests, clubs } from '../content/catalog';
 
 const sourcesSchema = z.object({
   clubs: z.record(

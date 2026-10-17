@@ -1,8 +1,8 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Club } from '@nxc/game/content/catalog';
+import type { AnswerEvent } from '@nxc/game/engine';
+import type { Language, Session } from '@nxc/game/model';
 import { Button } from '@/components/ui/button';
-import type { Club } from '../content/catalog';
-import type { AnswerEvent } from '../game/engine';
-import type { Language, Session } from '../game/model';
 import { useAnswerDraft } from '../hooks/useAnswerDraft';
 import { ClubKeyboard } from './ClubKeyboard';
 import { ArrowGameIcon } from './fluidGameIcons';

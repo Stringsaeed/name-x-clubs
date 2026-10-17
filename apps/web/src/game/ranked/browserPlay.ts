@@ -1,4 +1,4 @@
-import type { Locale } from '../../i18n/config';
+import type { Locale } from '@nxc/game/i18n/config';
 import * as browserStore from '../browserStore';
 import { createRankedApi } from './api';
 import { type PlaySnapshot, RankedPlay } from './rankedPlay';

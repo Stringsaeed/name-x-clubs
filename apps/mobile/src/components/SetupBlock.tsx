@@ -1,6 +1,6 @@
+import { levelSchema, levels, type Mode } from '@nxc/game/model';
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { levelSchema, levels, type Mode } from '../../../web/src/game/model';
 import { type Copy, categoryLabel } from '../copy';
 import { type PlayActions, type PlaySnapshot, useLanguage } from '../game/play';
 import { useColors } from '../theme/ThemeProvider';

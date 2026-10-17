@@ -1,7 +1,7 @@
 // Build-time catalog ingest: ~1,500 bilingual football clubs keyed by Wikidata QID.
 // Usage: pnpm catalog:ingest [--refresh]   (--refresh bypasses scripts/catalog/.cache)
 // Reads Wikidata (cached) and scripts/catalog/{rules,overrides,core-ids,curated-*}.json.
-// Never reads src/content, so applying the catalog cannot turn the new clubs into the reviewed core.
+// Never reads packages/game/src/content, so applying the catalog cannot turn the new clubs into the reviewed core.
 // Writes scripts/catalog/out/{clubs,countries,ambiguous.json} and report.md. Never touches src/.
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';

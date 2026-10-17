@@ -1,6 +1,6 @@
+import type { Challenge, Language, Level } from '@nxc/game/model';
 import { useMemo, useState } from 'react';
 import { FlatList, type ListRenderItem, StyleSheet, TextInput, View } from 'react-native';
-import type { Challenge, Language, Level } from '../../../../web/src/game/model';
 import { type Copy, categoryLabel, practiceChoices } from '../../copy';
 import { useLanguage } from '../../game/play';
 import { fontFamily } from '../../theme/fonts';

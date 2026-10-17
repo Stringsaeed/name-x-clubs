@@ -1,5 +1,5 @@
+import type { Locale } from '@nxc/game/i18n/config';
 import { useEffect } from 'react';
-import type { Locale } from './config';
 import { languageCookie } from './negotiate';
 
 export function writeLanguageCookie(locale: Locale) {

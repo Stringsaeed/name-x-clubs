@@ -1,7 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Session } from '@nxc/game/model';
 import { useEffect, useState } from 'react';
 import { elapsedSeconds, formatElapsed } from '../game/controller';
-import type { Session } from '../game/model';
 import { Icon } from './Icon';
 
 export function Timer({ session }: { session: Session }) {

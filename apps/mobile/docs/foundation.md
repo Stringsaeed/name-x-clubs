@@ -17,7 +17,8 @@ designed for a phone. Do not copy web layouts.
   `src/feedback/feedback.ts` (never call the libraries directly from screens).
 - Keyboard: the answer field keeps the keyboard open after submit (`submitBehavior="submit"`),
   dismisses on confirmed end of round, round completion, or navigation.
-- Imports from the web app go through relative paths `../../../web/src/...` (Metro watches it).
+- Import the game engine, model, and catalog from `@nxc/game`. Remaining pure ranked-round,
+  session, and leaderboard clients use relative paths `../../../web/src/...` (Metro watches it).
   Only import pure modules (no `next/*`, `@lingui/*`, `effect`, `server-only`).
 - Biome lint from repo root applies: `pnpm lint` (single quotes, semicolons, trailing commas,
   block statements, no nested ternaries, functions under ~60 lines, no non-null assertions).

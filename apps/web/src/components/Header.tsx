@@ -1,7 +1,7 @@
 import { useLingui } from '@lingui/react/macro';
+import type { Locale } from '@nxc/game/i18n/config';
+import type { Mode } from '@nxc/game/model';
 import { memo } from 'react';
-import type { Mode } from '../game/model';
-import type { Locale } from '../i18n/config';
 import { writeLanguageCookie } from '../i18n/useLegacyLanguage';
 import { Icon } from './Icon';
 import { ThemeToggle } from './ThemeToggle';

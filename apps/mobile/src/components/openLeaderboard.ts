@@ -1,5 +1,5 @@
+import type { Level } from '@nxc/game/model';
 import { router } from 'expo-router';
-import type { Level } from '../../../web/src/game/model';
 import { rankedModeFor } from '../../../web/src/game/ranked/rankedView';
 
 /**

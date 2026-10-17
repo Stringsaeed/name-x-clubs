@@ -6,6 +6,7 @@ import type { NextConfig } from 'next';
 const monorepoRoot = path.join(import.meta.dirname, '../..');
 
 const config: NextConfig = {
+  transpilePackages: ['@nxc/game'],
   outputFileTracingRoot: monorepoRoot,
   turbopack: {
     root: monorepoRoot,

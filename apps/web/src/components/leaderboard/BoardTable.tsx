@@ -1,5 +1,5 @@
 import { useLingui } from '@lingui/react/macro';
-import type { Locale } from '../../i18n/config';
+import type { Locale } from '@nxc/game/i18n/config';
 import { PlayerName } from '../PlayerName';
 import { Avatar } from './Avatar';
 import { formatElapsed, formatRelative } from './format';

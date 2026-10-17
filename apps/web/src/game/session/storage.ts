@@ -1,4 +1,4 @@
-import { type Level, levelSchema, type Mode, modeSchema } from '../model';
+import { type Level, levelSchema, type Mode, modeSchema } from '@nxc/game/model';
 
 export type StoragePort = Pick<Storage, 'getItem' | 'setItem'>;
 
