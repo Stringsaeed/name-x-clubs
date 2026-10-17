@@ -35,17 +35,17 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
-      - run: pnpm exec playwright install --with-deps chromium webkit
+      - run: pnpm --filter web exec playwright install --with-deps chromium webkit
       - run: pnpm db:migrate
         env:
           DATABASE_URL_UNPOOLED: ${{ env.E2E_DATABASE_URL }}
-      - run: psql "$E2E_DATABASE_URL" -v ON_ERROR_STOP=1 -q -f tests/e2e/fixtures/leaderboard-seed.sql
+      - run: psql "$E2E_DATABASE_URL" -v ON_ERROR_STOP=1 -q -f apps/web/tests/e2e/fixtures/leaderboard-seed.sql
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
           name: browser-test-report
           path: |
-            playwright-report/
-            test-results/
+            apps/web/playwright-report/
+            apps/web/test-results/
           retention-days: 14

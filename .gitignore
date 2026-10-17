@@ -2,6 +2,7 @@ node_modules/
 .DS_Store
 *.tgz
 
+.turbo/
 coverage/
 playwright-report/
 test-results/
@@ -9,6 +10,7 @@ test-results/
 .open-next/
 next-env.d.ts
 src/locales/*/messages.ts
+apps/web/src/locales/*/messages.ts
 tsconfig.tsbuildinfo
 .pnpm-store/
 
@@ -19,3 +21,4 @@ tsconfig.tsbuildinfo
 
 # Catalog ingest raw response cache
 scripts/catalog/.cache/
+apps/web/scripts/catalog/.cache/

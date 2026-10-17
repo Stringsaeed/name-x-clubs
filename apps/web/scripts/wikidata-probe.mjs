@@ -1,5 +1,5 @@
 // Research probe: how well does Wikidata cover the curated club catalog?
-// Read-only. Writes docs/research/wikidata-probe.json. Does not touch src/.
+// Read-only. Writes docs/research/wikidata-probe.json at the repo root. Does not touch src/.
 // Usage: node scripts/wikidata-probe.mjs [--limit N | --only id,id]
 // Partial runs write docs/research/wikidata-probe.partial.json instead.
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -673,9 +673,9 @@ const summary = {
   requests: stats,
   elapsedSeconds: Math.round((Date.now() - started) / 1000),
 };
-await mkdir(new URL('../docs/research/', import.meta.url), { recursive: true });
+await mkdir(new URL('../../../docs/research/', import.meta.url), { recursive: true });
 await writeFile(
-  new URL(`../docs/research/wikidata-probe${dryRun ? '.partial' : ''}.json`, import.meta.url),
+  new URL(`../../../docs/research/wikidata-probe${dryRun ? '.partial' : ''}.json`, import.meta.url),
   `${JSON.stringify({ summary, results }, null, 2)}\n`,
 );
 console.log(JSON.stringify(summary, null, 2));

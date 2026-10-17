@@ -1,0 +1,62 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "tasks": {
+    "i18n:compile": {
+      "inputs": ["src/**", "lingui.config.ts"],
+      "outputs": ["src/locales/**/messages.ts"]
+    },
+    "i18n:extract": {
+      "cache": false
+    },
+    "i18n:check": {
+      "inputs": ["src/**", "lingui.config.ts"]
+    },
+    "build": {
+      "dependsOn": ["i18n:compile"],
+      "env": ["NEXT_PUBLIC_SITE_URL"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "vercel-build": {
+      "cache": false,
+      "passThroughEnv": [
+        "VERCEL_ENV",
+        "DATABASE_URL",
+        "DATABASE_URL_UNPOOLED",
+        "NEXT_PUBLIC_SITE_URL"
+      ]
+    },
+    "dev": {
+      "dependsOn": ["i18n:compile"],
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "persistent": true
+    },
+    "typecheck": {
+      "dependsOn": ["i18n:compile"],
+      "outputs": [".next/types/**", ".next/dev/types/**"]
+    },
+    "test": {
+      "dependsOn": ["i18n:compile"]
+    },
+    "test:coverage": {
+      "dependsOn": ["i18n:compile"],
+      "outputs": ["coverage/**"]
+    },
+    "test:e2e": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "passThroughEnv": ["E2E_BASE_URL", "E2E_DATABASE_URL", "CI", "CODEX_SANDBOX"]
+    },
+    "db:migrate": {
+      "cache": false,
+      "passThroughEnv": ["DATABASE_URL", "DATABASE_URL_UNPOOLED", "VERCEL_ENV"]
+    },
+    "check:client-bundle": {
+      "dependsOn": ["build"]
+    }
+  }
+}

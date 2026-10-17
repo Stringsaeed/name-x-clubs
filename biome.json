@@ -3,23 +3,24 @@
   "files": {
     "includes": [
       "**",
-      "!public/assets",
-      "!src/app/icon.svg",
-      "!src/content/*.json",
+      "!apps/web/public/assets",
+      "!apps/web/src/app/icon.svg",
+      "!apps/web/src/content/*.json",
       "!package-lock.json",
-      "!playwright-report",
-      "!test-results",
-      "!coverage",
-      "!.next",
-      "!.open-next",
-      "!next-env.d.ts",
-      "!src/locales/*/messages.ts",
+      "!**/playwright-report",
+      "!**/test-results",
+      "!**/coverage",
+      "!**/.next",
+      "!**/.open-next",
+      "!**/next-env.d.ts",
+      "!apps/web/src/locales/*/messages.ts",
       "!.vscode",
       "!.claude",
       "!.vercel",
       "!docs/design/mockups",
-      "!scripts/catalog/.cache",
-      "!scripts/catalog/out"
+      "!apps/web/scripts/catalog/.cache",
+      "!apps/web/scripts/catalog/out",
+      "!**/.turbo"
     ]
   },
   "formatter": {
@@ -91,7 +92,7 @@
   },
   "overrides": [
     {
-      "includes": ["scripts/**", "**/*.config.*"],
+      "includes": ["apps/web/scripts/**", "**/*.config.*"],
       "linter": {
         "rules": {
           "suspicious": {
@@ -101,7 +102,12 @@
       }
     },
     {
-      "includes": ["src/game/**", "src/components/**", "src/screens/**", "src/hooks/**"],
+      "includes": [
+        "apps/web/src/game/**",
+        "apps/web/src/components/**",
+        "apps/web/src/screens/**",
+        "apps/web/src/hooks/**"
+      ],
       "linter": {
         "rules": {
           "style": {
