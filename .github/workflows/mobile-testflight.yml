@@ -3,7 +3,6 @@ on:
   push:
     tags:
       - 'v*'
-  workflow_dispatch:
 permissions:
   contents: read
 # One release at a time per ref; never cancel an in-flight store submission.

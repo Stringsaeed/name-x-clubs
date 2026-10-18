@@ -91,9 +91,16 @@ it, processing fails with "Missing purpose string in Info.plist for
 NSMicrophoneUsageDescription". If a new library links camera, location, photos, or similar APIs, add
 the matching `NS*UsageDescription` key to `ios.infoPlist` in `app.json`.
 
-A rejected build never reaches TestFlight. Fix the config, then build and submit again —
+A rejected build never reaches TestFlight. Fix the config, then build and submit again from
+`apps/mobile` — no re-tag needed:
+
+```bash
+npx eas-cli@latest build --platform ios --profile production --auto-submit
+```
+
 `autoIncrement` bumps the iOS build number on EAS servers, so Apple accepts the new binary under the
-same marketing version.
+same marketing version. The workflow itself has no manual trigger on purpose: production submits are
+reachable only by pushing a `v<version>` tag.
 
 ## Optional
 
