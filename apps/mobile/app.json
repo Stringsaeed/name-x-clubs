@@ -10,10 +10,13 @@
     "backgroundColor": "#111a16",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "sh.saeed.clubs"
+      "bundleIdentifier": "com.stringsaeed.clubs",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
-      "package": "sh.saeed.clubs",
+      "package": "com.stringsaeed.clubs",
       "icon": "./assets/android-icon.png",
       "softwareKeyboardLayoutMode": "resize",
       "adaptiveIcon": {
@@ -22,7 +25,11 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -40,6 +47,17 @@
         }
       ],
       "react-native-audio-api"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "077f6bb3-eba9-4b97-8f3d-228cb0fe23f3"
+      }
+    },
+    "owner": "stringsaeed"
   }
 }
