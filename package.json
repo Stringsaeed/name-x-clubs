@@ -27,7 +27,9 @@
     "catalog:verify": "pnpm --filter web catalog:verify",
     "catalog:apply": "pnpm --filter web catalog:apply",
     "start": "turbo run start",
-    "db:migrate": "turbo run db:migrate"
+    "db:migrate": "turbo run db:migrate",
+    "release:preview": "pnpm --filter mobile release:preview",
+    "release:production": "pnpm --filter mobile release:production"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
