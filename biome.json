@@ -103,6 +103,7 @@
       "includes": [
         "apps/web/scripts/**",
         "apps/api/scripts/**",
+        "apps/mobile/scripts/**",
         "apps/api/src/server.ts",
         "**/*.config.*"
       ],

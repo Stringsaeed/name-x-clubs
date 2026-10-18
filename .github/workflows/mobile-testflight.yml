@@ -1,0 +1,35 @@
+name: Mobile TestFlight
+on:
+  push:
+    tags:
+      - 'v*'
+permissions:
+  contents: read
+# One release at a time per ref; never cancel an in-flight store submission.
+concurrency:
+  group: mobile-testflight-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build-and-submit:
+    name: Build on EAS and submit to TestFlight
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .node-version
+      - name: Verify release readiness
+        working-directory: apps/mobile
+        run: node scripts/verify-release.mjs
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      # Builds and signs on EAS servers (no macOS runner needed); waits for the
+      # build, then hands the .ipa to EAS Submit for the TestFlight upload.
+      - name: Build and auto-submit to TestFlight
+        working-directory: apps/mobile
+        run: eas build --platform ios --profile production --non-interactive --auto-submit
