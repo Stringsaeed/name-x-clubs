@@ -10,6 +10,7 @@
     "backgroundColor": "#111a16",
     "ios": {
       "supportsTablet": true,
+      "icon": "../../design/app-icon/NameClubs.icon",
       "bundleIdentifier": "com.stringsaeed.clubs",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
