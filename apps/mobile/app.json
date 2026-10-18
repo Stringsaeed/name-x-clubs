@@ -49,6 +49,7 @@
       [
         "react-native-audio-api",
         {
+          "iosBackgroundMode": false,
           "iosMicrophonePermission": "Name × Clubs plays game sounds and does not record audio. The microphone is never accessed."
         }
       ]
