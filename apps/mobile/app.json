@@ -46,7 +46,12 @@
           "imageWidth": 180
         }
       ],
-      "react-native-audio-api"
+      [
+        "react-native-audio-api",
+        {
+          "iosMicrophonePermission": "Name × Clubs plays game sounds and does not record audio. The microphone is never accessed."
+        }
+      ]
     ],
     "extra": {
       "router": {

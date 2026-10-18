@@ -82,6 +82,19 @@ Once steps 1, 5, and 6 are done, the workflow's release-readiness check passes.
 The workflow fails before building if `app.json` has no `projectId`, `ascAppId` is unset, or the tag
 does not match `v<version>`.
 
+## If App Store Connect processing rejects the build
+
+Apple scans the binary for linked APIs that require iOS purpose strings. This app links
+microphone APIs through `react-native-audio-api` (it bundles an `AudioRecorder` even though the game
+only plays sounds), so its plugin entry in `app.json` must carry `iosMicrophonePermission` — without
+it, processing fails with "Missing purpose string in Info.plist for
+NSMicrophoneUsageDescription". If a new library links camera, location, photos, or similar APIs, add
+the matching `NS*UsageDescription` key to `ios.infoPlist` in `app.json`.
+
+A rejected build never reaches TestFlight. Fix the config, then build and submit again —
+`autoIncrement` bumps the iOS build number on EAS servers, so Apple accepts the new binary under the
+same marketing version.
+
 ## Optional
 
 - Distribute to named internal TestFlight groups by adding `groups` to
