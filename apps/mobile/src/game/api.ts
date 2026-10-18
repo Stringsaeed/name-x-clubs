@@ -1,6 +1,6 @@
 import { createRankedApi } from '../../../web/src/game/ranked/api';
 
-const configured = process.env.EXPO_PUBLIC_API_URL ?? 'https://clubs.saeed.sh';
+const configured = process.env.EXPO_PUBLIC_API_URL ?? 'https://api.clubs.saeed.sh';
 
 export const apiBaseUrl = configured.replace(/\/+$/, '');
 
